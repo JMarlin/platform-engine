@@ -1,0 +1,74 @@
+THE PLATFORM 2D GAME ENGINE
+© Copyright 2009 Patrick VanDusen
+
+
+LICENSE
+
+	Platform is free software: you can redistribute it and/or modify
+it under the terms of the GNU Lesser General Public License as published by 
+the Free Software Foundation, either version 3 of the License, or (at your 
+option) any later version.
+
+	Platform is distributed in the hope that it will be useful, but 
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY 
+or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU Lesser General Public 
+License for more details.
+
+	You should have received a copy of the GNU Lesser General Public 
+License along with Platform.  If not, see <http://www.gnu.org/licenses/>.
+
+
+ABOUT
+	
+	An alternate name for the Platform 2D Game Engine is simply
+Platform. The UNIX name for Platform is platform-engine.
+
+	Platform is a game engine designed for use with 2-dimensional game
+development, in the style of traditional video games from before the 21st
+century.
+
+
+DEVELOPMENT
+
+	Platform is written primarily in C++, and is dependant on libraries 
+such as SDL and Lua. Game development using Platform is intended to be done 
+in either C++ or using Lua scripting, made possible through the use of an 
+included Lua interpreter.
+
+	Although Platform is open source, and therefore can be potentially 
+built in any way that the builder might prefer, the official build system 
+supported by the Platform project is CMake. CMake works by generating the
+form of build files native to the platform currently in use, and then the 
+builder is expected to use these native build files to ultimately build 
+Platform for use. More information on installing and using CMake can be
+found at that project's website at the following URL:
+
+	http://www.cmake.org/
+
+	The Platform project uses the Git version control system. The 
+latest development version of the source code can be downloaded from 
+Github, at the following URL:
+
+	http://github.com/pdusen/platform-engine/tree/master
+
+	The easiest way to join in on Platform development is to create 
+an account at Github, and then use the tools provided by Github to create 
+a fork of the platform-engine repository. Then once the changes have been 
+made, use Github's tools to request a pull back to the main repository. If 
+these changes, according to standards held by the maintainer of the main 
+repository, are considered to be of good quality and beneficial to the 
+project, they may be merged at this person's discretion.
+
+	Information on the in-depth usage of Git itself is outside the 
+scope of this document. There are numerous resources available from which 
+to learn git, including the Git Reference Manual, which can be found at 
+the following URL:
+
+	http://www.kernel.org/pub/software/scm/git/docs/
+
+CREDITS
+
+The following developers have contributed to the Platform project:
+
+VanDusen, Patrick	patrick@pdusen.com	Project Leader, Maintainer
+
