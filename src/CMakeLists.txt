@@ -3,9 +3,10 @@ cmake_minimum_required( VERSION 2.6 )
 project ( platform-engine )
 
 set ( SOURCES
-   main.cpp
-   PlatformEngine.h
-   GameState.h
+	main.cpp
+	GameLoopDelay.h		GameLoopDelay.cpp
+	PlatformEngine.h	PlatformEngine.cpp
+	GameState.h		GameState.cpp
 )
 
 # REQUIRED does not work in CMake <=2.4.6 for SDL

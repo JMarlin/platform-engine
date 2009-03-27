@@ -18,33 +18,8 @@
     along with Platform.  If not, see <http://www.gnu.org/licenses/>.
 ***************************************************************************/
 
-#include "SDL.h"
+#define TICK_INTERVAL 17
 
-#include "PlatformEngine.h"
+static Uint32 nextTime;
 
-const char* title = "Platform Engine Text v0.0.1 Pre-Alpha\0";
-
-int main( int argc, char* argv[] ) {
-
-	PlatformEngine game;
-
-	game.Init( title );
-	
-	nextTime = SDL_GetTicks() + TICK_INTERVAL;
-
-	// When written, the next line will initialize the intro state.
-	//game.ChangeState( IntroState::Instance() );
-
-	while ( game.Running() ) {
-		game.HandleEvents();
-		game.Update();
-		game.Draw();
-
-		SDL_Delay( time_left() );
-		nextTime += TICK_INTERVAL;
-	}
-
-	game.Cleanup();	
-
-	return 0;
-}
+Uint32 time_left();

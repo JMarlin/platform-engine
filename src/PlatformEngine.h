@@ -18,13 +18,17 @@
     along with Platform.  If not, see <http://www.gnu.org/licenses/>.
 ***************************************************************************/
 
+#include <vector>
+
+#include "SDL.h"
+
 #include "GameState.h"
 
-#include <vector>
+#define TICK_INTERVAL 17
 
 class PlatformEngine {
 	public:
-		void Init();
+		void Init( const char* title );
 		void Cleanup();
 
 		void ChangeState( GameState* state );

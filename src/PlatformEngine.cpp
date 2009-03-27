@@ -18,33 +18,19 @@
     along with Platform.  If not, see <http://www.gnu.org/licenses/>.
 ***************************************************************************/
 
+#include <iostream>
+
 #include "SDL.h"
 
 #include "PlatformEngine.h"
 
-const char* title = "Platform Engine Text v0.0.1 Pre-Alpha\0";
-
-int main( int argc, char* argv[] ) {
-
-	PlatformEngine game;
-
-	game.Init( title );
-	
-	nextTime = SDL_GetTicks() + TICK_INTERVAL;
-
-	// When written, the next line will initialize the intro state.
-	//game.ChangeState( IntroState::Instance() );
-
-	while ( game.Running() ) {
-		game.HandleEvents();
-		game.Update();
-		game.Draw();
-
-		SDL_Delay( time_left() );
-		nextTime += TICK_INTERVAL;
+void PlatformEngine::Init( const char* title ) {
+	if ( SDL_Init( SDL_INIT_VIDEO ) == -1 ) {
+		std::cout << "Failed to initialize subsystems; "
+			<< SDL_GetError() << std::endl;
 	}
+}
 
-	game.Cleanup();	
-
-	return 0;
+void PlatformEngine::Cleanup() {
+	SDL_Quit();
 }
