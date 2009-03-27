@@ -21,6 +21,7 @@
 #include "SDL.h"
 
 #include "PlatformEngine.h"
+#include "GameLoopDelay.h"
 
 const char* title = "Platform Engine Text v0.0.1 Pre-Alpha\0";
 

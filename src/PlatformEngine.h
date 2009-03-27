@@ -25,9 +25,8 @@
 
 #include "SDL.h"
 
-#include "GameState.h"
-
-#define TICK_INTERVAL 17
+// Forward reference to GameState class.
+class GameState;
 
 using std::vector;
 
