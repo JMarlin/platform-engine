@@ -18,8 +18,13 @@
     along with Platform.  If not, see <http://www.gnu.org/licenses/>.
 ***************************************************************************/
 
+#ifndef GAMELOOPDELAY_H
+#define GAMELOOPDELAY_H
+
 #define TICK_INTERVAL 17
 
 static Uint32 nextTime;
 
 Uint32 time_left();
+
+#endif

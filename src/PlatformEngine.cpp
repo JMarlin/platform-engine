@@ -18,6 +18,9 @@
     along with Platform.  If not, see <http://www.gnu.org/licenses/>.
 ***************************************************************************/
 
+#ifndef PLATFORM_ENGINE_CPP
+#define PLATFORM_ENDINE_CPP
+
 #include <iostream>
 
 #include "SDL.h"
@@ -34,3 +37,5 @@ void PlatformEngine::Init( const char* title ) {
 void PlatformEngine::Cleanup() {
 	SDL_Quit();
 }
+
+#endif

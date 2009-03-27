@@ -18,4 +18,9 @@
     along with Platform.  If not, see <http://www.gnu.org/licenses/>.
 ***************************************************************************/
 
+#ifndef GAMESTATE_CPP
+#define GAMESTATE_CPP
+
 #include "GameState.h"
+
+#endif

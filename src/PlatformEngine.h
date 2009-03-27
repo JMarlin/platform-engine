@@ -18,6 +18,9 @@
     along with Platform.  If not, see <http://www.gnu.org/licenses/>.
 ***************************************************************************/
 
+#ifndef PLATFORMENGINE_H
+#define PLATFORMENGINE_H
+
 #include <vector>
 
 #include "SDL.h"
@@ -25,6 +28,8 @@
 #include "GameState.h"
 
 #define TICK_INTERVAL 17
+
+using std::vector;
 
 class PlatformEngine {
 	public:
@@ -47,3 +52,5 @@ class PlatformEngine {
 
 		bool running;
 };
+
+#endif

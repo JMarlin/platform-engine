@@ -18,6 +18,9 @@
     along with Platform.  If not, see <http://www.gnu.org/licenses/>.
 ***************************************************************************/
 
+#ifndef GAMELOOPDELAY_CPP
+#define GAMELOOPDELAY_CPP
+
 #include "SDL.h"
 
 #include "GameLoopDelay.h"
@@ -29,3 +32,4 @@ Uint32 time_left() {
 	else return nextTime - now;
 }
 
+#endif
