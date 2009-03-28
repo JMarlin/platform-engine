@@ -34,6 +34,18 @@ void PlatformEngine::Init( const char* title ) {
 	}
 }
 
+void PlatformEngine::Draw() {
+	return;
+}
+
+void PlatformEngine::Update() {
+	return;
+}
+
+void PlatformEngine::HandleEvents() {
+	return;
+}
+
 void PlatformEngine::Cleanup() {
 	SDL_Quit();
 }
