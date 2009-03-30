@@ -21,34 +21,61 @@
 #ifndef PLATFORMENGINE_H
 #define PLATFORMENGINE_H
 
-#include <vector>
+#include <stack>
 
 #include "SDL.h"
 
 // Forward reference to GameState class.
 class GameState;
 
-using std::vector;
+using std::stack;
 
+/**********************************************************//**
+ * \brief The game engine instance
+ *
+ *   This class represents the game engine. It encompasses the 
+ * major subprocesses; Initialization, State control, Event 
+ * Handling, Updating, and Drawing. 
+ *************************************************************/
 class PlatformEngine {
 	public:
+		//** The initialization function for the engine
 		void Init( const char* title );
+
+		//** Clears up any engine assets before the program ends.
 		void Cleanup();
 
-		void ChangeState( GameState* state );
+		//void ChangeState( GameState* state );
+		
+		//** Puts a new state onto the engine state stack.
 		void PushState( GameState* state );
+
+		//** Ends the top state on the engine stack.
 		void PopState();
-
+		
+		//** Processes user input events.
 		void HandleEvents();
-		void Update();
-		void Draw();
 
+		//** Brings the game logic up-to-date.
+		void Update();
+
+		//** Draws necessary surfaces to the screen.
+		void Draw();
+		
+		//** Returns whether or not the game loop is running.
 		bool Running() { return running; }
+
+		//** Halts the game loop.
 		void Quit() { running = false; }
 
 	private:
-		vector< GameState* > states;
-
+		//** Stack of game states. The top state is the active one.
+		stack< GameState* > stateStack;
+		
+		//** The primary SDL_Surface that images are drawn to.
+		SDL_Surface* mainScreen;
+		
+		//** Controls whether or not the game loop is active.
 		bool running;
 };
 

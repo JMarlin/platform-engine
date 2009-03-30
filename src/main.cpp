@@ -23,7 +23,7 @@
 #include "PlatformEngine.h"
 #include "GameLoopDelay.h"
 
-const char* title = "Platform Engine Text v0.0.1 Pre-Alpha\0";
+const char* title = "Platform Engine Test v0.0.1 Pre-Alpha\0";
 
 int main( int argc, char* argv[] ) {
 

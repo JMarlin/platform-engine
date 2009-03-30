@@ -26,28 +26,96 @@
 #include "SDL.h"
 
 #include "PlatformEngine.h"
+#include "GameState.h"
 
+/**********************************************************//**
+ *   The Init function sets up the game assets; aside from  
+ * just initializing the SDL subsystems, it also loads any 
+ * configuration scripts.
+ *
+ * \param title C-string with the game title, or main window text.
+ *************************************************************/
 void PlatformEngine::Init( const char* title ) {
-	if ( SDL_Init( SDL_INIT_VIDEO ) == -1 ) {
+	if ( SDL_Init( SDL_INIT_VIDEO | SDL_INIT_TIMER ) == -1 ) {
 		std::cout << "Failed to initialize subsystems; "
 			<< SDL_GetError() << std::endl;
 	}
+
+	SDL_WM_SetCaption( title, NULL );
+
+	SDL_Surface* mainScreen = SDL_SetVideoMode( 640, 480, 0, 0 );
 }
 
+/**********************************************************//**
+ *   This function's main purpose is to call the drawing 
+ * function of the current state.
+ *************************************************************/
 void PlatformEngine::Draw() {
-	return;
+	if ( !stateStack.empty() ) {
+		GameState* topState = stateStack.top();
+		if ( topState != NULL ) topState->Draw( this );
+	}
 }
 
+/**********************************************************//**
+ *   This function's main purpose is to call the update 
+ * function of the current state.
+ *************************************************************/
 void PlatformEngine::Update() {
-	return;
+	if ( !stateStack.empty() ) {
+		GameState* topState = stateStack.top();
+		if ( topState != NULL ) topState->Update( this );
+	}
 }
 
+/**********************************************************//**
+ *   This function's main purpose is to call the event 
+ * handling function of the current state.
+ *************************************************************/
 void PlatformEngine::HandleEvents() {
-	return;
+	if ( !stateStack.empty() ) {
+		GameState* topState= stateStack.top();
+		if ( topState!= NULL ) topState->Update( this );
+	}
 }
 
+/**********************************************************//**
+ *   This function cleans up any of the remaining global 
+ * assets of the engine. This mostly consists of open surfaces 
+ * and states remaining on the stack.
+ *************************************************************/
 void PlatformEngine::Cleanup() {
+	SDL_FreeSurface( mainScreen );
+
 	SDL_Quit();
+}
+
+/**********************************************************//**
+ *   This function takes a reference to a state and then 
+ * pushes it onto the top of the engine's state stack. That 
+ * then becomes the active stack for the engine.
+ *
+ * \param state Pointer to the newly-created state being pushed
+ *************************************************************/
+void PlatformEngine::PushState( GameState* state ) {
+	stateStack.push( state );
+}
+
+/**********************************************************//**
+ *   This function pops a state pointer off the top of the 
+ * stack. It's operation is ordered such that the state first 
+ * becomes inactive and then is deleted from memory, 
+ * effectively preventing segmentation errors.
+ *************************************************************/
+void PlatformEngine::PopState() {
+	if ( !stateStack.empty() ) {
+		if ( stateStack.top() != NULL ) {
+			GameState* tempState = stateStack.top();
+			stateStack.pop();
+			delete tempState;
+		}
+		else stateStack.pop();
+	}
 }
 
 #endif

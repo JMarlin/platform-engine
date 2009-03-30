@@ -25,6 +25,13 @@
 
 #include "GameLoopDelay.h"
 
+/**********************************************************//**
+ *    In order to avoid maximizing CPU usage at all times, the 
+ * engine ensures a certain number of ticks have passed before 
+ * updating.  
+ * 
+ * \return The number of ticks remaining until the next update
+ *************************************************************/
 Uint32 time_left() {
 	Uint32 now = SDL_GetTicks();
 
