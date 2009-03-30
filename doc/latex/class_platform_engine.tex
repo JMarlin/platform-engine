@@ -1,0 +1,125 @@
+\hypertarget{class_platform_engine}{
+\section{PlatformEngine Class Reference}
+\label{class_platform_engine}\index{PlatformEngine@{PlatformEngine}}
+}
+The game engine instance.  
+
+
+{\tt \#include $<$PlatformEngine.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+void \hyperlink{class_platform_engine_31d40c1f435565850964c6e9f212baa5}{Init} (const char $\ast$title)
+\item 
+void \hyperlink{class_platform_engine_361b54312d9ec2fa842cd982f67100f9}{Cleanup} ()
+\item 
+void \hyperlink{class_platform_engine_d2b335545c9ab6bce7be7c014bc8c528}{ChangeState} (\hyperlink{class_game_state}{GameState} $\ast$state)
+\item 
+void \hyperlink{class_platform_engine_98e3d34b6ee831bcc1d26bac83bfe8d8}{PushState} (\hyperlink{class_game_state}{GameState} $\ast$state)
+\item 
+void \hyperlink{class_platform_engine_cf001abec596906465197d1220db2230}{PopState} ()
+\item 
+void \hyperlink{class_platform_engine_7fc47bff353292f1a1435d78664df36d}{HandleEvents} ()
+\item 
+void \hyperlink{class_platform_engine_d3ab75304226ad3fcac6b66ce3cedbc7}{Update} ()
+\item 
+void \hyperlink{class_platform_engine_cd756d58f81c5e28efe98ae075367a5c}{Draw} ()
+\item 
+bool \hyperlink{class_platform_engine_31ec37c0222f4694cc3c0e819e143038}{Running} ()
+\item 
+void \hyperlink{class_platform_engine_dbcdd91813cabbe51bb2f86eb23e772a}{Quit} ()
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The game engine instance. 
+
+This class represents the game engine. It encompasses the major subprocesses; Initialization, State control, Event Handling, Updating, and Drawing. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_platform_engine_d2b335545c9ab6bce7be7c014bc8c528}{
+\index{PlatformEngine@{PlatformEngine}!ChangeState@{ChangeState}}
+\index{ChangeState@{ChangeState}!PlatformEngine@{PlatformEngine}}
+\subsubsection[{ChangeState}]{\setlength{\rightskip}{0pt plus 5cm}void PlatformEngine::ChangeState ({\bf GameState} $\ast$ {\em state})}}
+\label{class_platform_engine_d2b335545c9ab6bce7be7c014bc8c528}
+
+
+The engine state is explicitly changed by calling this function with a new state that you wish to be the executed state. It actually passess both the new state and a reference to the engine to the current top state's equivalent function, allowing for customized transitions. \hypertarget{class_platform_engine_361b54312d9ec2fa842cd982f67100f9}{
+\index{PlatformEngine@{PlatformEngine}!Cleanup@{Cleanup}}
+\index{Cleanup@{Cleanup}!PlatformEngine@{PlatformEngine}}
+\subsubsection[{Cleanup}]{\setlength{\rightskip}{0pt plus 5cm}void PlatformEngine::Cleanup ()}}
+\label{class_platform_engine_361b54312d9ec2fa842cd982f67100f9}
+
+
+This function cleans up any of the remaining global assets of the engine. This mostly consists of open surfaces and states remaining on the stack. \hypertarget{class_platform_engine_cd756d58f81c5e28efe98ae075367a5c}{
+\index{PlatformEngine@{PlatformEngine}!Draw@{Draw}}
+\index{Draw@{Draw}!PlatformEngine@{PlatformEngine}}
+\subsubsection[{Draw}]{\setlength{\rightskip}{0pt plus 5cm}void PlatformEngine::Draw ()}}
+\label{class_platform_engine_cd756d58f81c5e28efe98ae075367a5c}
+
+
+This function's main purpose is to call the drawing function of the current state. \hypertarget{class_platform_engine_7fc47bff353292f1a1435d78664df36d}{
+\index{PlatformEngine@{PlatformEngine}!HandleEvents@{HandleEvents}}
+\index{HandleEvents@{HandleEvents}!PlatformEngine@{PlatformEngine}}
+\subsubsection[{HandleEvents}]{\setlength{\rightskip}{0pt plus 5cm}void PlatformEngine::HandleEvents ()}}
+\label{class_platform_engine_7fc47bff353292f1a1435d78664df36d}
+
+
+This function's main purpose is to call the event handling function of the current state. \hypertarget{class_platform_engine_31d40c1f435565850964c6e9f212baa5}{
+\index{PlatformEngine@{PlatformEngine}!Init@{Init}}
+\index{Init@{Init}!PlatformEngine@{PlatformEngine}}
+\subsubsection[{Init}]{\setlength{\rightskip}{0pt plus 5cm}void PlatformEngine::Init (const char $\ast$ {\em title})}}
+\label{class_platform_engine_31d40c1f435565850964c6e9f212baa5}
+
+
+The Init function sets up the game assets; aside from just initializing the SDL subsystems, it also loads any configuration scripts.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em title}]C-string with the game title, or main window text. \end{description}
+\end{Desc}
+\hypertarget{class_platform_engine_cf001abec596906465197d1220db2230}{
+\index{PlatformEngine@{PlatformEngine}!PopState@{PopState}}
+\index{PopState@{PopState}!PlatformEngine@{PlatformEngine}}
+\subsubsection[{PopState}]{\setlength{\rightskip}{0pt plus 5cm}void PlatformEngine::PopState ()}}
+\label{class_platform_engine_cf001abec596906465197d1220db2230}
+
+
+This function pops a state pointer off the top of the stack. It's operation is ordered such that the state first becomes inactive and then is deleted from memory, effectively preventing segmentation errors. \hypertarget{class_platform_engine_98e3d34b6ee831bcc1d26bac83bfe8d8}{
+\index{PlatformEngine@{PlatformEngine}!PushState@{PushState}}
+\index{PushState@{PushState}!PlatformEngine@{PlatformEngine}}
+\subsubsection[{PushState}]{\setlength{\rightskip}{0pt plus 5cm}void PlatformEngine::PushState ({\bf GameState} $\ast$ {\em state})}}
+\label{class_platform_engine_98e3d34b6ee831bcc1d26bac83bfe8d8}
+
+
+This function takes a reference to a state and then pushes it onto the top of the engine's state stack. That then becomes the active stack for the engine.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em state}]Pointer to the newly-created state being pushed \end{description}
+\end{Desc}
+\hypertarget{class_platform_engine_dbcdd91813cabbe51bb2f86eb23e772a}{
+\index{PlatformEngine@{PlatformEngine}!Quit@{Quit}}
+\index{Quit@{Quit}!PlatformEngine@{PlatformEngine}}
+\subsubsection[{Quit}]{\setlength{\rightskip}{0pt plus 5cm}void PlatformEngine::Quit ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_platform_engine_dbcdd91813cabbe51bb2f86eb23e772a}
+
+
+\hypertarget{class_platform_engine_31ec37c0222f4694cc3c0e819e143038}{
+\index{PlatformEngine@{PlatformEngine}!Running@{Running}}
+\index{Running@{Running}!PlatformEngine@{PlatformEngine}}
+\subsubsection[{Running}]{\setlength{\rightskip}{0pt plus 5cm}bool PlatformEngine::Running ()\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{class_platform_engine_31ec37c0222f4694cc3c0e819e143038}
+
+
+\hypertarget{class_platform_engine_d3ab75304226ad3fcac6b66ce3cedbc7}{
+\index{PlatformEngine@{PlatformEngine}!Update@{Update}}
+\index{Update@{Update}!PlatformEngine@{PlatformEngine}}
+\subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}void PlatformEngine::Update ()}}
+\label{class_platform_engine_d3ab75304226ad3fcac6b66ce3cedbc7}
+
+
+This function's main purpose is to call the update function of the current state. 

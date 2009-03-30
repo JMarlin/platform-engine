@@ -1,0 +1,99 @@
+.TH "PlatformEngine" 3 "30 Mar 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+PlatformEngine \- The game engine instance.  
+
+.PP
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <PlatformEngine.h>\fP
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBInit\fP (const char *title)"
+.br
+.ti -1c
+.RI "void \fBCleanup\fP ()"
+.br
+.ti -1c
+.RI "void \fBChangeState\fP (\fBGameState\fP *state)"
+.br
+.ti -1c
+.RI "void \fBPushState\fP (\fBGameState\fP *state)"
+.br
+.ti -1c
+.RI "void \fBPopState\fP ()"
+.br
+.ti -1c
+.RI "void \fBHandleEvents\fP ()"
+.br
+.ti -1c
+.RI "void \fBUpdate\fP ()"
+.br
+.ti -1c
+.RI "void \fBDraw\fP ()"
+.br
+.ti -1c
+.RI "bool \fBRunning\fP ()"
+.br
+.ti -1c
+.RI "void \fBQuit\fP ()"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The game engine instance. 
+
+This class represents the game engine. It encompasses the major subprocesses; Initialization, State control, Event Handling, Updating, and Drawing. 
+.SH "Member Function Documentation"
+.PP 
+.SS "void PlatformEngine::ChangeState (\fBGameState\fP * state)"
+.PP
+The engine state is explicitly changed by calling this function with a new state that you wish to be the executed state. It actually passess both the new state and a reference to the engine to the current top state's equivalent function, allowing for customized transitions. 
+.SS "void PlatformEngine::Cleanup ()"
+.PP
+This function cleans up any of the remaining global assets of the engine. This mostly consists of open surfaces and states remaining on the stack. 
+.SS "void PlatformEngine::Draw ()"
+.PP
+This function's main purpose is to call the drawing function of the current state. 
+.SS "void PlatformEngine::HandleEvents ()"
+.PP
+This function's main purpose is to call the event handling function of the current state. 
+.SS "void PlatformEngine::Init (const char * title)"
+.PP
+The Init function sets up the game assets; aside from just initializing the SDL subsystems, it also loads any configuration scripts.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItitle\fP C-string with the game title, or main window text. 
+.RE
+.PP
+
+.SS "void PlatformEngine::PopState ()"
+.PP
+This function pops a state pointer off the top of the stack. It's operation is ordered such that the state first becomes inactive and then is deleted from memory, effectively preventing segmentation errors. 
+.SS "void PlatformEngine::PushState (\fBGameState\fP * state)"
+.PP
+This function takes a reference to a state and then pushes it onto the top of the engine's state stack. That then becomes the active stack for the engine.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIstate\fP Pointer to the newly-created state being pushed 
+.RE
+.PP
+
+.SS "void PlatformEngine::Quit ()\fC [inline]\fP"
+.PP
+.SS "bool PlatformEngine::Running ()\fC [inline]\fP"
+.PP
+.SS "void PlatformEngine::Update ()"
+.PP
+This function's main purpose is to call the update function of the current state. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Platform 2D Game Engine from the source code.

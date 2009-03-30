@@ -39,13 +39,14 @@ using std::stack;
  *************************************************************/
 class PlatformEngine {
 	public:
-		//** The initialization function for the engine
+		//** Prepares engine subsystems and assets
 		void Init( const char* title );
 
 		//** Clears up any engine assets before the program ends.
 		void Cleanup();
-
-		//void ChangeState( GameState* state );
+		
+		//** Explicitly changes the state of the engine.
+		void ChangeState( GameState* state );
 		
 		//** Puts a new state onto the engine state stack.
 		void PushState( GameState* state );

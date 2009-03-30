@@ -36,7 +36,9 @@
  * \param title C-string with the game title, or main window text.
  *************************************************************/
 void PlatformEngine::Init( const char* title ) {
-	if ( SDL_Init( SDL_INIT_VIDEO | SDL_INIT_TIMER ) == -1 ) {
+	if ( SDL_Init( SDL_INIT_VIDEO 
+			| SDL_INIT_TIMER
+		    	| SDL_INIT_EVENTTHREAD ) == -1 ) {
 		std::cout << "Failed to initialize subsystems; "
 			<< SDL_GetError() << std::endl;
 	}
@@ -115,6 +117,22 @@ void PlatformEngine::PopState() {
 			delete tempState;
 		}
 		else stateStack.pop();
+	}
+}
+
+/**********************************************************//**
+ *   The engine state is explicitly changed by calling this 
+ * function with a new state that you wish to be the 
+ * executed state. It actually passess both the new state and 
+ * a reference to the engine to the current top state's 
+ * equivalent function, allowing for customized transitions.
+ *************************************************************/
+void PlatformEngine::ChangeState( GameState* state ) {
+	if ( !stateStack.empty() ) {
+		if ( stateStack.top() != NULL ) {
+			GameState* topState = stateStack.top();
+			topState->ChangeState( this, state );
+		}
 	}
 }
 
