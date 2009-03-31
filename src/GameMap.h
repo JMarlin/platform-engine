@@ -21,6 +21,7 @@
 #ifndef GAMEMAP_H
 #define GAMEMAP_H
 
+#include "PlatformEngine.h"
 #include "GameMapLayer.h"
 
 #include <stack>
@@ -28,19 +29,45 @@
 using std::stack;
 
 /**********************************************************//**
- * \brief A map used by the engine for navigation.
+ * \brief The map being used by the navigation state.
  *
- *   While the state 'GameNavigationState' is reponsible for 
- * engine operations while in that state, it makes use of this 
- * separate map class for functions pertaining to specifically 
- * moving the map in relation to the active player.
+ *   This is a 'map', or a 'world', that can be navigated and 
+ * interacted with in the game navigation state. It consists of 
+ * a stack of layers, which have a number of different types 
+ * that can be used for different purposes. The map contains 
+ * functions that specify where on the screen grid the layers 
+ * it contains should be drawn, which is how it is told by the 
+ * GameNavigationState which direction it should move in order 
+ * to give the impression that the Player is moving about in 
+ * the map.
  *************************************************************/
 class GameMap {
 	public:
 		GameMap();
+		
+		//** Moves the onscreen position of the map upward
+		void MoveMapUp();
+		
+		//** Moves the onscreen position of the map downward
+		void MoveMapDown();
+
+		//** Moves the onscreen position of the map to the left
+		void MoveMapLeft();
+
+		//** Moves the onscreen position of the map to the right
+		void MoveMapRight();
+
+		//** Draws the map to the engine's main screen
+		void Draw( PlatformEngine* game );
+
 	private:
-		//** Stack of layers that make up this map
-		stack< GameMapLayer* > mapLayerStack;
+		//** The stack of layers 
+		stack< GameMapLayer* > layerStack;
+		
+		//** The size and on-screen positioning of the map
+		SDL_Rect mapDimensions;
+
 };
+
 
 #endif

@@ -34,6 +34,9 @@ set ( SOURCES
 	${SRCDIR}/GameLoopDelay.h	${SRCDIR}/GameLoopDelay.cpp
 	${SRCDIR}/PlatformEngine.h	${SRCDIR}/PlatformEngine.cpp
 	${SRCDIR}/GameState.h		${SRCDIR}/GameState.cpp
+	${SRCDIR}/GameNavigationState.h
+	${SRCDIR}/GameMap.h
+	${SRCDIR}/GameMapLayer.h
 )
 
 link_libraries (
