@@ -1,0 +1,105 @@
+.TH "GameNavigationState" 3 "30 Mar 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GameNavigationState \- The state in which game world navigation takes place.  
+
+.PP
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <GameNavigationState.h>\fP
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBInit\fP ()"
+.br
+.ti -1c
+.RI "void \fBCleanup\fP ()"
+.br
+.ti -1c
+.RI "void \fBPause\fP ()"
+.br
+.ti -1c
+.RI "void \fBResume\fP ()"
+.br
+.ti -1c
+.RI "void \fBHandleEvents\fP (\fBPlatformEngine\fP *game)"
+.br
+.ti -1c
+.RI "void \fBUpdate\fP (\fBPlatformEngine\fP *game)"
+.br
+.ti -1c
+.RI "void \fBDraw\fP (\fBPlatformEngine\fP *game)=0"
+.br
+.ti -1c
+.RI "bool \fBMovePlayerUp\fP ()"
+.br
+.ti -1c
+.RI "bool \fBMovePlayerDown\fP ()"
+.br
+.ti -1c
+.RI "bool \fBMovePlayerLeft\fP ()"
+.br
+.ti -1c
+.RI "bool \fBMovePlayerRight\fP ()"
+.br
+.in -1c
+.SS "Protected Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBGameNavigationState\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "\fBGameMap\fP * \fBtheMap\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The state in which game world navigation takes place. 
+
+While in this state, the game's operation revolves around the movement of a player sprite on some sort of visual map, or 'world'. It does this by making use of an entirely separate 'mapping' system, which controls the movement and rendering of the world map itself, while having player and event controls done internally. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "GameNavigationState::GameNavigationState ()\fC [inline, protected]\fP"
+.PP
+.SH "Member Function Documentation"
+.PP 
+.SS "void GameNavigationState::Cleanup ()"
+.PP
+.SS "void GameNavigationState::Draw (\fBPlatformEngine\fP * game)\fC [pure virtual]\fP"
+.PP
+.SS "void GameNavigationState::HandleEvents (\fBPlatformEngine\fP * game)"
+.PP
+.SS "void GameNavigationState::Init ()"
+.PP
+.SS "bool GameNavigationState::MovePlayerDown ()"
+.PP
+.SS "bool GameNavigationState::MovePlayerLeft ()"
+.PP
+.SS "bool GameNavigationState::MovePlayerRight ()"
+.PP
+.SS "bool GameNavigationState::MovePlayerUp ()"
+.PP
+.SS "void GameNavigationState::Pause ()"
+.PP
+.SS "void GameNavigationState::Resume ()"
+.PP
+.SS "void GameNavigationState::Update (\fBPlatformEngine\fP * game)"
+.PP
+.SH "Member Data Documentation"
+.PP 
+.SS "\fBGameMap\fP* \fBGameNavigationState::theMap\fP\fC [protected]\fP"
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Platform 2D Game Engine from the source code.

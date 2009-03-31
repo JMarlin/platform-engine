@@ -18,13 +18,29 @@
     along with Platform.  If not, see <http://www.gnu.org/licenses/>.
 ***************************************************************************/
 
-#ifndef GAMESTATE_CPP
-#define GAMESTATE_CPP
+#ifndef GAMEMAP_H
+#define GAMEMAP_H
 
-#include "GameState.h"
+#include "GameMapLayer.h"
 
-GameState::GameState() {
-	running = true;
-}
+#include <stack>
+
+using std::stack;
+
+/**********************************************************//**
+ * \brief A map used by the engine for navigation.
+ *
+ *   While the state 'GameNavigationState' is reponsible for 
+ * engine operations while in that state, it makes use of this 
+ * separate map class for functions pertaining to specifically 
+ * moving the map in relation to the active player.
+ *************************************************************/
+class GameMap {
+	public:
+		GameMap();
+	private:
+		//** Stack of layers that make up this map
+		stack< GameMapLayer* > mapLayerStack;
+};
 
 #endif

@@ -18,63 +18,62 @@
     along with Platform.  If not, see <http://www.gnu.org/licenses/>.
 ***************************************************************************/
 
-#ifndef GAMESTATE_H
-#define GAMESTATE_H
+#ifndef GAMENAVIGATIONSTATE_H
+#define GAMENAVIGATIONSTATE_H
 
-#include "PlatformEngine.h"
+#include "GameState.h"
+#include "GameMap.h"
 
 /**********************************************************//**
- * \brief A state of behavior for the engine
+ * \brief The state in which game world navigation takes place
  *
- *   A Game State is a layer on top of the default engine 
- * behavior that requires a custom form of behavior for its
- * operation. In the Platform engine, the an instance of the 
- * engine stores the current state on a stack, and any newly 
- * initiated states can be placed on top of the stack. The 
- * normal engine functions will generally call the 
- * corresponding operation functions from the state at the 
- * top of the stack, so that the engine's operation is 
- * ultimately controlled by the current top state.
- *
- *   This class in particular is an abstract class, not 
- * intended for actual use. The derivative classes, which are 
- * the different kinds of states, are used in normal 
- * program operations.
+ *   While in this state, the game's operation revolves around 
+ * the movement of a player sprite on some sort of visual 
+ * map, or 'world'. It does this by making use of an entirely 
+ * separate 'mapping' system, which controls the movement and 
+ * rendering of the world map itself, while having player 
+ * and event controls done internally.
  *************************************************************/
-class GameState {
+class GameNavigationState {
 	public:
 		//** Prepares state subsystems and scripts.
-		virtual void Init() = 0;
+		void Init();
 
 		//** Cleans up any remaining state assets.
-		virtual void Cleanup() = 0;
+		void Cleanup();
 
 		//** Halts execution of the state's operations.
-		virtual void Pause() = 0;
+		void Pause();
 
 		//** Resumes state execution.
-		virtual void Resume() = 0;
+		void Resume();
 
 		//** Handles any events that are particular to the state
-		virtual void HandleEvents(  PlatformEngine* game ) = 0;
+		void HandleEvents(  PlatformEngine* game );
 
 		//** Updates the state's logic
-		virtual void Update( 	    PlatformEngine* game ) = 0;
+		void Update( 	    PlatformEngine* game );
 		
 		//** Draws the visual content of the state to the engine. 
-		virtual void Draw( 	    PlatformEngine* game ) = 0;
+		void Draw( 	    PlatformEngine* game ) = 0;
 		
-		//** Explicitly Switches the engine to another state.
-		void ChangeState(	PlatformEngine* game,
-			       		GameState* state ) {
-			game->ChangeState( state );
-		}
+		//** Acts as if the Player is moving 'upward'
+		bool MovePlayerUp();
+
+		//** Acts as if the Player is moving 'downward'
+		bool MovePlayerDown();
+
+		//** Acts as if the Player is moving 'to the left'
+		bool MovePlayerLeft();
+
+		//** Acts as if the Player is moving 'to the right'
+		bool MovePlayerRight();
 
 	protected:
-		GameState();
-
-	private:
-		bool running;
+		GameNavigationState() { GameState(); }
+		
+		//** Object representing the entire map used in this state
+		GameMap* theMap;
 };
 
 #endif
