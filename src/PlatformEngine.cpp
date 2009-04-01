@@ -75,9 +75,31 @@ void PlatformEngine::Update() {
  * handling function of the current state.
  *************************************************************/
 void PlatformEngine::HandleEvents() {
-	if ( !stateStack.empty() ) {
-		GameState* topState= stateStack.top();
-		if ( topState!= NULL ) topState->Update( this );
+	SDL_Event event;
+
+	while( SDL_PollEvent( &event ) ) {
+
+		if ( !stateStack.empty() ) {
+			GameState* topState= stateStack.top();
+			if ( topState!= NULL ) {
+				topState->HandleEvents( this, event );
+				continue;
+			}
+		}
+
+		switch( event.type ) {
+			case SDL_KEYDOWN:
+				switch ( event.key.keysym.sym ) {
+					case SDLK_ESCAPE:
+						running = false;
+						break;
+				}
+
+				break;
+			case SDL_QUIT:
+				running = false;
+				break;
+		}
 	}
 }
 
@@ -87,7 +109,7 @@ void PlatformEngine::HandleEvents() {
  * and states remaining on the stack.
  *************************************************************/
 void PlatformEngine::Cleanup() {
-	SDL_FreeSurface( mainScreen );
+	//SDL_FreeSurface( mainScreen );
 
 	SDL_Quit();
 }

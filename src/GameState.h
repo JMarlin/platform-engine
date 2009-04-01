@@ -56,7 +56,8 @@ class GameState {
 		virtual void Resume() = 0;
 
 		//** Handles any events that are particular to the state
-		virtual void HandleEvents(  PlatformEngine* game ) = 0;
+		virtual void HandleEvents(  PlatformEngine* game,
+			       		SDL_Event& event ) = 0;
 
 		//** Updates the state's logic
 		virtual void Update( 	    PlatformEngine* game ) = 0;

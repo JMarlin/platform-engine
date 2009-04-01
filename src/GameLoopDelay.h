@@ -21,7 +21,7 @@
 #ifndef GAMELOOPDELAY_H
 #define GAMELOOPDELAY_H
 
-#define TICK_INTERVAL 30
+#define TICK_INTERVAL 17
 
 //** The tick at which the next update will occur
 static Uint32 nextTime;
