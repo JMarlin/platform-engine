@@ -7,8 +7,16 @@ The state in which game world navigation takes place.
 
 {\tt \#include $<$GameNavigationState.h$>$}
 
+Inheritance diagram for GameNavigationState::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{class_game_navigation_state}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{CompactItemize}
+\item 
+\hyperlink{class_game_navigation_state_6a3b93831c85eb5dc3de0a53ca13ddfc}{GameNavigationState} ()
 \item 
 void \hyperlink{class_game_navigation_state_8f613860bf544476ab9cff9fb7f98201}{Init} ()
 \item 
@@ -18,11 +26,11 @@ void \hyperlink{class_game_navigation_state_ac626b511de8af9f32b7a1492a10f861}{Pa
 \item 
 void \hyperlink{class_game_navigation_state_4d6aee55eddb1978f493206d985fb950}{Resume} ()
 \item 
-void \hyperlink{class_game_navigation_state_1903be15338da11029cb5ec22729bce2}{HandleEvents} (\hyperlink{class_platform_engine}{PlatformEngine} $\ast$game)
+void \hyperlink{class_game_navigation_state_c47e8f7b8802e7b7e7b5076c20313596}{HandleEvents} (\hyperlink{class_platform_engine}{PlatformEngine} $\ast$game, SDL\_\-Event \&event)
 \item 
 void \hyperlink{class_game_navigation_state_90f5e6d6287a875d8f2737180f46a004}{Update} (\hyperlink{class_platform_engine}{PlatformEngine} $\ast$game)
 \item 
-void \hyperlink{class_game_navigation_state_06e4fc064c040cf230fb425bfe9eb96c}{Draw} (\hyperlink{class_platform_engine}{PlatformEngine} $\ast$game)=0
+void \hyperlink{class_game_navigation_state_a37dce070a906454c512192c067fda09}{Draw} (\hyperlink{class_platform_engine}{PlatformEngine} $\ast$game)
 \item 
 bool \hyperlink{class_game_navigation_state_fd803365fe0a32b60cf9105ee45b4042}{MovePlayerUp} ()
 \item 
@@ -31,11 +39,6 @@ bool \hyperlink{class_game_navigation_state_66f8a21e63270473d88b31b06d306111}{Mo
 bool \hyperlink{class_game_navigation_state_b8ee346a4f4be2cc3478fdacfb770464}{MovePlayerLeft} ()
 \item 
 bool \hyperlink{class_game_navigation_state_0b505a64bcf97883bb9e15d0d008174e}{MovePlayerRight} ()
-\end{CompactItemize}
-\subsection*{Protected Member Functions}
-\begin{CompactItemize}
-\item 
-\hyperlink{class_game_navigation_state_6a3b93831c85eb5dc3de0a53ca13ddfc}{GameNavigationState} ()
 \end{CompactItemize}
 \subsection*{Protected Attributes}
 \begin{CompactItemize}
@@ -53,7 +56,7 @@ While in this state, the game's operation revolves around the movement of a play
 \hypertarget{class_game_navigation_state_6a3b93831c85eb5dc3de0a53ca13ddfc}{
 \index{GameNavigationState@{GameNavigationState}!GameNavigationState@{GameNavigationState}}
 \index{GameNavigationState@{GameNavigationState}!GameNavigationState@{GameNavigationState}}
-\subsubsection[{GameNavigationState}]{\setlength{\rightskip}{0pt plus 5cm}GameNavigationState::GameNavigationState ()\hspace{0.3cm}{\tt  \mbox{[}inline, protected\mbox{]}}}}
+\subsubsection[{GameNavigationState}]{\setlength{\rightskip}{0pt plus 5cm}GameNavigationState::GameNavigationState ()}}
 \label{class_game_navigation_state_6a3b93831c85eb5dc3de0a53ca13ddfc}
 
 
@@ -63,38 +66,64 @@ While in this state, the game's operation revolves around the movement of a play
 \hypertarget{class_game_navigation_state_f93a7dbb7eac4b14a6d59cbca32b9abd}{
 \index{GameNavigationState@{GameNavigationState}!Cleanup@{Cleanup}}
 \index{Cleanup@{Cleanup}!GameNavigationState@{GameNavigationState}}
-\subsubsection[{Cleanup}]{\setlength{\rightskip}{0pt plus 5cm}void GameNavigationState::Cleanup ()}}
+\subsubsection[{Cleanup}]{\setlength{\rightskip}{0pt plus 5cm}void GameNavigationState::Cleanup ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
 \label{class_game_navigation_state_f93a7dbb7eac4b14a6d59cbca32b9abd}
 
 
-\hypertarget{class_game_navigation_state_06e4fc064c040cf230fb425bfe9eb96c}{
+Does any last-minute operations before the termination of the navigation state. 
+
+Implements \hyperlink{class_game_state_041e7a5430d71da84745af11abdacd93}{GameState}.\hypertarget{class_game_navigation_state_a37dce070a906454c512192c067fda09}{
 \index{GameNavigationState@{GameNavigationState}!Draw@{Draw}}
 \index{Draw@{Draw}!GameNavigationState@{GameNavigationState}}
-\subsubsection[{Draw}]{\setlength{\rightskip}{0pt plus 5cm}void GameNavigationState::Draw ({\bf PlatformEngine} $\ast$ {\em game})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
-\label{class_game_navigation_state_06e4fc064c040cf230fb425bfe9eb96c}
+\subsubsection[{Draw}]{\setlength{\rightskip}{0pt plus 5cm}void GameNavigationState::Draw ({\bf PlatformEngine} $\ast$ {\em game})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_game_navigation_state_a37dce070a906454c512192c067fda09}
 
 
-\hypertarget{class_game_navigation_state_1903be15338da11029cb5ec22729bce2}{
+Draws the contents of the state, including the map and the player, to the engine's main screen.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em game}]A pointer to the game engine \end{description}
+\end{Desc}
+
+
+Implements \hyperlink{class_game_state_7333dda0f49b3fa1c01cd3295f853024}{GameState}.\hypertarget{class_game_navigation_state_c47e8f7b8802e7b7e7b5076c20313596}{
 \index{GameNavigationState@{GameNavigationState}!HandleEvents@{HandleEvents}}
 \index{HandleEvents@{HandleEvents}!GameNavigationState@{GameNavigationState}}
-\subsubsection[{HandleEvents}]{\setlength{\rightskip}{0pt plus 5cm}void GameNavigationState::HandleEvents ({\bf PlatformEngine} $\ast$ {\em game})}}
-\label{class_game_navigation_state_1903be15338da11029cb5ec22729bce2}
+\subsubsection[{HandleEvents}]{\setlength{\rightskip}{0pt plus 5cm}void GameNavigationState::HandleEvents ({\bf PlatformEngine} $\ast$ {\em game}, \/  SDL\_\-Event \& {\em event})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{class_game_navigation_state_c47e8f7b8802e7b7e7b5076c20313596}
 
 
-\hypertarget{class_game_navigation_state_8f613860bf544476ab9cff9fb7f98201}{
+Handles event triggers for this state, including the movement of the player within the map.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em game}]A pointer to the game engine \item[{\em event}]Reference to the last polled SDL\_\-Event \end{description}
+\end{Desc}
+
+
+Implements \hyperlink{class_game_state_82a31f1480fc637829d6630c01570d4c}{GameState}.\hypertarget{class_game_navigation_state_8f613860bf544476ab9cff9fb7f98201}{
 \index{GameNavigationState@{GameNavigationState}!Init@{Init}}
 \index{Init@{Init}!GameNavigationState@{GameNavigationState}}
-\subsubsection[{Init}]{\setlength{\rightskip}{0pt plus 5cm}void GameNavigationState::Init ()}}
+\subsubsection[{Init}]{\setlength{\rightskip}{0pt plus 5cm}void GameNavigationState::Init ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
 \label{class_game_navigation_state_8f613860bf544476ab9cff9fb7f98201}
 
 
-\hypertarget{class_game_navigation_state_66f8a21e63270473d88b31b06d306111}{
+Configures assets specific to this state; particularly assets involved with map construction. 
+
+Implements \hyperlink{class_game_state_eec488593bae214c0f738bd64dafba32}{GameState}.\hypertarget{class_game_navigation_state_66f8a21e63270473d88b31b06d306111}{
 \index{GameNavigationState@{GameNavigationState}!MovePlayerDown@{MovePlayerDown}}
 \index{MovePlayerDown@{MovePlayerDown}!GameNavigationState@{GameNavigationState}}
 \subsubsection[{MovePlayerDown}]{\setlength{\rightskip}{0pt plus 5cm}bool GameNavigationState::MovePlayerDown ()}}
 \label{class_game_navigation_state_66f8a21e63270473d88b31b06d306111}
 
 
+Gives the impression of the player moving \char`\"{}down\char`\"{} on the map by moving everything else upward and possibly triggering a movement animation for the player's image. Fails if there is a collision between the player and a map object.
+
+\begin{Desc}
+\item[Returns:]True if the movement succeeds, false if there is collision \end{Desc}
 \hypertarget{class_game_navigation_state_b8ee346a4f4be2cc3478fdacfb770464}{
 \index{GameNavigationState@{GameNavigationState}!MovePlayerLeft@{MovePlayerLeft}}
 \index{MovePlayerLeft@{MovePlayerLeft}!GameNavigationState@{GameNavigationState}}
@@ -102,6 +131,10 @@ While in this state, the game's operation revolves around the movement of a play
 \label{class_game_navigation_state_b8ee346a4f4be2cc3478fdacfb770464}
 
 
+Gives the impression of the player moving \char`\"{}left\char`\"{} on the map by moving everything else to the right and possibly triggering a movement animation for the player's image. Fails if there is a collision between the player and a map object.
+
+\begin{Desc}
+\item[Returns:]True if the movement succeeds, false if there is collision \end{Desc}
 \hypertarget{class_game_navigation_state_0b505a64bcf97883bb9e15d0d008174e}{
 \index{GameNavigationState@{GameNavigationState}!MovePlayerRight@{MovePlayerRight}}
 \index{MovePlayerRight@{MovePlayerRight}!GameNavigationState@{GameNavigationState}}
@@ -109,6 +142,10 @@ While in this state, the game's operation revolves around the movement of a play
 \label{class_game_navigation_state_0b505a64bcf97883bb9e15d0d008174e}
 
 
+Gives the impression of the player moving \char`\"{}right\char`\"{} on the map by moving everything else leftward and possibly triggering a movement animation for the player's image. Fails if there is a collision between the player and a map object.
+
+\begin{Desc}
+\item[Returns:]True if the movement succeeds, false if there is collision \end{Desc}
 \hypertarget{class_game_navigation_state_fd803365fe0a32b60cf9105ee45b4042}{
 \index{GameNavigationState@{GameNavigationState}!MovePlayerUp@{MovePlayerUp}}
 \index{MovePlayerUp@{MovePlayerUp}!GameNavigationState@{GameNavigationState}}
@@ -116,28 +153,45 @@ While in this state, the game's operation revolves around the movement of a play
 \label{class_game_navigation_state_fd803365fe0a32b60cf9105ee45b4042}
 
 
+Gives the impression of the player moving \char`\"{}up\char`\"{} on the map by moving everything else downward and possibly triggering a movement animation for the player's image. Fails if there is a collision between the player and a map object.
+
+\begin{Desc}
+\item[Returns:]True if the movement succeeds, false if there is collision \end{Desc}
 \hypertarget{class_game_navigation_state_ac626b511de8af9f32b7a1492a10f861}{
 \index{GameNavigationState@{GameNavigationState}!Pause@{Pause}}
 \index{Pause@{Pause}!GameNavigationState@{GameNavigationState}}
-\subsubsection[{Pause}]{\setlength{\rightskip}{0pt plus 5cm}void GameNavigationState::Pause ()}}
+\subsubsection[{Pause}]{\setlength{\rightskip}{0pt plus 5cm}void GameNavigationState::Pause ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
 \label{class_game_navigation_state_ac626b511de8af9f32b7a1492a10f861}
 
 
-\hypertarget{class_game_navigation_state_4d6aee55eddb1978f493206d985fb950}{
+Pauses the execution of this state until further notice, assuming it is currently running. If it is already paused, this has no effect. 
+
+Implements \hyperlink{class_game_state_1f4d2b5a2e4dcb7645e3e7a5735926a6}{GameState}.\hypertarget{class_game_navigation_state_4d6aee55eddb1978f493206d985fb950}{
 \index{GameNavigationState@{GameNavigationState}!Resume@{Resume}}
 \index{Resume@{Resume}!GameNavigationState@{GameNavigationState}}
-\subsubsection[{Resume}]{\setlength{\rightskip}{0pt plus 5cm}void GameNavigationState::Resume ()}}
+\subsubsection[{Resume}]{\setlength{\rightskip}{0pt plus 5cm}void GameNavigationState::Resume ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
 \label{class_game_navigation_state_4d6aee55eddb1978f493206d985fb950}
 
 
-\hypertarget{class_game_navigation_state_90f5e6d6287a875d8f2737180f46a004}{
+Resumes the execution of this state, if it has been paused previously; otherwise it has no effect. 
+
+Implements \hyperlink{class_game_state_cf9bcd5b47ebb3f572389f64c5ca5ed4}{GameState}.\hypertarget{class_game_navigation_state_90f5e6d6287a875d8f2737180f46a004}{
 \index{GameNavigationState@{GameNavigationState}!Update@{Update}}
 \index{Update@{Update}!GameNavigationState@{GameNavigationState}}
-\subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}void GameNavigationState::Update ({\bf PlatformEngine} $\ast$ {\em game})}}
+\subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}void GameNavigationState::Update ({\bf PlatformEngine} $\ast$ {\em game})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
 \label{class_game_navigation_state_90f5e6d6287a875d8f2737180f46a004}
 
 
+Does any necessary logic updates to bring the game's data up to date with the actions of the player or anything else in the game.
 
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em game}]A pointer to the game engine \end{description}
+\end{Desc}
+
+
+Implements \hyperlink{class_game_state_100ca49bc95afce1d5c5b756708bbc2b}{GameState}.
 
 \subsection{Member Data Documentation}
 \hypertarget{class_game_navigation_state_83154f9523275696f30c13447e1d74f3}{

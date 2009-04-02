@@ -1,4 +1,4 @@
-.TH "GameNavigationState" 3 "30 Mar 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
+.TH "GameNavigationState" 3 "2 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -10,9 +10,14 @@ GameNavigationState \- The state in which game world navigation takes place.
 .PP
 \fC#include <GameNavigationState.h>\fP
 .PP
+Inherits \fBGameState\fP.
+.PP
 .SS "Public Member Functions"
 
 .in +1c
+.ti -1c
+.RI "\fBGameNavigationState\fP ()"
+.br
 .ti -1c
 .RI "void \fBInit\fP ()"
 .br
@@ -26,13 +31,13 @@ GameNavigationState \- The state in which game world navigation takes place.
 .RI "void \fBResume\fP ()"
 .br
 .ti -1c
-.RI "void \fBHandleEvents\fP (\fBPlatformEngine\fP *game)"
+.RI "void \fBHandleEvents\fP (\fBPlatformEngine\fP *game, SDL_Event &event)"
 .br
 .ti -1c
 .RI "void \fBUpdate\fP (\fBPlatformEngine\fP *game)"
 .br
 .ti -1c
-.RI "void \fBDraw\fP (\fBPlatformEngine\fP *game)=0"
+.RI "void \fBDraw\fP (\fBPlatformEngine\fP *game)"
 .br
 .ti -1c
 .RI "bool \fBMovePlayerUp\fP ()"
@@ -45,13 +50,6 @@ GameNavigationState \- The state in which game world navigation takes place.
 .br
 .ti -1c
 .RI "bool \fBMovePlayerRight\fP ()"
-.br
-.in -1c
-.SS "Protected Member Functions"
-
-.in +1c
-.ti -1c
-.RI "\fBGameNavigationState\fP ()"
 .br
 .in -1c
 .SS "Protected Attributes"
@@ -68,32 +66,108 @@ The state in which game world navigation takes place.
 While in this state, the game's operation revolves around the movement of a player sprite on some sort of visual map, or 'world'. It does this by making use of an entirely separate 'mapping' system, which controls the movement and rendering of the world map itself, while having player and event controls done internally. 
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "GameNavigationState::GameNavigationState ()\fC [inline, protected]\fP"
+.SS "GameNavigationState::GameNavigationState ()"
 .PP
 .SH "Member Function Documentation"
 .PP 
-.SS "void GameNavigationState::Cleanup ()"
+.SS "void GameNavigationState::Cleanup ()\fC [virtual]\fP"
 .PP
-.SS "void GameNavigationState::Draw (\fBPlatformEngine\fP * game)\fC [pure virtual]\fP"
+Does any last-minute operations before the termination of the navigation state. 
 .PP
-.SS "void GameNavigationState::HandleEvents (\fBPlatformEngine\fP * game)"
+Implements \fBGameState\fP.
+.SS "void GameNavigationState::Draw (\fBPlatformEngine\fP * game)\fC [virtual]\fP"
 .PP
-.SS "void GameNavigationState::Init ()"
+Draws the contents of the state, including the map and the player, to the engine's main screen.
 .PP
+\fBParameters:\fP
+.RS 4
+\fIgame\fP A pointer to the game engine 
+.RE
+.PP
+
+.PP
+Implements \fBGameState\fP.
+.SS "void GameNavigationState::HandleEvents (\fBPlatformEngine\fP * game, SDL_Event & event)\fC [virtual]\fP"
+.PP
+Handles event triggers for this state, including the movement of the player within the map.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIgame\fP A pointer to the game engine 
+.br
+\fIevent\fP Reference to the last polled SDL_Event 
+.RE
+.PP
+
+.PP
+Implements \fBGameState\fP.
+.SS "void GameNavigationState::Init ()\fC [virtual]\fP"
+.PP
+Configures assets specific to this state; particularly assets involved with map construction. 
+.PP
+Implements \fBGameState\fP.
 .SS "bool GameNavigationState::MovePlayerDown ()"
 .PP
+Gives the impression of the player moving 'down' on the map by moving everything else upward and possibly triggering a movement animation for the player's image. Fails if there is a collision between the player and a map object.
+.PP
+\fBReturns:\fP
+.RS 4
+True if the movement succeeds, false if there is collision 
+.RE
+.PP
+
 .SS "bool GameNavigationState::MovePlayerLeft ()"
 .PP
+Gives the impression of the player moving 'left' on the map by moving everything else to the right and possibly triggering a movement animation for the player's image. Fails if there is a collision between the player and a map object.
+.PP
+\fBReturns:\fP
+.RS 4
+True if the movement succeeds, false if there is collision 
+.RE
+.PP
+
 .SS "bool GameNavigationState::MovePlayerRight ()"
 .PP
+Gives the impression of the player moving 'right' on the map by moving everything else leftward and possibly triggering a movement animation for the player's image. Fails if there is a collision between the player and a map object.
+.PP
+\fBReturns:\fP
+.RS 4
+True if the movement succeeds, false if there is collision 
+.RE
+.PP
+
 .SS "bool GameNavigationState::MovePlayerUp ()"
 .PP
-.SS "void GameNavigationState::Pause ()"
+Gives the impression of the player moving 'up' on the map by moving everything else downward and possibly triggering a movement animation for the player's image. Fails if there is a collision between the player and a map object.
 .PP
-.SS "void GameNavigationState::Resume ()"
+\fBReturns:\fP
+.RS 4
+True if the movement succeeds, false if there is collision 
+.RE
 .PP
-.SS "void GameNavigationState::Update (\fBPlatformEngine\fP * game)"
+
+.SS "void GameNavigationState::Pause ()\fC [virtual]\fP"
 .PP
+Pauses the execution of this state until further notice, assuming it is currently running. If it is already paused, this has no effect. 
+.PP
+Implements \fBGameState\fP.
+.SS "void GameNavigationState::Resume ()\fC [virtual]\fP"
+.PP
+Resumes the execution of this state, if it has been paused previously; otherwise it has no effect. 
+.PP
+Implements \fBGameState\fP.
+.SS "void GameNavigationState::Update (\fBPlatformEngine\fP * game)\fC [virtual]\fP"
+.PP
+Does any necessary logic updates to bring the game's data up to date with the actions of the player or anything else in the game.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIgame\fP A pointer to the game engine 
+.RE
+.PP
+
+.PP
+Implements \fBGameState\fP.
 .SH "Member Data Documentation"
 .PP 
 .SS "\fBGameMap\fP* \fBGameNavigationState::theMap\fP\fC [protected]\fP"

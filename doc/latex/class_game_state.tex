@@ -7,8 +7,16 @@ A state of behavior for the engine.
 
 {\tt \#include $<$GameState.h$>$}
 
+Inheritance diagram for GameState::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{class_game_state}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{CompactItemize}
+\item 
+\hyperlink{class_game_state_4fa0a2bf50315c4a35a3890a0adcee5c}{GameState} ()
 \item 
 virtual void \hyperlink{class_game_state_eec488593bae214c0f738bd64dafba32}{Init} ()=0
 \item 
@@ -18,18 +26,13 @@ virtual void \hyperlink{class_game_state_1f4d2b5a2e4dcb7645e3e7a5735926a6}{Pause
 \item 
 virtual void \hyperlink{class_game_state_cf9bcd5b47ebb3f572389f64c5ca5ed4}{Resume} ()=0
 \item 
-virtual void \hyperlink{class_game_state_bb260db433d083eee1f71202b656b78f}{HandleEvents} (\hyperlink{class_platform_engine}{PlatformEngine} $\ast$game)=0
+virtual void \hyperlink{class_game_state_82a31f1480fc637829d6630c01570d4c}{HandleEvents} (\hyperlink{class_platform_engine}{PlatformEngine} $\ast$game, SDL\_\-Event \&event)=0
 \item 
 virtual void \hyperlink{class_game_state_100ca49bc95afce1d5c5b756708bbc2b}{Update} (\hyperlink{class_platform_engine}{PlatformEngine} $\ast$game)=0
 \item 
 virtual void \hyperlink{class_game_state_7333dda0f49b3fa1c01cd3295f853024}{Draw} (\hyperlink{class_platform_engine}{PlatformEngine} $\ast$game)=0
 \item 
 void \hyperlink{class_game_state_f786aeb704a22a135dc289bb89fcc452}{ChangeState} (\hyperlink{class_platform_engine}{PlatformEngine} $\ast$game, \hyperlink{class_game_state}{GameState} $\ast$state)
-\end{CompactItemize}
-\subsection*{Protected Member Functions}
-\begin{CompactItemize}
-\item 
-\hyperlink{class_game_state_4fa0a2bf50315c4a35a3890a0adcee5c}{GameState} ()
 \end{CompactItemize}
 
 
@@ -44,7 +47,7 @@ This class in particular is an abstract class, not intended for actual use. The 
 \hypertarget{class_game_state_4fa0a2bf50315c4a35a3890a0adcee5c}{
 \index{GameState@{GameState}!GameState@{GameState}}
 \index{GameState@{GameState}!GameState@{GameState}}
-\subsubsection[{GameState}]{\setlength{\rightskip}{0pt plus 5cm}GameState::GameState ()\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\subsubsection[{GameState}]{\setlength{\rightskip}{0pt plus 5cm}GameState::GameState ()}}
 \label{class_game_state_4fa0a2bf50315c4a35a3890a0adcee5c}
 
 
@@ -65,45 +68,60 @@ This class in particular is an abstract class, not intended for actual use. The 
 \label{class_game_state_041e7a5430d71da84745af11abdacd93}
 
 
-\hypertarget{class_game_state_7333dda0f49b3fa1c01cd3295f853024}{
+
+
+Implemented in \hyperlink{class_game_navigation_state_f93a7dbb7eac4b14a6d59cbca32b9abd}{GameNavigationState}.\hypertarget{class_game_state_7333dda0f49b3fa1c01cd3295f853024}{
 \index{GameState@{GameState}!Draw@{Draw}}
 \index{Draw@{Draw}!GameState@{GameState}}
 \subsubsection[{Draw}]{\setlength{\rightskip}{0pt plus 5cm}virtual void GameState::Draw ({\bf PlatformEngine} $\ast$ {\em game})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
 \label{class_game_state_7333dda0f49b3fa1c01cd3295f853024}
 
 
-\hypertarget{class_game_state_bb260db433d083eee1f71202b656b78f}{
+
+
+Implemented in \hyperlink{class_game_navigation_state_a37dce070a906454c512192c067fda09}{GameNavigationState}.\hypertarget{class_game_state_82a31f1480fc637829d6630c01570d4c}{
 \index{GameState@{GameState}!HandleEvents@{HandleEvents}}
 \index{HandleEvents@{HandleEvents}!GameState@{GameState}}
-\subsubsection[{HandleEvents}]{\setlength{\rightskip}{0pt plus 5cm}virtual void GameState::HandleEvents ({\bf PlatformEngine} $\ast$ {\em game})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
-\label{class_game_state_bb260db433d083eee1f71202b656b78f}
+\subsubsection[{HandleEvents}]{\setlength{\rightskip}{0pt plus 5cm}virtual void GameState::HandleEvents ({\bf PlatformEngine} $\ast$ {\em game}, \/  SDL\_\-Event \& {\em event})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{class_game_state_82a31f1480fc637829d6630c01570d4c}
 
 
-\hypertarget{class_game_state_eec488593bae214c0f738bd64dafba32}{
+
+
+Implemented in \hyperlink{class_game_navigation_state_c47e8f7b8802e7b7e7b5076c20313596}{GameNavigationState}.\hypertarget{class_game_state_eec488593bae214c0f738bd64dafba32}{
 \index{GameState@{GameState}!Init@{Init}}
 \index{Init@{Init}!GameState@{GameState}}
 \subsubsection[{Init}]{\setlength{\rightskip}{0pt plus 5cm}virtual void GameState::Init ()\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
 \label{class_game_state_eec488593bae214c0f738bd64dafba32}
 
 
-\hypertarget{class_game_state_1f4d2b5a2e4dcb7645e3e7a5735926a6}{
+
+
+Implemented in \hyperlink{class_game_navigation_state_8f613860bf544476ab9cff9fb7f98201}{GameNavigationState}.\hypertarget{class_game_state_1f4d2b5a2e4dcb7645e3e7a5735926a6}{
 \index{GameState@{GameState}!Pause@{Pause}}
 \index{Pause@{Pause}!GameState@{GameState}}
 \subsubsection[{Pause}]{\setlength{\rightskip}{0pt plus 5cm}virtual void GameState::Pause ()\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
 \label{class_game_state_1f4d2b5a2e4dcb7645e3e7a5735926a6}
 
 
-\hypertarget{class_game_state_cf9bcd5b47ebb3f572389f64c5ca5ed4}{
+
+
+Implemented in \hyperlink{class_game_navigation_state_ac626b511de8af9f32b7a1492a10f861}{GameNavigationState}.\hypertarget{class_game_state_cf9bcd5b47ebb3f572389f64c5ca5ed4}{
 \index{GameState@{GameState}!Resume@{Resume}}
 \index{Resume@{Resume}!GameState@{GameState}}
 \subsubsection[{Resume}]{\setlength{\rightskip}{0pt plus 5cm}virtual void GameState::Resume ()\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
 \label{class_game_state_cf9bcd5b47ebb3f572389f64c5ca5ed4}
 
 
-\hypertarget{class_game_state_100ca49bc95afce1d5c5b756708bbc2b}{
+
+
+Implemented in \hyperlink{class_game_navigation_state_4d6aee55eddb1978f493206d985fb950}{GameNavigationState}.\hypertarget{class_game_state_100ca49bc95afce1d5c5b756708bbc2b}{
 \index{GameState@{GameState}!Update@{Update}}
 \index{Update@{Update}!GameState@{GameState}}
 \subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}virtual void GameState::Update ({\bf PlatformEngine} $\ast$ {\em game})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
 \label{class_game_state_100ca49bc95afce1d5c5b756708bbc2b}
 
 
+
+
+Implemented in \hyperlink{class_game_navigation_state_90f5e6d6287a875d8f2737180f46a004}{GameNavigationState}.

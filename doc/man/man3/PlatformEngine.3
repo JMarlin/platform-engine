@@ -1,4 +1,4 @@
-.TH "PlatformEngine" 3 "30 Mar 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
+.TH "PlatformEngine" 3 "2 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -13,6 +13,9 @@ PlatformEngine \- The game engine instance.
 .SS "Public Member Functions"
 
 .in +1c
+.ti -1c
+.RI "\fBPlatformEngine\fP ()"
+.br
 .ti -1c
 .RI "void \fBInit\fP (const char *title)"
 .br
@@ -49,6 +52,10 @@ PlatformEngine \- The game engine instance.
 The game engine instance. 
 
 This class represents the game engine. It encompasses the major subprocesses; Initialization, State control, Event Handling, Updating, and Drawing. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "PlatformEngine::PlatformEngine ()"
+.PP
 .SH "Member Function Documentation"
 .PP 
 .SS "void PlatformEngine::ChangeState (\fBGameState\fP * state)"

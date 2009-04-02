@@ -1,8 +1,8 @@
-.TH "GameMap" 3 "30 Mar 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
+.TH "GameMap" 3 "2 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
-GameMap \- A map used by the engine for navigation.  
+GameMap \- The map being used by the navigation state.  
 
 .PP
 .SH SYNOPSIS
@@ -16,15 +16,42 @@ GameMap \- A map used by the engine for navigation.
 .ti -1c
 .RI "\fBGameMap\fP ()"
 .br
+.ti -1c
+.RI "void \fBMoveMapUp\fP ()"
+.br
+.ti -1c
+.RI "void \fBMoveMapDown\fP ()"
+.br
+.ti -1c
+.RI "void \fBMoveMapLeft\fP ()"
+.br
+.ti -1c
+.RI "void \fBMoveMapRight\fP ()"
+.br
+.ti -1c
+.RI "void \fBDraw\fP (\fBPlatformEngine\fP *game)"
+.br
 .in -1c
 .SH "Detailed Description"
 .PP 
-A map used by the engine for navigation. 
+The map being used by the navigation state. 
 
-While the state 'GameNavigationState' is reponsible for engine operations while in that state, it makes use of this separate map class for functions pertaining to specifically moving the map in relation to the active player. 
+This is a 'map', or a 'world', that can be navigated and interacted with in the game navigation state. It consists of a stack of layers, which have a number of different types that can be used for different purposes. The map contains functions that specify where on the screen grid the layers it contains should be drawn, which is how it is told by the \fBGameNavigationState\fP which direction it should move in order to give the impression that the Player is moving about in the map. 
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "GameMap::GameMap ()"
+.PP
+.SH "Member Function Documentation"
+.PP 
+.SS "void GameMap::Draw (\fBPlatformEngine\fP * game)"
+.PP
+.SS "void GameMap::MoveMapDown ()"
+.PP
+.SS "void GameMap::MoveMapLeft ()"
+.PP
+.SS "void GameMap::MoveMapRight ()"
+.PP
+.SS "void GameMap::MoveMapUp ()"
 .PP
 
 

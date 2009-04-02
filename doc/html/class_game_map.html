@@ -16,12 +16,13 @@
   <div class="tabs">
     <ul>
       <li><a href="annotated.html"><span>Class&nbsp;List</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&nbsp;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&nbsp;Members</span></a></li>
     </ul>
   </div>
 </div>
 <div class="contents">
-<h1>GameMap Class Reference</h1><!-- doxytag: class="GameMap" -->A map used by the engine for navigation.  
+<h1>GameMap Class Reference</h1><!-- doxytag: class="GameMap" -->The map being used by the navigation state.  
 <a href="#_details">More...</a>
 <p>
 <code>#include &lt;<a class="el" href="_game_map_8h-source.html">GameMap.h</a>&gt;</code>
@@ -33,11 +34,21 @@
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#ae71e5694cf19612fcaa4c1e21b03b71">GameMap</a> ()</td></tr>
 
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#e9b33ef01ca643a2389e7be0ebf838b1">MoveMapUp</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#7466202e8f2bd3ae188ddcbd7e50a023">MoveMapDown</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#90fe97ecdcee40995d8e5fa86857cf5c">MoveMapLeft</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#e76fd062e8e47331e7e999dbea0f0486">MoveMapRight</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_map.html#c289ffedd32b98d2827e6b765b3e50d6">Draw</a> (<a class="el" href="class_platform_engine.html">PlatformEngine</a> *game)</td></tr>
+
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
-A map used by the engine for navigation. 
+The map being used by the navigation state. 
 <p>
-While the state 'GameNavigationState' is reponsible for engine operations while in that state, it makes use of this separate map class for functions pertaining to specifically moving the map in relation to the active player. <hr><h2>Constructor &amp; Destructor Documentation</h2>
+This is a 'map', or a 'world', that can be navigated and interacted with in the game navigation state. It consists of a stack of layers, which have a number of different types that can be used for different purposes. The map contains functions that specify where on the screen grid the layers it contains should be drawn, which is how it is told by the <a class="el" href="class_game_navigation_state.html" title="The state in which game world navigation takes place.">GameNavigationState</a> which direction it should move in order to give the impression that the Player is moving about in the map. <hr><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" name="ae71e5694cf19612fcaa4c1e21b03b71"></a><!-- doxytag: member="GameMap::GameMap" ref="ae71e5694cf19612fcaa4c1e21b03b71" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -57,8 +68,105 @@ While the state 'GameNavigationState' is reponsible for engine operations while 
 
 </div>
 </div><p>
+<hr><h2>Member Function Documentation</h2>
+<a class="anchor" name="c289ffedd32b98d2827e6b765b3e50d6"></a><!-- doxytag: member="GameMap::Draw" ref="c289ffedd32b98d2827e6b765b3e50d6" args="(PlatformEngine *game)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GameMap::Draw           </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="class_platform_engine.html">PlatformEngine</a> *&nbsp;</td>
+          <td class="paramname"> <em>game</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Mar 30 22:07:02 2009 for Platform 2D Game Engine by&nbsp;
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="7466202e8f2bd3ae188ddcbd7e50a023"></a><!-- doxytag: member="GameMap::MoveMapDown" ref="7466202e8f2bd3ae188ddcbd7e50a023" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GameMap::MoveMapDown           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="90fe97ecdcee40995d8e5fa86857cf5c"></a><!-- doxytag: member="GameMap::MoveMapLeft" ref="90fe97ecdcee40995d8e5fa86857cf5c" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GameMap::MoveMapLeft           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="e76fd062e8e47331e7e999dbea0f0486"></a><!-- doxytag: member="GameMap::MoveMapRight" ref="e76fd062e8e47331e7e999dbea0f0486" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GameMap::MoveMapRight           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="e9b33ef01ca643a2389e7be0ebf838b1"></a><!-- doxytag: member="GameMap::MoveMapUp" ref="e9b33ef01ca643a2389e7be0ebf838b1" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GameMap::MoveMapUp           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Apr 2 14:43:09 2009 for Platform 2D Game Engine by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

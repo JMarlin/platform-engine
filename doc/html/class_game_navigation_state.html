@@ -16,21 +16,33 @@
   <div class="tabs">
     <ul>
       <li><a href="annotated.html"><span>Class&nbsp;List</span></a></li>
+      <li><a href="hierarchy.html"><span>Class&nbsp;Hierarchy</span></a></li>
       <li><a href="functions.html"><span>Class&nbsp;Members</span></a></li>
     </ul>
   </div>
 </div>
 <div class="contents">
-<h1>GameNavigationState Class Reference</h1><!-- doxytag: class="GameNavigationState" -->The state in which game world navigation takes place.  
+<h1>GameNavigationState Class Reference</h1><!-- doxytag: class="GameNavigationState" --><!-- doxytag: inherits="GameState" -->The state in which game world navigation takes place.  
 <a href="#_details">More...</a>
 <p>
 <code>#include &lt;<a class="el" href="_game_navigation_state_8h-source.html">GameNavigationState.h</a>&gt;</code>
 <p>
+<div class="dynheader">
+Inheritance diagram for GameNavigationState:</div>
+<div class="dynsection">
+
+<p><center><img src="class_game_navigation_state.png" usemap="#GameNavigationState_map" border="0" alt=""></center>
+<map name="GameNavigationState_map">
+<area href="class_game_state.html" alt="GameState" shape="rect" coords="0,0,132,24">
+</map>
+</div>
 
 <p>
 <a href="class_game_navigation_state-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_navigation_state.html#6a3b93831c85eb5dc3de0a53ca13ddfc">GameNavigationState</a> ()</td></tr>
+
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_navigation_state.html#8f613860bf544476ab9cff9fb7f98201">Init</a> ()</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_navigation_state.html#f93a7dbb7eac4b14a6d59cbca32b9abd">Cleanup</a> ()</td></tr>
@@ -39,11 +51,11 @@
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_navigation_state.html#4d6aee55eddb1978f493206d985fb950">Resume</a> ()</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_navigation_state.html#1903be15338da11029cb5ec22729bce2">HandleEvents</a> (<a class="el" href="class_platform_engine.html">PlatformEngine</a> *game)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_navigation_state.html#c47e8f7b8802e7b7e7b5076c20313596">HandleEvents</a> (<a class="el" href="class_platform_engine.html">PlatformEngine</a> *game, SDL_Event &amp;event)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_navigation_state.html#90f5e6d6287a875d8f2737180f46a004">Update</a> (<a class="el" href="class_platform_engine.html">PlatformEngine</a> *game)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_navigation_state.html#06e4fc064c040cf230fb425bfe9eb96c">Draw</a> (<a class="el" href="class_platform_engine.html">PlatformEngine</a> *game)=0</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_navigation_state.html#a37dce070a906454c512192c067fda09">Draw</a> (<a class="el" href="class_platform_engine.html">PlatformEngine</a> *game)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_navigation_state.html#fd803365fe0a32b60cf9105ee45b4042">MovePlayerUp</a> ()</td></tr>
 
@@ -52,9 +64,6 @@
 <tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_navigation_state.html#b8ee346a4f4be2cc3478fdacfb770464">MovePlayerLeft</a> ()</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_navigation_state.html#0b505a64bcf97883bb9e15d0d008174e">MovePlayerRight</a> ()</td></tr>
-
-<tr><td colspan="2"><br><h2>Protected Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_navigation_state.html#6a3b93831c85eb5dc3de0a53ca13ddfc">GameNavigationState</a> ()</td></tr>
 
 <tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="class_game_map.html">GameMap</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_game_navigation_state.html#83154f9523275696f30c13447e1d74f3">theMap</a></td></tr>
@@ -73,7 +82,7 @@ While in this state, the game's operation revolves around the movement of a play
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td><code> [inline, protected]</code></td>
+          <td></td>
         </tr>
       </table>
 </div>
@@ -93,17 +102,19 @@ While in this state, the game's operation revolves around the movement of a play
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td></td>
+          <td><code> [virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
+Does any last-minute operations before the termination of the navigation state. 
+<p>Implements <a class="el" href="class_game_state.html#041e7a5430d71da84745af11abdacd93">GameState</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="06e4fc064c040cf230fb425bfe9eb96c"></a><!-- doxytag: member="GameNavigationState::Draw" ref="06e4fc064c040cf230fb425bfe9eb96c" args="(PlatformEngine *game)=0" -->
+<a class="anchor" name="a37dce070a906454c512192c067fda09"></a><!-- doxytag: member="GameNavigationState::Draw" ref="a37dce070a906454c512192c067fda09" args="(PlatformEngine *game)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -113,17 +124,25 @@ While in this state, the game's operation revolves around the movement of a play
           <td class="paramtype"><a class="el" href="class_platform_engine.html">PlatformEngine</a> *&nbsp;</td>
           <td class="paramname"> <em>game</em>          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td><code> [pure virtual]</code></td>
+          <td><code> [virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
+Draws the contents of the state, including the map and the player, to the engine's main screen.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>game</em>&nbsp;</td><td>A pointer to the game engine </td></tr>
+  </table>
+</dl>
+
+<p>Implements <a class="el" href="class_game_state.html#7333dda0f49b3fa1c01cd3295f853024">GameState</a>.</p>
 
 </div>
 </div><p>
-<a class="anchor" name="1903be15338da11029cb5ec22729bce2"></a><!-- doxytag: member="GameNavigationState::HandleEvents" ref="1903be15338da11029cb5ec22729bce2" args="(PlatformEngine *game)" -->
+<a class="anchor" name="c47e8f7b8802e7b7e7b5076c20313596"></a><!-- doxytag: member="GameNavigationState::HandleEvents" ref="c47e8f7b8802e7b7e7b5076c20313596" args="(PlatformEngine *game, SDL_Event &amp;event)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -131,15 +150,33 @@ While in this state, the game's operation revolves around the movement of a play
           <td class="memname">void GameNavigationState::HandleEvents           </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="class_platform_engine.html">PlatformEngine</a> *&nbsp;</td>
-          <td class="paramname"> <em>game</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
+          <td class="paramname"> <em>game</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">SDL_Event &amp;&nbsp;</td>
+          <td class="paramname"> <em>event</em></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td><code> [virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
+Handles event triggers for this state, including the movement of the player within the map.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>game</em>&nbsp;</td><td>A pointer to the game engine </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>event</em>&nbsp;</td><td>Reference to the last polled SDL_Event </td></tr>
+  </table>
+</dl>
+
+<p>Implements <a class="el" href="class_game_state.html#82a31f1480fc637829d6630c01570d4c">GameState</a>.</p>
 
 </div>
 </div><p>
@@ -152,13 +189,15 @@ While in this state, the game's operation revolves around the movement of a play
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td></td>
+          <td><code> [virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
+Configures assets specific to this state; particularly assets involved with map construction. 
+<p>Implements <a class="el" href="class_game_state.html#eec488593bae214c0f738bd64dafba32">GameState</a>.</p>
 
 </div>
 </div><p>
@@ -178,6 +217,8 @@ While in this state, the game's operation revolves around the movement of a play
 <div class="memdoc">
 
 <p>
+Gives the impression of the player moving "down" on the map by moving everything else upward and possibly triggering a movement animation for the player's image. Fails if there is a collision between the player and a map object.<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>True if the movement succeeds, false if there is collision </dd></dl>
 
 </div>
 </div><p>
@@ -197,6 +238,8 @@ While in this state, the game's operation revolves around the movement of a play
 <div class="memdoc">
 
 <p>
+Gives the impression of the player moving "left" on the map by moving everything else to the right and possibly triggering a movement animation for the player's image. Fails if there is a collision between the player and a map object.<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>True if the movement succeeds, false if there is collision </dd></dl>
 
 </div>
 </div><p>
@@ -216,6 +259,8 @@ While in this state, the game's operation revolves around the movement of a play
 <div class="memdoc">
 
 <p>
+Gives the impression of the player moving "right" on the map by moving everything else leftward and possibly triggering a movement animation for the player's image. Fails if there is a collision between the player and a map object.<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>True if the movement succeeds, false if there is collision </dd></dl>
 
 </div>
 </div><p>
@@ -235,6 +280,8 @@ While in this state, the game's operation revolves around the movement of a play
 <div class="memdoc">
 
 <p>
+Gives the impression of the player moving "up" on the map by moving everything else downward and possibly triggering a movement animation for the player's image. Fails if there is a collision between the player and a map object.<p>
+<dl class="return" compact><dt><b>Returns:</b></dt><dd>True if the movement succeeds, false if there is collision </dd></dl>
 
 </div>
 </div><p>
@@ -247,13 +294,15 @@ While in this state, the game's operation revolves around the movement of a play
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td></td>
+          <td><code> [virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
+Pauses the execution of this state until further notice, assuming it is currently running. If it is already paused, this has no effect. 
+<p>Implements <a class="el" href="class_game_state.html#1f4d2b5a2e4dcb7645e3e7a5735926a6">GameState</a>.</p>
 
 </div>
 </div><p>
@@ -266,13 +315,15 @@ While in this state, the game's operation revolves around the movement of a play
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td></td>
+          <td><code> [virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
+Resumes the execution of this state, if it has been paused previously; otherwise it has no effect. 
+<p>Implements <a class="el" href="class_game_state.html#cf9bcd5b47ebb3f572389f64c5ca5ed4">GameState</a>.</p>
 
 </div>
 </div><p>
@@ -286,13 +337,21 @@ While in this state, the game's operation revolves around the movement of a play
           <td class="paramtype"><a class="el" href="class_platform_engine.html">PlatformEngine</a> *&nbsp;</td>
           <td class="paramname"> <em>game</em>          </td>
           <td>&nbsp;)&nbsp;</td>
-          <td></td>
+          <td><code> [virtual]</code></td>
         </tr>
       </table>
 </div>
 <div class="memdoc">
 
 <p>
+Does any necessary logic updates to bring the game's data up to date with the actions of the player or anything else in the game.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>game</em>&nbsp;</td><td>A pointer to the game engine </td></tr>
+  </table>
+</dl>
+
+<p>Implements <a class="el" href="class_game_state.html#100ca49bc95afce1d5c5b756708bbc2b">GameState</a>.</p>
 
 </div>
 </div><p>
@@ -313,7 +372,7 @@ While in this state, the game's operation revolves around the movement of a play
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Mar 30 22:07:02 2009 for Platform 2D Game Engine by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Apr 2 14:43:10 2009 for Platform 2D Game Engine by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

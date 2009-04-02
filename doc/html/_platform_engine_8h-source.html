@@ -53,50 +53,52 @@
 <a name="l00033"></a>00033 <span class="comment">/**********************************************************/</span>
 <a name="l00040"></a><a class="code" href="class_platform_engine.html">00040</a> <span class="keyword">class </span><a class="code" href="class_platform_engine.html" title="The game engine instance.">PlatformEngine</a> {
 <a name="l00041"></a>00041         <span class="keyword">public</span>:
-<a name="l00042"></a>00042                 <span class="comment">//** Prepares engine subsystems and assets</span>
-<a name="l00043"></a>00043                 <span class="keywordtype">void</span> <a class="code" href="class_platform_engine.html#31d40c1f435565850964c6e9f212baa5">Init</a>( <span class="keyword">const</span> <span class="keywordtype">char</span>* title );
-<a name="l00044"></a>00044 
-<a name="l00045"></a>00045                 <span class="comment">//** Clears up any engine assets before the program ends.</span>
-<a name="l00046"></a>00046                 <span class="keywordtype">void</span> <a class="code" href="class_platform_engine.html#361b54312d9ec2fa842cd982f67100f9">Cleanup</a>();
-<a name="l00047"></a>00047                 
-<a name="l00048"></a>00048                 <span class="comment">//** Explicitly changes the state of the engine.</span>
-<a name="l00049"></a>00049                 <span class="keywordtype">void</span> <a class="code" href="class_platform_engine.html#d2b335545c9ab6bce7be7c014bc8c528">ChangeState</a>( <a class="code" href="class_game_state.html" title="A state of behavior for the engine.">GameState</a>* state );
-<a name="l00050"></a>00050                 
-<a name="l00051"></a>00051                 <span class="comment">//** Puts a new state onto the engine state stack.</span>
-<a name="l00052"></a>00052                 <span class="keywordtype">void</span> <a class="code" href="class_platform_engine.html#98e3d34b6ee831bcc1d26bac83bfe8d8">PushState</a>( <a class="code" href="class_game_state.html" title="A state of behavior for the engine.">GameState</a>* state );
-<a name="l00053"></a>00053 
-<a name="l00054"></a>00054                 <span class="comment">//** Ends the top state on the engine stack.</span>
-<a name="l00055"></a>00055                 <span class="keywordtype">void</span> <a class="code" href="class_platform_engine.html#cf001abec596906465197d1220db2230">PopState</a>();
-<a name="l00056"></a>00056                 
-<a name="l00057"></a>00057                 <span class="comment">//** Processes user input events.</span>
-<a name="l00058"></a>00058                 <span class="keywordtype">void</span> <a class="code" href="class_platform_engine.html#7fc47bff353292f1a1435d78664df36d">HandleEvents</a>();
-<a name="l00059"></a>00059 
-<a name="l00060"></a>00060                 <span class="comment">//** Brings the game logic up-to-date.</span>
-<a name="l00061"></a>00061                 <span class="keywordtype">void</span> <a class="code" href="class_platform_engine.html#d3ab75304226ad3fcac6b66ce3cedbc7">Update</a>();
-<a name="l00062"></a>00062 
-<a name="l00063"></a>00063                 <span class="comment">//** Draws necessary surfaces to the screen.</span>
-<a name="l00064"></a>00064                 <span class="keywordtype">void</span> <a class="code" href="class_platform_engine.html#cd756d58f81c5e28efe98ae075367a5c">Draw</a>();
-<a name="l00065"></a>00065                 
-<a name="l00066"></a>00066                 <span class="comment">//** Returns whether or not the game loop is running.</span>
-<a name="l00067"></a><a class="code" href="class_platform_engine.html#31ec37c0222f4694cc3c0e819e143038">00067</a>                 <span class="keywordtype">bool</span> <a class="code" href="class_platform_engine.html#31ec37c0222f4694cc3c0e819e143038">Running</a>() { <span class="keywordflow">return</span> running; }
-<a name="l00068"></a>00068 
-<a name="l00069"></a>00069                 <span class="comment">//** Halts the game loop.</span>
-<a name="l00070"></a><a class="code" href="class_platform_engine.html#dbcdd91813cabbe51bb2f86eb23e772a">00070</a>                 <span class="keywordtype">void</span> <a class="code" href="class_platform_engine.html#dbcdd91813cabbe51bb2f86eb23e772a">Quit</a>() { running = <span class="keyword">false</span>; }
-<a name="l00071"></a>00071 
-<a name="l00072"></a>00072         <span class="keyword">private</span>:
-<a name="l00073"></a>00073                 <span class="comment">//** Stack of game states. The top state is the active one.</span>
-<a name="l00074"></a>00074                 stack&lt; GameState* &gt; stateStack;
-<a name="l00075"></a>00075                 
-<a name="l00076"></a>00076                 <span class="comment">//** The primary SDL_Surface that images are drawn to.</span>
-<a name="l00077"></a>00077                 SDL_Surface* mainScreen;
-<a name="l00078"></a>00078                 
-<a name="l00079"></a>00079                 <span class="comment">//** Controls whether or not the game loop is active.</span>
-<a name="l00080"></a>00080                 <span class="keywordtype">bool</span> running;
-<a name="l00081"></a>00081 };
-<a name="l00082"></a>00082 
-<a name="l00083"></a>00083 <span class="preprocessor">#endif</span>
+<a name="l00042"></a>00042                 <a class="code" href="class_platform_engine.html#9d45e2da5a9b7e52d8c5636f70068e11">PlatformEngine</a>();
+<a name="l00043"></a>00043                 
+<a name="l00044"></a>00044                 <span class="comment">//** Prepares engine subsystems and assets</span>
+<a name="l00045"></a>00045                 <span class="keywordtype">void</span> <a class="code" href="class_platform_engine.html#31d40c1f435565850964c6e9f212baa5">Init</a>( <span class="keyword">const</span> <span class="keywordtype">char</span>* title );
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047                 <span class="comment">//** Clears up any engine assets before the program ends.</span>
+<a name="l00048"></a>00048                 <span class="keywordtype">void</span> <a class="code" href="class_platform_engine.html#361b54312d9ec2fa842cd982f67100f9">Cleanup</a>();
+<a name="l00049"></a>00049                 
+<a name="l00050"></a>00050                 <span class="comment">//** Explicitly changes the state of the engine.</span>
+<a name="l00051"></a>00051                 <span class="keywordtype">void</span> <a class="code" href="class_platform_engine.html#d2b335545c9ab6bce7be7c014bc8c528">ChangeState</a>( <a class="code" href="class_game_state.html" title="A state of behavior for the engine.">GameState</a>* state );
+<a name="l00052"></a>00052                 
+<a name="l00053"></a>00053                 <span class="comment">//** Puts a new state onto the engine state stack.</span>
+<a name="l00054"></a>00054                 <span class="keywordtype">void</span> <a class="code" href="class_platform_engine.html#98e3d34b6ee831bcc1d26bac83bfe8d8">PushState</a>( <a class="code" href="class_game_state.html" title="A state of behavior for the engine.">GameState</a>* state );
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056                 <span class="comment">//** Ends the top state on the engine stack.</span>
+<a name="l00057"></a>00057                 <span class="keywordtype">void</span> <a class="code" href="class_platform_engine.html#cf001abec596906465197d1220db2230">PopState</a>();
+<a name="l00058"></a>00058                 
+<a name="l00059"></a>00059                 <span class="comment">//** Processes user input events.</span>
+<a name="l00060"></a>00060                 <span class="keywordtype">void</span> <a class="code" href="class_platform_engine.html#7fc47bff353292f1a1435d78664df36d">HandleEvents</a>();
+<a name="l00061"></a>00061 
+<a name="l00062"></a>00062                 <span class="comment">//** Brings the game logic up-to-date.</span>
+<a name="l00063"></a>00063                 <span class="keywordtype">void</span> <a class="code" href="class_platform_engine.html#d3ab75304226ad3fcac6b66ce3cedbc7">Update</a>();
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065                 <span class="comment">//** Draws necessary surfaces to the screen.</span>
+<a name="l00066"></a>00066                 <span class="keywordtype">void</span> <a class="code" href="class_platform_engine.html#cd756d58f81c5e28efe98ae075367a5c">Draw</a>();
+<a name="l00067"></a>00067                 
+<a name="l00068"></a>00068                 <span class="comment">//** Returns whether or not the game loop is running.</span>
+<a name="l00069"></a><a class="code" href="class_platform_engine.html#31ec37c0222f4694cc3c0e819e143038">00069</a>                 <span class="keywordtype">bool</span> <a class="code" href="class_platform_engine.html#31ec37c0222f4694cc3c0e819e143038">Running</a>() { <span class="keywordflow">return</span> running; }
+<a name="l00070"></a>00070 
+<a name="l00071"></a>00071                 <span class="comment">//** Halts the game loop.</span>
+<a name="l00072"></a><a class="code" href="class_platform_engine.html#dbcdd91813cabbe51bb2f86eb23e772a">00072</a>                 <span class="keywordtype">void</span> <a class="code" href="class_platform_engine.html#dbcdd91813cabbe51bb2f86eb23e772a">Quit</a>() { running = <span class="keyword">false</span>; }
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074         <span class="keyword">private</span>:
+<a name="l00075"></a>00075                 <span class="comment">//** Stack of game states. The top state is the active one.</span>
+<a name="l00076"></a>00076                 stack&lt; GameState* &gt; stateStack;
+<a name="l00077"></a>00077                 
+<a name="l00078"></a>00078                 <span class="comment">//** The primary SDL_Surface that images are drawn to.</span>
+<a name="l00079"></a>00079                 SDL_Surface* mainScreen;
+<a name="l00080"></a>00080                 
+<a name="l00081"></a>00081                 <span class="comment">//** Controls whether or not the game loop is active.</span>
+<a name="l00082"></a>00082                 <span class="keywordtype">bool</span> running;
+<a name="l00083"></a>00083 };
+<a name="l00084"></a>00084 
+<a name="l00085"></a>00085 <span class="preprocessor">#endif</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon Mar 30 22:07:02 2009 for Platform 2D Game Engine by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Apr 2 14:43:09 2009 for Platform 2D Game Engine by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

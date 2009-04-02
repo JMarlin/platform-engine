@@ -1,4 +1,4 @@
-.TH "GameState" 3 "30 Mar 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
+.TH "GameState" 3 "2 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -10,9 +10,14 @@ GameState \- A state of behavior for the engine.
 .PP
 \fC#include <GameState.h>\fP
 .PP
+Inherited by \fBGameNavigationState\fP.
+.PP
 .SS "Public Member Functions"
 
 .in +1c
+.ti -1c
+.RI "\fBGameState\fP ()"
+.br
 .ti -1c
 .RI "virtual void \fBInit\fP ()=0"
 .br
@@ -26,7 +31,7 @@ GameState \- A state of behavior for the engine.
 .RI "virtual void \fBResume\fP ()=0"
 .br
 .ti -1c
-.RI "virtual void \fBHandleEvents\fP (\fBPlatformEngine\fP *game)=0"
+.RI "virtual void \fBHandleEvents\fP (\fBPlatformEngine\fP *game, SDL_Event &event)=0"
 .br
 .ti -1c
 .RI "virtual void \fBUpdate\fP (\fBPlatformEngine\fP *game)=0"
@@ -38,13 +43,6 @@ GameState \- A state of behavior for the engine.
 .RI "void \fBChangeState\fP (\fBPlatformEngine\fP *game, \fBGameState\fP *state)"
 .br
 .in -1c
-.SS "Protected Member Functions"
-
-.in +1c
-.ti -1c
-.RI "\fBGameState\fP ()"
-.br
-.in -1c
 .SH "Detailed Description"
 .PP 
 A state of behavior for the engine. 
@@ -54,7 +52,7 @@ A Game State is a layer on top of the default engine behavior that requires a cu
 This class in particular is an abstract class, not intended for actual use. The derivative classes, which are the different kinds of states, are used in normal program operations. 
 .SH "Constructor & Destructor Documentation"
 .PP 
-.SS "GameState::GameState ()\fC [protected]\fP"
+.SS "GameState::GameState ()"
 .PP
 .SH "Member Function Documentation"
 .PP 
@@ -62,19 +60,25 @@ This class in particular is an abstract class, not intended for actual use. The 
 .PP
 .SS "virtual void GameState::Cleanup ()\fC [pure virtual]\fP"
 .PP
+Implemented in \fBGameNavigationState\fP.
 .SS "virtual void GameState::Draw (\fBPlatformEngine\fP * game)\fC [pure virtual]\fP"
 .PP
-.SS "virtual void GameState::HandleEvents (\fBPlatformEngine\fP * game)\fC [pure virtual]\fP"
+Implemented in \fBGameNavigationState\fP.
+.SS "virtual void GameState::HandleEvents (\fBPlatformEngine\fP * game, SDL_Event & event)\fC [pure virtual]\fP"
 .PP
+Implemented in \fBGameNavigationState\fP.
 .SS "virtual void GameState::Init ()\fC [pure virtual]\fP"
 .PP
+Implemented in \fBGameNavigationState\fP.
 .SS "virtual void GameState::Pause ()\fC [pure virtual]\fP"
 .PP
+Implemented in \fBGameNavigationState\fP.
 .SS "virtual void GameState::Resume ()\fC [pure virtual]\fP"
 .PP
+Implemented in \fBGameNavigationState\fP.
 .SS "virtual void GameState::Update (\fBPlatformEngine\fP * game)\fC [pure virtual]\fP"
 .PP
-
+Implemented in \fBGameNavigationState\fP.
 
 .SH "Author"
 .PP 

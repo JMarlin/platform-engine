@@ -1,6 +1,6 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <html><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-<title>Platform 2D Game Engine: C:/prog/platform-engine/src/GameLoopDelay.h Source File</title>
+<title>Platform 2D Game Engine: C:/prog/platform-engine/src/GameMapLayer.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css">
 <link href="doxygen.css" rel="stylesheet" type="text/css">
 </head><body>
@@ -18,7 +18,7 @@
       <li><a href="files.html"><span>File&nbsp;List</span></a></li>
     </ul>
   </div>
-<h1>C:/prog/platform-engine/src/GameLoopDelay.h</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/***************************************************************************</span>
+<h1>C:/prog/platform-engine/src/GameMapLayer.h</h1><div class="fragment"><pre class="fragment"><a name="l00001"></a>00001 <span class="comment">/***************************************************************************</span>
 <a name="l00002"></a>00002 <span class="comment">    © Copyright 2009 Patrick VanDusen</span>
 <a name="l00003"></a>00003 <span class="comment"></span>
 <a name="l00004"></a>00004 <span class="comment">    This file is part of the Platform 2D Game Engine, </span>
@@ -38,18 +38,31 @@
 <a name="l00018"></a>00018 <span class="comment">    along with Platform.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span>
 <a name="l00019"></a>00019 <span class="comment">***************************************************************************/</span>
 <a name="l00020"></a>00020 
-<a name="l00021"></a>00021 <span class="preprocessor">#ifndef GAMELOOPDELAY_H</span>
-<a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define GAMELOOPDELAY_H</span>
+<a name="l00021"></a>00021 <span class="preprocessor">#ifndef GAMEMAPLAYER_H</span>
+<a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define GAMEMAPLAYER_H</span>
 <a name="l00023"></a>00023 <span class="preprocessor"></span>
-<a name="l00024"></a>00024 <span class="preprocessor">#define TICK_INTERVAL 17</span>
-<a name="l00025"></a>00025 <span class="preprocessor"></span>
-<a name="l00026"></a>00026 <span class="comment">//** The tick at which the next update will occur</span>
-<a name="l00027"></a>00027 <span class="keyword">static</span> Uint32 nextTime;
-<a name="l00028"></a>00028 
-<a name="l00029"></a>00029 <span class="comment">//** Function calculating the number of ticks before the next update</span>
-<a name="l00030"></a>00030 Uint32 time_left();
+<a name="l00024"></a>00024 <span class="preprocessor">#include "SDL.h"</span>
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 <span class="preprocessor">#include "PlatformEngine.h"</span>
+<a name="l00027"></a>00027 
+<a name="l00028"></a>00028 <span class="preprocessor">#include &lt;stack&gt;</span>
+<a name="l00029"></a>00029 
+<a name="l00030"></a>00030 <span class="keyword">using</span> std::stack;
 <a name="l00031"></a>00031 
-<a name="l00032"></a>00032 <span class="preprocessor">#endif</span>
+<a name="l00032"></a>00032 <span class="comment">/**********************************************************/</span>
+<a name="l00040"></a><a class="code" href="class_game_map_layer.html">00040</a> <span class="keyword">class </span><a class="code" href="class_game_map_layer.html" title="A section of the map object.">GameMapLayer</a> {
+<a name="l00041"></a>00041         <span class="keyword">public</span>:
+<a name="l00042"></a>00042                 <a class="code" href="class_game_map_layer.html#92a1d055fbbf7f7c2d974038596b857e">GameMapLayer</a>();
+<a name="l00043"></a>00043                 
+<a name="l00044"></a>00044                 <span class="comment">//** Draws the content of the layer to the engine screen</span>
+<a name="l00045"></a>00045                 <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="class_game_map_layer.html#9dee822c9ebe63b636039d06d43a8a32">Draw</a>( <a class="code" href="class_platform_engine.html" title="The game engine instance.">PlatformEngine</a>* game ) = 0; 
+<a name="l00046"></a>00046 
+<a name="l00047"></a>00047         <span class="keyword">private</span>:
+<a name="l00048"></a>00048                 <span class="comment">//** The image of the layer</span>
+<a name="l00049"></a>00049                 SDL_Surface* layerImage;
+<a name="l00050"></a>00050 };
+<a name="l00051"></a>00051 
+<a name="l00052"></a>00052 <span class="preprocessor">#endif</span>
 </pre></div></div>
 <hr size="1"><address style="text-align: right;"><small>Generated on Thu Apr 2 14:43:09 2009 for Platform 2D Game Engine by&nbsp;
 <a href="http://www.doxygen.org/index.html">
