@@ -34,8 +34,10 @@
  * rendering of the world map itself, while having player 
  * and event controls done internally.
  *************************************************************/
-class GameNavigationState {
+class GameNavigationState : public GameState {
 	public:
+		GameNavigationState();
+
 		//** Prepares state subsystems and scripts.
 		void Init();
 
@@ -49,13 +51,14 @@ class GameNavigationState {
 		void Resume();
 
 		//** Handles any events that are particular to the state
-		void HandleEvents(  PlatformEngine* game );
+		void HandleEvents(  PlatformEngine* game,
+			       SDL_Event& event	);
 
 		//** Updates the state's logic
 		void Update( 	    PlatformEngine* game );
 		
 		//** Draws the visual content of the state to the engine. 
-		void Draw( 	    PlatformEngine* game ) = 0;
+		void Draw( 	    PlatformEngine* game );
 		
 		//** Acts as if the Player is moving 'upward'
 		bool MovePlayerUp();
@@ -70,7 +73,6 @@ class GameNavigationState {
 		bool MovePlayerRight();
 
 	protected:
-		GameNavigationState() { GameState(); }
 		
 		//** Object representing the entire map used in this state
 		GameMap* theMap;

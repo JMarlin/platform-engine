@@ -28,6 +28,10 @@
 #include "PlatformEngine.h"
 #include "GameState.h"
 
+PlatformEngine::PlatformEngine() {
+	mainScreen = NULL;
+}
+
 /**********************************************************//**
  *   The Init function sets up the game assets; aside from  
  * just initializing the SDL subsystems, it also loads any 
@@ -45,7 +49,9 @@ void PlatformEngine::Init( const char* title ) {
 
 	SDL_WM_SetCaption( title, NULL );
 
-	SDL_Surface* mainScreen = SDL_SetVideoMode( 640, 480, 0, 0 );
+	mainScreen = SDL_SetVideoMode( 640, 480, 32, 
+				       SDL_HWSURFACE 
+					| SDL_DOUBLEBUF );
 }
 
 /**********************************************************//**
@@ -109,7 +115,9 @@ void PlatformEngine::HandleEvents() {
  * and states remaining on the stack.
  *************************************************************/
 void PlatformEngine::Cleanup() {
-	//SDL_FreeSurface( mainScreen );
+	if ( mainScreen != NULL ) {
+		SDL_FreeSurface( mainScreen );
+	}
 
 	SDL_Quit();
 }

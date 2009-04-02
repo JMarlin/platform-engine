@@ -43,6 +43,8 @@
  *************************************************************/
 class GameState {
 	public:
+		GameState();
+
 		//** Prepares state subsystems and scripts.
 		virtual void Init() = 0;
 
@@ -71,8 +73,6 @@ class GameState {
 			game->ChangeState( state );
 		}
 
-	protected:
-		GameState();
 
 	private:
 		bool running;

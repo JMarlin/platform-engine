@@ -18,35 +18,67 @@
     along with Platform.  If not, see <http://www.gnu.org/licenses/>.
 ***************************************************************************/
 
-#include "SDL.h"
+#ifndef GAMENAVIGATIONSTATE_CPP
+#define GAMENAVIGATIONSTATE_CPP
 
-#include "PlatformEngine.h"
-#include "GameLoopDelay.h"
 #include "GameNavigationState.h"
 
-const char* title = "Platform Engine Test v0.0.1 Pre-Alpha\0";
-
-int main( int argc, char* argv[] ) {
-
-	PlatformEngine game;
-
-	game.Init( title );
-	
-	nextTime = SDL_GetTicks() + TICK_INTERVAL;
-
-	// When written, the next line will initialize the intro state.
-	game.ChangeState( new GameNavigationState );
-
-	while ( game.Running() ) {
-		game.HandleEvents();
-		game.Update();
-		game.Draw();
-
-		SDL_Delay( time_left() );
-		nextTime += TICK_INTERVAL;
-	}
-
-	game.Cleanup();	
-
-	return 0;
+GameNavigationState::GameNavigationState() {
+	return;
 }
+
+void GameNavigationState::Init() {
+	return;
+}
+
+void GameNavigationState::Cleanup() {
+	return;
+}
+
+void GameNavigationState::Pause() {
+	return;
+}
+
+void GameNavigationState::Resume() {
+	return;
+}
+
+void GameNavigationState::HandleEvents( PlatformEngine* game,
+					SDL_Event& event ) {
+	switch( event.type ) {
+		case SDL_KEYDOWN:
+			switch ( event.key.keysym.sym ) {
+				case SDLK_UP:
+					game->Quit();
+					break;
+			}
+
+			break;
+	}
+}
+
+void GameNavigationState::Update( PlatformEngine* game ) {
+	return;
+}
+
+void GameNavigationState::Draw( PlatformEngine* game ) {
+	return;
+}
+
+bool GameNavigationState::MovePlayerUp() {
+	return false;
+}
+
+bool GameNavigationState::MovePlayerDown() {
+	return false;
+}
+
+bool GameNavigationState::MovePlayerLeft() {
+	return false;
+}
+
+bool GameNavigationState::MovePlayerRight() {
+	return false;
+}
+
+#endif

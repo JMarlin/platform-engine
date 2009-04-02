@@ -39,6 +39,8 @@ using std::stack;
  *************************************************************/
 class PlatformEngine {
 	public:
+		PlatformEngine();
+		
 		//** Prepares engine subsystems and assets
 		void Init( const char* title );
 
