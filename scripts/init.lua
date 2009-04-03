@@ -21,7 +21,7 @@
 -- GAME INFORMATION --
 title = "Platform Engine Test"	-- Game title
 version = 0			-- Major version number
-release = 1			-- Minor version number
+release = 0			-- Minor version number
 subrelease = 1			-- Point release number
 status = "Pre-Alpha"		-- Development status, or nick name
 

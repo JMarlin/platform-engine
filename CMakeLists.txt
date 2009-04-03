@@ -18,8 +18,8 @@
 
 cmake_minimum_required( VERSION 2.6 )
 
-set( CMAKE_MODULE_PATH 
-	${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/" )
+#set( CMAKE_MODULE_PATH 
+#	${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/" )
 
 project( platform-engine )
 
@@ -30,6 +30,10 @@ set( CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/" )
 find_package( SDL REQUIRED )
 
 find_package( Lua51 REQUIRED )
+
+#set(Boost_USE_STATIC_LIBS   ON)
+#set(Boost_USE_MULTITHREADED ON)
+#find_package( Boost COMPONENTS filesystem REQUIRED )
 
 set ( SOURCES
 	${SRCDIR}/main.cpp
@@ -46,7 +50,9 @@ link_libraries (
    ${SDL_LIBRARY}
    #   ${SDLIMAGE_LIBRARY} # if using SDL_image, obviously
    ${SDLMAIN_LIBRARY} # Sadly not included in SDL_LIBRARY variable
+   ${LUA_LIBRARIES}
 )
+
 
 add_executable (
    platform-engine

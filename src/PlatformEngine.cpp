@@ -24,10 +24,11 @@
 #include <iostream>
 
 #include "SDL.h"
+#include "luainc.h"
+//#include "boost/filesystem.hpp"
 
 #include "PlatformEngine.h"
 #include "GameState.h"
-#include "luainc.h"
 
 using std::cerr;
 
@@ -50,6 +51,8 @@ void PlatformEngine::Init( const char* title ) {
 	
 	lua_close( L );
 
+	//luaL_dofile( L, "../../script/init.lua" );
+
 	if ( SDL_Init( SDL_INIT_VIDEO 
 			| SDL_INIT_TIMER ) == -1 ) {
 		cerr << "Failed to initialize subsystems; "
@@ -59,7 +62,7 @@ void PlatformEngine::Init( const char* title ) {
 	SDL_WM_SetCaption( title, NULL );
 
 	mainScreen = SDL_SetVideoMode( 640, 480, 32, 
-				       SDL_HWSURFACE 
+					SDL_HWSURFACE 
 					| SDL_DOUBLEBUF );
 
 }
