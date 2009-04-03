@@ -33,6 +33,7 @@ find_package( Lua51 REQUIRED )
 
 set ( SOURCES
 	${SRCDIR}/main.cpp
+	${SRCDIR}/luainc.h
 	${SRCDIR}/GameLoopDelay.h	${SRCDIR}/GameLoopDelay.cpp
 	${SRCDIR}/PlatformEngine.h	${SRCDIR}/PlatformEngine.cpp
 	${SRCDIR}/GameState.h		${SRCDIR}/GameState.cpp

@@ -27,6 +27,9 @@
 
 #include "PlatformEngine.h"
 #include "GameState.h"
+#include "luainc.h"
+
+using std::cerr;
 
 PlatformEngine::PlatformEngine() {
 	mainScreen = NULL;
@@ -40,10 +43,16 @@ PlatformEngine::PlatformEngine() {
  * \param title C-string with the game title, or main window text.
  *************************************************************/
 void PlatformEngine::Init( const char* title ) {
+
+	lua_State *L = luaL_newstate();
+
+	luaL_openlibs( L );
+	
+	lua_close( L );
+
 	if ( SDL_Init( SDL_INIT_VIDEO 
-			| SDL_INIT_TIMER
-		    	| SDL_INIT_EVENTTHREAD ) == -1 ) {
-		std::cout << "Failed to initialize subsystems; "
+			| SDL_INIT_TIMER ) == -1 ) {
+		cerr << "Failed to initialize subsystems; "
 			<< SDL_GetError() << std::endl;
 	}
 
@@ -52,6 +61,7 @@ void PlatformEngine::Init( const char* title ) {
 	mainScreen = SDL_SetVideoMode( 640, 480, 32, 
 				       SDL_HWSURFACE 
 					| SDL_DOUBLEBUF );
+
 }
 
 /**********************************************************//**
