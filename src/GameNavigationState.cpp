@@ -68,18 +68,21 @@ void GameNavigationState::Resume() {
  * \param game A pointer to the game engine
  * \param event Reference to the last polled SDL_Event
  *************************************************************/
-void GameNavigationState::HandleEvents( PlatformEngine* game,
+bool GameNavigationState::HandleEvents( PlatformEngine* game,
 					SDL_Event& event ) {
 	switch( event.type ) {
 		case SDL_KEYDOWN:
 			switch ( event.key.keysym.sym ) {
 				case SDLK_UP:
 					game->Quit();
+					return true;
 					break;
 			}
 
 			break;
 	}
+
+	return false;
 }
 
 /**********************************************************//**

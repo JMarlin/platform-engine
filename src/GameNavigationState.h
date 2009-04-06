@@ -51,7 +51,7 @@ class GameNavigationState : public GameState {
 		void Resume();
 
 		//** Handles any events that are particular to the state
-		void HandleEvents(  PlatformEngine* game,
+		bool HandleEvents(  PlatformEngine* game,
 			       SDL_Event& event	);
 
 		//** Updates the state's logic

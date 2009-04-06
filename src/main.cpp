@@ -35,9 +35,10 @@ int main( int argc, char* argv[] ) {
 	nextTime = SDL_GetTicks() + TICK_INTERVAL;
 
 	// When written, the next line will initialize the intro state.
-	//game.ChangeState( new GameNavigationState );
+	game.PushState( new GameNavigationState );
 
 	while ( game.Running() ) {
+		
 		game.HandleEvents();
 		game.Update();
 		game.Draw();

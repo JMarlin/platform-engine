@@ -51,7 +51,7 @@ void PlatformEngine::Init( const char* title ) {
 	
 	lua_close( L );
 
-	//luaL_dofile( L, "../../script/init.lua" );
+	//luaL_dofile( L, "../../scripts/init.lua" );
 
 	if ( SDL_Init( SDL_INIT_VIDEO 
 			| SDL_INIT_TIMER ) == -1 ) {
@@ -101,8 +101,9 @@ void PlatformEngine::HandleEvents() {
 		if ( !stateStack.empty() ) {
 			GameState* topState= stateStack.top();
 			if ( topState!= NULL ) {
-				topState->HandleEvents( this, event );
-				continue;
+				if ( topState->HandleEvents( this, event )
+						== true ) 
+					continue;
 			}
 		}
 
@@ -131,6 +132,8 @@ void PlatformEngine::Cleanup() {
 	if ( mainScreen != NULL ) {
 		SDL_FreeSurface( mainScreen );
 	}
+
+	while ( !stateStack.empty() ) PopState();
 
 	SDL_Quit();
 }
