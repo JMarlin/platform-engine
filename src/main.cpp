@@ -24,13 +24,13 @@
 #include "GameLoopDelay.h"
 #include "GameNavigationState.h"
 
-const char* title = "Platform Engine Test v0.0.1 Pre-Alpha\0";
+//const char* title = "Platform Engine Test v0.0.1 Pre-Alpha\0";
 
 int main( int argc, char* argv[] ) {
 
 	PlatformEngine game;
 
-	game.Init( title );
+	game.Init();
 	
 	nextTime = SDL_GetTicks() + TICK_INTERVAL;
 

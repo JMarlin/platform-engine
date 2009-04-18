@@ -42,7 +42,7 @@ class PlatformEngine {
 		PlatformEngine();
 		
 		//** Prepares engine subsystems and assets
-		void Init( const char* title );
+		void Init();
 
 		//** Clears up any engine assets before the program ends.
 		void Cleanup();

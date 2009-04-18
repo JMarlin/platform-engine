@@ -30,7 +30,10 @@
 #include "PlatformEngine.h"
 #include "GameState.h"
 
+#include <cstring>
+
 using std::cerr;
+using std::endl;
 
 PlatformEngine::PlatformEngine() {
 	mainScreen = NULL;
@@ -43,15 +46,32 @@ PlatformEngine::PlatformEngine() {
  *
  * \param title C-string with the game title, or main window text.
  *************************************************************/
-void PlatformEngine::Init( const char* title ) {
+void PlatformEngine::Init() {
+	
+	const char* initPath = "../../scripts/init.lua\0";
 
 	lua_State *L = luaL_newstate();
 
-	luaL_openlibs( L );
-	
-	lua_close( L );
+	char* fullTitle = NULL;
 
-	//luaL_dofile( L, "../../scripts/init.lua" );
+	if ( luaL_loadfile( L, initPath ) ) {
+		cerr << "Failed to load " << initPath << endl;
+	}
+	
+	lua_getglobal( L, "title" );
+	if ( !lua_isstring( L, -5 ) ) {
+		cerr << initPath << " - 'title' should be a string.\n";
+	}
+	else {
+		char* title = NULL;
+		strcpy( title, lua_tostring( L, -5 ) );
+		fullTitle = strcat( fullTitle, title ); 
+	}
+
+	lua_getglobal( L, "version" );
+	lua_getglobal( L, "release" );
+	lua_getglobal( L, "subrelease" );
+	lua_getglobal( L, "status" );
 
 	if ( SDL_Init( SDL_INIT_VIDEO 
 			| SDL_INIT_TIMER ) == -1 ) {
@@ -59,7 +79,7 @@ void PlatformEngine::Init( const char* title ) {
 			<< SDL_GetError() << std::endl;
 	}
 
-	SDL_WM_SetCaption( title, NULL );
+	SDL_WM_SetCaption( fullTitle, NULL );
 
 	mainScreen = SDL_SetVideoMode( 640, 480, 32, 
 					SDL_HWSURFACE 
