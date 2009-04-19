@@ -80,6 +80,8 @@ class PlatformEngine {
 		
 		//** Controls whether or not the game loop is active.
 		bool running;
+
+		char* fullTitle;
 };
 
 #endif

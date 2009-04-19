@@ -25,4 +25,9 @@ release = 0			-- Minor version number
 subrelease = 1			-- Point release number
 status = "Pre-Alpha"		-- Development status, or nick name
 
-
+-- DISPLAY SETTINGS --
+screenWidth = 640		-- Horizontal screen resolution
+screenHeight = 480		-- Vertical screen resolution
+screenBits = 32			-- Bits per pixel
+useHardwareMemory = true	-- Flag to use system video memory
+useDoubleBuffering = true	-- Flag to double buffer the main screen

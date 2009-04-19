@@ -12,7 +12,7 @@ The game engine instance.
 \item 
 \hyperlink{class_platform_engine_9d45e2da5a9b7e52d8c5636f70068e11}{PlatformEngine} ()
 \item 
-void \hyperlink{class_platform_engine_31d40c1f435565850964c6e9f212baa5}{Init} (const char $\ast$title)
+void \hyperlink{class_platform_engine_059814bb3f1815b15d5a892f8ea6cb4a}{Init} ()
 \item 
 void \hyperlink{class_platform_engine_361b54312d9ec2fa842cd982f67100f9}{Cleanup} ()
 \item 
@@ -78,11 +78,11 @@ This function's main purpose is to call the drawing function of the current stat
 \label{class_platform_engine_7fc47bff353292f1a1435d78664df36d}
 
 
-This function's main purpose is to call the event handling function of the current state. \hypertarget{class_platform_engine_31d40c1f435565850964c6e9f212baa5}{
+This function's main purpose is to call the event handling function of the current state. \hypertarget{class_platform_engine_059814bb3f1815b15d5a892f8ea6cb4a}{
 \index{PlatformEngine@{PlatformEngine}!Init@{Init}}
 \index{Init@{Init}!PlatformEngine@{PlatformEngine}}
-\subsubsection[{Init}]{\setlength{\rightskip}{0pt plus 5cm}void PlatformEngine::Init (const char $\ast$ {\em title})}}
-\label{class_platform_engine_31d40c1f435565850964c6e9f212baa5}
+\subsubsection[{Init}]{\setlength{\rightskip}{0pt plus 5cm}void PlatformEngine::Init ()}}
+\label{class_platform_engine_059814bb3f1815b15d5a892f8ea6cb4a}
 
 
 The Init function sets up the game assets; aside from just initializing the SDL subsystems, it also loads any configuration scripts.
@@ -92,7 +92,23 @@ The Init function sets up the game assets; aside from just initializing the SDL 
 \begin{description}
 \item[{\em title}]C-string with the game title, or main window text. \end{description}
 \end{Desc}
-\hypertarget{class_platform_engine_cf001abec596906465197d1220db2230}{
+
+
+The script file, \char`\"{}init.lua\char`\"{}, is loaded as a state by this function.
+
+The variables related to identifying the program revision are then loaded from the config file. \char`\"{}title\char`\"{} refers to the actual name of the program; by default this says something like \char`\"{}Platform Test\char`\"{}, but in a game release this should contain the name of the game itself. \char`\"{}version\char`\"{} is the major revision, and normally should only be incremented in a major rewrite, or when going from pre-release to release. \char`\"{}release\char`\"{} refers to an upgrade release, involving new features or enhancements. \char`\"{}subrelease\char`\"{} refers to small changes, and should probably only be used for bugfixes. \char`\"{}status\char`\"{} is an appended title, and it can either be used for codenames, or to indicate development status; for example, \char`\"{}Beta\char`\"{}, \char`\"{}Release Candidate\char`\"{} or \char`\"{}Final\char`\"{}.
+
+The SDL subsystems are then initialized. The Platform engine uses the video and timer subsystems.
+
+The window of the main screen should contain all of the previously entered release identification information.
+
+Next, the global variables for display configuration are parsed. \char`\"{}screenWidth\char`\"{} and \char`\"{}screenHeight\char`\"{} represent the horizontal and vertical dimensions of the display screen. \char`\"{}screenBits\char`\"{} represents the bit depth of the screen.
+
+The next set of variables represent SDL flags that specify the way the screen display will operate. These include, for example, \char`\"{}useHardwareMemory\char`\"{} and \char`\"{}useDoubleBuffering.\char`\"{} Most of these are self-explanatory. If you do not understand the meaning of these flags, it is probably safest to leave them at the default settings.
+
+After being parsed, the flags are then used in the generation of the display screen.
+
+Once the screen has been created, an engine flag indicating that the engine is ready to run is set to \char`\"{}true\char`\"{}, the lua script state is closed, and the program can now begin its primary loop of operation.\hypertarget{class_platform_engine_cf001abec596906465197d1220db2230}{
 \index{PlatformEngine@{PlatformEngine}!PopState@{PopState}}
 \index{PopState@{PopState}!PlatformEngine@{PlatformEngine}}
 \subsubsection[{PopState}]{\setlength{\rightskip}{0pt plus 5cm}void PlatformEngine::PopState ()}}

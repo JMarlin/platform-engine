@@ -1,4 +1,4 @@
-.TH "GameNavigationState" 3 "2 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
+.TH "GameNavigationState" 3 "19 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -31,7 +31,7 @@ Inherits \fBGameState\fP.
 .RI "void \fBResume\fP ()"
 .br
 .ti -1c
-.RI "void \fBHandleEvents\fP (\fBPlatformEngine\fP *game, SDL_Event &event)"
+.RI "bool \fBHandleEvents\fP (\fBPlatformEngine\fP *game, SDL_Event &event)"
 .br
 .ti -1c
 .RI "void \fBUpdate\fP (\fBPlatformEngine\fP *game)"
@@ -87,7 +87,7 @@ Draws the contents of the state, including the map and the player, to the engine
 
 .PP
 Implements \fBGameState\fP.
-.SS "void GameNavigationState::HandleEvents (\fBPlatformEngine\fP * game, SDL_Event & event)\fC [virtual]\fP"
+.SS "bool GameNavigationState::HandleEvents (\fBPlatformEngine\fP * game, SDL_Event & event)\fC [virtual]\fP"
 .PP
 Handles event triggers for this state, including the movement of the player within the map.
 .PP

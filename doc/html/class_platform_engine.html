@@ -34,7 +34,7 @@
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_platform_engine.html#9d45e2da5a9b7e52d8c5636f70068e11">PlatformEngine</a> ()</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_platform_engine.html#31d40c1f435565850964c6e9f212baa5">Init</a> (const char *title)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_platform_engine.html#059814bb3f1815b15d5a892f8ea6cb4a">Init</a> ()</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_platform_engine.html#361b54312d9ec2fa842cd982f67100f9">Cleanup</a> ()</td></tr>
 
@@ -156,15 +156,14 @@ This function's main purpose is to call the drawing function of the current stat
 This function's main purpose is to call the event handling function of the current state. 
 </div>
 </div><p>
-<a class="anchor" name="31d40c1f435565850964c6e9f212baa5"></a><!-- doxytag: member="PlatformEngine::Init" ref="31d40c1f435565850964c6e9f212baa5" args="(const char *title)" -->
+<a class="anchor" name="059814bb3f1815b15d5a892f8ea6cb4a"></a><!-- doxytag: member="PlatformEngine::Init" ref="059814bb3f1815b15d5a892f8ea6cb4a" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void PlatformEngine::Init           </td>
           <td>(</td>
-          <td class="paramtype">const char *&nbsp;</td>
-          <td class="paramname"> <em>title</em>          </td>
+          <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
         </tr>
@@ -180,6 +179,15 @@ The Init function sets up the game assets; aside from just initializing the SDL 
   </table>
 </dl>
 
+<p>
+The script file, "init.lua", is loaded as a state by this function.<p>
+The variables related to identifying the program revision are then loaded from the config file. "title" refers to the actual name of the program; by default this says something like "Platform Test", but in a game release this should contain the name of the game itself. "version" is the major revision, and normally should only be incremented in a major rewrite, or when going from pre-release to release. "release" refers to an upgrade release, involving new features or enhancements. "subrelease" refers to small changes, and should probably only be used for bugfixes. "status" is an appended title, and it can either be used for codenames, or to indicate development status; for example, "Beta", "Release Candidate" or "Final".<p>
+The SDL subsystems are then initialized. The Platform engine uses the video and timer subsystems.<p>
+The window of the main screen should contain all of the previously entered release identification information.<p>
+Next, the global variables for display configuration are parsed. "screenWidth" and "screenHeight" represent the horizontal and vertical dimensions of the display screen. "screenBits" represents the bit depth of the screen.<p>
+The next set of variables represent SDL flags that specify the way the screen display will operate. These include, for example, "useHardwareMemory" and "useDoubleBuffering." Most of these are self-explanatory. If you do not understand the meaning of these flags, it is probably safest to leave them at the default settings.<p>
+After being parsed, the flags are then used in the generation of the display screen.<p>
+Once the screen has been created, an engine flag indicating that the engine is ready to run is set to "true", the lua script state is closed, and the program can now begin its primary loop of operation.
 </div>
 </div><p>
 <a class="anchor" name="cf001abec596906465197d1220db2230"></a><!-- doxytag: member="PlatformEngine::PopState" ref="cf001abec596906465197d1220db2230" args="()" -->
@@ -285,7 +293,7 @@ This function's main purpose is to call the update function of the current state
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Thu Apr 2 14:43:10 2009 for Platform 2D Game Engine by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Sun Apr 19 15:53:58 2009 for Platform 2D Game Engine by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

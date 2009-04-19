@@ -32,11 +32,14 @@
 
 #include <cstring>
 
+using std::cout;
 using std::cerr;
 using std::endl;
 
 PlatformEngine::PlatformEngine() {
 	mainScreen = NULL;
+	fullTitle = NULL;
+	running = false;
 }
 
 /**********************************************************//**
@@ -48,43 +51,214 @@ PlatformEngine::PlatformEngine() {
  *************************************************************/
 void PlatformEngine::Init() {
 	
+	/**
+	 *   The script file, "init.lua", is loaded as a state by this
+	 * function.
+	 **/
+
 	const char* initPath = "../../scripts/init.lua\0";
 
 	lua_State *L = luaL_newstate();
+	
+	fullTitle = new char[ 64 ];
 
-	char* fullTitle = NULL;
-
-	if ( luaL_loadfile( L, initPath ) ) {
+	if ( luaL_loadfile( L, initPath ) || lua_pcall( L, 0, 0, 0 ) ) {
 		cerr << "Failed to load " << initPath << endl;
 	}
+
+	/**
+	 *   The variables related to identifying the program revision 
+	 * are then loaded from the config file. "title" refers to the 
+	 * actual name of the program; by default this says something like 
+	 * "Platform Test", but in a game release this should contain the 
+	 * name of the game itself. "version" is the major revision, and 
+	 * normally should only be incremented in a major rewrite, or when
+	 * going from pre-release to release. "release" refers to an 
+	 * upgrade release, involving new features or enhancements. 
+	 * "subrelease" refers to small changes, and should probably 
+	 * only be used for bugfixes. "status" is an appended title, and it 
+	 * can either be used for codenames, or to indicate development 
+	 * status; for example, "Beta", "Release Candidate" or "Final".
+	 **/
 	
 	lua_getglobal( L, "title" );
-	if ( !lua_isstring( L, -5 ) ) {
-		cerr << initPath << " - 'title' should be a string.\n";
-	}
-	else {
-		char* title = NULL;
-		strcpy( title, lua_tostring( L, -5 ) );
-		fullTitle = strcat( fullTitle, title ); 
-	}
-
 	lua_getglobal( L, "version" );
 	lua_getglobal( L, "release" );
 	lua_getglobal( L, "subrelease" );
 	lua_getglobal( L, "status" );
 
+	if ( !lua_isstring( L, 1 ) ) {
+		cerr << initPath << " - 'title' should be a string.\n";
+	}
+	else {
+		char* title = new char[ 32 ];
+		strcpy( title, lua_tostring( L, 1 ) );
+		strcpy( fullTitle, title );
+		delete title;
+
+	}
+
+	if ( !lua_isnumber( L, 2 ) ) {
+		cerr << initPath << " - 'version' should be a number.\n";
+	}
+	else {
+		char* major = new char[ 4 ];
+		strcpy( major, lua_tostring( L, 2 ) );
+		char space[] = " \n";
+		strcat( fullTitle, space );
+		strcat( fullTitle, major );
+		delete major;
+	}
+	
+	if ( !lua_isnumber( L, 3 ) ) {
+		cerr << initPath << " - 'release' should be a number.\n";
+	}
+	else {
+		char* minor = new char[ 4 ];
+		strcpy( minor, lua_tostring( L, 3 ) );
+		char decpoint[] = ".\n";
+		strcat( fullTitle, decpoint );
+		strcat( fullTitle, minor );
+		delete minor;
+	}
+	
+	if ( !lua_isnumber( L, 4 ) ) {
+		cerr << initPath << " - 'subrelease' should be a number.\n";
+	}
+	else {
+		char* subminor = new char[ 4 ];
+		strcpy( subminor, lua_tostring( L, 4 ) );
+		char decpoint[] = ".\n";
+		strcat( fullTitle, decpoint );
+		strcat( fullTitle, subminor );
+		delete subminor;
+	}
+	
+	if ( !lua_isstring( L, 5 ) ) {
+		cerr << initPath << " - 'status' should be a string.\n"
+	}
+	else {
+		char* status = new char[ 32 ];
+		strcpy( status, lua_tostring( L, 5 ) );
+		char space[] = " \n";
+		strcat( fullTitle, space );
+		strcat( fullTitle, status );
+		delete status;
+	}
+
+	for ( int i = 0 ; i < 5 ; ++i ) lua_pop( L, 1 );
+
+	/**
+	 *   The SDL subsystems are then initialized. The Platform engine 
+	 * uses the video and timer subsystems.
+	 **/
 	if ( SDL_Init( SDL_INIT_VIDEO 
 			| SDL_INIT_TIMER ) == -1 ) {
 		cerr << "Failed to initialize subsystems; "
 			<< SDL_GetError() << std::endl;
+		return;
 	}
 
+	/**
+	 *   The window of the main screen should contain all of the 
+	 * previously entered release identification information.
+	 **/
+
 	SDL_WM_SetCaption( fullTitle, NULL );
+	
+	/**
+	 *   Next, the global variables for display configuration are 
+	 * parsed. "screenWidth" and "screenHeight" represent the 
+	 * horizontal and vertical dimensions of the display screen. 
+	 * "screenBits" represents the bit depth of the screen.
+	 **/ 
 
-	mainScreen = SDL_SetVideoMode( 640, 480, 32, 
-					SDL_HWSURFACE 
-					| SDL_DOUBLEBUF );
+	lua_getglobal( L, "screenWidth" );
+	lua_getglobal( L, "screenHeight" );
+	lua_getglobal( L, "screenBits" );
+	
+	/**
+	 *   The next set of variables represent SDL flags that specify
+	 * the way the screen display will operate. These include, for 
+	 * example, "useHardwareMemory" and "useDoubleBuffering." Most of 
+	 * these are self-explanatory. If you do not understand the 
+	 * meaning of these flags, it is probably safest to leave them at 
+	 * the default settings.
+	 **/
 
+	lua_getglobal( L, "useHardwareMemory" );
+	lua_getglobal( L, "useDoubleBuffering" );
+	
+	/**
+	 *   After being parsed, the flags are then used in the generation 
+	 * of the display screen.
+	 **/
+
+	int width, height, bits;
+	Uint32 videoModeFlags = 0;
+	
+	if ( !lua_isnumber( L, 1 ) ) {
+		cerr << initPath 
+			<< " - 'screenWidth' should be a number.\n";
+		width = 640;
+	}
+	else {
+		width = lua_tointeger( L, 1 );
+	}
+
+	if ( !lua_isnumber( L, 2 ) ) {
+		cerr << initPath
+			<< " - 'screenHeight' should be a number.\n";
+		height = 480;
+	}
+	else {
+		height = lua_tointeger( L, 2 );
+	}
+
+	if ( !lua_isnumber( L, 3 ) ) {
+		cerr << initPath 
+			<< " - 'screenBits' should be a number.\n";
+		bits = 32;
+	}
+	else {
+		bits = lua_tointeger( L, 3 );
+	}
+
+	if ( !lua_isboolean( L, 4 ) ) {
+		cerr << initPath 
+			<< " - 'useHardwareMemory' should be a boolean.\n";
+	}
+	else {
+		if ( lua_toboolean( L, 4 ) == true )
+			videoModeFlags = videoModeFlags | SDL_HWSURFACE;
+		else
+			videoModeFlags = videoModeFlags | SDL_SWSURFACE;
+	}
+
+	if ( !lua_isboolean( L, 5 ) ) {
+		cerr << initPath
+			<< " - 'useDoubleBuffering' should be a boolean.\n";
+	}
+	else {
+		if ( lua_toboolean( L, 5 ) == true )
+			videoModeFlags = videoModeFlags | SDL_DOUBLEBUF;
+	}
+
+	for ( int i = 0 ; i < 5 ; ++i ) lua_pop( L, 1 );
+
+	mainScreen = SDL_SetVideoMode( width, height, bits, 
+					videoModeFlags );
+	
+	/**
+	 *   Once the screen has been created, an engine flag indicating 
+	 * that the engine is ready to run is set to "true", the lua script 
+	 * state is closed, and the program can now begin its primary loop 
+	 * of operation.
+	 **/
+
+	running = true;
+
+	lua_close( L );
 }
 
 /**********************************************************//**
@@ -151,11 +325,17 @@ void PlatformEngine::HandleEvents() {
 void PlatformEngine::Cleanup() {
 	if ( mainScreen != NULL ) {
 		SDL_FreeSurface( mainScreen );
+		mainScreen = NULL;
 	}
 
 	while ( !stateStack.empty() ) PopState();
 
 	SDL_Quit();
+
+	if ( fullTitle != NULL ) {
+		delete [] fullTitle;
+		fullTitle = NULL;
+	}
 }
 
 /**********************************************************//**

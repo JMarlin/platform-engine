@@ -1,4 +1,4 @@
-.TH "PlatformEngine" 3 "2 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
+.TH "PlatformEngine" 3 "19 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -17,7 +17,7 @@ PlatformEngine \- The game engine instance.
 .RI "\fBPlatformEngine\fP ()"
 .br
 .ti -1c
-.RI "void \fBInit\fP (const char *title)"
+.RI "void \fBInit\fP ()"
 .br
 .ti -1c
 .RI "void \fBCleanup\fP ()"
@@ -70,7 +70,7 @@ This function's main purpose is to call the drawing function of the current stat
 .SS "void PlatformEngine::HandleEvents ()"
 .PP
 This function's main purpose is to call the event handling function of the current state. 
-.SS "void PlatformEngine::Init (const char * title)"
+.SS "void PlatformEngine::Init ()"
 .PP
 The Init function sets up the game assets; aside from just initializing the SDL subsystems, it also loads any configuration scripts.
 .PP
@@ -80,6 +80,22 @@ The Init function sets up the game assets; aside from just initializing the SDL 
 .RE
 .PP
 
+.PP
+The script file, 'init.lua', is loaded as a state by this function.
+.PP
+The variables related to identifying the program revision are then loaded from the config file. 'title' refers to the actual name of the program; by default this says something like 'Platform Test', but in a game release this should contain the name of the game itself. 'version' is the major revision, and normally should only be incremented in a major rewrite, or when going from pre-release to release. 'release' refers to an upgrade release, involving new features or enhancements. 'subrelease' refers to small changes, and should probably only be used for bugfixes. 'status' is an appended title, and it can either be used for codenames, or to indicate development status; for example, 'Beta', 'Release Candidate' or 'Final'.
+.PP
+The SDL subsystems are then initialized. The Platform engine uses the video and timer subsystems.
+.PP
+The window of the main screen should contain all of the previously entered release identification information.
+.PP
+Next, the global variables for display configuration are parsed. 'screenWidth' and 'screenHeight' represent the horizontal and vertical dimensions of the display screen. 'screenBits' represents the bit depth of the screen.
+.PP
+The next set of variables represent SDL flags that specify the way the screen display will operate. These include, for example, 'useHardwareMemory' and 'useDoubleBuffering.' Most of these are self-explanatory. If you do not understand the meaning of these flags, it is probably safest to leave them at the default settings.
+.PP
+After being parsed, the flags are then used in the generation of the display screen.
+.PP
+Once the screen has been created, an engine flag indicating that the engine is ready to run is set to 'true', the lua script state is closed, and the program can now begin its primary loop of operation.
 .SS "void PlatformEngine::PopState ()"
 .PP
 This function pops a state pointer off the top of the stack. It's operation is ordered such that the state first becomes inactive and then is deleted from memory, effectively preventing segmentation errors. 

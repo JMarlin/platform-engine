@@ -1,4 +1,4 @@
-.TH "GameState" 3 "2 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
+.TH "GameState" 3 "19 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -31,7 +31,7 @@ Inherited by \fBGameNavigationState\fP.
 .RI "virtual void \fBResume\fP ()=0"
 .br
 .ti -1c
-.RI "virtual void \fBHandleEvents\fP (\fBPlatformEngine\fP *game, SDL_Event &event)=0"
+.RI "virtual bool \fBHandleEvents\fP (\fBPlatformEngine\fP *game, SDL_Event &event)=0"
 .br
 .ti -1c
 .RI "virtual void \fBUpdate\fP (\fBPlatformEngine\fP *game)=0"
@@ -64,7 +64,7 @@ Implemented in \fBGameNavigationState\fP.
 .SS "virtual void GameState::Draw (\fBPlatformEngine\fP * game)\fC [pure virtual]\fP"
 .PP
 Implemented in \fBGameNavigationState\fP.
-.SS "virtual void GameState::HandleEvents (\fBPlatformEngine\fP * game, SDL_Event & event)\fC [pure virtual]\fP"
+.SS "virtual bool GameState::HandleEvents (\fBPlatformEngine\fP * game, SDL_Event & event)\fC [pure virtual]\fP"
 .PP
 Implemented in \fBGameNavigationState\fP.
 .SS "virtual void GameState::Init ()\fC [pure virtual]\fP"
