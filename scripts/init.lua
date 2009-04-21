@@ -31,3 +31,4 @@ screenHeight = 480		-- Vertical screen resolution
 screenBits = 32			-- Bits per pixel
 useHardwareMemory = true	-- Flag to use system video memory
 useDoubleBuffering = true	-- Flag to double buffer the main screen
+fullScreenModeOn = false	-- Engine video uses the entire screen

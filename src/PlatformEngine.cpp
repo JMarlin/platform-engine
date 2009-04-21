@@ -135,7 +135,7 @@ void PlatformEngine::Init() {
 	}
 	
 	if ( !lua_isstring( L, 5 ) ) {
-		cerr << initPath << " - 'status' should be a string.\n"
+		cerr << initPath << " - 'status' should be a string.\n";
 	}
 	else {
 		char* status = new char[ 32 ];
@@ -188,6 +188,7 @@ void PlatformEngine::Init() {
 
 	lua_getglobal( L, "useHardwareMemory" );
 	lua_getglobal( L, "useDoubleBuffering" );
+	lua_getglobal( L, "fullScreenModeOn" );
 	
 	/**
 	 *   After being parsed, the flags are then used in the generation 
@@ -244,7 +245,16 @@ void PlatformEngine::Init() {
 			videoModeFlags = videoModeFlags | SDL_DOUBLEBUF;
 	}
 
-	for ( int i = 0 ; i < 5 ; ++i ) lua_pop( L, 1 );
+	if ( !lua_isboolean( L, 6 ) ) {
+		cerr << initPath
+			<< " - 'fullScreenModeOn' should be a boolean.\n";
+	}
+	else{
+		if ( lua_toboolean( L, 6 ) == true )
+			videoModeFlags = videoModeFlags | SDL_FULLSCREEN;
+	}
+
+	for ( int i = 0 ; i < 6 ; ++i ) lua_pop( L, 1 );
 
 	mainScreen = SDL_SetVideoMode( width, height, bits, 
 					videoModeFlags );
