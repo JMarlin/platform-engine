@@ -7,13 +7,7 @@ The state in which game world navigation takes place.
 
 {\tt \#include $<$GameNavigationState.h$>$}
 
-Inheritance diagram for GameNavigationState::\begin{figure}[H]
-\begin{center}
-\leavevmode
-\includegraphics[height=2cm]{de/d2a/class_game_navigation_state}
-\end{center}
-\end{figure}
-\subsection*{Public Member Functions}
+Inheritance diagram for GameNavigationState:Collaboration diagram for GameNavigationState:\subsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
 \hyperlink{class_game_navigation_state_6a3b93831c85eb5dc3de0a53ca13ddfc}{GameNavigationState} ()
@@ -32,13 +26,7 @@ void \hyperlink{class_game_navigation_state_90f5e6d6287a875d8f2737180f46a004}{Up
 \item 
 void \hyperlink{class_game_navigation_state_a37dce070a906454c512192c067fda09}{Draw} (\hyperlink{class_platform_engine}{PlatformEngine} $\ast$game)
 \item 
-bool \hyperlink{class_game_navigation_state_fd803365fe0a32b60cf9105ee45b4042}{MovePlayerUp} ()
-\item 
-bool \hyperlink{class_game_navigation_state_66f8a21e63270473d88b31b06d306111}{MovePlayerDown} ()
-\item 
-bool \hyperlink{class_game_navigation_state_b8ee346a4f4be2cc3478fdacfb770464}{MovePlayerLeft} ()
-\item 
-bool \hyperlink{class_game_navigation_state_0b505a64bcf97883bb9e15d0d008174e}{MovePlayerRight} ()
+bool \hyperlink{class_game_navigation_state_23f15bb01ff8d7d304949c5b336d59f2}{MovePlayer} (SDL\_\-Rect \&)
 \item 
 void \hyperlink{class_game_state_f786aeb704a22a135dc289bb89fcc452}{ChangeState} (\hyperlink{class_platform_engine}{PlatformEngine} $\ast$game, \hyperlink{class_game_state}{GameState} $\ast$state)
 \end{CompactItemize}
@@ -122,47 +110,14 @@ Implements \hyperlink{class_game_state_de7bd9bda91253614322ca0ea77b7a14}{GameSta
 
 Configures assets specific to this state; particularly assets involved with map construction. 
 
-Implements \hyperlink{class_game_state_eec488593bae214c0f738bd64dafba32}{GameState}.\hypertarget{class_game_navigation_state_66f8a21e63270473d88b31b06d306111}{
-\index{GameNavigationState@{GameNavigationState}!MovePlayerDown@{MovePlayerDown}}
-\index{MovePlayerDown@{MovePlayerDown}!GameNavigationState@{GameNavigationState}}
-\subsubsection[{MovePlayerDown}]{\setlength{\rightskip}{0pt plus 5cm}bool GameNavigationState::MovePlayerDown ()}}
-\label{de/d2a/class_game_navigation_state_66f8a21e63270473d88b31b06d306111}
+Implements \hyperlink{class_game_state_eec488593bae214c0f738bd64dafba32}{GameState}.\hypertarget{class_game_navigation_state_23f15bb01ff8d7d304949c5b336d59f2}{
+\index{GameNavigationState@{GameNavigationState}!MovePlayer@{MovePlayer}}
+\index{MovePlayer@{MovePlayer}!GameNavigationState@{GameNavigationState}}
+\subsubsection[{MovePlayer}]{\setlength{\rightskip}{0pt plus 5cm}bool GameNavigationState::MovePlayer (SDL\_\-Rect \&)}}
+\label{de/d2a/class_game_navigation_state_23f15bb01ff8d7d304949c5b336d59f2}
 
 
-Gives the impression of the player moving \char`\"{}down\char`\"{} on the map by moving everything else upward and possibly triggering a movement animation for the player's image. Fails if there is a collision between the player and a map object.
-
-\begin{Desc}
-\item[Returns:]True if the movement succeeds, false if there is collision \end{Desc}
-\hypertarget{class_game_navigation_state_b8ee346a4f4be2cc3478fdacfb770464}{
-\index{GameNavigationState@{GameNavigationState}!MovePlayerLeft@{MovePlayerLeft}}
-\index{MovePlayerLeft@{MovePlayerLeft}!GameNavigationState@{GameNavigationState}}
-\subsubsection[{MovePlayerLeft}]{\setlength{\rightskip}{0pt plus 5cm}bool GameNavigationState::MovePlayerLeft ()}}
-\label{de/d2a/class_game_navigation_state_b8ee346a4f4be2cc3478fdacfb770464}
-
-
-Gives the impression of the player moving \char`\"{}left\char`\"{} on the map by moving everything else to the right and possibly triggering a movement animation for the player's image. Fails if there is a collision between the player and a map object.
-
-\begin{Desc}
-\item[Returns:]True if the movement succeeds, false if there is collision \end{Desc}
-\hypertarget{class_game_navigation_state_0b505a64bcf97883bb9e15d0d008174e}{
-\index{GameNavigationState@{GameNavigationState}!MovePlayerRight@{MovePlayerRight}}
-\index{MovePlayerRight@{MovePlayerRight}!GameNavigationState@{GameNavigationState}}
-\subsubsection[{MovePlayerRight}]{\setlength{\rightskip}{0pt plus 5cm}bool GameNavigationState::MovePlayerRight ()}}
-\label{de/d2a/class_game_navigation_state_0b505a64bcf97883bb9e15d0d008174e}
-
-
-Gives the impression of the player moving \char`\"{}right\char`\"{} on the map by moving everything else leftward and possibly triggering a movement animation for the player's image. Fails if there is a collision between the player and a map object.
-
-\begin{Desc}
-\item[Returns:]True if the movement succeeds, false if there is collision \end{Desc}
-\hypertarget{class_game_navigation_state_fd803365fe0a32b60cf9105ee45b4042}{
-\index{GameNavigationState@{GameNavigationState}!MovePlayerUp@{MovePlayerUp}}
-\index{MovePlayerUp@{MovePlayerUp}!GameNavigationState@{GameNavigationState}}
-\subsubsection[{MovePlayerUp}]{\setlength{\rightskip}{0pt plus 5cm}bool GameNavigationState::MovePlayerUp ()}}
-\label{de/d2a/class_game_navigation_state_fd803365fe0a32b60cf9105ee45b4042}
-
-
-Gives the impression of the player moving \char`\"{}up\char`\"{} on the map by moving everything else downward and possibly triggering a movement animation for the player's image. Fails if there is a collision between the player and a map object.
+Gives the impression of the player moving in some direction on the map by moving everything else in the opposite direction, and possibly triggering a movement animation for the player's image. Fails if there is a collision between the player and a map object.
 
 \begin{Desc}
 \item[Returns:]True if the movement succeeds, false if there is collision \end{Desc}

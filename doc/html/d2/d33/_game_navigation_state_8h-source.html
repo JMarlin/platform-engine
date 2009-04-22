@@ -71,27 +71,18 @@
 <a name="l00060"></a>00060                 <span class="comment">//** Draws the visual content of the state to the engine. </span>
 <a name="l00061"></a>00061                 <span class="keywordtype">void</span> <a class="code" href="../../de/d2a/class_game_navigation_state.html#a37dce070a906454c512192c067fda09">Draw</a>(          <a class="code" href="../../db/da1/class_platform_engine.html" title="The game engine instance.">PlatformEngine</a>* game );
 <a name="l00062"></a>00062                 
-<a name="l00063"></a>00063                 <span class="comment">//** Acts as if the Player is moving 'upward'</span>
-<a name="l00064"></a>00064                 <span class="keywordtype">bool</span> <a class="code" href="../../de/d2a/class_game_navigation_state.html#fd803365fe0a32b60cf9105ee45b4042">MovePlayerUp</a>();
+<a name="l00063"></a>00063                 <span class="comment">//** Acts as if the Player is moving in some 2D direction</span>
+<a name="l00064"></a>00064                 <span class="keywordtype">bool</span> <a class="code" href="../../de/d2a/class_game_navigation_state.html#23f15bb01ff8d7d304949c5b336d59f2">MovePlayer</a>( SDL_Rect&amp; );
 <a name="l00065"></a>00065 
-<a name="l00066"></a>00066                 <span class="comment">//** Acts as if the Player is moving 'downward'</span>
-<a name="l00067"></a>00067                 <span class="keywordtype">bool</span> <a class="code" href="../../de/d2a/class_game_navigation_state.html#66f8a21e63270473d88b31b06d306111">MovePlayerDown</a>();
-<a name="l00068"></a>00068 
-<a name="l00069"></a>00069                 <span class="comment">//** Acts as if the Player is moving 'to the left'</span>
-<a name="l00070"></a>00070                 <span class="keywordtype">bool</span> <a class="code" href="../../de/d2a/class_game_navigation_state.html#b8ee346a4f4be2cc3478fdacfb770464">MovePlayerLeft</a>();
+<a name="l00066"></a>00066         <span class="keyword">protected</span>:
+<a name="l00067"></a>00067                 
+<a name="l00068"></a>00068                 <span class="comment">//** Object representing the entire map used in this state</span>
+<a name="l00069"></a><a class="code" href="../../de/d2a/class_game_navigation_state.html#83154f9523275696f30c13447e1d74f3">00069</a>                 <a class="code" href="../../d4/de2/class_game_map.html" title="The map being used by the navigation state.">GameMap</a>* <a class="code" href="../../de/d2a/class_game_navigation_state.html#83154f9523275696f30c13447e1d74f3">theMap</a>;
+<a name="l00070"></a>00070 };
 <a name="l00071"></a>00071 
-<a name="l00072"></a>00072                 <span class="comment">//** Acts as if the Player is moving 'to the right'</span>
-<a name="l00073"></a>00073                 <span class="keywordtype">bool</span> <a class="code" href="../../de/d2a/class_game_navigation_state.html#0b505a64bcf97883bb9e15d0d008174e">MovePlayerRight</a>();
-<a name="l00074"></a>00074 
-<a name="l00075"></a>00075         <span class="keyword">protected</span>:
-<a name="l00076"></a>00076                 
-<a name="l00077"></a>00077                 <span class="comment">//** Object representing the entire map used in this state</span>
-<a name="l00078"></a><a class="code" href="../../de/d2a/class_game_navigation_state.html#83154f9523275696f30c13447e1d74f3">00078</a>                 <a class="code" href="../../d4/de2/class_game_map.html" title="The map being used by the navigation state.">GameMap</a>* <a class="code" href="../../de/d2a/class_game_navigation_state.html#83154f9523275696f30c13447e1d74f3">theMap</a>;
-<a name="l00079"></a>00079 };
-<a name="l00080"></a>00080 
-<a name="l00081"></a>00081 <span class="preprocessor">#endif</span>
+<a name="l00072"></a>00072 <span class="preprocessor">#endif</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Apr 21 20:40:17 2009 for Platform 2D Game Engine by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Apr 21 21:19:49 2009 for Platform 2D Game Engine by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="../../doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

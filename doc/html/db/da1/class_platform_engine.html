@@ -172,13 +172,7 @@ This function's main purpose is to call the event handling function of the curre
 <div class="memdoc">
 
 <p>
-The Init function sets up the game assets; aside from just initializing the SDL subsystems, it also loads any configuration scripts.<p>
-<dl compact><dt><b>Parameters:</b></dt><dd>
-  <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>title</em>&nbsp;</td><td>C-string with the game title, or main window text. </td></tr>
-  </table>
-</dl>
-
+The Init function sets up the game assets; aside from just initializing the SDL subsystems, it also loads any configuration scripts. 
 <p>
 The script file, "init.lua", is loaded as a state by this function.<p>
 The variables related to identifying the program revision are then loaded from the config file. "title" refers to the actual name of the program; by default this says something like "Platform Test", but in a game release this should contain the name of the game itself. "version" is the major revision, and normally should only be incremented in a major rewrite, or when going from pre-release to release. "release" refers to an upgrade release, involving new features or enhancements. "subrelease" refers to small changes, and should probably only be used for bugfixes. "status" is an appended title, and it can either be used for codenames, or to indicate development status; for example, "Beta", "Release Candidate" or "Final".<p>
@@ -293,7 +287,7 @@ This function's main purpose is to call the update function of the current state
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Apr 21 20:40:17 2009 for Platform 2D Game Engine by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue Apr 21 21:19:52 2009 for Platform 2D Game Engine by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="../../doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

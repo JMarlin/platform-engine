@@ -40,16 +40,7 @@ Inherits \fBGameState\fP.
 .RI "void \fBDraw\fP (\fBPlatformEngine\fP *game)"
 .br
 .ti -1c
-.RI "bool \fBMovePlayerUp\fP ()"
-.br
-.ti -1c
-.RI "bool \fBMovePlayerDown\fP ()"
-.br
-.ti -1c
-.RI "bool \fBMovePlayerLeft\fP ()"
-.br
-.ti -1c
-.RI "bool \fBMovePlayerRight\fP ()"
+.RI "bool \fBMovePlayer\fP (SDL_Rect &)"
 .br
 .ti -1c
 .RI "void \fBChangeState\fP (\fBPlatformEngine\fP *game, \fBGameState\fP *state)"
@@ -111,39 +102,9 @@ Implements \fBGameState\fP.
 Configures assets specific to this state; particularly assets involved with map construction. 
 .PP
 Implements \fBGameState\fP.
-.SS "bool GameNavigationState::MovePlayerDown ()"
+.SS "bool GameNavigationState::MovePlayer (SDL_Rect &)"
 .PP
-Gives the impression of the player moving 'down' on the map by moving everything else upward and possibly triggering a movement animation for the player's image. Fails if there is a collision between the player and a map object.
-.PP
-\fBReturns:\fP
-.RS 4
-True if the movement succeeds, false if there is collision 
-.RE
-.PP
-
-.SS "bool GameNavigationState::MovePlayerLeft ()"
-.PP
-Gives the impression of the player moving 'left' on the map by moving everything else to the right and possibly triggering a movement animation for the player's image. Fails if there is a collision between the player and a map object.
-.PP
-\fBReturns:\fP
-.RS 4
-True if the movement succeeds, false if there is collision 
-.RE
-.PP
-
-.SS "bool GameNavigationState::MovePlayerRight ()"
-.PP
-Gives the impression of the player moving 'right' on the map by moving everything else leftward and possibly triggering a movement animation for the player's image. Fails if there is a collision between the player and a map object.
-.PP
-\fBReturns:\fP
-.RS 4
-True if the movement succeeds, false if there is collision 
-.RE
-.PP
-
-.SS "bool GameNavigationState::MovePlayerUp ()"
-.PP
-Gives the impression of the player moving 'up' on the map by moving everything else downward and possibly triggering a movement animation for the player's image. Fails if there is a collision between the player and a map object.
+Gives the impression of the player moving in some direction on the map by moving everything else in the opposite direction, and possibly triggering a movement animation for the player's image. Fails if there is a collision between the player and a map object.
 .PP
 \fBReturns:\fP
 .RS 4

@@ -115,7 +115,7 @@ void GameNavigationState::Draw( PlatformEngine* game ) {
  *
  * \return True if the movement succeeds, false if there is collision
  *************************************************************/
-bool GameNavigationState::MovePlayerUp() {
+bool GameNavigationState::MovePlayer( SDL_Rect& ) {
 	return false;
 }
 
