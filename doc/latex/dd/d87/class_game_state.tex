@@ -1,0 +1,127 @@
+\hypertarget{class_game_state}{
+\section{GameState Class Reference}
+\label{dd/d87/class_game_state}\index{GameState@{GameState}}
+}
+A state of behavior for the engine.  
+
+
+{\tt \#include $<$GameState.h$>$}
+
+Inheritance diagram for GameState::\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2cm]{dd/d87/class_game_state}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_game_state_4fa0a2bf50315c4a35a3890a0adcee5c}{GameState} ()
+\item 
+virtual void \hyperlink{class_game_state_eec488593bae214c0f738bd64dafba32}{Init} ()=0
+\item 
+virtual void \hyperlink{class_game_state_041e7a5430d71da84745af11abdacd93}{Cleanup} ()=0
+\item 
+virtual void \hyperlink{class_game_state_1f4d2b5a2e4dcb7645e3e7a5735926a6}{Pause} ()=0
+\item 
+virtual void \hyperlink{class_game_state_cf9bcd5b47ebb3f572389f64c5ca5ed4}{Resume} ()=0
+\item 
+virtual bool \hyperlink{class_game_state_de7bd9bda91253614322ca0ea77b7a14}{HandleEvents} (\hyperlink{class_platform_engine}{PlatformEngine} $\ast$game, SDL\_\-Event \&event)=0
+\item 
+virtual void \hyperlink{class_game_state_100ca49bc95afce1d5c5b756708bbc2b}{Update} (\hyperlink{class_platform_engine}{PlatformEngine} $\ast$game)=0
+\item 
+virtual void \hyperlink{class_game_state_7333dda0f49b3fa1c01cd3295f853024}{Draw} (\hyperlink{class_platform_engine}{PlatformEngine} $\ast$game)=0
+\item 
+void \hyperlink{class_game_state_f786aeb704a22a135dc289bb89fcc452}{ChangeState} (\hyperlink{class_platform_engine}{PlatformEngine} $\ast$game, \hyperlink{class_game_state}{GameState} $\ast$state)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+A state of behavior for the engine. 
+
+A Game State is a layer on top of the default engine behavior that requires a custom form of behavior for its operation. In the Platform engine, the an instance of the engine stores the current state on a stack, and any newly initiated states can be placed on top of the stack. The normal engine functions will generally call the corresponding operation functions from the state at the top of the stack, so that the engine's operation is ultimately controlled by the current top state.
+
+This class in particular is an abstract class, not intended for actual use. The derivative classes, which are the different kinds of states, are used in normal program operations. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_game_state_4fa0a2bf50315c4a35a3890a0adcee5c}{
+\index{GameState@{GameState}!GameState@{GameState}}
+\index{GameState@{GameState}!GameState@{GameState}}
+\subsubsection[{GameState}]{\setlength{\rightskip}{0pt plus 5cm}GameState::GameState ()}}
+\label{dd/d87/class_game_state_4fa0a2bf50315c4a35a3890a0adcee5c}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_game_state_f786aeb704a22a135dc289bb89fcc452}{
+\index{GameState@{GameState}!ChangeState@{ChangeState}}
+\index{ChangeState@{ChangeState}!GameState@{GameState}}
+\subsubsection[{ChangeState}]{\setlength{\rightskip}{0pt plus 5cm}void GameState::ChangeState ({\bf PlatformEngine} $\ast$ {\em game}, \/  {\bf GameState} $\ast$ {\em state})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{dd/d87/class_game_state_f786aeb704a22a135dc289bb89fcc452}
+
+
+\hypertarget{class_game_state_041e7a5430d71da84745af11abdacd93}{
+\index{GameState@{GameState}!Cleanup@{Cleanup}}
+\index{Cleanup@{Cleanup}!GameState@{GameState}}
+\subsubsection[{Cleanup}]{\setlength{\rightskip}{0pt plus 5cm}virtual void GameState::Cleanup ()\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{dd/d87/class_game_state_041e7a5430d71da84745af11abdacd93}
+
+
+
+
+Implemented in \hyperlink{class_game_navigation_state_f93a7dbb7eac4b14a6d59cbca32b9abd}{GameNavigationState}.\hypertarget{class_game_state_7333dda0f49b3fa1c01cd3295f853024}{
+\index{GameState@{GameState}!Draw@{Draw}}
+\index{Draw@{Draw}!GameState@{GameState}}
+\subsubsection[{Draw}]{\setlength{\rightskip}{0pt plus 5cm}virtual void GameState::Draw ({\bf PlatformEngine} $\ast$ {\em game})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{dd/d87/class_game_state_7333dda0f49b3fa1c01cd3295f853024}
+
+
+
+
+Implemented in \hyperlink{class_game_navigation_state_a37dce070a906454c512192c067fda09}{GameNavigationState}.\hypertarget{class_game_state_de7bd9bda91253614322ca0ea77b7a14}{
+\index{GameState@{GameState}!HandleEvents@{HandleEvents}}
+\index{HandleEvents@{HandleEvents}!GameState@{GameState}}
+\subsubsection[{HandleEvents}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool GameState::HandleEvents ({\bf PlatformEngine} $\ast$ {\em game}, \/  SDL\_\-Event \& {\em event})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{dd/d87/class_game_state_de7bd9bda91253614322ca0ea77b7a14}
+
+
+
+
+Implemented in \hyperlink{class_game_navigation_state_6e7c13d35a33478673c62ae55394cfdc}{GameNavigationState}.\hypertarget{class_game_state_eec488593bae214c0f738bd64dafba32}{
+\index{GameState@{GameState}!Init@{Init}}
+\index{Init@{Init}!GameState@{GameState}}
+\subsubsection[{Init}]{\setlength{\rightskip}{0pt plus 5cm}virtual void GameState::Init ()\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{dd/d87/class_game_state_eec488593bae214c0f738bd64dafba32}
+
+
+
+
+Implemented in \hyperlink{class_game_navigation_state_8f613860bf544476ab9cff9fb7f98201}{GameNavigationState}.\hypertarget{class_game_state_1f4d2b5a2e4dcb7645e3e7a5735926a6}{
+\index{GameState@{GameState}!Pause@{Pause}}
+\index{Pause@{Pause}!GameState@{GameState}}
+\subsubsection[{Pause}]{\setlength{\rightskip}{0pt plus 5cm}virtual void GameState::Pause ()\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{dd/d87/class_game_state_1f4d2b5a2e4dcb7645e3e7a5735926a6}
+
+
+
+
+Implemented in \hyperlink{class_game_navigation_state_ac626b511de8af9f32b7a1492a10f861}{GameNavigationState}.\hypertarget{class_game_state_cf9bcd5b47ebb3f572389f64c5ca5ed4}{
+\index{GameState@{GameState}!Resume@{Resume}}
+\index{Resume@{Resume}!GameState@{GameState}}
+\subsubsection[{Resume}]{\setlength{\rightskip}{0pt plus 5cm}virtual void GameState::Resume ()\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{dd/d87/class_game_state_cf9bcd5b47ebb3f572389f64c5ca5ed4}
+
+
+
+
+Implemented in \hyperlink{class_game_navigation_state_4d6aee55eddb1978f493206d985fb950}{GameNavigationState}.\hypertarget{class_game_state_100ca49bc95afce1d5c5b756708bbc2b}{
+\index{GameState@{GameState}!Update@{Update}}
+\index{Update@{Update}!GameState@{GameState}}
+\subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}virtual void GameState::Update ({\bf PlatformEngine} $\ast$ {\em game})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{dd/d87/class_game_state_100ca49bc95afce1d5c5b756708bbc2b}
+
+
+
+
+Implemented in \hyperlink{class_game_navigation_state_90f5e6d6287a875d8f2737180f46a004}{GameNavigationState}.

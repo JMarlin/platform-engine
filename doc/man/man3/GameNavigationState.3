@@ -1,4 +1,4 @@
-.TH "GameNavigationState" 3 "19 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
+.TH "GameNavigationState" 3 "21 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -51,6 +51,9 @@ Inherits \fBGameState\fP.
 .ti -1c
 .RI "bool \fBMovePlayerRight\fP ()"
 .br
+.ti -1c
+.RI "void \fBChangeState\fP (\fBPlatformEngine\fP *game, \fBGameState\fP *state)"
+.br
 .in -1c
 .SS "Protected Attributes"
 
@@ -70,6 +73,8 @@ While in this state, the game's operation revolves around the movement of a play
 .PP
 .SH "Member Function Documentation"
 .PP 
+.SS "void GameState::ChangeState (\fBPlatformEngine\fP * game, \fBGameState\fP * state)\fC [inline, inherited]\fP"
+.PP
 .SS "void GameNavigationState::Cleanup ()\fC [virtual]\fP"
 .PP
 Does any last-minute operations before the termination of the navigation state. 

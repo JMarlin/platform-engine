@@ -17,6 +17,7 @@
 # along with Platform.  If not, see <http://www.gnu.org/licenses/>.
 
 cmake_minimum_required( VERSION 2.6 )
+set( CMAKE_USE_RELATIVE_PATHS true )
 
 #set( CMAKE_MODULE_PATH 
 #	${CMAKE_MODULE_PATH} "${CMAKE_SOURCE_DIR}/cmake/Modules/" )
@@ -30,6 +31,8 @@ set( CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/" )
 find_package( SDL REQUIRED )
 
 find_package( Lua51 REQUIRED )
+
+find_package( Doxygen )
 
 #set(Boost_USE_STATIC_LIBS   ON)
 #set(Boost_USE_MULTITHREADED ON)
@@ -60,4 +63,10 @@ add_executable (
    MACOSX_BUNDLE
    ${SOURCES}
 )
-
+if ( DOXYGEN_FOUND )
+	add_custom_command(
+		TARGET platform-engine
+		POST_BUILD
+		COMMAND ${DOXYGEN_EXECUTABLE} ${DOCDIR}/Doxyfile
+	)	
+endif()
