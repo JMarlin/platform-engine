@@ -21,6 +21,7 @@
 #ifndef GAMENAVIGATIONSTATE_H
 #define GAMENAVIGATIONSTATE_H
 
+#include "GamePlayer.h"
 #include "GameState.h"
 #include "GameMap.h"
 
@@ -55,7 +56,7 @@ class GameNavigationState : public GameState {
 		void Draw(		PlatformEngine* game );
 		
 		//** Acts as if the Player is moving in some 2D direction
-		bool MovePlayer( 	SDL_Rect& );
+		bool MovePlayer( 	SDL_Rect& delta );
 
 	protected:
 		

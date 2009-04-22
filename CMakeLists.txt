@@ -47,6 +47,7 @@ set ( SOURCES
 	${SRCDIR}/GameNavigationState.h	${SRCDIR}/GameNavigationState.cpp
 	${SRCDIR}/GameMap.h
 	${SRCDIR}/GameMapLayer.h
+	${SRCDIR}/GamePlayer.h		${SRCDIR}/GamePlayer.cpp
 )
 
 link_libraries (

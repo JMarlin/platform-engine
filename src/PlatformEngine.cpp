@@ -93,7 +93,7 @@ void PlatformEngine::Init() {
 		char* title = new char[ 32 ];
 		strcpy( title, lua_tostring( L, 1 ) );
 		strcpy( fullTitle, title );
-		delete title;
+		delete [] title;
 
 	}
 
@@ -106,7 +106,7 @@ void PlatformEngine::Init() {
 		char space[] = " \n";
 		strcat( fullTitle, space );
 		strcat( fullTitle, major );
-		delete major;
+		delete [] major;
 	}
 	
 	if ( !lua_isnumber( L, 3 ) ) {
@@ -118,7 +118,7 @@ void PlatformEngine::Init() {
 		char decpoint[] = ".\n";
 		strcat( fullTitle, decpoint );
 		strcat( fullTitle, minor );
-		delete minor;
+		delete [] minor;
 	}
 	
 	if ( !lua_isnumber( L, 4 ) ) {
@@ -130,7 +130,7 @@ void PlatformEngine::Init() {
 		char decpoint[] = ".\n";
 		strcat( fullTitle, decpoint );
 		strcat( fullTitle, subminor );
-		delete subminor;
+		delete [] subminor;
 	}
 	
 	if ( !lua_isstring( L, 5 ) ) {
@@ -142,7 +142,7 @@ void PlatformEngine::Init() {
 		char space[] = " \n";
 		strcat( fullTitle, space );
 		strcat( fullTitle, status );
-		delete status;
+		delete [] status;
 	}
 
 	for ( int i = 0 ; i < 5 ; ++i ) lua_pop( L, 1 );
@@ -320,8 +320,7 @@ void PlatformEngine::StartState() {
 		strcpy( type, lua_tostring( L, 1 ) );
 
 		if ( strncmp( type, "Navigation\n", 8 ) == 0 ) {
-			GameState* newState = new GameNavigationState;
-			stateStack.push( newState );
+			PushState( new GameNavigationState );
 		}
 
 		delete type;
@@ -367,7 +366,7 @@ void PlatformEngine::HandleEvents() {
 
 		if ( !stateStack.empty() ) {
 			GameState* topState= stateStack.top();
-			if ( topState!= NULL ) {
+			if ( topState != NULL ) {
 				if ( topState->HandleEvents( this, event )
 						== true ) 
 					continue;

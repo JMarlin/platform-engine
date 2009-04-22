@@ -18,36 +18,25 @@
     along with Platform.  If not, see <http://www.gnu.org/licenses/>.
 ***************************************************************************/
 
-#include "SDL.h"
+#ifndef GAMEPLAYER_CPP
+#define GAMEPLAYER_CPP
 
-#include "PlatformEngine.h"
-#include "GameLoopDelay.h"
-#include "GameNavigationState.h"
+#include "GamePlayer.h"
 
-//const char* title = "Platform Engine Test v0.0.1 Pre-Alpha\0";
-
-int main( int argc, char* argv[] ) {
-
-	PlatformEngine game;
-
-	game.Init();
-	
-	nextTime = SDL_GetTicks() + TICK_INTERVAL;
-
-	// When written, the next line will initialize the intro state.
-	game.PushState( new GameNavigationState );
-
-	while ( game.Running() ) {
-		
-		game.HandleEvents();
-		game.Update();
-		game.Draw();
-
-		SDL_Delay( time_left() );
-		nextTime += TICK_INTERVAL;
-	}
-
-	game.Cleanup();	
-
-	return 0;
+GamePlayer::GamePlayer() {
+	//blank
 }
+
+void GamePlayer::Init() {
+	return;
+}
+
+void GamePlayer::DrawPlayer( PlatformEngine* game ) {
+	return;
+}
+
+void GamePlayer::MovePlayer( SDL_Rect& delta ) {
+       return;
+}       
+
+#endif

@@ -18,36 +18,38 @@
     along with Platform.  If not, see <http://www.gnu.org/licenses/>.
 ***************************************************************************/
 
-#include "SDL.h"
+#ifndef GAMEPLAYER_H
+#define GAMEPLAYER_H
 
 #include "PlatformEngine.h"
-#include "GameLoopDelay.h"
-#include "GameNavigationState.h"
 
-//const char* title = "Platform Engine Test v0.0.1 Pre-Alpha\0";
-
-int main( int argc, char* argv[] ) {
-
-	PlatformEngine game;
-
-	game.Init();
-	
-	nextTime = SDL_GetTicks() + TICK_INTERVAL;
-
-	// When written, the next line will initialize the intro state.
-	game.PushState( new GameNavigationState );
-
-	while ( game.Running() ) {
+/**********************************************************//**
+ * \brief The player character entity
+ *
+ *   GamePlayer is an entity representing the avatar of the 
+ * human player on the screen. It is usually the center focus 
+ * of the player's attention and the proxy through which the 
+ * player expects to operate.
+ *************************************************************/
+class GamePlayer {
+	public:
+		GamePlayer();
 		
-		game.HandleEvents();
-		game.Update();
-		game.Draw();
+		//** Initialize the player class
+		void Init();
 
-		SDL_Delay( time_left() );
-		nextTime += TICK_INTERVAL;
-	}
+		//** Draws the player to the engine screen
+		void DrawPlayer( PlatformEngine* game );
 
-	game.Cleanup();	
+		//** Changes the position of the player on the screen
+		void MovePlayer( SDL_Rect& delta );
 
-	return 0;
-}
+	private:
+		//** Size and position of the player
+		SDL_Rect dimensions;
+
+		//** Surface holding the player's image
+		SDL_Surface playerSurface;
+};
+
+#endif

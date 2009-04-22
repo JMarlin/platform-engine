@@ -65,7 +65,7 @@ bool GameNavigationState::HandleEvents( PlatformEngine* game,
 		switch( event.type ) {
 			case SDL_KEYDOWN:
 				switch ( event.key.keysym.sym ) {
-					case SDLK_UP:
+					case SDLK_q:
 						game->Quit();
 						return true;
 						break;
@@ -107,10 +107,11 @@ void GameNavigationState::Draw( PlatformEngine* game ) {
  * direction, and possibly triggering a movement animation for 
  * the player's image. Fails if there is a collision between the 
  * player and a map object.
- *
+ * 
+ * \param delta 2-dimensional shift in movement
  * \return True if the movement succeeds, false if there is collision
  *************************************************************/
-bool GameNavigationState::MovePlayer( SDL_Rect& ) {
+bool GameNavigationState::MovePlayer( SDL_Rect& delta ) {
 	return false;
 }
 
