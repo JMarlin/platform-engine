@@ -1,4 +1,4 @@
-.TH "GameState" 3 "21 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
+.TH "GameState" 3 "22 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -25,10 +25,10 @@ Inherited by \fBGameNavigationState\fP.
 .RI "virtual void \fBCleanup\fP ()=0"
 .br
 .ti -1c
-.RI "virtual void \fBPause\fP ()=0"
+.RI "virtual void \fBPause\fP ()"
 .br
 .ti -1c
-.RI "virtual void \fBResume\fP ()=0"
+.RI "virtual void \fBResume\fP ()"
 .br
 .ti -1c
 .RI "virtual bool \fBHandleEvents\fP (\fBPlatformEngine\fP *game, SDL_Event &event)=0"
@@ -41,6 +41,13 @@ Inherited by \fBGameNavigationState\fP.
 .br
 .ti -1c
 .RI "void \fBChangeState\fP (\fBPlatformEngine\fP *game, \fBGameState\fP *state)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "bool \fBrunning\fP"
 .br
 .in -1c
 .SH "Detailed Description"
@@ -70,15 +77,20 @@ Implemented in \fBGameNavigationState\fP.
 .SS "virtual void GameState::Init ()\fC [pure virtual]\fP"
 .PP
 Implemented in \fBGameNavigationState\fP.
-.SS "virtual void GameState::Pause ()\fC [pure virtual]\fP"
+.SS "void GameState::Pause ()\fC [virtual]\fP"
 .PP
-Implemented in \fBGameNavigationState\fP.
-.SS "virtual void GameState::Resume ()\fC [pure virtual]\fP"
+Pauses the execution of this state until further notice, assuming it is currently running. If it is already paused, this has no effect. 
+.SS "void GameState::Resume ()\fC [virtual]\fP"
 .PP
-Implemented in \fBGameNavigationState\fP.
+Resumes the execution of this state, if it has been paused previously; otherwise it has no effect. 
 .SS "virtual void GameState::Update (\fBPlatformEngine\fP * game)\fC [pure virtual]\fP"
 .PP
 Implemented in \fBGameNavigationState\fP.
+.SH "Member Data Documentation"
+.PP 
+.SS "bool \fBGameState::running\fP\fC [protected]\fP"
+.PP
+
 
 .SH "Author"
 .PP 

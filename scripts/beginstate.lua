@@ -1,4 +1,4 @@
-/***************************************************************************
+--[[------------------------------------------------------------------------
     © Copyright 2009 Patrick VanDusen
 
     This file is part of the Platform 2D Game Engine, 
@@ -16,36 +16,7 @@
 
     You should have received a copy of the GNU Lesser General Public License
     along with Platform.  If not, see <http://www.gnu.org/licenses/>.
-***************************************************************************/
+--]]------------------------------------------------------------------------
 
-#include "SDL.h"
-
-#include "PlatformEngine.h"
-#include "GameLoopDelay.h"
-#include "GameNavigationState.h"
-
-int main( int argc, char* argv[] ) {
-
-	PlatformEngine game;
-
-	game.Init();
-	
-	nextTime = SDL_GetTicks() + TICK_INTERVAL;
-
-	// When written, the next line will initialize the intro state.
-	game.StartState();
-
-	while ( game.Running() ) {
-		
-		game.HandleEvents();
-		game.Update();
-		game.Draw();
-
-		SDL_Delay( time_left() );
-		nextTime += TICK_INTERVAL;
-	}
-
-	game.Cleanup();	
-
-	return 0;
-}
+--FIRST STATE SETTINGS--
+stateType = "Navigation"	-- The type of state the engine starts with

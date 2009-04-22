@@ -16,6 +16,8 @@ void \hyperlink{class_platform_engine_059814bb3f1815b15d5a892f8ea6cb4a}{Init} ()
 \item 
 void \hyperlink{class_platform_engine_361b54312d9ec2fa842cd982f67100f9}{Cleanup} ()
 \item 
+void \hyperlink{class_platform_engine_8420fc9a24a0fed565af76f7bb378bdf}{StartState} ()
+\item 
 void \hyperlink{class_platform_engine_d2b335545c9ab6bce7be7c014bc8c528}{ChangeState} (\hyperlink{class_game_state}{GameState} $\ast$state)
 \item 
 void \hyperlink{class_platform_engine_98e3d34b6ee831bcc1d26bac83bfe8d8}{PushState} (\hyperlink{class_game_state}{GameState} $\ast$state)
@@ -136,7 +138,14 @@ This function takes a reference to a state and then pushes it onto the top of th
 \label{db/da1/class_platform_engine_31ec37c0222f4694cc3c0e819e143038}
 
 
-\hypertarget{class_platform_engine_d3ab75304226ad3fcac6b66ce3cedbc7}{
+\hypertarget{class_platform_engine_8420fc9a24a0fed565af76f7bb378bdf}{
+\index{PlatformEngine@{PlatformEngine}!StartState@{StartState}}
+\index{StartState@{StartState}!PlatformEngine@{PlatformEngine}}
+\subsubsection[{StartState}]{\setlength{\rightskip}{0pt plus 5cm}void PlatformEngine::StartState ()}}
+\label{db/da1/class_platform_engine_8420fc9a24a0fed565af76f7bb378bdf}
+
+
+This function uses a prewritten lua script to initiate a state. This is intended to be the first state that is run by the engine. \hypertarget{class_platform_engine_d3ab75304226ad3fcac6b66ce3cedbc7}{
 \index{PlatformEngine@{PlatformEngine}!Update@{Update}}
 \index{Update@{Update}!PlatformEngine@{PlatformEngine}}
 \subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}void PlatformEngine::Update ()}}

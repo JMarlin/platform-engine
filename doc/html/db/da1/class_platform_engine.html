@@ -38,6 +38,8 @@
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da1/class_platform_engine.html#361b54312d9ec2fa842cd982f67100f9">Cleanup</a> ()</td></tr>
 
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da1/class_platform_engine.html#8420fc9a24a0fed565af76f7bb378bdf">StartState</a> ()</td></tr>
+
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da1/class_platform_engine.html#d2b335545c9ab6bce7be7c014bc8c528">ChangeState</a> (<a class="el" href="../../dd/d87/class_game_state.html">GameState</a> *state)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da1/class_platform_engine.html#98e3d34b6ee831bcc1d26bac83bfe8d8">PushState</a> (<a class="el" href="../../dd/d87/class_game_state.html">GameState</a> *state)</td></tr>
@@ -267,6 +269,25 @@ This function takes a reference to a state and then pushes it onto the top of th
 
 </div>
 </div><p>
+<a class="anchor" name="8420fc9a24a0fed565af76f7bb378bdf"></a><!-- doxytag: member="PlatformEngine::StartState" ref="8420fc9a24a0fed565af76f7bb378bdf" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void PlatformEngine::StartState           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+This function uses a prewritten lua script to initiate a state. This is intended to be the first state that is run by the engine. 
+</div>
+</div><p>
 <a class="anchor" name="d3ab75304226ad3fcac6b66ce3cedbc7"></a><!-- doxytag: member="PlatformEngine::Update" ref="d3ab75304226ad3fcac6b66ce3cedbc7" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -287,7 +308,7 @@ This function's main purpose is to call the update function of the current state
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Apr 21 21:19:52 2009 for Platform 2D Game Engine by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Apr 22 14:22:02 2009 for Platform 2D Game Engine by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="../../doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

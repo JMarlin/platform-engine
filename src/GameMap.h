@@ -45,17 +45,8 @@ class GameMap {
 	public:
 		GameMap();
 		
-		//** Moves the onscreen position of the map upward
-		void MoveMapUp();
-		
-		//** Moves the onscreen position of the map downward
-		void MoveMapDown();
-
-		//** Moves the onscreen position of the map to the left
-		void MoveMapLeft();
-
-		//** Moves the onscreen position of the map to the right
-		void MoveMapRight();
+		//** Moves the onscreen map in some direction
+		void MoveMap( SDL_Rect& );
 
 		//** Draws the map to the engine's main screen
 		void Draw( PlatformEngine* game );

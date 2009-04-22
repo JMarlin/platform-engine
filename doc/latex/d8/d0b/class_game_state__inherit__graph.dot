@@ -2,7 +2,7 @@ digraph G
 {
   edge [fontname="FreeSans",fontsize="10",labelfontname="FreeSans",labelfontsize="10"];
   node [fontname="FreeSans",fontsize="10",shape=record];
-  Node1 [label="{GameState\n|- running\l|+ GameState()\l+ Init()\l+ Cleanup()\l+ Pause()\l+ Resume()\l+ HandleEvents()\l+ Update()\l+ Draw()\l+ ChangeState()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
+  Node1 [label="{GameState\n|# running\l|+ GameState()\l+ Init()\l+ Cleanup()\l+ Pause()\l+ Resume()\l+ HandleEvents()\l+ Update()\l+ Draw()\l+ ChangeState()\l}",height=0.2,width=0.4,color="black", fillcolor="grey75", style="filled" fontcolor="black"];
   Node1 -> Node2 [dir=back,color="midnightblue",fontsize="10",style="solid",arrowtail="empty"];
-  Node2 [label="{GameNavigationState\n|# theMap\l|+ GameNavigationState()\l+ Init()\l+ Cleanup()\l+ Pause()\l+ Resume()\l+ HandleEvents()\l+ Update()\l+ Draw()\l+ MovePlayer()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$de/d2a/class_game_navigation_state.html",tooltip="The state in which game world navigation takes place."];
+  Node2 [label="{GameNavigationState\n|# theMap\l|+ GameNavigationState()\l+ Init()\l+ Cleanup()\l+ HandleEvents()\l+ Update()\l+ Draw()\l+ MovePlayer()\l}",height=0.2,width=0.4,color="black", fillcolor="white", style="filled",URL="$de/d2a/class_game_navigation_state.html",tooltip="The state in which game world navigation takes place."];
 }

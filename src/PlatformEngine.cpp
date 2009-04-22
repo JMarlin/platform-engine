@@ -29,6 +29,7 @@
 
 #include "PlatformEngine.h"
 #include "GameState.h"
+#include "GameNavigationState.h"
 
 #include <cstring>
 
@@ -264,9 +265,73 @@ void PlatformEngine::Init() {
 	 * of operation.
 	 **/
 
+	StartState();
+
 	running = true;
 
 	lua_close( L );
+}
+
+/**********************************************************//**
+ *   This function cleans up any of the remaining global 
+ * assets of the engine. This mostly consists of open surfaces 
+ * and states remaining on the stack.
+ *************************************************************/
+void PlatformEngine::Cleanup() {
+	if ( mainScreen != NULL ) {
+		SDL_FreeSurface( mainScreen );
+		mainScreen = NULL;
+	}
+
+	while ( !stateStack.empty() ) PopState();
+
+	SDL_Quit();
+
+	if ( fullTitle != NULL ) {
+		delete [] fullTitle;
+		fullTitle = NULL;
+	}
+}
+
+/**********************************************************//**
+ *   This function uses a prewritten lua script to initiate a 
+ * state. This is intended to be the first state that is run by 
+ * the engine.
+ *************************************************************/
+void PlatformEngine::StartState() {
+	lua_State* L = luaL_newstate();
+	
+	const char* scriptPath = "../../scripts/beginstate.lua";
+
+	if ( luaL_loadfile( L, scriptPath ) || lua_pcall( L, 0, 0, 0 ) ) {
+		cerr << "Failed to load " << scriptPath << endl;
+	}
+
+	lua_getglobal( L, "stateType" );
+
+	if ( !lua_isstring( L, 1 ) ) {
+		cerr << scriptPath 
+			<< " - 'stateType' should be a string.\n";
+
+	}
+	else {
+		char* type = new char[ 32 ];
+	
+		strcpy( type, lua_tostring( L, 1 ) );
+
+		if ( strncmp( type, "Navigation\n", 8 ) == 0 ) {
+			GameState* newState = new GameNavigationState;
+			stateStack.push( newState );
+		}
+
+		delete type;
+
+	}
+
+	lua_pop( L, 1 );
+
+	delete L;
+	L = NULL;
 }
 
 /**********************************************************//**
@@ -322,27 +387,6 @@ void PlatformEngine::HandleEvents() {
 				running = false;
 				break;
 		}
-	}
-}
-
-/**********************************************************//**
- *   This function cleans up any of the remaining global 
- * assets of the engine. This mostly consists of open surfaces 
- * and states remaining on the stack.
- *************************************************************/
-void PlatformEngine::Cleanup() {
-	if ( mainScreen != NULL ) {
-		SDL_FreeSurface( mainScreen );
-		mainScreen = NULL;
-	}
-
-	while ( !stateStack.empty() ) PopState();
-
-	SDL_Quit();
-
-	if ( fullTitle != NULL ) {
-		delete [] fullTitle;
-		fullTitle = NULL;
 	}
 }
 

@@ -55,34 +55,30 @@
 <a name="l00044"></a>00044                 <span class="comment">//** Cleans up any remaining state assets.</span>
 <a name="l00045"></a>00045                 <span class="keywordtype">void</span> <a class="code" href="../../de/d2a/class_game_navigation_state.html#f93a7dbb7eac4b14a6d59cbca32b9abd">Cleanup</a>();
 <a name="l00046"></a>00046 
-<a name="l00047"></a>00047                 <span class="comment">//** Halts execution of the state's operations.</span>
-<a name="l00048"></a>00048                 <span class="keywordtype">void</span> <a class="code" href="../../de/d2a/class_game_navigation_state.html#ac626b511de8af9f32b7a1492a10f861">Pause</a>();
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050                 <span class="comment">//** Resumes state execution.</span>
-<a name="l00051"></a>00051                 <span class="keywordtype">void</span> <a class="code" href="../../de/d2a/class_game_navigation_state.html#4d6aee55eddb1978f493206d985fb950">Resume</a>();
-<a name="l00052"></a>00052 
-<a name="l00053"></a>00053                 <span class="comment">//** Handles any events that are particular to the state</span>
-<a name="l00054"></a>00054                 <span class="keywordtype">bool</span> <a class="code" href="../../de/d2a/class_game_navigation_state.html#6e7c13d35a33478673c62ae55394cfdc">HandleEvents</a>(  <a class="code" href="../../db/da1/class_platform_engine.html" title="The game engine instance.">PlatformEngine</a>* game,
-<a name="l00055"></a>00055                                SDL_Event&amp; event );
-<a name="l00056"></a>00056 
-<a name="l00057"></a>00057                 <span class="comment">//** Updates the state's logic</span>
-<a name="l00058"></a>00058                 <span class="keywordtype">void</span> <a class="code" href="../../de/d2a/class_game_navigation_state.html#90f5e6d6287a875d8f2737180f46a004">Update</a>(        <a class="code" href="../../db/da1/class_platform_engine.html" title="The game engine instance.">PlatformEngine</a>* game );
-<a name="l00059"></a>00059                 
-<a name="l00060"></a>00060                 <span class="comment">//** Draws the visual content of the state to the engine. </span>
-<a name="l00061"></a>00061                 <span class="keywordtype">void</span> <a class="code" href="../../de/d2a/class_game_navigation_state.html#a37dce070a906454c512192c067fda09">Draw</a>(          <a class="code" href="../../db/da1/class_platform_engine.html" title="The game engine instance.">PlatformEngine</a>* game );
-<a name="l00062"></a>00062                 
-<a name="l00063"></a>00063                 <span class="comment">//** Acts as if the Player is moving in some 2D direction</span>
-<a name="l00064"></a>00064                 <span class="keywordtype">bool</span> <a class="code" href="../../de/d2a/class_game_navigation_state.html#23f15bb01ff8d7d304949c5b336d59f2">MovePlayer</a>( SDL_Rect&amp; );
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066         <span class="keyword">protected</span>:
-<a name="l00067"></a>00067                 
-<a name="l00068"></a>00068                 <span class="comment">//** Object representing the entire map used in this state</span>
-<a name="l00069"></a><a class="code" href="../../de/d2a/class_game_navigation_state.html#83154f9523275696f30c13447e1d74f3">00069</a>                 <a class="code" href="../../d4/de2/class_game_map.html" title="The map being used by the navigation state.">GameMap</a>* <a class="code" href="../../de/d2a/class_game_navigation_state.html#83154f9523275696f30c13447e1d74f3">theMap</a>;
-<a name="l00070"></a>00070 };
-<a name="l00071"></a>00071 
-<a name="l00072"></a>00072 <span class="preprocessor">#endif</span>
+<a name="l00047"></a>00047                 <span class="comment">//** Handles any events that are particular to the state</span>
+<a name="l00048"></a>00048                 <span class="keywordtype">bool</span> <a class="code" href="../../de/d2a/class_game_navigation_state.html#6e7c13d35a33478673c62ae55394cfdc">HandleEvents</a>(      <a class="code" href="../../db/da1/class_platform_engine.html" title="The game engine instance.">PlatformEngine</a>* game,
+<a name="l00049"></a>00049                                         SDL_Event&amp; event        );
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051                 <span class="comment">//** Updates the state's logic</span>
+<a name="l00052"></a>00052                 <span class="keywordtype">void</span> <a class="code" href="../../de/d2a/class_game_navigation_state.html#90f5e6d6287a875d8f2737180f46a004">Update</a>(            <a class="code" href="../../db/da1/class_platform_engine.html" title="The game engine instance.">PlatformEngine</a>* game );
+<a name="l00053"></a>00053                 
+<a name="l00054"></a>00054                 <span class="comment">//** Draws the visual content of the state to the engine. </span>
+<a name="l00055"></a>00055                 <span class="keywordtype">void</span> <a class="code" href="../../de/d2a/class_game_navigation_state.html#a37dce070a906454c512192c067fda09">Draw</a>(              <a class="code" href="../../db/da1/class_platform_engine.html" title="The game engine instance.">PlatformEngine</a>* game );
+<a name="l00056"></a>00056                 
+<a name="l00057"></a>00057                 <span class="comment">//** Acts as if the Player is moving in some 2D direction</span>
+<a name="l00058"></a>00058                 <span class="keywordtype">bool</span> <a class="code" href="../../de/d2a/class_game_navigation_state.html#23f15bb01ff8d7d304949c5b336d59f2">MovePlayer</a>(        SDL_Rect&amp; );
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060         <span class="keyword">protected</span>:
+<a name="l00061"></a>00061                 
+<a name="l00062"></a>00062                 <span class="comment">//** Object representing the entire map used in this state</span>
+<a name="l00063"></a><a class="code" href="../../de/d2a/class_game_navigation_state.html#83154f9523275696f30c13447e1d74f3">00063</a>                 <a class="code" href="../../d4/de2/class_game_map.html" title="The map being used by the navigation state.">GameMap</a>* <a class="code" href="../../de/d2a/class_game_navigation_state.html#83154f9523275696f30c13447e1d74f3">theMap</a>;
+<a name="l00064"></a>00064 
+<a name="l00065"></a>00065                 <span class="comment">//GamePlayer* thePlayer;</span>
+<a name="l00066"></a>00066 };
+<a name="l00067"></a>00067 
+<a name="l00068"></a>00068 <span class="preprocessor">#endif</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Apr 21 21:19:49 2009 for Platform 2D Game Engine by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Apr 22 14:22:02 2009 for Platform 2D Game Engine by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="../../doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

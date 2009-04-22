@@ -53,34 +53,25 @@
 <a name="l00045"></a>00045         <span class="keyword">public</span>:
 <a name="l00046"></a>00046                 <a class="code" href="../../d4/de2/class_game_map.html#ae71e5694cf19612fcaa4c1e21b03b71">GameMap</a>();
 <a name="l00047"></a>00047                 
-<a name="l00048"></a>00048                 <span class="comment">//** Moves the onscreen position of the map upward</span>
-<a name="l00049"></a>00049                 <span class="keywordtype">void</span> <a class="code" href="../../d4/de2/class_game_map.html#e9b33ef01ca643a2389e7be0ebf838b1">MoveMapUp</a>();
-<a name="l00050"></a>00050                 
-<a name="l00051"></a>00051                 <span class="comment">//** Moves the onscreen position of the map downward</span>
-<a name="l00052"></a>00052                 <span class="keywordtype">void</span> <a class="code" href="../../d4/de2/class_game_map.html#7466202e8f2bd3ae188ddcbd7e50a023">MoveMapDown</a>();
+<a name="l00048"></a>00048                 <span class="comment">//** Moves the onscreen map in some direction</span>
+<a name="l00049"></a>00049                 <span class="keywordtype">void</span> <a class="code" href="../../d4/de2/class_game_map.html#2be517853d4455e79a3c92c50e5f1722">MoveMap</a>( SDL_Rect&amp; );
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051                 <span class="comment">//** Draws the map to the engine's main screen</span>
+<a name="l00052"></a>00052                 <span class="keywordtype">void</span> <a class="code" href="../../d4/de2/class_game_map.html#c289ffedd32b98d2827e6b765b3e50d6">Draw</a>( <a class="code" href="../../db/da1/class_platform_engine.html" title="The game engine instance.">PlatformEngine</a>* game );
 <a name="l00053"></a>00053 
-<a name="l00054"></a>00054                 <span class="comment">//** Moves the onscreen position of the map to the left</span>
-<a name="l00055"></a>00055                 <span class="keywordtype">void</span> <a class="code" href="../../d4/de2/class_game_map.html#90fe97ecdcee40995d8e5fa86857cf5c">MoveMapLeft</a>();
-<a name="l00056"></a>00056 
-<a name="l00057"></a>00057                 <span class="comment">//** Moves the onscreen position of the map to the right</span>
-<a name="l00058"></a>00058                 <span class="keywordtype">void</span> <a class="code" href="../../d4/de2/class_game_map.html#e76fd062e8e47331e7e999dbea0f0486">MoveMapRight</a>();
-<a name="l00059"></a>00059 
-<a name="l00060"></a>00060                 <span class="comment">//** Draws the map to the engine's main screen</span>
-<a name="l00061"></a>00061                 <span class="keywordtype">void</span> <a class="code" href="../../d4/de2/class_game_map.html#c289ffedd32b98d2827e6b765b3e50d6">Draw</a>( <a class="code" href="../../db/da1/class_platform_engine.html" title="The game engine instance.">PlatformEngine</a>* game );
+<a name="l00054"></a>00054         <span class="keyword">private</span>:
+<a name="l00055"></a>00055                 <span class="comment">//** The stack of layers </span>
+<a name="l00056"></a>00056                 stack&lt; GameMapLayer* &gt; layerStack;
+<a name="l00057"></a>00057                 
+<a name="l00058"></a>00058                 <span class="comment">//** The size and on-screen positioning of the map</span>
+<a name="l00059"></a>00059                 SDL_Rect mapDimensions;
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061 };
 <a name="l00062"></a>00062 
-<a name="l00063"></a>00063         <span class="keyword">private</span>:
-<a name="l00064"></a>00064                 <span class="comment">//** The stack of layers </span>
-<a name="l00065"></a>00065                 stack&lt; GameMapLayer* &gt; layerStack;
-<a name="l00066"></a>00066                 
-<a name="l00067"></a>00067                 <span class="comment">//** The size and on-screen positioning of the map</span>
-<a name="l00068"></a>00068                 SDL_Rect mapDimensions;
-<a name="l00069"></a>00069 
-<a name="l00070"></a>00070 };
-<a name="l00071"></a>00071 
-<a name="l00072"></a>00072 
-<a name="l00073"></a>00073 <span class="preprocessor">#endif</span>
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064 <span class="preprocessor">#endif</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Apr 21 21:19:49 2009 for Platform 2D Game Engine by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Apr 22 14:22:02 2009 for Platform 2D Game Engine by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="../../doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

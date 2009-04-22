@@ -44,29 +44,25 @@ class GameNavigationState : public GameState {
 		//** Cleans up any remaining state assets.
 		void Cleanup();
 
-		//** Halts execution of the state's operations.
-		void Pause();
-
-		//** Resumes state execution.
-		void Resume();
-
 		//** Handles any events that are particular to the state
-		bool HandleEvents(  PlatformEngine* game,
-			       SDL_Event& event	);
+		bool HandleEvents(  	PlatformEngine* game,
+			       		SDL_Event& event	);
 
 		//** Updates the state's logic
-		void Update( 	    PlatformEngine* game );
+		void Update(		PlatformEngine* game );
 		
 		//** Draws the visual content of the state to the engine. 
-		void Draw( 	    PlatformEngine* game );
+		void Draw(		PlatformEngine* game );
 		
 		//** Acts as if the Player is moving in some 2D direction
-		bool MovePlayer( SDL_Rect& );
+		bool MovePlayer( 	SDL_Rect& );
 
 	protected:
 		
 		//** Object representing the entire map used in this state
 		GameMap* theMap;
+
+		//GamePlayer* thePlayer;
 };
 
 #endif

@@ -24,7 +24,8 @@
 #include "GameNavigationState.h"
 
 GameNavigationState::GameNavigationState() {
-	return;
+	theMap = NULL;
+	//thePlayer = NULL;
 }
 
 /**********************************************************//**
@@ -32,7 +33,7 @@ GameNavigationState::GameNavigationState() {
  * assets involved with map construction.
  *************************************************************/
 void GameNavigationState::Init() {
-	return;
+	running = true;
 }
 
 /**********************************************************//**
@@ -40,25 +41,15 @@ void GameNavigationState::Init() {
  * the navigation state.
  *************************************************************/
 void GameNavigationState::Cleanup() {
-	return;
-}
-
-/**********************************************************//**
- *   Pauses the execution of this state until further notice, 
- * assuming it is currently running. If it is already paused, 
- * this has no effect.
- *************************************************************/
-void GameNavigationState::Pause() {
-	return;
-}
-
-
-/**********************************************************//**
- *   Resumes the execution of this state, if it has been 
- * paused previously; otherwise it has no effect.
- *************************************************************/
-void GameNavigationState::Resume() {
-	return;
+	if ( theMap != NULL ) {
+		delete theMap;
+		theMap = NULL;
+	}
+/*
+	if ( thePlayer != NULL ) {
+		delete thePlayer;
+		thePlayer = NULL;
+	}*/
 }
 
 /**********************************************************//**
@@ -70,19 +61,21 @@ void GameNavigationState::Resume() {
  *************************************************************/
 bool GameNavigationState::HandleEvents( PlatformEngine* game,
 					SDL_Event& event ) {
-	switch( event.type ) {
-		case SDL_KEYDOWN:
-			switch ( event.key.keysym.sym ) {
-				case SDLK_UP:
-					game->Quit();
-					return true;
-					break;
-			}
+	if ( running ) {
+		switch( event.type ) {
+			case SDL_KEYDOWN:
+				switch ( event.key.keysym.sym ) {
+					case SDLK_UP:
+						game->Quit();
+						return true;
+						break;
+				}
 
-			break;
-	}
+				break;
+		}
 
 	return false;
+	}
 }
 
 /**********************************************************//**
@@ -93,7 +86,9 @@ bool GameNavigationState::HandleEvents( PlatformEngine* game,
  * \param game A pointer to the game engine
  *************************************************************/
 void GameNavigationState::Update( PlatformEngine* game ) {
-	return;
+	if ( running ) {
+		return;
+	}
 }
 
 /**********************************************************//**

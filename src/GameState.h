@@ -52,10 +52,10 @@ class GameState {
 		virtual void Cleanup() = 0;
 
 		//** Halts execution of the state's operations.
-		virtual void Pause() = 0;
+		virtual void Pause();
 
 		//** Resumes state execution.
-		virtual void Resume() = 0;
+		virtual void Resume();
 
 		//** Handles any events that are particular to the state
 		virtual bool HandleEvents(  PlatformEngine* game,
@@ -74,7 +74,7 @@ class GameState {
 		}
 
 
-	private:
+	protected:
 		bool running;
 };
 

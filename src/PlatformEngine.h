@@ -46,6 +46,9 @@ class PlatformEngine {
 
 		//** Clears up any engine assets before the program ends.
 		void Cleanup();
+
+		//** Loads the initial engine state from the script
+		void StartState();
 		
 		//** Explicitly changes the state of the engine.
 		void ChangeState( GameState* state );

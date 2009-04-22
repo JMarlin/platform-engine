@@ -24,6 +24,23 @@
 #include "GameState.h"
 
 GameState::GameState() {
+	//	Nothing
+}
+
+/**********************************************************//**
+ *   Pauses the execution of this state until further notice, 
+ * assuming it is currently running. If it is already paused, 
+ * this has no effect.
+ *************************************************************/
+void GameState::Pause() {
+	running = false;
+}
+
+/**********************************************************//**
+ *   Resumes the execution of this state, if it has been 
+ * paused previously; otherwise it has no effect.
+ *************************************************************/
+void GameState::Resume() {
 	running = true;
 }
 

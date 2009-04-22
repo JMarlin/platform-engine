@@ -1,4 +1,4 @@
-.TH "GameMap" 3 "21 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
+.TH "GameMap" 3 "22 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -17,16 +17,7 @@ GameMap \- The map being used by the navigation state.
 .RI "\fBGameMap\fP ()"
 .br
 .ti -1c
-.RI "void \fBMoveMapUp\fP ()"
-.br
-.ti -1c
-.RI "void \fBMoveMapDown\fP ()"
-.br
-.ti -1c
-.RI "void \fBMoveMapLeft\fP ()"
-.br
-.ti -1c
-.RI "void \fBMoveMapRight\fP ()"
+.RI "void \fBMoveMap\fP (SDL_Rect &)"
 .br
 .ti -1c
 .RI "void \fBDraw\fP (\fBPlatformEngine\fP *game)"
@@ -45,13 +36,7 @@ This is a 'map', or a 'world', that can be navigated and interacted with in the 
 .PP 
 .SS "void GameMap::Draw (\fBPlatformEngine\fP * game)"
 .PP
-.SS "void GameMap::MoveMapDown ()"
-.PP
-.SS "void GameMap::MoveMapLeft ()"
-.PP
-.SS "void GameMap::MoveMapRight ()"
-.PP
-.SS "void GameMap::MoveMapUp ()"
+.SS "void GameMap::MoveMap (SDL_Rect &)"
 .PP
 
 

@@ -1,4 +1,4 @@
-.TH "GameNavigationState" 3 "21 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
+.TH "GameNavigationState" 3 "22 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -25,12 +25,6 @@ Inherits \fBGameState\fP.
 .RI "void \fBCleanup\fP ()"
 .br
 .ti -1c
-.RI "void \fBPause\fP ()"
-.br
-.ti -1c
-.RI "void \fBResume\fP ()"
-.br
-.ti -1c
 .RI "bool \fBHandleEvents\fP (\fBPlatformEngine\fP *game, SDL_Event &event)"
 .br
 .ti -1c
@@ -43,6 +37,12 @@ Inherits \fBGameState\fP.
 .RI "bool \fBMovePlayer\fP (SDL_Rect &)"
 .br
 .ti -1c
+.RI "virtual void \fBPause\fP ()"
+.br
+.ti -1c
+.RI "virtual void \fBResume\fP ()"
+.br
+.ti -1c
 .RI "void \fBChangeState\fP (\fBPlatformEngine\fP *game, \fBGameState\fP *state)"
 .br
 .in -1c
@@ -51,6 +51,9 @@ Inherits \fBGameState\fP.
 .in +1c
 .ti -1c
 .RI "\fBGameMap\fP * \fBtheMap\fP"
+.br
+.ti -1c
+.RI "bool \fBrunning\fP"
 .br
 .in -1c
 .SH "Detailed Description"
@@ -112,16 +115,12 @@ True if the movement succeeds, false if there is collision
 .RE
 .PP
 
-.SS "void GameNavigationState::Pause ()\fC [virtual]\fP"
+.SS "void GameState::Pause ()\fC [virtual, inherited]\fP"
 .PP
 Pauses the execution of this state until further notice, assuming it is currently running. If it is already paused, this has no effect. 
-.PP
-Implements \fBGameState\fP.
-.SS "void GameNavigationState::Resume ()\fC [virtual]\fP"
+.SS "void GameState::Resume ()\fC [virtual, inherited]\fP"
 .PP
 Resumes the execution of this state, if it has been paused previously; otherwise it has no effect. 
-.PP
-Implements \fBGameState\fP.
 .SS "void GameNavigationState::Update (\fBPlatformEngine\fP * game)\fC [virtual]\fP"
 .PP
 Does any necessary logic updates to bring the game's data up to date with the actions of the player or anything else in the game.
@@ -136,6 +135,8 @@ Does any necessary logic updates to bring the game's data up to date with the ac
 Implements \fBGameState\fP.
 .SH "Member Data Documentation"
 .PP 
+.SS "bool \fBGameState::running\fP\fC [protected, inherited]\fP"
+.PP
 .SS "\fBGameMap\fP* \fBGameNavigationState::theMap\fP\fC [protected]\fP"
 .PP
 

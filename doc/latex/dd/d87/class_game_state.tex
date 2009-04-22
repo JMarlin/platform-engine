@@ -7,7 +7,14 @@ A state of behavior for the engine.
 
 {\tt \#include $<$GameState.h$>$}
 
-Inheritance diagram for GameState:\subsection*{Public Member Functions}
+Inheritance diagram for GameState:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=168pt]{d8/d0b/class_game_state__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
 \hyperlink{class_game_state_4fa0a2bf50315c4a35a3890a0adcee5c}{GameState} ()
@@ -16,9 +23,9 @@ virtual void \hyperlink{class_game_state_eec488593bae214c0f738bd64dafba32}{Init}
 \item 
 virtual void \hyperlink{class_game_state_041e7a5430d71da84745af11abdacd93}{Cleanup} ()=0
 \item 
-virtual void \hyperlink{class_game_state_1f4d2b5a2e4dcb7645e3e7a5735926a6}{Pause} ()=0
+virtual void \hyperlink{class_game_state_0c47c6969a4e0bb32d6cdf7bf9376817}{Pause} ()
 \item 
-virtual void \hyperlink{class_game_state_cf9bcd5b47ebb3f572389f64c5ca5ed4}{Resume} ()=0
+virtual void \hyperlink{class_game_state_d12ece3c3fb066281b73b07a315f04e8}{Resume} ()
 \item 
 virtual bool \hyperlink{class_game_state_de7bd9bda91253614322ca0ea77b7a14}{HandleEvents} (\hyperlink{class_platform_engine}{PlatformEngine} $\ast$game, SDL\_\-Event \&event)=0
 \item 
@@ -27,6 +34,11 @@ virtual void \hyperlink{class_game_state_100ca49bc95afce1d5c5b756708bbc2b}{Updat
 virtual void \hyperlink{class_game_state_7333dda0f49b3fa1c01cd3295f853024}{Draw} (\hyperlink{class_platform_engine}{PlatformEngine} $\ast$game)=0
 \item 
 void \hyperlink{class_game_state_f786aeb704a22a135dc289bb89fcc452}{ChangeState} (\hyperlink{class_platform_engine}{PlatformEngine} $\ast$game, \hyperlink{class_game_state}{GameState} $\ast$state)
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+bool \hyperlink{class_game_state_391df04a740c7480270d3c71a578b43a}{running}
 \end{CompactItemize}
 
 
@@ -91,25 +103,21 @@ Implemented in \hyperlink{class_game_navigation_state_6e7c13d35a33478673c62ae553
 
 
 
-Implemented in \hyperlink{class_game_navigation_state_8f613860bf544476ab9cff9fb7f98201}{GameNavigationState}.\hypertarget{class_game_state_1f4d2b5a2e4dcb7645e3e7a5735926a6}{
+Implemented in \hyperlink{class_game_navigation_state_8f613860bf544476ab9cff9fb7f98201}{GameNavigationState}.\hypertarget{class_game_state_0c47c6969a4e0bb32d6cdf7bf9376817}{
 \index{GameState@{GameState}!Pause@{Pause}}
 \index{Pause@{Pause}!GameState@{GameState}}
-\subsubsection[{Pause}]{\setlength{\rightskip}{0pt plus 5cm}virtual void GameState::Pause ()\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
-\label{dd/d87/class_game_state_1f4d2b5a2e4dcb7645e3e7a5735926a6}
+\subsubsection[{Pause}]{\setlength{\rightskip}{0pt plus 5cm}void GameState::Pause ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{dd/d87/class_game_state_0c47c6969a4e0bb32d6cdf7bf9376817}
 
 
-
-
-Implemented in \hyperlink{class_game_navigation_state_ac626b511de8af9f32b7a1492a10f861}{GameNavigationState}.\hypertarget{class_game_state_cf9bcd5b47ebb3f572389f64c5ca5ed4}{
+Pauses the execution of this state until further notice, assuming it is currently running. If it is already paused, this has no effect. \hypertarget{class_game_state_d12ece3c3fb066281b73b07a315f04e8}{
 \index{GameState@{GameState}!Resume@{Resume}}
 \index{Resume@{Resume}!GameState@{GameState}}
-\subsubsection[{Resume}]{\setlength{\rightskip}{0pt plus 5cm}virtual void GameState::Resume ()\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
-\label{dd/d87/class_game_state_cf9bcd5b47ebb3f572389f64c5ca5ed4}
+\subsubsection[{Resume}]{\setlength{\rightskip}{0pt plus 5cm}void GameState::Resume ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{dd/d87/class_game_state_d12ece3c3fb066281b73b07a315f04e8}
 
 
-
-
-Implemented in \hyperlink{class_game_navigation_state_4d6aee55eddb1978f493206d985fb950}{GameNavigationState}.\hypertarget{class_game_state_100ca49bc95afce1d5c5b756708bbc2b}{
+Resumes the execution of this state, if it has been paused previously; otherwise it has no effect. \hypertarget{class_game_state_100ca49bc95afce1d5c5b756708bbc2b}{
 \index{GameState@{GameState}!Update@{Update}}
 \index{Update@{Update}!GameState@{GameState}}
 \subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}virtual void GameState::Update ({\bf PlatformEngine} $\ast$ {\em game})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
@@ -119,3 +127,12 @@ Implemented in \hyperlink{class_game_navigation_state_4d6aee55eddb1978f493206d98
 
 
 Implemented in \hyperlink{class_game_navigation_state_90f5e6d6287a875d8f2737180f46a004}{GameNavigationState}.
+
+\subsection{Member Data Documentation}
+\hypertarget{class_game_state_391df04a740c7480270d3c71a578b43a}{
+\index{GameState@{GameState}!running@{running}}
+\index{running@{running}!GameState@{GameState}}
+\subsubsection[{running}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf GameState::running}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{dd/d87/class_game_state_391df04a740c7480270d3c71a578b43a}
+
+

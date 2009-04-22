@@ -55,10 +55,10 @@
 <a name="l00052"></a>00052                 <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d87/class_game_state.html#041e7a5430d71da84745af11abdacd93">Cleanup</a>() = 0;
 <a name="l00053"></a>00053 
 <a name="l00054"></a>00054                 <span class="comment">//** Halts execution of the state's operations.</span>
-<a name="l00055"></a>00055                 <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d87/class_game_state.html#1f4d2b5a2e4dcb7645e3e7a5735926a6">Pause</a>() = 0;
+<a name="l00055"></a>00055                 <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d87/class_game_state.html#0c47c6969a4e0bb32d6cdf7bf9376817">Pause</a>();
 <a name="l00056"></a>00056 
 <a name="l00057"></a>00057                 <span class="comment">//** Resumes state execution.</span>
-<a name="l00058"></a>00058                 <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d87/class_game_state.html#cf9bcd5b47ebb3f572389f64c5ca5ed4">Resume</a>() = 0;
+<a name="l00058"></a>00058                 <span class="keyword">virtual</span> <span class="keywordtype">void</span> <a class="code" href="../../dd/d87/class_game_state.html#d12ece3c3fb066281b73b07a315f04e8">Resume</a>();
 <a name="l00059"></a>00059 
 <a name="l00060"></a>00060                 <span class="comment">//** Handles any events that are particular to the state</span>
 <a name="l00061"></a>00061                 <span class="keyword">virtual</span> <span class="keywordtype">bool</span> <a class="code" href="../../dd/d87/class_game_state.html#de7bd9bda91253614322ca0ea77b7a14">HandleEvents</a>(  <a class="code" href="../../db/da1/class_platform_engine.html" title="The game engine instance.">PlatformEngine</a>* game,
@@ -77,13 +77,13 @@
 <a name="l00074"></a>00074                 }
 <a name="l00075"></a>00075 
 <a name="l00076"></a>00076 
-<a name="l00077"></a>00077         <span class="keyword">private</span>:
-<a name="l00078"></a>00078                 <span class="keywordtype">bool</span> running;
+<a name="l00077"></a>00077         <span class="keyword">protected</span>:
+<a name="l00078"></a><a class="code" href="../../dd/d87/class_game_state.html#391df04a740c7480270d3c71a578b43a">00078</a>                 <span class="keywordtype">bool</span> <a class="code" href="../../dd/d87/class_game_state.html#391df04a740c7480270d3c71a578b43a">running</a>;
 <a name="l00079"></a>00079 };
 <a name="l00080"></a>00080 
 <a name="l00081"></a>00081 <span class="preprocessor">#endif</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Tue Apr 21 21:19:49 2009 for Platform 2D Game Engine by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Apr 22 14:22:02 2009 for Platform 2D Game Engine by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="../../doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>
