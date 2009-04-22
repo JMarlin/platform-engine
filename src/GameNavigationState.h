@@ -60,17 +60,8 @@ class GameNavigationState : public GameState {
 		//** Draws the visual content of the state to the engine. 
 		void Draw( 	    PlatformEngine* game );
 		
-		//** Acts as if the Player is moving 'upward'
-		bool MovePlayerUp();
-
-		//** Acts as if the Player is moving 'downward'
-		bool MovePlayerDown();
-
-		//** Acts as if the Player is moving 'to the left'
-		bool MovePlayerLeft();
-
-		//** Acts as if the Player is moving 'to the right'
-		bool MovePlayerRight();
+		//** Acts as if the Player is moving in some 2D direction
+		bool MovePlayer( SDL_Rect& );
 
 	protected:
 		

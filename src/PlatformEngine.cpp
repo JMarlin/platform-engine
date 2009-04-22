@@ -46,8 +46,6 @@ PlatformEngine::PlatformEngine() {
  *   The Init function sets up the game assets; aside from  
  * just initializing the SDL subsystems, it also loads any 
  * configuration scripts.
- *
- * \param title C-string with the game title, or main window text.
  *************************************************************/
 void PlatformEngine::Init() {
 	

@@ -107,50 +107,15 @@ void GameNavigationState::Draw( PlatformEngine* game ) {
 }
 
 /**********************************************************//**
- *   Gives the impression of the player moving "up" on the map 
- * by moving everything else downward and possibly triggering 
- * a movement animation for the player's image. Fails if there 
- * is a collision between the player and a map object.
+ *   Gives the impression of the player moving in some direction 
+ * on the map by moving everything else in the opposite 
+ * direction, and possibly triggering a movement animation for 
+ * the player's image. Fails if there is a collision between the 
+ * player and a map object.
  *
  * \return True if the movement succeeds, false if there is collision
  *************************************************************/
 bool GameNavigationState::MovePlayerUp() {
-	return false;
-}
-
-/**********************************************************//**
- *   Gives the impression of the player moving "down" on the map 
- * by moving everything else upward and possibly triggering 
- * a movement animation for the player's image. Fails if there 
- * is a collision between the player and a map object.
- *
- * \return True if the movement succeeds, false if there is collision
- *************************************************************/
-bool GameNavigationState::MovePlayerDown() {
-	return false;
-}
-
-/**********************************************************//**
- *   Gives the impression of the player moving "left" on the map 
- * by moving everything else to the right and possibly triggering 
- * a movement animation for the player's image. Fails if there 
- * is a collision between the player and a map object.
- *
- * \return True if the movement succeeds, false if there is collision
- *************************************************************/
-bool GameNavigationState::MovePlayerLeft() {
-	return false;
-}
-
-/**********************************************************//**
- *   Gives the impression of the player moving "right" on the map 
- * by moving everything else leftward and possibly triggering 
- * a movement animation for the player's image. Fails if there 
- * is a collision between the player and a map object.
- *
- * \return True if the movement succeeds, false if there is collision
- *************************************************************/
-bool GameNavigationState::MovePlayerRight() {
 	return false;
 }
 
