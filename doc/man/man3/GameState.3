@@ -1,4 +1,4 @@
-.TH "GameState" 3 "22 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
+.TH "GameState" 3 "23 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -16,10 +16,7 @@ Inherited by \fBGameNavigationState\fP.
 
 .in +1c
 .ti -1c
-.RI "\fBGameState\fP ()"
-.br
-.ti -1c
-.RI "virtual void \fBInit\fP ()=0"
+.RI "virtual void \fBInit\fP (const char *theScript=NULL)=0"
 .br
 .ti -1c
 .RI "virtual void \fBCleanup\fP ()=0"
@@ -37,7 +34,7 @@ Inherited by \fBGameNavigationState\fP.
 .RI "virtual void \fBUpdate\fP (\fBPlatformEngine\fP *game)=0"
 .br
 .ti -1c
-.RI "virtual void \fBDraw\fP (\fBPlatformEngine\fP *game)=0"
+.RI "virtual void \fBDraw\fP (SDL_Surface *mainScreen)=0"
 .br
 .ti -1c
 .RI "void \fBChangeState\fP (\fBPlatformEngine\fP *game, \fBGameState\fP *state)"
@@ -49,6 +46,9 @@ Inherited by \fBGameNavigationState\fP.
 .ti -1c
 .RI "bool \fBrunning\fP"
 .br
+.ti -1c
+.RI "char * \fBstateScriptPath\fP"
+.br
 .in -1c
 .SH "Detailed Description"
 .PP 
@@ -57,10 +57,6 @@ A state of behavior for the engine.
 A Game State is a layer on top of the default engine behavior that requires a custom form of behavior for its operation. In the Platform engine, the an instance of the engine stores the current state on a stack, and any newly initiated states can be placed on top of the stack. The normal engine functions will generally call the corresponding operation functions from the state at the top of the stack, so that the engine's operation is ultimately controlled by the current top state.
 .PP
 This class in particular is an abstract class, not intended for actual use. The derivative classes, which are the different kinds of states, are used in normal program operations. 
-.SH "Constructor & Destructor Documentation"
-.PP 
-.SS "GameState::GameState ()"
-.PP
 .SH "Member Function Documentation"
 .PP 
 .SS "void GameState::ChangeState (\fBPlatformEngine\fP * game, \fBGameState\fP * state)\fC [inline]\fP"
@@ -68,13 +64,13 @@ This class in particular is an abstract class, not intended for actual use. The 
 .SS "virtual void GameState::Cleanup ()\fC [pure virtual]\fP"
 .PP
 Implemented in \fBGameNavigationState\fP.
-.SS "virtual void GameState::Draw (\fBPlatformEngine\fP * game)\fC [pure virtual]\fP"
+.SS "virtual void GameState::Draw (SDL_Surface * mainScreen)\fC [pure virtual]\fP"
 .PP
 Implemented in \fBGameNavigationState\fP.
 .SS "virtual bool GameState::HandleEvents (\fBPlatformEngine\fP * game, SDL_Event & event)\fC [pure virtual]\fP"
 .PP
 Implemented in \fBGameNavigationState\fP.
-.SS "virtual void GameState::Init ()\fC [pure virtual]\fP"
+.SS "virtual void GameState::Init (const char * theScript = \fCNULL\fP)\fC [pure virtual]\fP"
 .PP
 Implemented in \fBGameNavigationState\fP.
 .SS "void GameState::Pause ()\fC [virtual]\fP"
@@ -89,6 +85,8 @@ Implemented in \fBGameNavigationState\fP.
 .SH "Member Data Documentation"
 .PP 
 .SS "bool \fBGameState::running\fP\fC [protected]\fP"
+.PP
+.SS "char* \fBGameState::stateScriptPath\fP\fC [protected]\fP"
 .PP
 
 

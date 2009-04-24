@@ -21,11 +21,7 @@
 #ifndef GAMESTATE_CPP
 #define GAMESTATE_CPP
 
-#include "GameState.h"
-
-GameState::GameState() {
-	//	Nothing
-}
+#include "GameState.h"	
 
 /**********************************************************//**
  *   Pauses the execution of this state until further notice, 

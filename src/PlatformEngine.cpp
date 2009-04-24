@@ -299,13 +299,24 @@ void PlatformEngine::Cleanup() {
  * the engine.
  *************************************************************/
 void PlatformEngine::StartState() {
+
+	/**
+	 * First, the state is loaded from the hard-coded preset
+	 * path of the 'beginstate.lua' script. This path is
+	 * "./scripts/beginstate.lua".
+	 **/
 	lua_State* L = luaL_newstate();
 	
-	const char* scriptPath = "../../scripts/beginstate.lua";
+	const char* scriptPath = "../../scripts/beginstate.lua\n";
 
 	if ( luaL_loadfile( L, scriptPath ) || lua_pcall( L, 0, 0, 0 ) ) {
 		cerr << "Failed to load " << scriptPath << endl;
 	}
+	
+	/**
+	 * The engine then retrieves the type of state from the
+	 * script and creates that state.
+	 **/
 
 	lua_getglobal( L, "stateType" );
 
@@ -320,7 +331,16 @@ void PlatformEngine::StartState() {
 		strcpy( type, lua_tostring( L, 1 ) );
 
 		if ( strncmp( type, "Navigation\n", 8 ) == 0 ) {
-			PushState( new GameNavigationState );
+			GameState* state = new GameNavigationState;
+			
+			/**
+			 * After creation, the state is pushed onto
+			 * the engine's state stack, and then it is
+			 * initiated.
+			 **/
+
+			PushState( state );
+			state->Init( scriptPath );
 		}
 
 		delete type;
@@ -340,8 +360,10 @@ void PlatformEngine::StartState() {
 void PlatformEngine::Draw() {
 	if ( !stateStack.empty() ) {
 		GameState* topState = stateStack.top();
-		if ( topState != NULL ) topState->Draw( this );
+		if ( topState != NULL ) topState->Draw( mainScreen );
 	}
+
+	SDL_UpdateRect( mainScreen, 0, 0, mainScreen->w, mainScreen->h );
 }
 
 /**********************************************************//**
@@ -395,8 +417,9 @@ void PlatformEngine::HandleEvents() {
  * then becomes the active stack for the engine.
  *
  * \param state Pointer to the newly-created state being pushed
+ * \param scriptPath The path to the state's configuration script
  *************************************************************/
-void PlatformEngine::PushState( GameState* state ) {
+void PlatformEngine::PushState( GameState* state, char* scriptPath ){
 	stateStack.push( state );
 }
 

@@ -1,2 +1,3 @@
-<area shape="rect" id="node2" href="$dd/d87/class_game_state.html" title="A state of behavior for the engine." alt="" coords="5,6,125,215">
-<area shape="rect" id="node4" href="$d4/de2/class_game_map.html" title="The map being used by the navigation state." alt="" coords="149,46,272,175">
+<area shape="rect" id="node2" href="$dd/d87/class_game_state.html" title="A state of behavior for the engine." alt="" coords="5,6,128,215">
+<area shape="rect" id="node4" href="$d4/de2/class_game_map.html" title="The map being used by the navigation state." alt="" coords="152,46,275,175">
+<area shape="rect" id="node6" href="$d7/df6/class_game_player.html" title="The player character entity." alt="" coords="299,22,419,199">

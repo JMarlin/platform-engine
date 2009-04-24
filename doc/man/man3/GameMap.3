@@ -1,4 +1,4 @@
-.TH "GameMap" 3 "22 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
+.TH "GameMap" 3 "23 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -17,10 +17,10 @@ GameMap \- The map being used by the navigation state.
 .RI "\fBGameMap\fP ()"
 .br
 .ti -1c
-.RI "void \fBMoveMap\fP (SDL_Rect &)"
+.RI "void \fBMoveMap\fP (SDL_Rect &delta)"
 .br
 .ti -1c
-.RI "void \fBDraw\fP (\fBPlatformEngine\fP *game)"
+.RI "void \fBDraw\fP (SDL_Surface *mainScreen)"
 .br
 .in -1c
 .SH "Detailed Description"
@@ -34,9 +34,24 @@ This is a 'map', or a 'world', that can be navigated and interacted with in the 
 .PP
 .SH "Member Function Documentation"
 .PP 
-.SS "void GameMap::Draw (\fBPlatformEngine\fP * game)"
+.SS "void GameMap::Draw (SDL_Surface * mainScreen)"
 .PP
-.SS "void GameMap::MoveMap (SDL_Rect &)"
+Draws the map to the screen by drawing each of its layers to the screen, from 'bottom' to 'top', in sequence.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImainScreen\fP The surface that the map is to be drawn to. 
+.RE
+.PP
+
+.SS "void GameMap::MoveMap (SDL_Rect & delta)"
+.PP
+Moves the apparent position of the map on the screen, using the dimensions in the delta as modifiers of the map's original positioning.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdelta\fP The 2D movement vectors of the map on screen 
+.RE
 .PP
 
 

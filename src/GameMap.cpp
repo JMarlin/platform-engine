@@ -18,35 +18,35 @@
     along with Platform.  If not, see <http://www.gnu.org/licenses/>.
 ***************************************************************************/
 
-#ifndef GAMEMAPLAYER_H
-#define GAMEMAPLAYER_H
+#ifndef GAMEMAP_CPP
+#define GAMEMAP_CPP
 
+#include "GameMap.h"
 #include "SDL.h"
 
-#include "PlatformEngine.h"
-
-#include <stack>
-
-using std::stack;
+GameMap::GameMap() {
+	//blank
+}
 
 /**********************************************************//**
- * \brief A section of the map object
+ *   Moves the apparent position of the map on the screen,
+ * using the dimensions in the delta as modifiers of the 
+ * map's original positioning.
  *
- *   This is an abstract class representing a layer of the map 
- * object used by the Navigation State. It is not meant to be 
- * used, but is the ancestor of several specific types of map 
- * layers.
+ * \param delta The 2D movement vectors of the map on screen
  *************************************************************/
-class GameMapLayer {
-	public:
-		GameMapLayer();
-		
-		//** Draws the content of the layer to the engine screen
-		virtual void Draw( SDL_Surface* mainScreen ) = 0; 
+void GameMap::MoveMap( SDL_Rect& delta ) {
+	return;
+}
 
-	private:
-		//** The image of the layer
-		SDL_Surface* layerImage;
-};
+/**********************************************************//**
+ *   Draws the map to the screen by drawing each of its layers 
+ * to the screen, from 'bottom' to 'top', in sequence.
+ *
+ * \param mainScreen The surface that the map is to be drawn to.
+ *************************************************************/
+void GameMap::Draw( SDL_Surface* mainScreen ) {
+	return;
+}
 
 #endif

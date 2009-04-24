@@ -12,11 +12,13 @@ The player character entity.
 \item 
 \hyperlink{class_game_player_f0314668e232831d2f9c263596dccde6}{GamePlayer} ()
 \item 
-void \hyperlink{class_game_player_61b39fe229f10d4f93d4eb96754a2961}{Init} ()
+\hyperlink{class_game_player_ad6c1016873c9e4750ce370552541745}{$\sim$GamePlayer} ()
 \item 
-void \hyperlink{class_game_player_3394352e57e918eb17fec46498f5e348}{DrawPlayer} (\hyperlink{class_platform_engine}{PlatformEngine} $\ast$game)
+void \hyperlink{class_game_player_937dcf8e5b90200f5ae0a3418adf7271}{Init} (const char $\ast$image=NULL)
 \item 
-void \hyperlink{class_game_player_46aa70e41a260b0ea8afdae38052d65c}{MovePlayer} (SDL\_\-Rect \&delta)
+void \hyperlink{class_game_player_3e5c897e5120b5297e7226a4cb143742}{Draw} (SDL\_\-Surface $\ast$mainScreen)
+\item 
+void \hyperlink{class_game_player_df2b0a348192c421edcc94b3ca1cc3d6}{Move} (SDL\_\-Rect \&delta)
 \end{CompactItemize}
 
 
@@ -33,27 +35,55 @@ The player character entity.
 \label{d7/df6/class_game_player_f0314668e232831d2f9c263596dccde6}
 
 
+\hypertarget{class_game_player_ad6c1016873c9e4750ce370552541745}{
+\index{GamePlayer@{GamePlayer}!$\sim$GamePlayer@{$\sim$GamePlayer}}
+\index{$\sim$GamePlayer@{$\sim$GamePlayer}!GamePlayer@{GamePlayer}}
+\subsubsection[{$\sim$GamePlayer}]{\setlength{\rightskip}{0pt plus 5cm}GamePlayer::$\sim$GamePlayer ()}}
+\label{d7/df6/class_game_player_ad6c1016873c9e4750ce370552541745}
+
+
 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_game_player_3394352e57e918eb17fec46498f5e348}{
-\index{GamePlayer@{GamePlayer}!DrawPlayer@{DrawPlayer}}
-\index{DrawPlayer@{DrawPlayer}!GamePlayer@{GamePlayer}}
-\subsubsection[{DrawPlayer}]{\setlength{\rightskip}{0pt plus 5cm}void GamePlayer::DrawPlayer ({\bf PlatformEngine} $\ast$ {\em game})}}
-\label{d7/df6/class_game_player_3394352e57e918eb17fec46498f5e348}
+\hypertarget{class_game_player_3e5c897e5120b5297e7226a4cb143742}{
+\index{GamePlayer@{GamePlayer}!Draw@{Draw}}
+\index{Draw@{Draw}!GamePlayer@{GamePlayer}}
+\subsubsection[{Draw}]{\setlength{\rightskip}{0pt plus 5cm}void GamePlayer::Draw (SDL\_\-Surface $\ast$ {\em mainScreen})}}
+\label{d7/df6/class_game_player_3e5c897e5120b5297e7226a4cb143742}
 
 
-\hypertarget{class_game_player_61b39fe229f10d4f93d4eb96754a2961}{
+Draws the image of the player to the indicated surface, usually the primary display screen of the engine. This function is dependent upon the existance of both the player image and the screen.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em mainScreen}]The surface that the image is to be drawn to \end{description}
+\end{Desc}
+\hypertarget{class_game_player_937dcf8e5b90200f5ae0a3418adf7271}{
 \index{GamePlayer@{GamePlayer}!Init@{Init}}
 \index{Init@{Init}!GamePlayer@{GamePlayer}}
-\subsubsection[{Init}]{\setlength{\rightskip}{0pt plus 5cm}void GamePlayer::Init ()}}
-\label{d7/df6/class_game_player_61b39fe229f10d4f93d4eb96754a2961}
+\subsubsection[{Init}]{\setlength{\rightskip}{0pt plus 5cm}void GamePlayer::Init (const char $\ast$ {\em image} = {\tt NULL})}}
+\label{d7/df6/class_game_player_937dcf8e5b90200f5ae0a3418adf7271}
 
 
-\hypertarget{class_game_player_46aa70e41a260b0ea8afdae38052d65c}{
-\index{GamePlayer@{GamePlayer}!MovePlayer@{MovePlayer}}
-\index{MovePlayer@{MovePlayer}!GamePlayer@{GamePlayer}}
-\subsubsection[{MovePlayer}]{\setlength{\rightskip}{0pt plus 5cm}void GamePlayer::MovePlayer (SDL\_\-Rect \& {\em delta})}}
-\label{d7/df6/class_game_player_46aa70e41a260b0ea8afdae38052d65c}
+Initiates the player object by loading the relevant image and dimension information.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em image}]The full path to the file to be used as the player image \end{description}
+\end{Desc}
+\hypertarget{class_game_player_df2b0a348192c421edcc94b3ca1cc3d6}{
+\index{GamePlayer@{GamePlayer}!Move@{Move}}
+\index{Move@{Move}!GamePlayer@{GamePlayer}}
+\subsubsection[{Move}]{\setlength{\rightskip}{0pt plus 5cm}void GamePlayer::Move (SDL\_\-Rect \& {\em delta})}}
+\label{d7/df6/class_game_player_df2b0a348192c421edcc94b3ca1cc3d6}
 
 
+Moves the player by changing its position on the 2D grid, using the dimensions passed in the delta as modifiers.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em delta}]The 2D movement vectors of the player \end{description}
+\end{Desc}

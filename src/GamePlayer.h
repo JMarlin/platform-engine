@@ -22,6 +22,7 @@
 #define GAMEPLAYER_H
 
 #include "PlatformEngine.h"
+#include "SDL.h"
 
 /**********************************************************//**
  * \brief The player character entity
@@ -34,22 +35,26 @@
 class GamePlayer {
 	public:
 		GamePlayer();
+		~GamePlayer();
 		
 		//** Initialize the player class
-		void Init();
+		void Init( const char* image = NULL );
 
 		//** Draws the player to the engine screen
-		void DrawPlayer( PlatformEngine* game );
+		void Draw( SDL_Surface* mainScreen );
 
 		//** Changes the position of the player on the screen
-		void MovePlayer( SDL_Rect& delta );
+		void Move( SDL_Rect& delta );
 
 	private:
+		//** Path to an image representing the object
+		char* imagePath;
+
 		//** Size and position of the player
 		SDL_Rect dimensions;
 
 		//** Surface holding the player's image
-		SDL_Surface playerSurface;
+		SDL_Surface* playerSurface;
 };
 
 #endif

@@ -1,4 +1,4 @@
-.TH "GamePlayer" 3 "22 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
+.TH "GamePlayer" 3 "23 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -17,13 +17,16 @@ GamePlayer \- The player character entity.
 .RI "\fBGamePlayer\fP ()"
 .br
 .ti -1c
-.RI "void \fBInit\fP ()"
+.RI "\fB~GamePlayer\fP ()"
 .br
 .ti -1c
-.RI "void \fBDrawPlayer\fP (\fBPlatformEngine\fP *game)"
+.RI "void \fBInit\fP (const char *image=NULL)"
 .br
 .ti -1c
-.RI "void \fBMovePlayer\fP (SDL_Rect &delta)"
+.RI "void \fBDraw\fP (SDL_Surface *mainScreen)"
+.br
+.ti -1c
+.RI "void \fBMove\fP (SDL_Rect &delta)"
 .br
 .in -1c
 .SH "Detailed Description"
@@ -35,13 +38,38 @@ The player character entity.
 .PP 
 .SS "GamePlayer::GamePlayer ()"
 .PP
+.SS "GamePlayer::~GamePlayer ()"
+.PP
 .SH "Member Function Documentation"
 .PP 
-.SS "void GamePlayer::DrawPlayer (\fBPlatformEngine\fP * game)"
+.SS "void GamePlayer::Draw (SDL_Surface * mainScreen)"
 .PP
-.SS "void GamePlayer::Init ()"
+Draws the image of the player to the indicated surface, usually the primary display screen of the engine. This function is dependent upon the existance of both the player image and the screen.
 .PP
-.SS "void GamePlayer::MovePlayer (SDL_Rect & delta)"
+\fBParameters:\fP
+.RS 4
+\fImainScreen\fP The surface that the image is to be drawn to 
+.RE
+.PP
+
+.SS "void GamePlayer::Init (const char * image = \fCNULL\fP)"
+.PP
+Initiates the player object by loading the relevant image and dimension information.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIimage\fP The full path to the file to be used as the player image 
+.RE
+.PP
+
+.SS "void GamePlayer::Move (SDL_Rect & delta)"
+.PP
+Moves the player by changing its position on the 2D grid, using the dimensions passed in the delta as modifiers.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdelta\fP The 2D movement vectors of the player 
+.RE
 .PP
 
 

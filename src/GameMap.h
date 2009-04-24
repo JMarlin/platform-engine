@@ -46,10 +46,10 @@ class GameMap {
 		GameMap();
 		
 		//** Moves the onscreen map in some direction
-		void MoveMap( SDL_Rect& );
+		void MoveMap( SDL_Rect& delta );
 
 		//** Draws the map to the engine's main screen
-		void Draw( PlatformEngine* game );
+		void Draw( SDL_Surface* mainScreen );
 
 	private:
 		//** The stack of layers 

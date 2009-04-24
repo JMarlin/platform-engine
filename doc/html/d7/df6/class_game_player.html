@@ -34,11 +34,13 @@
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df6/class_game_player.html#f0314668e232831d2f9c263596dccde6">GamePlayer</a> ()</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df6/class_game_player.html#61b39fe229f10d4f93d4eb96754a2961">Init</a> ()</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df6/class_game_player.html#ad6c1016873c9e4750ce370552541745">~GamePlayer</a> ()</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df6/class_game_player.html#3394352e57e918eb17fec46498f5e348">DrawPlayer</a> (<a class="el" href="../../db/da1/class_platform_engine.html">PlatformEngine</a> *game)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df6/class_game_player.html#937dcf8e5b90200f5ae0a3418adf7271">Init</a> (const char *image=NULL)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df6/class_game_player.html#46aa70e41a260b0ea8afdae38052d65c">MovePlayer</a> (SDL_Rect &amp;delta)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df6/class_game_player.html#3e5c897e5120b5297e7226a4cb143742">Draw</a> (SDL_Surface *mainScreen)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df6/class_game_player.html#df2b0a348192c421edcc94b3ca1cc3d6">Move</a> (SDL_Rect &amp;delta)</td></tr>
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
@@ -64,33 +66,12 @@ The player character entity.
 
 </div>
 </div><p>
-<hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="3394352e57e918eb17fec46498f5e348"></a><!-- doxytag: member="GamePlayer::DrawPlayer" ref="3394352e57e918eb17fec46498f5e348" args="(PlatformEngine *game)" -->
+<a class="anchor" name="ad6c1016873c9e4750ce370552541745"></a><!-- doxytag: member="GamePlayer::~GamePlayer" ref="ad6c1016873c9e4750ce370552541745" args="()" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void GamePlayer::DrawPlayer           </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="../../db/da1/class_platform_engine.html">PlatformEngine</a> *&nbsp;</td>
-          <td class="paramname"> <em>game</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-
-</div>
-</div><p>
-<a class="anchor" name="61b39fe229f10d4f93d4eb96754a2961"></a><!-- doxytag: member="GamePlayer::Init" ref="61b39fe229f10d4f93d4eb96754a2961" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void GamePlayer::Init           </td>
+          <td class="memname">GamePlayer::~GamePlayer           </td>
           <td>(</td>
           <td class="paramname">          </td>
           <td>&nbsp;)&nbsp;</td>
@@ -104,12 +85,65 @@ The player character entity.
 
 </div>
 </div><p>
-<a class="anchor" name="46aa70e41a260b0ea8afdae38052d65c"></a><!-- doxytag: member="GamePlayer::MovePlayer" ref="46aa70e41a260b0ea8afdae38052d65c" args="(SDL_Rect &amp;delta)" -->
+<hr><h2>Member Function Documentation</h2>
+<a class="anchor" name="3e5c897e5120b5297e7226a4cb143742"></a><!-- doxytag: member="GamePlayer::Draw" ref="3e5c897e5120b5297e7226a4cb143742" args="(SDL_Surface *mainScreen)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void GamePlayer::MovePlayer           </td>
+          <td class="memname">void GamePlayer::Draw           </td>
+          <td>(</td>
+          <td class="paramtype">SDL_Surface *&nbsp;</td>
+          <td class="paramname"> <em>mainScreen</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Draws the image of the player to the indicated surface, usually the primary display screen of the engine. This function is dependent upon the existance of both the player image and the screen.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>mainScreen</em>&nbsp;</td><td>The surface that the image is to be drawn to </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="937dcf8e5b90200f5ae0a3418adf7271"></a><!-- doxytag: member="GamePlayer::Init" ref="937dcf8e5b90200f5ae0a3418adf7271" args="(const char *image=NULL)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GamePlayer::Init           </td>
+          <td>(</td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>image</em> = <code>NULL</code>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+Initiates the player object by loading the relevant image and dimension information.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>image</em>&nbsp;</td><td>The full path to the file to be used as the player image </td></tr>
+  </table>
+</dl>
+
+</div>
+</div><p>
+<a class="anchor" name="df2b0a348192c421edcc94b3ca1cc3d6"></a><!-- doxytag: member="GamePlayer::Move" ref="df2b0a348192c421edcc94b3ca1cc3d6" args="(SDL_Rect &amp;delta)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GamePlayer::Move           </td>
           <td>(</td>
           <td class="paramtype">SDL_Rect &amp;&nbsp;</td>
           <td class="paramname"> <em>delta</em>          </td>
@@ -121,11 +155,17 @@ The player character entity.
 <div class="memdoc">
 
 <p>
+Moves the player by changing its position on the 2D grid, using the dimensions passed in the delta as modifiers.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>delta</em>&nbsp;</td><td>The 2D movement vectors of the player </td></tr>
+  </table>
+</dl>
 
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Apr 22 18:21:51 2009 for Platform 2D Game Engine by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Apr 23 21:09:25 2009 for Platform 2D Game Engine by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="../../doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

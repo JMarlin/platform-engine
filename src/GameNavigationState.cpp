@@ -21,18 +21,60 @@
 #ifndef GAMENAVIGATIONSTATE_CPP
 #define GAMENAVIGATIONSTATE_CPP
 
+#include <iostream>
+#include <cstring>
+
 #include "GameNavigationState.h"
+#include "luainc.h"
+
+using std::cerr;
+using std::endl;
 
 GameNavigationState::GameNavigationState() {
 	theMap = NULL;
-	//thePlayer = NULL;
+	thePlayer = NULL;
+	stateScriptPath = NULL;
 }
 
 /**********************************************************//**
  *   Configures assets specific to this state; particularly 
  * assets involved with map construction.
  *************************************************************/
-void GameNavigationState::Init() {
+void GameNavigationState::Init( const char* theScript ) {
+
+	/**
+	 * The function first loads the script that has been
+	 * passed to it.
+	 **/
+	if ( theScript != NULL ) {
+		
+		stateScriptPath = new char[ 32 ];
+		
+		strcpy( stateScriptPath, theScript );
+		
+		lua_State* L = luaL_newstate();
+
+		if ( luaL_loadfile( L, stateScriptPath ) 
+		|| lua_pcall( L, 0, 0, 0 ) ) {
+			cerr << "Failed to load " << stateScriptPath 
+				<< endl;
+		}
+		
+		/**
+		 * The 'player' entity is then loaded based 
+		 * on the specifications in the script.
+		 **/
+
+		thePlayer = new GamePlayer;
+
+	}
+
+	/**
+	 * None of the above will occur if no script is passed; 
+	 * however, the state will still be pushed into a 
+	 * 'running' state.
+	 **/
+
 	running = true;
 }
 
@@ -45,11 +87,16 @@ void GameNavigationState::Cleanup() {
 		delete theMap;
 		theMap = NULL;
 	}
-/*
+
 	if ( thePlayer != NULL ) {
 		delete thePlayer;
 		thePlayer = NULL;
-	}*/
+	}
+
+	if ( stateScriptPath != NULL ) {
+		delete [] stateScriptPath;
+		stateScriptPath = NULL; 
+	}
 }
 
 /**********************************************************//**
@@ -95,10 +142,16 @@ void GameNavigationState::Update( PlatformEngine* game ) {
  *   Draws the contents of the state, including the map and 
  * the player, to the engine's main screen.
  *
- * \param game A pointer to the game engine
+ * \param mainScreen A pointer to the primary game display surface
  *************************************************************/
-void GameNavigationState::Draw( PlatformEngine* game ) {
-	return;
+void GameNavigationState::Draw( SDL_Surface* mainScreen ) {
+	if ( theMap != NULL ) {
+		theMap->Draw( mainScreen );
+	}
+
+	if ( thePlayer != NULL ) {
+		thePlayer->Draw( mainScreen );
+	}
 }
 
 /**********************************************************//**

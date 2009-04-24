@@ -43,10 +43,8 @@
  *************************************************************/
 class GameState {
 	public:
-		GameState();
-
 		//** Prepares state subsystems and scripts.
-		virtual void Init() = 0;
+		virtual void Init( const char* theScript = NULL ) = 0 ;
 
 		//** Cleans up any remaining state assets.
 		virtual void Cleanup() = 0;
@@ -65,7 +63,7 @@ class GameState {
 		virtual void Update( 	    PlatformEngine* game ) = 0;
 		
 		//** Draws the visual content of the state to the engine. 
-		virtual void Draw( 	    PlatformEngine* game ) = 0;
+		virtual void Draw( 	    SDL_Surface* mainScreen ) = 0;
 		
 		//** Explicitly Switches the engine to another state.
 		void ChangeState(	PlatformEngine* game,
@@ -76,6 +74,8 @@ class GameState {
 
 	protected:
 		bool running;
+
+		char* stateScriptPath;
 };
 
 #endif

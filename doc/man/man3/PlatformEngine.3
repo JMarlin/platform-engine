@@ -1,4 +1,4 @@
-.TH "PlatformEngine" 3 "22 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
+.TH "PlatformEngine" 3 "23 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -29,7 +29,7 @@ PlatformEngine \- The game engine instance.
 .RI "void \fBChangeState\fP (\fBGameState\fP *state)"
 .br
 .ti -1c
-.RI "void \fBPushState\fP (\fBGameState\fP *state)"
+.RI "void \fBPushState\fP (\fBGameState\fP *state, char *scriptPath=NULL)"
 .br
 .ti -1c
 .RI "void \fBPopState\fP ()"
@@ -95,13 +95,15 @@ Once the screen has been created, an engine flag indicating that the engine is r
 .SS "void PlatformEngine::PopState ()"
 .PP
 This function pops a state pointer off the top of the stack. It's operation is ordered such that the state first becomes inactive and then is deleted from memory, effectively preventing segmentation errors. 
-.SS "void PlatformEngine::PushState (\fBGameState\fP * state)"
+.SS "void PlatformEngine::PushState (\fBGameState\fP * state, char * scriptPath = \fCNULL\fP)"
 .PP
 This function takes a reference to a state and then pushes it onto the top of the engine's state stack. That then becomes the active stack for the engine.
 .PP
 \fBParameters:\fP
 .RS 4
 \fIstate\fP Pointer to the newly-created state being pushed 
+.br
+\fIscriptPath\fP The path to the state's configuration script 
 .RE
 .PP
 
@@ -112,6 +114,12 @@ This function takes a reference to a state and then pushes it onto the top of th
 .SS "void PlatformEngine::StartState ()"
 .PP
 This function uses a prewritten lua script to initiate a state. This is intended to be the first state that is run by the engine. 
+.PP
+First, the state is loaded from the hard-coded preset path of the 'beginstate.lua' script. This path is './scripts/beginstate.lua'.
+.PP
+The engine then retrieves the type of state from the script and creates that state.
+.PP
+After creation, the state is pushed onto the engine's state stack, and then it is initiated.
 .SS "void PlatformEngine::Update ()"
 .PP
 This function's main purpose is to call the update function of the current state. 

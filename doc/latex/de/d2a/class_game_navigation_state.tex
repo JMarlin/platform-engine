@@ -18,7 +18,7 @@ Collaboration diagram for GameNavigationState:\nopagebreak
 \begin{figure}[H]
 \begin{center}
 \leavevmode
-\includegraphics[width=244pt]{d1/d57/class_game_navigation_state__coll__graph}
+\includegraphics[width=354pt]{d1/d57/class_game_navigation_state__coll__graph}
 \end{center}
 \end{figure}
 \subsection*{Public Member Functions}
@@ -26,7 +26,7 @@ Collaboration diagram for GameNavigationState:\nopagebreak
 \item 
 \hyperlink{class_game_navigation_state_6a3b93831c85eb5dc3de0a53ca13ddfc}{GameNavigationState} ()
 \item 
-void \hyperlink{class_game_navigation_state_8f613860bf544476ab9cff9fb7f98201}{Init} ()
+void \hyperlink{class_game_navigation_state_63c99936c2338e5cfeb71c8ffbd88b7f}{Init} (const char $\ast$theScript=NULL)
 \item 
 void \hyperlink{class_game_navigation_state_f93a7dbb7eac4b14a6d59cbca32b9abd}{Cleanup} ()
 \item 
@@ -34,7 +34,7 @@ bool \hyperlink{class_game_navigation_state_6e7c13d35a33478673c62ae55394cfdc}{Ha
 \item 
 void \hyperlink{class_game_navigation_state_90f5e6d6287a875d8f2737180f46a004}{Update} (\hyperlink{class_platform_engine}{PlatformEngine} $\ast$game)
 \item 
-void \hyperlink{class_game_navigation_state_a37dce070a906454c512192c067fda09}{Draw} (\hyperlink{class_platform_engine}{PlatformEngine} $\ast$game)
+void \hyperlink{class_game_navigation_state_e6b88e854b682be866b2aac2005278a5}{Draw} (SDL\_\-Surface $\ast$mainScreen)
 \item 
 bool \hyperlink{class_game_navigation_state_40ef4ee4596f6e727e2f6bd7e2a352bf}{MovePlayer} (SDL\_\-Rect \&delta)
 \item 
@@ -49,7 +49,11 @@ void \hyperlink{class_game_state_f786aeb704a22a135dc289bb89fcc452}{ChangeState} 
 \item 
 \hyperlink{class_game_map}{GameMap} $\ast$ \hyperlink{class_game_navigation_state_83154f9523275696f30c13447e1d74f3}{theMap}
 \item 
+\hyperlink{class_game_player}{GamePlayer} $\ast$ \hyperlink{class_game_navigation_state_9e4cbab2137458ae14ed1deb84bad2bc}{thePlayer}
+\item 
 bool \hyperlink{class_game_state_391df04a740c7480270d3c71a578b43a}{running}
+\item 
+char $\ast$ \hyperlink{class_game_state_bfe09abe78dd5794426964d3392b2973}{stateScriptPath}
 \end{CompactItemize}
 
 
@@ -85,11 +89,11 @@ While in this state, the game's operation revolves around the movement of a play
 
 Does any last-minute operations before the termination of the navigation state. 
 
-Implements \hyperlink{class_game_state_041e7a5430d71da84745af11abdacd93}{GameState}.\hypertarget{class_game_navigation_state_a37dce070a906454c512192c067fda09}{
+Implements \hyperlink{class_game_state_041e7a5430d71da84745af11abdacd93}{GameState}.\hypertarget{class_game_navigation_state_e6b88e854b682be866b2aac2005278a5}{
 \index{GameNavigationState@{GameNavigationState}!Draw@{Draw}}
 \index{Draw@{Draw}!GameNavigationState@{GameNavigationState}}
-\subsubsection[{Draw}]{\setlength{\rightskip}{0pt plus 5cm}void GameNavigationState::Draw ({\bf PlatformEngine} $\ast$ {\em game})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
-\label{de/d2a/class_game_navigation_state_a37dce070a906454c512192c067fda09}
+\subsubsection[{Draw}]{\setlength{\rightskip}{0pt plus 5cm}void GameNavigationState::Draw (SDL\_\-Surface $\ast$ {\em mainScreen})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{de/d2a/class_game_navigation_state_e6b88e854b682be866b2aac2005278a5}
 
 
 Draws the contents of the state, including the map and the player, to the engine's main screen.
@@ -97,11 +101,11 @@ Draws the contents of the state, including the map and the player, to the engine
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em game}]A pointer to the game engine \end{description}
+\item[{\em mainScreen}]A pointer to the primary game display surface \end{description}
 \end{Desc}
 
 
-Implements \hyperlink{class_game_state_7333dda0f49b3fa1c01cd3295f853024}{GameState}.\hypertarget{class_game_navigation_state_6e7c13d35a33478673c62ae55394cfdc}{
+Implements \hyperlink{class_game_state_1b93233932defca939eed4c0676a5d2a}{GameState}.\hypertarget{class_game_navigation_state_6e7c13d35a33478673c62ae55394cfdc}{
 \index{GameNavigationState@{GameNavigationState}!HandleEvents@{HandleEvents}}
 \index{HandleEvents@{HandleEvents}!GameNavigationState@{GameNavigationState}}
 \subsubsection[{HandleEvents}]{\setlength{\rightskip}{0pt plus 5cm}bool GameNavigationState::HandleEvents ({\bf PlatformEngine} $\ast$ {\em game}, \/  SDL\_\-Event \& {\em event})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
@@ -117,16 +121,22 @@ Handles event triggers for this state, including the movement of the player with
 \end{Desc}
 
 
-Implements \hyperlink{class_game_state_de7bd9bda91253614322ca0ea77b7a14}{GameState}.\hypertarget{class_game_navigation_state_8f613860bf544476ab9cff9fb7f98201}{
+Implements \hyperlink{class_game_state_de7bd9bda91253614322ca0ea77b7a14}{GameState}.\hypertarget{class_game_navigation_state_63c99936c2338e5cfeb71c8ffbd88b7f}{
 \index{GameNavigationState@{GameNavigationState}!Init@{Init}}
 \index{Init@{Init}!GameNavigationState@{GameNavigationState}}
-\subsubsection[{Init}]{\setlength{\rightskip}{0pt plus 5cm}void GameNavigationState::Init ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
-\label{de/d2a/class_game_navigation_state_8f613860bf544476ab9cff9fb7f98201}
+\subsubsection[{Init}]{\setlength{\rightskip}{0pt plus 5cm}void GameNavigationState::Init (const char $\ast$ {\em theScript} = {\tt NULL})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{de/d2a/class_game_navigation_state_63c99936c2338e5cfeb71c8ffbd88b7f}
 
 
 Configures assets specific to this state; particularly assets involved with map construction. 
 
-Implements \hyperlink{class_game_state_eec488593bae214c0f738bd64dafba32}{GameState}.\hypertarget{class_game_navigation_state_40ef4ee4596f6e727e2f6bd7e2a352bf}{
+The function first loads the script that has been passed to it.
+
+The 'player' entity is then loaded based on the specifications in the script.
+
+None of the above will occur if no script is passed; however, the state will still be pushed into a 'running' state.
+
+Implements \hyperlink{class_game_state_488fd39ceb2907b13e11f03607f16e5f}{GameState}.\hypertarget{class_game_navigation_state_40ef4ee4596f6e727e2f6bd7e2a352bf}{
 \index{GameNavigationState@{GameNavigationState}!MovePlayer@{MovePlayer}}
 \index{MovePlayer@{MovePlayer}!GameNavigationState@{GameNavigationState}}
 \subsubsection[{MovePlayer}]{\setlength{\rightskip}{0pt plus 5cm}bool GameNavigationState::MovePlayer (SDL\_\-Rect \& {\em delta})}}
@@ -182,10 +192,24 @@ Implements \hyperlink{class_game_state_100ca49bc95afce1d5c5b756708bbc2b}{GameSta
 \label{dd/d87/class_game_state_391df04a740c7480270d3c71a578b43a}
 
 
+\hypertarget{class_game_state_bfe09abe78dd5794426964d3392b2973}{
+\index{GameNavigationState@{GameNavigationState}!stateScriptPath@{stateScriptPath}}
+\index{stateScriptPath@{stateScriptPath}!GameNavigationState@{GameNavigationState}}
+\subsubsection[{stateScriptPath}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf GameState::stateScriptPath}\hspace{0.3cm}{\tt  \mbox{[}protected, inherited\mbox{]}}}}
+\label{dd/d87/class_game_state_bfe09abe78dd5794426964d3392b2973}
+
+
 \hypertarget{class_game_navigation_state_83154f9523275696f30c13447e1d74f3}{
 \index{GameNavigationState@{GameNavigationState}!theMap@{theMap}}
 \index{theMap@{theMap}!GameNavigationState@{GameNavigationState}}
 \subsubsection[{theMap}]{\setlength{\rightskip}{0pt plus 5cm}{\bf GameMap}$\ast$ {\bf GameNavigationState::theMap}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
 \label{de/d2a/class_game_navigation_state_83154f9523275696f30c13447e1d74f3}
+
+
+\hypertarget{class_game_navigation_state_9e4cbab2137458ae14ed1deb84bad2bc}{
+\index{GameNavigationState@{GameNavigationState}!thePlayer@{thePlayer}}
+\index{thePlayer@{thePlayer}!GameNavigationState@{GameNavigationState}}
+\subsubsection[{thePlayer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf GamePlayer}$\ast$ {\bf GameNavigationState::thePlayer}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{de/d2a/class_game_navigation_state_9e4cbab2137458ae14ed1deb84bad2bc}
 
 

@@ -1,4 +1,4 @@
-.TH "GameNavigationState" 3 "22 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
+.TH "GameNavigationState" 3 "23 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -19,7 +19,7 @@ Inherits \fBGameState\fP.
 .RI "\fBGameNavigationState\fP ()"
 .br
 .ti -1c
-.RI "void \fBInit\fP ()"
+.RI "void \fBInit\fP (const char *theScript=NULL)"
 .br
 .ti -1c
 .RI "void \fBCleanup\fP ()"
@@ -31,7 +31,7 @@ Inherits \fBGameState\fP.
 .RI "void \fBUpdate\fP (\fBPlatformEngine\fP *game)"
 .br
 .ti -1c
-.RI "void \fBDraw\fP (\fBPlatformEngine\fP *game)"
+.RI "void \fBDraw\fP (SDL_Surface *mainScreen)"
 .br
 .ti -1c
 .RI "bool \fBMovePlayer\fP (SDL_Rect &delta)"
@@ -53,7 +53,13 @@ Inherits \fBGameState\fP.
 .RI "\fBGameMap\fP * \fBtheMap\fP"
 .br
 .ti -1c
+.RI "\fBGamePlayer\fP * \fBthePlayer\fP"
+.br
+.ti -1c
 .RI "bool \fBrunning\fP"
+.br
+.ti -1c
+.RI "char * \fBstateScriptPath\fP"
 .br
 .in -1c
 .SH "Detailed Description"
@@ -74,13 +80,13 @@ While in this state, the game's operation revolves around the movement of a play
 Does any last-minute operations before the termination of the navigation state. 
 .PP
 Implements \fBGameState\fP.
-.SS "void GameNavigationState::Draw (\fBPlatformEngine\fP * game)\fC [virtual]\fP"
+.SS "void GameNavigationState::Draw (SDL_Surface * mainScreen)\fC [virtual]\fP"
 .PP
 Draws the contents of the state, including the map and the player, to the engine's main screen.
 .PP
 \fBParameters:\fP
 .RS 4
-\fIgame\fP A pointer to the game engine 
+\fImainScreen\fP A pointer to the primary game display surface 
 .RE
 .PP
 
@@ -100,9 +106,15 @@ Handles event triggers for this state, including the movement of the player with
 
 .PP
 Implements \fBGameState\fP.
-.SS "void GameNavigationState::Init ()\fC [virtual]\fP"
+.SS "void GameNavigationState::Init (const char * theScript = \fCNULL\fP)\fC [virtual]\fP"
 .PP
 Configures assets specific to this state; particularly assets involved with map construction. 
+.PP
+The function first loads the script that has been passed to it.
+.PP
+The 'player' entity is then loaded based on the specifications in the script.
+.PP
+None of the above will occur if no script is passed; however, the state will still be pushed into a 'running' state.
 .PP
 Implements \fBGameState\fP.
 .SS "bool GameNavigationState::MovePlayer (SDL_Rect & delta)"
@@ -142,7 +154,11 @@ Implements \fBGameState\fP.
 .PP 
 .SS "bool \fBGameState::running\fP\fC [protected, inherited]\fP"
 .PP
+.SS "char* \fBGameState::stateScriptPath\fP\fC [protected, inherited]\fP"
+.PP
 .SS "\fBGameMap\fP* \fBGameNavigationState::theMap\fP\fC [protected]\fP"
+.PP
+.SS "\fBGamePlayer\fP* \fBGameNavigationState::thePlayer\fP\fC [protected]\fP"
 .PP
 
 

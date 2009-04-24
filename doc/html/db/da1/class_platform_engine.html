@@ -42,7 +42,7 @@
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da1/class_platform_engine.html#d2b335545c9ab6bce7be7c014bc8c528">ChangeState</a> (<a class="el" href="../../dd/d87/class_game_state.html">GameState</a> *state)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da1/class_platform_engine.html#98e3d34b6ee831bcc1d26bac83bfe8d8">PushState</a> (<a class="el" href="../../dd/d87/class_game_state.html">GameState</a> *state)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da1/class_platform_engine.html#0a2f800d7b8a54f2e3792bc99507c632">PushState</a> (<a class="el" href="../../dd/d87/class_game_state.html">GameState</a> *state, char *scriptPath=NULL)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../db/da1/class_platform_engine.html#cf001abec596906465197d1220db2230">PopState</a> ()</td></tr>
 
@@ -205,7 +205,7 @@ Once the screen has been created, an engine flag indicating that the engine is r
 This function pops a state pointer off the top of the stack. It's operation is ordered such that the state first becomes inactive and then is deleted from memory, effectively preventing segmentation errors. 
 </div>
 </div><p>
-<a class="anchor" name="98e3d34b6ee831bcc1d26bac83bfe8d8"></a><!-- doxytag: member="PlatformEngine::PushState" ref="98e3d34b6ee831bcc1d26bac83bfe8d8" args="(GameState *state)" -->
+<a class="anchor" name="0a2f800d7b8a54f2e3792bc99507c632"></a><!-- doxytag: member="PlatformEngine::PushState" ref="0a2f800d7b8a54f2e3792bc99507c632" args="(GameState *state, char *scriptPath=NULL)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -213,9 +213,18 @@ This function pops a state pointer off the top of the stack. It's operation is o
           <td class="memname">void PlatformEngine::PushState           </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="../../dd/d87/class_game_state.html">GameState</a> *&nbsp;</td>
-          <td class="paramname"> <em>state</em>          </td>
-          <td>&nbsp;)&nbsp;</td>
+          <td class="paramname"> <em>state</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
           <td></td>
+          <td class="paramtype">char *&nbsp;</td>
+          <td class="paramname"> <em>scriptPath</em> = <code>NULL</code></td><td>&nbsp;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td><td></td>
         </tr>
       </table>
 </div>
@@ -226,6 +235,7 @@ This function takes a reference to a state and then pushes it onto the top of th
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
     <tr><td valign="top"></td><td valign="top"><em>state</em>&nbsp;</td><td>Pointer to the newly-created state being pushed </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>scriptPath</em>&nbsp;</td><td>The path to the state's configuration script </td></tr>
   </table>
 </dl>
 
@@ -286,6 +296,10 @@ This function takes a reference to a state and then pushes it onto the top of th
 
 <p>
 This function uses a prewritten lua script to initiate a state. This is intended to be the first state that is run by the engine. 
+<p>
+First, the state is loaded from the hard-coded preset path of the 'beginstate.lua' script. This path is "./scripts/beginstate.lua".<p>
+The engine then retrieves the type of state from the script and creates that state.<p>
+After creation, the state is pushed onto the engine's state stack, and then it is initiated.
 </div>
 </div><p>
 <a class="anchor" name="d3ab75304226ad3fcac6b66ce3cedbc7"></a><!-- doxytag: member="PlatformEngine::Update" ref="d3ab75304226ad3fcac6b66ce3cedbc7" args="()" -->
@@ -308,7 +322,7 @@ This function's main purpose is to call the update function of the current state
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Apr 22 18:21:51 2009 for Platform 2D Game Engine by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Apr 23 21:09:27 2009 for Platform 2D Game Engine by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="../../doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

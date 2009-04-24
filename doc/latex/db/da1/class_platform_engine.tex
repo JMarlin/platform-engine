@@ -20,7 +20,7 @@ void \hyperlink{class_platform_engine_8420fc9a24a0fed565af76f7bb378bdf}{StartSta
 \item 
 void \hyperlink{class_platform_engine_d2b335545c9ab6bce7be7c014bc8c528}{ChangeState} (\hyperlink{class_game_state}{GameState} $\ast$state)
 \item 
-void \hyperlink{class_platform_engine_98e3d34b6ee831bcc1d26bac83bfe8d8}{PushState} (\hyperlink{class_game_state}{GameState} $\ast$state)
+void \hyperlink{class_platform_engine_0a2f800d7b8a54f2e3792bc99507c632}{PushState} (\hyperlink{class_game_state}{GameState} $\ast$state, char $\ast$scriptPath=NULL)
 \item 
 void \hyperlink{class_platform_engine_cf001abec596906465197d1220db2230}{PopState} ()
 \item 
@@ -110,11 +110,11 @@ Once the screen has been created, an engine flag indicating that the engine is r
 \label{db/da1/class_platform_engine_cf001abec596906465197d1220db2230}
 
 
-This function pops a state pointer off the top of the stack. It's operation is ordered such that the state first becomes inactive and then is deleted from memory, effectively preventing segmentation errors. \hypertarget{class_platform_engine_98e3d34b6ee831bcc1d26bac83bfe8d8}{
+This function pops a state pointer off the top of the stack. It's operation is ordered such that the state first becomes inactive and then is deleted from memory, effectively preventing segmentation errors. \hypertarget{class_platform_engine_0a2f800d7b8a54f2e3792bc99507c632}{
 \index{PlatformEngine@{PlatformEngine}!PushState@{PushState}}
 \index{PushState@{PushState}!PlatformEngine@{PlatformEngine}}
-\subsubsection[{PushState}]{\setlength{\rightskip}{0pt plus 5cm}void PlatformEngine::PushState ({\bf GameState} $\ast$ {\em state})}}
-\label{db/da1/class_platform_engine_98e3d34b6ee831bcc1d26bac83bfe8d8}
+\subsubsection[{PushState}]{\setlength{\rightskip}{0pt plus 5cm}void PlatformEngine::PushState ({\bf GameState} $\ast$ {\em state}, \/  char $\ast$ {\em scriptPath} = {\tt NULL})}}
+\label{db/da1/class_platform_engine_0a2f800d7b8a54f2e3792bc99507c632}
 
 
 This function takes a reference to a state and then pushes it onto the top of the engine's state stack. That then becomes the active stack for the engine.
@@ -122,7 +122,7 @@ This function takes a reference to a state and then pushes it onto the top of th
 \begin{Desc}
 \item[Parameters:]
 \begin{description}
-\item[{\em state}]Pointer to the newly-created state being pushed \end{description}
+\item[{\em state}]Pointer to the newly-created state being pushed \item[{\em scriptPath}]The path to the state's configuration script \end{description}
 \end{Desc}
 \hypertarget{class_platform_engine_dbcdd91813cabbe51bb2f86eb23e772a}{
 \index{PlatformEngine@{PlatformEngine}!Quit@{Quit}}
@@ -145,7 +145,13 @@ This function takes a reference to a state and then pushes it onto the top of th
 \label{db/da1/class_platform_engine_8420fc9a24a0fed565af76f7bb378bdf}
 
 
-This function uses a prewritten lua script to initiate a state. This is intended to be the first state that is run by the engine. \hypertarget{class_platform_engine_d3ab75304226ad3fcac6b66ce3cedbc7}{
+This function uses a prewritten lua script to initiate a state. This is intended to be the first state that is run by the engine. 
+
+First, the state is loaded from the hard-coded preset path of the 'beginstate.lua' script. This path is \char`\"{}./scripts/beginstate.lua\char`\"{}.
+
+The engine then retrieves the type of state from the script and creates that state.
+
+After creation, the state is pushed onto the engine's state stack, and then it is initiated.\hypertarget{class_platform_engine_d3ab75304226ad3fcac6b66ce3cedbc7}{
 \index{PlatformEngine@{PlatformEngine}!Update@{Update}}
 \index{Update@{Update}!PlatformEngine@{PlatformEngine}}
 \subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}void PlatformEngine::Update ()}}

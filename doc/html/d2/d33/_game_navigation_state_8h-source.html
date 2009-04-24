@@ -51,7 +51,7 @@
 <a name="l00040"></a>00040                 <a class="code" href="../../de/d2a/class_game_navigation_state.html#6a3b93831c85eb5dc3de0a53ca13ddfc">GameNavigationState</a>();
 <a name="l00041"></a>00041 
 <a name="l00042"></a>00042                 <span class="comment">//** Prepares state subsystems and scripts.</span>
-<a name="l00043"></a>00043                 <span class="keywordtype">void</span> <a class="code" href="../../de/d2a/class_game_navigation_state.html#8f613860bf544476ab9cff9fb7f98201">Init</a>();
+<a name="l00043"></a>00043                 <span class="keywordtype">void</span> <a class="code" href="../../de/d2a/class_game_navigation_state.html#63c99936c2338e5cfeb71c8ffbd88b7f">Init</a>( <span class="keyword">const</span> <span class="keywordtype">char</span>* theScript = NULL );
 <a name="l00044"></a>00044 
 <a name="l00045"></a>00045                 <span class="comment">//** Cleans up any remaining state assets.</span>
 <a name="l00046"></a>00046                 <span class="keywordtype">void</span> <a class="code" href="../../de/d2a/class_game_navigation_state.html#f93a7dbb7eac4b14a6d59cbca32b9abd">Cleanup</a>();
@@ -64,7 +64,7 @@
 <a name="l00053"></a>00053                 <span class="keywordtype">void</span> <a class="code" href="../../de/d2a/class_game_navigation_state.html#90f5e6d6287a875d8f2737180f46a004">Update</a>(            <a class="code" href="../../db/da1/class_platform_engine.html" title="The game engine instance.">PlatformEngine</a>* game );
 <a name="l00054"></a>00054                 
 <a name="l00055"></a>00055                 <span class="comment">//** Draws the visual content of the state to the engine. </span>
-<a name="l00056"></a>00056                 <span class="keywordtype">void</span> <a class="code" href="../../de/d2a/class_game_navigation_state.html#a37dce070a906454c512192c067fda09">Draw</a>(              <a class="code" href="../../db/da1/class_platform_engine.html" title="The game engine instance.">PlatformEngine</a>* game );
+<a name="l00056"></a>00056                 <span class="keywordtype">void</span> <a class="code" href="../../de/d2a/class_game_navigation_state.html#e6b88e854b682be866b2aac2005278a5">Draw</a>(              SDL_Surface* mainScreen );
 <a name="l00057"></a>00057                 
 <a name="l00058"></a>00058                 <span class="comment">//** Acts as if the Player is moving in some 2D direction</span>
 <a name="l00059"></a>00059                 <span class="keywordtype">bool</span> <a class="code" href="../../de/d2a/class_game_navigation_state.html#40ef4ee4596f6e727e2f6bd7e2a352bf">MovePlayer</a>(        SDL_Rect&amp; delta );
@@ -73,13 +73,14 @@
 <a name="l00062"></a>00062                 
 <a name="l00063"></a>00063                 <span class="comment">//** Object representing the entire map used in this state</span>
 <a name="l00064"></a><a class="code" href="../../de/d2a/class_game_navigation_state.html#83154f9523275696f30c13447e1d74f3">00064</a>                 <a class="code" href="../../d4/de2/class_game_map.html" title="The map being used by the navigation state.">GameMap</a>* <a class="code" href="../../de/d2a/class_game_navigation_state.html#83154f9523275696f30c13447e1d74f3">theMap</a>;
-<a name="l00065"></a>00065 
-<a name="l00066"></a>00066                 <span class="comment">//GamePlayer* thePlayer;</span>
-<a name="l00067"></a>00067 };
-<a name="l00068"></a>00068 
-<a name="l00069"></a>00069 <span class="preprocessor">#endif</span>
+<a name="l00065"></a>00065                 
+<a name="l00066"></a>00066                 <span class="comment">//** Object representing the player's avatar in the game</span>
+<a name="l00067"></a><a class="code" href="../../de/d2a/class_game_navigation_state.html#9e4cbab2137458ae14ed1deb84bad2bc">00067</a>                 <a class="code" href="../../d7/df6/class_game_player.html" title="The player character entity.">GamePlayer</a>* <a class="code" href="../../de/d2a/class_game_navigation_state.html#9e4cbab2137458ae14ed1deb84bad2bc">thePlayer</a>;
+<a name="l00068"></a>00068 };
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070 <span class="preprocessor">#endif</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Apr 22 18:21:51 2009 for Platform 2D Game Engine by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Apr 23 21:09:22 2009 for Platform 2D Game Engine by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="../../doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

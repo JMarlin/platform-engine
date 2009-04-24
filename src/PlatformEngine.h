@@ -54,7 +54,7 @@ class PlatformEngine {
 		void ChangeState( GameState* state );
 		
 		//** Puts a new state onto the engine state stack.
-		void PushState( GameState* state );
+		void PushState( GameState* state, char* scriptPath = NULL );
 
 		//** Ends the top state on the engine stack.
 		void PopState();
@@ -83,7 +83,8 @@ class PlatformEngine {
 		
 		//** Controls whether or not the game loop is active.
 		bool running;
-
+		
+		//** The complete title of the game; used in window header
 		char* fullTitle;
 };
 

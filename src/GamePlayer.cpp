@@ -21,22 +21,84 @@
 #ifndef GAMEPLAYER_CPP
 #define GAMEPLAYER_CPP
 
+#include <iostream>
+#include <cstring>
+
 #include "GamePlayer.h"
 
+using std::cerr;
+using std::endl;
+
 GamePlayer::GamePlayer() {
-	//blank
+	imagePath = NULL;
+	playerSurface = NULL;
 }
 
-void GamePlayer::Init() {
-	return;
+/**********************************************************//**
+ *   Initiates the player object by loading the relevant 
+ * image and dimension information.
+ *
+ * \param image The full path to the file to be used as the player image
+ *************************************************************/
+void GamePlayer::Init( const char* image ) {	
+	if ( image != NULL ) {
+		imagePath = new char[32];
+
+		strcpy( imagePath, image );
+
+		playerSurface = SDL_LoadBMP( imagePath );
+		
+		if ( playerSurface == NULL ) {
+			cerr << "Couldn't load " << imagePath << " - "
+				<< SDL_GetError() << endl;
+		return;
+		}
+
+		
+
+	}
 }
 
-void GamePlayer::DrawPlayer( PlatformEngine* game ) {
-	return;
-}
+/**********************************************************//**
+ *   Draws the image of the player to the indicated surface, 
+ * usually the primary display screen of the engine. This 
+ * function is dependent upon the existance of both the 
+ * player image and the screen.
+ *
+ * \param mainScreen The surface that the image is to be drawn to
+ *************************************************************/
+void GamePlayer::Draw( SDL_Surface* mainScreen ) {
 
-void GamePlayer::MovePlayer( SDL_Rect& delta ) {
+	if ( mainScreen != NULL ) {
+		if ( imagePath != NULL ) {
+			if ( SDL_BlitSurface( playerSurface, 
+						NULL, 
+						mainScreen, 
+						NULL ) < 0 )
+				cerr << "BlitSurface error - "
+					<< SDL_GetError() << endl;
+		}
+	}
+}
+/**********************************************************//**
+ *   Moves the player by changing its position on the 2D grid,
+ * using the dimensions passed in the delta as modifiers.
+ *
+ * \param delta The 2D movement vectors of the player
+ *************************************************************/
+void GamePlayer::Move( SDL_Rect& delta ) {
        return;
-}       
+}      
+
+GamePlayer::~GamePlayer() {
+	if ( imagePath != NULL ) {
+		delete [] imagePath;
+		imagePath = NULL;
+	}
+
+	if ( playerSurface != NULL ) {
+		SDL_FreeSurface( playerSurface );
+	}
+}
 
 #endif

@@ -12,9 +12,9 @@ The map being used by the navigation state.
 \item 
 \hyperlink{class_game_map_ae71e5694cf19612fcaa4c1e21b03b71}{GameMap} ()
 \item 
-void \hyperlink{class_game_map_2be517853d4455e79a3c92c50e5f1722}{MoveMap} (SDL\_\-Rect \&)
+void \hyperlink{class_game_map_f353eaa95b9b0f7744ad8aa6a6d31158}{MoveMap} (SDL\_\-Rect \&delta)
 \item 
-void \hyperlink{class_game_map_c289ffedd32b98d2827e6b765b3e50d6}{Draw} (\hyperlink{class_platform_engine}{PlatformEngine} $\ast$game)
+void \hyperlink{class_game_map_bde2fbb121a24223a62ab45e3366b4e3}{Draw} (SDL\_\-Surface $\ast$mainScreen)
 \end{CompactItemize}
 
 
@@ -34,17 +34,31 @@ This is a 'map', or a 'world', that can be navigated and interacted with in the 
 
 
 \subsection{Member Function Documentation}
-\hypertarget{class_game_map_c289ffedd32b98d2827e6b765b3e50d6}{
+\hypertarget{class_game_map_bde2fbb121a24223a62ab45e3366b4e3}{
 \index{GameMap@{GameMap}!Draw@{Draw}}
 \index{Draw@{Draw}!GameMap@{GameMap}}
-\subsubsection[{Draw}]{\setlength{\rightskip}{0pt plus 5cm}void GameMap::Draw ({\bf PlatformEngine} $\ast$ {\em game})}}
-\label{d4/de2/class_game_map_c289ffedd32b98d2827e6b765b3e50d6}
+\subsubsection[{Draw}]{\setlength{\rightskip}{0pt plus 5cm}void GameMap::Draw (SDL\_\-Surface $\ast$ {\em mainScreen})}}
+\label{d4/de2/class_game_map_bde2fbb121a24223a62ab45e3366b4e3}
 
 
-\hypertarget{class_game_map_2be517853d4455e79a3c92c50e5f1722}{
+Draws the map to the screen by drawing each of its layers to the screen, from 'bottom' to 'top', in sequence.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em mainScreen}]The surface that the map is to be drawn to. \end{description}
+\end{Desc}
+\hypertarget{class_game_map_f353eaa95b9b0f7744ad8aa6a6d31158}{
 \index{GameMap@{GameMap}!MoveMap@{MoveMap}}
 \index{MoveMap@{MoveMap}!GameMap@{GameMap}}
-\subsubsection[{MoveMap}]{\setlength{\rightskip}{0pt plus 5cm}void GameMap::MoveMap (SDL\_\-Rect \&)}}
-\label{d4/de2/class_game_map_2be517853d4455e79a3c92c50e5f1722}
+\subsubsection[{MoveMap}]{\setlength{\rightskip}{0pt plus 5cm}void GameMap::MoveMap (SDL\_\-Rect \& {\em delta})}}
+\label{d4/de2/class_game_map_f353eaa95b9b0f7744ad8aa6a6d31158}
 
 
+Moves the apparent position of the map on the screen, using the dimensions in the delta as modifiers of the map's original positioning.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em delta}]The 2D movement vectors of the map on screen \end{description}
+\end{Desc}

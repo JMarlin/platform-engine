@@ -40,7 +40,7 @@ class GameNavigationState : public GameState {
 		GameNavigationState();
 
 		//** Prepares state subsystems and scripts.
-		void Init();
+		void Init( const char* theScript = NULL );
 
 		//** Cleans up any remaining state assets.
 		void Cleanup();
@@ -53,7 +53,7 @@ class GameNavigationState : public GameState {
 		void Update(		PlatformEngine* game );
 		
 		//** Draws the visual content of the state to the engine. 
-		void Draw(		PlatformEngine* game );
+		void Draw(		SDL_Surface* mainScreen );
 		
 		//** Acts as if the Player is moving in some 2D direction
 		bool MovePlayer( 	SDL_Rect& delta );
@@ -62,8 +62,9 @@ class GameNavigationState : public GameState {
 		
 		//** Object representing the entire map used in this state
 		GameMap* theMap;
-
-		//GamePlayer* thePlayer;
+		
+		//** Object representing the player's avatar in the game
+		GamePlayer* thePlayer;
 };
 
 #endif

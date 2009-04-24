@@ -32,14 +32,14 @@ Inheritance diagram for GameNavigationState:</div>
 <div class="dynsection">
 <p><center><img src="../../dd/ded/class_game_navigation_state__inherit__graph.png" border="0" usemap="#d2/df5/_game_navigation_state__inherit__map" alt="Inheritance graph"></center>
 <map name="d2/df5/_game_navigation_state__inherit__map">
-<area shape="rect" id="node2" href="../../dd/d87/class_game_state.html" title="A state of behavior for the engine." alt="" coords="28,6,148,215"></map>
+<area shape="rect" id="node2" href="../../dd/d87/class_game_state.html" title="A state of behavior for the engine." alt="" coords="27,6,149,215"></map>
 <center><font size="2">[<a href="../../graph_legend.html">legend</a>]</font></center></div>
 <div class="dynheader">
 Collaboration diagram for GameNavigationState:</div>
 <div class="dynsection">
 <p><center><img src="../../d1/d57/class_game_navigation_state__coll__graph.png" border="0" usemap="#d9/d04/_game_navigation_state__coll__map" alt="Collaboration graph"></center>
 <map name="d9/d04/_game_navigation_state__coll__map">
-<area shape="rect" id="node2" href="../../dd/d87/class_game_state.html" title="A state of behavior for the engine." alt="" coords="5,6,125,215"><area shape="rect" id="node4" href="../../d4/de2/class_game_map.html" title="The map being used by the navigation state." alt="" coords="149,46,272,175"></map>
+<area shape="rect" id="node2" href="../../dd/d87/class_game_state.html" title="A state of behavior for the engine." alt="" coords="5,6,128,215"><area shape="rect" id="node4" href="../../d4/de2/class_game_map.html" title="The map being used by the navigation state." alt="" coords="152,46,275,175"><area shape="rect" id="node6" href="../../d7/df6/class_game_player.html" title="The player character entity." alt="" coords="299,22,419,199"></map>
 <center><font size="2">[<a href="../../graph_legend.html">legend</a>]</font></center></div>
 
 <p>
@@ -48,7 +48,7 @@ Collaboration diagram for GameNavigationState:</div>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d2a/class_game_navigation_state.html#6a3b93831c85eb5dc3de0a53ca13ddfc">GameNavigationState</a> ()</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d2a/class_game_navigation_state.html#8f613860bf544476ab9cff9fb7f98201">Init</a> ()</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d2a/class_game_navigation_state.html#63c99936c2338e5cfeb71c8ffbd88b7f">Init</a> (const char *theScript=NULL)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d2a/class_game_navigation_state.html#f93a7dbb7eac4b14a6d59cbca32b9abd">Cleanup</a> ()</td></tr>
 
@@ -56,7 +56,7 @@ Collaboration diagram for GameNavigationState:</div>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d2a/class_game_navigation_state.html#90f5e6d6287a875d8f2737180f46a004">Update</a> (<a class="el" href="../../db/da1/class_platform_engine.html">PlatformEngine</a> *game)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d2a/class_game_navigation_state.html#a37dce070a906454c512192c067fda09">Draw</a> (<a class="el" href="../../db/da1/class_platform_engine.html">PlatformEngine</a> *game)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d2a/class_game_navigation_state.html#e6b88e854b682be866b2aac2005278a5">Draw</a> (SDL_Surface *mainScreen)</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d2a/class_game_navigation_state.html#40ef4ee4596f6e727e2f6bd7e2a352bf">MovePlayer</a> (SDL_Rect &amp;delta)</td></tr>
 
@@ -69,7 +69,11 @@ Collaboration diagram for GameNavigationState:</div>
 <tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="../../d4/de2/class_game_map.html">GameMap</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d2a/class_game_navigation_state.html#83154f9523275696f30c13447e1d74f3">theMap</a></td></tr>
 
+<tr><td class="memItemLeft" nowrap align="right" valign="top"><a class="el" href="../../d7/df6/class_game_player.html">GamePlayer</a> *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../de/d2a/class_game_navigation_state.html#9e4cbab2137458ae14ed1deb84bad2bc">thePlayer</a></td></tr>
+
 <tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/class_game_state.html#391df04a740c7480270d3c71a578b43a">running</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/class_game_state.html#bfe09abe78dd5794426964d3392b2973">stateScriptPath</a></td></tr>
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
@@ -146,15 +150,15 @@ Does any last-minute operations before the termination of the navigation state.
 
 </div>
 </div><p>
-<a class="anchor" name="a37dce070a906454c512192c067fda09"></a><!-- doxytag: member="GameNavigationState::Draw" ref="a37dce070a906454c512192c067fda09" args="(PlatformEngine *game)" -->
+<a class="anchor" name="e6b88e854b682be866b2aac2005278a5"></a><!-- doxytag: member="GameNavigationState::Draw" ref="e6b88e854b682be866b2aac2005278a5" args="(SDL_Surface *mainScreen)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void GameNavigationState::Draw           </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../db/da1/class_platform_engine.html">PlatformEngine</a> *&nbsp;</td>
-          <td class="paramname"> <em>game</em>          </td>
+          <td class="paramtype">SDL_Surface *&nbsp;</td>
+          <td class="paramname"> <em>mainScreen</em>          </td>
           <td>&nbsp;)&nbsp;</td>
           <td><code> [virtual]</code></td>
         </tr>
@@ -166,11 +170,11 @@ Does any last-minute operations before the termination of the navigation state.
 Draws the contents of the state, including the map and the player, to the engine's main screen.<p>
 <dl compact><dt><b>Parameters:</b></dt><dd>
   <table border="0" cellspacing="2" cellpadding="0">
-    <tr><td valign="top"></td><td valign="top"><em>game</em>&nbsp;</td><td>A pointer to the game engine </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>mainScreen</em>&nbsp;</td><td>A pointer to the primary game display surface </td></tr>
   </table>
 </dl>
 
-<p>Implements <a class="el" href="../../dd/d87/class_game_state.html#7333dda0f49b3fa1c01cd3295f853024">GameState</a>.</p>
+<p>Implements <a class="el" href="../../dd/d87/class_game_state.html#1b93233932defca939eed4c0676a5d2a">GameState</a>.</p>
 
 </div>
 </div><p>
@@ -212,14 +216,15 @@ Handles event triggers for this state, including the movement of the player with
 
 </div>
 </div><p>
-<a class="anchor" name="8f613860bf544476ab9cff9fb7f98201"></a><!-- doxytag: member="GameNavigationState::Init" ref="8f613860bf544476ab9cff9fb7f98201" args="()" -->
+<a class="anchor" name="63c99936c2338e5cfeb71c8ffbd88b7f"></a><!-- doxytag: member="GameNavigationState::Init" ref="63c99936c2338e5cfeb71c8ffbd88b7f" args="(const char *theScript=NULL)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void GameNavigationState::Init           </td>
           <td>(</td>
-          <td class="paramname">          </td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>theScript</em> = <code>NULL</code>          </td>
           <td>&nbsp;)&nbsp;</td>
           <td><code> [virtual]</code></td>
         </tr>
@@ -229,7 +234,11 @@ Handles event triggers for this state, including the movement of the player with
 
 <p>
 Configures assets specific to this state; particularly assets involved with map construction. 
-<p>Implements <a class="el" href="../../dd/d87/class_game_state.html#eec488593bae214c0f738bd64dafba32">GameState</a>.</p>
+<p>
+The function first loads the script that has been passed to it.<p>
+The 'player' entity is then loaded based on the specifications in the script.<p>
+None of the above will occur if no script is passed; however, the state will still be pushed into a 'running' state.
+<p>Implements <a class="el" href="../../dd/d87/class_game_state.html#488fd39ceb2907b13e11f03607f16e5f">GameState</a>.</p>
 
 </div>
 </div><p>
@@ -342,6 +351,21 @@ Does any necessary logic updates to bring the game's data up to date with the ac
 
 </div>
 </div><p>
+<a class="anchor" name="bfe09abe78dd5794426964d3392b2973"></a><!-- doxytag: member="GameNavigationState::stateScriptPath" ref="bfe09abe78dd5794426964d3392b2973" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* <a class="el" href="../../dd/d87/class_game_state.html#bfe09abe78dd5794426964d3392b2973">GameState::stateScriptPath</a><code> [protected, inherited]</code>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
 <a class="anchor" name="83154f9523275696f30c13447e1d74f3"></a><!-- doxytag: member="GameNavigationState::theMap" ref="83154f9523275696f30c13447e1d74f3" args="" -->
 <div class="memitem">
 <div class="memproto">
@@ -357,8 +381,23 @@ Does any necessary logic updates to bring the game's data up to date with the ac
 
 </div>
 </div><p>
+<a class="anchor" name="9e4cbab2137458ae14ed1deb84bad2bc"></a><!-- doxytag: member="GameNavigationState::thePlayer" ref="9e4cbab2137458ae14ed1deb84bad2bc" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="../../d7/df6/class_game_player.html">GamePlayer</a>* <a class="el" href="../../de/d2a/class_game_navigation_state.html#9e4cbab2137458ae14ed1deb84bad2bc">GameNavigationState::thePlayer</a><code> [protected]</code>          </td>
+        </tr>
+      </table>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Apr 22 18:21:51 2009 for Platform 2D Game Engine by&nbsp;
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Apr 23 21:09:25 2009 for Platform 2D Game Engine by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="../../doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

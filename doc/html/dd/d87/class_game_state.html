@@ -32,16 +32,14 @@ Inheritance diagram for GameState:</div>
 <div class="dynsection">
 <p><center><img src="../../d8/d0b/class_game_state__inherit__graph.png" border="0" usemap="#d8/d84/_game_state__inherit__map" alt="Inheritance graph"></center>
 <map name="d8/d84/_game_state__inherit__map">
-<area shape="rect" id="node3" href="../../de/d2a/class_game_navigation_state.html" title="The state in which game world navigation takes place." alt="" coords="5,265,171,442"></map>
+<area shape="rect" id="node3" href="../../de/d2a/class_game_navigation_state.html" title="The state in which game world navigation takes place." alt="" coords="5,265,171,458"></map>
 <center><font size="2">[<a href="../../graph_legend.html">legend</a>]</font></center></div>
 
 <p>
 <a href="../../d7/d1a/class_game_state-members.html">List of all members.</a><table border="0" cellpadding="0" cellspacing="0">
 <tr><td></td></tr>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
-<tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/class_game_state.html#4fa0a2bf50315c4a35a3890a0adcee5c">GameState</a> ()</td></tr>
-
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/class_game_state.html#eec488593bae214c0f738bd64dafba32">Init</a> ()=0</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/class_game_state.html#488fd39ceb2907b13e11f03607f16e5f">Init</a> (const char *theScript=NULL)=0</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/class_game_state.html#041e7a5430d71da84745af11abdacd93">Cleanup</a> ()=0</td></tr>
 
@@ -53,39 +51,21 @@ Inheritance diagram for GameState:</div>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/class_game_state.html#100ca49bc95afce1d5c5b756708bbc2b">Update</a> (<a class="el" href="../../db/da1/class_platform_engine.html">PlatformEngine</a> *game)=0</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/class_game_state.html#7333dda0f49b3fa1c01cd3295f853024">Draw</a> (<a class="el" href="../../db/da1/class_platform_engine.html">PlatformEngine</a> *game)=0</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/class_game_state.html#1b93233932defca939eed4c0676a5d2a">Draw</a> (SDL_Surface *mainScreen)=0</td></tr>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/class_game_state.html#f786aeb704a22a135dc289bb89fcc452">ChangeState</a> (<a class="el" href="../../db/da1/class_platform_engine.html">PlatformEngine</a> *game, <a class="el" href="../../dd/d87/class_game_state.html">GameState</a> *state)</td></tr>
 
 <tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/class_game_state.html#391df04a740c7480270d3c71a578b43a">running</a></td></tr>
 
+<tr><td class="memItemLeft" nowrap align="right" valign="top">char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/class_game_state.html#bfe09abe78dd5794426964d3392b2973">stateScriptPath</a></td></tr>
+
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
 A state of behavior for the engine. 
 <p>
 A Game State is a layer on top of the default engine behavior that requires a custom form of behavior for its operation. In the Platform engine, the an instance of the engine stores the current state on a stack, and any newly initiated states can be placed on top of the stack. The normal engine functions will generally call the corresponding operation functions from the state at the top of the stack, so that the engine's operation is ultimately controlled by the current top state.<p>
-This class in particular is an abstract class, not intended for actual use. The derivative classes, which are the different kinds of states, are used in normal program operations. <hr><h2>Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" name="4fa0a2bf50315c4a35a3890a0adcee5c"></a><!-- doxytag: member="GameState::GameState" ref="4fa0a2bf50315c4a35a3890a0adcee5c" args="()" -->
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">GameState::GameState           </td>
-          <td>(</td>
-          <td class="paramname">          </td>
-          <td>&nbsp;)&nbsp;</td>
-          <td></td>
-        </tr>
-      </table>
-</div>
-<div class="memdoc">
-
-<p>
-
-</div>
-</div><p>
-<hr><h2>Member Function Documentation</h2>
+This class in particular is an abstract class, not intended for actual use. The derivative classes, which are the different kinds of states, are used in normal program operations. <hr><h2>Member Function Documentation</h2>
 <a class="anchor" name="f786aeb704a22a135dc289bb89fcc452"></a><!-- doxytag: member="GameState::ChangeState" ref="f786aeb704a22a135dc289bb89fcc452" args="(PlatformEngine *game, GameState *state)" -->
 <div class="memitem">
 <div class="memproto">
@@ -136,15 +116,15 @@ This class in particular is an abstract class, not intended for actual use. The 
 
 </div>
 </div><p>
-<a class="anchor" name="7333dda0f49b3fa1c01cd3295f853024"></a><!-- doxytag: member="GameState::Draw" ref="7333dda0f49b3fa1c01cd3295f853024" args="(PlatformEngine *game)=0" -->
+<a class="anchor" name="1b93233932defca939eed4c0676a5d2a"></a><!-- doxytag: member="GameState::Draw" ref="1b93233932defca939eed4c0676a5d2a" args="(SDL_Surface *mainScreen)=0" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">virtual void GameState::Draw           </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../db/da1/class_platform_engine.html">PlatformEngine</a> *&nbsp;</td>
-          <td class="paramname"> <em>game</em>          </td>
+          <td class="paramtype">SDL_Surface *&nbsp;</td>
+          <td class="paramname"> <em>mainScreen</em>          </td>
           <td>&nbsp;)&nbsp;</td>
           <td><code> [pure virtual]</code></td>
         </tr>
@@ -154,7 +134,7 @@ This class in particular is an abstract class, not intended for actual use. The 
 
 <p>
 
-<p>Implemented in <a class="el" href="../../de/d2a/class_game_navigation_state.html#a37dce070a906454c512192c067fda09">GameNavigationState</a>.</p>
+<p>Implemented in <a class="el" href="../../de/d2a/class_game_navigation_state.html#e6b88e854b682be866b2aac2005278a5">GameNavigationState</a>.</p>
 
 </div>
 </div><p>
@@ -189,14 +169,15 @@ This class in particular is an abstract class, not intended for actual use. The 
 
 </div>
 </div><p>
-<a class="anchor" name="eec488593bae214c0f738bd64dafba32"></a><!-- doxytag: member="GameState::Init" ref="eec488593bae214c0f738bd64dafba32" args="()=0" -->
+<a class="anchor" name="488fd39ceb2907b13e11f03607f16e5f"></a><!-- doxytag: member="GameState::Init" ref="488fd39ceb2907b13e11f03607f16e5f" args="(const char *theScript=NULL)=0" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">virtual void GameState::Init           </td>
           <td>(</td>
-          <td class="paramname">          </td>
+          <td class="paramtype">const char *&nbsp;</td>
+          <td class="paramname"> <em>theScript</em> = <code>NULL</code>          </td>
           <td>&nbsp;)&nbsp;</td>
           <td><code> [pure virtual]</code></td>
         </tr>
@@ -206,7 +187,7 @@ This class in particular is an abstract class, not intended for actual use. The 
 
 <p>
 
-<p>Implemented in <a class="el" href="../../de/d2a/class_game_navigation_state.html#8f613860bf544476ab9cff9fb7f98201">GameNavigationState</a>.</p>
+<p>Implemented in <a class="el" href="../../de/d2a/class_game_navigation_state.html#63c99936c2338e5cfeb71c8ffbd88b7f">GameNavigationState</a>.</p>
 
 </div>
 </div><p>
@@ -286,8 +267,23 @@ Resumes the execution of this state, if it has been paused previously; otherwise
 
 </div>
 </div><p>
+<a class="anchor" name="bfe09abe78dd5794426964d3392b2973"></a><!-- doxytag: member="GameState::stateScriptPath" ref="bfe09abe78dd5794426964d3392b2973" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">char* <a class="el" href="../../dd/d87/class_game_state.html#bfe09abe78dd5794426964d3392b2973">GameState::stateScriptPath</a><code> [protected]</code>          </td>
+        </tr>
+      </table>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Apr 22 18:21:51 2009 for Platform 2D Game Engine by&nbsp;
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Apr 23 21:09:27 2009 for Platform 2D Game Engine by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="../../doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

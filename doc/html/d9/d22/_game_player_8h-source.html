@@ -42,32 +42,37 @@
 <a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define GAMEPLAYER_H</span>
 <a name="l00023"></a>00023 <span class="preprocessor"></span>
 <a name="l00024"></a>00024 <span class="preprocessor">#include "PlatformEngine.h"</span>
-<a name="l00025"></a>00025 
-<a name="l00026"></a>00026 <span class="comment">/**********************************************************/</span>
-<a name="l00034"></a><a class="code" href="../../d7/df6/class_game_player.html">00034</a> <span class="keyword">class </span><a class="code" href="../../d7/df6/class_game_player.html" title="The player character entity.">GamePlayer</a> {
-<a name="l00035"></a>00035         <span class="keyword">public</span>:
-<a name="l00036"></a>00036                 <a class="code" href="../../d7/df6/class_game_player.html#f0314668e232831d2f9c263596dccde6">GamePlayer</a>();
-<a name="l00037"></a>00037                 
-<a name="l00038"></a>00038                 <span class="comment">//** Initialize the player class</span>
-<a name="l00039"></a>00039                 <span class="keywordtype">void</span> <a class="code" href="../../d7/df6/class_game_player.html#61b39fe229f10d4f93d4eb96754a2961">Init</a>();
-<a name="l00040"></a>00040 
-<a name="l00041"></a>00041                 <span class="comment">//** Draws the player to the engine screen</span>
-<a name="l00042"></a>00042                 <span class="keywordtype">void</span> <a class="code" href="../../d7/df6/class_game_player.html#3394352e57e918eb17fec46498f5e348">DrawPlayer</a>( <a class="code" href="../../db/da1/class_platform_engine.html" title="The game engine instance.">PlatformEngine</a>* game );
-<a name="l00043"></a>00043 
-<a name="l00044"></a>00044                 <span class="comment">//** Changes the position of the player on the screen</span>
-<a name="l00045"></a>00045                 <span class="keywordtype">void</span> <a class="code" href="../../d7/df6/class_game_player.html#46aa70e41a260b0ea8afdae38052d65c">MovePlayer</a>( SDL_Rect&amp; delta );
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047         <span class="keyword">private</span>:
-<a name="l00048"></a>00048                 <span class="comment">//** Size and position of the player</span>
-<a name="l00049"></a>00049                 SDL_Rect dimensions;
-<a name="l00050"></a>00050 
-<a name="l00051"></a>00051                 <span class="comment">//** Surface holding the player's image</span>
-<a name="l00052"></a>00052                 SDL_Surface playerSurface;
-<a name="l00053"></a>00053 };
-<a name="l00054"></a>00054 
-<a name="l00055"></a>00055 <span class="preprocessor">#endif</span>
+<a name="l00025"></a>00025 <span class="preprocessor">#include "SDL.h"</span>
+<a name="l00026"></a>00026 
+<a name="l00027"></a>00027 <span class="comment">/**********************************************************/</span>
+<a name="l00035"></a><a class="code" href="../../d7/df6/class_game_player.html">00035</a> <span class="keyword">class </span><a class="code" href="../../d7/df6/class_game_player.html" title="The player character entity.">GamePlayer</a> {
+<a name="l00036"></a>00036         <span class="keyword">public</span>:
+<a name="l00037"></a>00037                 <a class="code" href="../../d7/df6/class_game_player.html#f0314668e232831d2f9c263596dccde6">GamePlayer</a>();
+<a name="l00038"></a>00038                 <a class="code" href="../../d7/df6/class_game_player.html#ad6c1016873c9e4750ce370552541745">~GamePlayer</a>();
+<a name="l00039"></a>00039                 
+<a name="l00040"></a>00040                 <span class="comment">//** Initialize the player class</span>
+<a name="l00041"></a>00041                 <span class="keywordtype">void</span> <a class="code" href="../../d7/df6/class_game_player.html#937dcf8e5b90200f5ae0a3418adf7271">Init</a>( <span class="keyword">const</span> <span class="keywordtype">char</span>* image = NULL );
+<a name="l00042"></a>00042 
+<a name="l00043"></a>00043                 <span class="comment">//** Draws the player to the engine screen</span>
+<a name="l00044"></a>00044                 <span class="keywordtype">void</span> <a class="code" href="../../d7/df6/class_game_player.html#3e5c897e5120b5297e7226a4cb143742">Draw</a>( SDL_Surface* mainScreen );
+<a name="l00045"></a>00045 
+<a name="l00046"></a>00046                 <span class="comment">//** Changes the position of the player on the screen</span>
+<a name="l00047"></a>00047                 <span class="keywordtype">void</span> <a class="code" href="../../d7/df6/class_game_player.html#df2b0a348192c421edcc94b3ca1cc3d6">Move</a>( SDL_Rect&amp; delta );
+<a name="l00048"></a>00048 
+<a name="l00049"></a>00049         <span class="keyword">private</span>:
+<a name="l00050"></a>00050                 <span class="comment">//** Path to an image representing the object</span>
+<a name="l00051"></a>00051                 <span class="keywordtype">char</span>* imagePath;
+<a name="l00052"></a>00052 
+<a name="l00053"></a>00053                 <span class="comment">//** Size and position of the player</span>
+<a name="l00054"></a>00054                 SDL_Rect dimensions;
+<a name="l00055"></a>00055 
+<a name="l00056"></a>00056                 <span class="comment">//** Surface holding the player's image</span>
+<a name="l00057"></a>00057                 SDL_Surface* playerSurface;
+<a name="l00058"></a>00058 };
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060 <span class="preprocessor">#endif</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Apr 22 18:21:51 2009 for Platform 2D Game Engine by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Apr 23 21:09:22 2009 for Platform 2D Game Engine by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="../../doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

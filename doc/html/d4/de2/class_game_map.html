@@ -34,9 +34,9 @@
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de2/class_game_map.html#ae71e5694cf19612fcaa4c1e21b03b71">GameMap</a> ()</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de2/class_game_map.html#2be517853d4455e79a3c92c50e5f1722">MoveMap</a> (SDL_Rect &amp;)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de2/class_game_map.html#f353eaa95b9b0f7744ad8aa6a6d31158">MoveMap</a> (SDL_Rect &amp;delta)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de2/class_game_map.html#c289ffedd32b98d2827e6b765b3e50d6">Draw</a> (<a class="el" href="../../db/da1/class_platform_engine.html">PlatformEngine</a> *game)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d4/de2/class_game_map.html#bde2fbb121a24223a62ab45e3366b4e3">Draw</a> (SDL_Surface *mainScreen)</td></tr>
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
@@ -63,15 +63,15 @@ This is a 'map', or a 'world', that can be navigated and interacted with in the 
 </div>
 </div><p>
 <hr><h2>Member Function Documentation</h2>
-<a class="anchor" name="c289ffedd32b98d2827e6b765b3e50d6"></a><!-- doxytag: member="GameMap::Draw" ref="c289ffedd32b98d2827e6b765b3e50d6" args="(PlatformEngine *game)" -->
+<a class="anchor" name="bde2fbb121a24223a62ab45e3366b4e3"></a><!-- doxytag: member="GameMap::Draw" ref="bde2fbb121a24223a62ab45e3366b4e3" args="(SDL_Surface *mainScreen)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
           <td class="memname">void GameMap::Draw           </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="../../db/da1/class_platform_engine.html">PlatformEngine</a> *&nbsp;</td>
-          <td class="paramname"> <em>game</em>          </td>
+          <td class="paramtype">SDL_Surface *&nbsp;</td>
+          <td class="paramname"> <em>mainScreen</em>          </td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
         </tr>
@@ -80,10 +80,16 @@ This is a 'map', or a 'world', that can be navigated and interacted with in the 
 <div class="memdoc">
 
 <p>
+Draws the map to the screen by drawing each of its layers to the screen, from 'bottom' to 'top', in sequence.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>mainScreen</em>&nbsp;</td><td>The surface that the map is to be drawn to. </td></tr>
+  </table>
+</dl>
 
 </div>
 </div><p>
-<a class="anchor" name="2be517853d4455e79a3c92c50e5f1722"></a><!-- doxytag: member="GameMap::MoveMap" ref="2be517853d4455e79a3c92c50e5f1722" args="(SDL_Rect &amp;)" -->
+<a class="anchor" name="f353eaa95b9b0f7744ad8aa6a6d31158"></a><!-- doxytag: member="GameMap::MoveMap" ref="f353eaa95b9b0f7744ad8aa6a6d31158" args="(SDL_Rect &amp;delta)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
@@ -91,7 +97,7 @@ This is a 'map', or a 'world', that can be navigated and interacted with in the 
           <td class="memname">void GameMap::MoveMap           </td>
           <td>(</td>
           <td class="paramtype">SDL_Rect &amp;&nbsp;</td>
-          <td class="paramname">          </td>
+          <td class="paramname"> <em>delta</em>          </td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
         </tr>
@@ -100,11 +106,17 @@ This is a 'map', or a 'world', that can be navigated and interacted with in the 
 <div class="memdoc">
 
 <p>
+Moves the apparent position of the map on the screen, using the dimensions in the delta as modifiers of the map's original positioning.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>delta</em>&nbsp;</td><td>The 2D movement vectors of the map on screen </td></tr>
+  </table>
+</dl>
 
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Apr 22 18:21:51 2009 for Platform 2D Game Engine by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Apr 23 21:09:22 2009 for Platform 2D Game Engine by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="../../doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>
