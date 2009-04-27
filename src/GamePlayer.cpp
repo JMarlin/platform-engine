@@ -26,12 +26,14 @@
 
 #include "GamePlayer.h"
 
+using std::cout;
 using std::cerr;
 using std::endl;
 
 GamePlayer::GamePlayer() {
 	imagePath = NULL;
 	playerSurface = NULL;
+	cout << "ALIVE " << this << endl;
 }
 
 /**********************************************************//**
@@ -40,7 +42,8 @@ GamePlayer::GamePlayer() {
  *
  * \param image The full path to the file to be used as the player image
  *************************************************************/
-void GamePlayer::Init( const char* image ) {	
+void GamePlayer::Init( const char* image ) {
+	cout << "STILLALIVE! " << this << endl;	
 	if ( image != NULL ) {
 		imagePath = new char[32];
 
@@ -51,12 +54,16 @@ void GamePlayer::Init( const char* image ) {
 		if ( playerSurface == NULL ) {
 			cerr << "Couldn't load " << imagePath << " - "
 				<< SDL_GetError() << endl;
-		return;
+			return;
+		}
+		else {
+			dimensions.w = playerSurface->w;
+			dimensions.h = playerSurface->h;
 		}
 
-		
 
 	}
+	cout << "ALIVESTILL! " << this << endl;
 }
 
 /**********************************************************//**
@@ -68,9 +75,10 @@ void GamePlayer::Init( const char* image ) {
  * \param mainScreen The surface that the image is to be drawn to
  *************************************************************/
 void GamePlayer::Draw( SDL_Surface* mainScreen ) {
-
+	cout << "3 " << mainScreen << imagePath << playerSurface << endl;
 	if ( mainScreen != NULL ) {
 		if ( imagePath != NULL ) {
+			
 			if ( SDL_BlitSurface( playerSurface, 
 						NULL, 
 						mainScreen, 
@@ -91,6 +99,7 @@ void GamePlayer::Move( SDL_Rect& delta ) {
 }      
 
 GamePlayer::~GamePlayer() {
+	cout << "DYING! " << this << endl;
 	if ( imagePath != NULL ) {
 		delete [] imagePath;
 		imagePath = NULL;
@@ -99,6 +108,7 @@ GamePlayer::~GamePlayer() {
 	if ( playerSurface != NULL ) {
 		SDL_FreeSurface( playerSurface );
 	}
+	cout << "dead. " << this << endl;
 }
 
 #endif

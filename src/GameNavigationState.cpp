@@ -24,9 +24,11 @@
 #include <iostream>
 #include <cstring>
 
+#include "GamePlayer.h"
 #include "GameNavigationState.h"
 #include "luainc.h"
 
+using std::cout;
 using std::cerr;
 using std::endl;
 
@@ -64,8 +66,44 @@ void GameNavigationState::Init( const char* theScript ) {
 		 * The 'player' entity is then loaded based 
 		 * on the specifications in the script.
 		 **/
+		
+		char* imagePath = NULL;
+//		cout << "&imagePath = " << imagePath << endl;
+		lua_getglobal( L, "playerImage" );
 
+		if ( !lua_isstring( L, 1 ) ) {
+			cerr << "'playerImage' should be a string. - "
+				<< stateScriptPath << endl;
+		}
+		else {
+			imagePath = new char[64];
+
+			cout << "&imagePath = " << imagePath << endl;
+			
+			strcpy( imagePath, "../../img/\0" );
+			
+			cout << "imagePath = ";
+			for ( int i = 0 ; imagePath[i] != NULL ; i++ )
+				cout << imagePath[i];
+			cout << endl;
+			
+			strcat( imagePath, lua_tostring( L, 1 ) );
+			
+			cout << "final imagePath = ";
+			for ( int i = 0 ; imagePath[i] != NULL ; i++ )
+				cout << imagePath[i];
+			cout << endl;
+
+		}
+		cout << "&thePlayer = " <<  thePlayer << endl;
 		thePlayer = new GamePlayer;
+		cout << "new &thePlayer = " << thePlayer << endl;
+		thePlayer->Init( imagePath );
+	
+		if ( imagePath != NULL ) {
+			delete imagePath;
+			imagePath = NULL;
+		}
 
 	}
 
@@ -76,6 +114,7 @@ void GameNavigationState::Init( const char* theScript ) {
 	 **/
 
 	running = true;
+	cout << "thePlayer now = " << thePlayer << endl;
 }
 
 /**********************************************************//**
@@ -148,10 +187,10 @@ void GameNavigationState::Draw( SDL_Surface* mainScreen ) {
 	if ( theMap != NULL ) {
 		theMap->Draw( mainScreen );
 	}
-
-	if ( thePlayer != NULL ) {
+	cout << "2 " << mainScreen << " " << thePlayer<< endl;
+//	if ( thePlayer != NULL ) {
 		thePlayer->Draw( mainScreen );
-	}
+//	}
 }
 
 /**********************************************************//**

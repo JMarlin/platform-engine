@@ -307,48 +307,48 @@ void PlatformEngine::StartState() {
 	 **/
 	lua_State* L = luaL_newstate();
 	
-	const char* scriptPath = "../../scripts/beginstate.lua\n";
+	const char* scriptPath = "../../scripts/beginstate.lua\0";
 
 	if ( luaL_loadfile( L, scriptPath ) || lua_pcall( L, 0, 0, 0 ) ) {
 		cerr << "Failed to load " << scriptPath << endl;
 	}
-	
-	/**
-	 * The engine then retrieves the type of state from the
-	 * script and creates that state.
-	 **/
-
-	lua_getglobal( L, "stateType" );
-
-	if ( !lua_isstring( L, 1 ) ) {
-		cerr << scriptPath 
-			<< " - 'stateType' should be a string.\n";
-
-	}
 	else {
-		char* type = new char[ 32 ];
-	
-		strcpy( type, lua_tostring( L, 1 ) );
+		/**
+	 	* The engine then retrieves the type of state from the
+	 	* script and creates that state.
+	 	**/
 
-		if ( strncmp( type, "Navigation\n", 8 ) == 0 ) {
-			GameState* state = new GameNavigationState;
-			
-			/**
-			 * After creation, the state is pushed onto
-			 * the engine's state stack, and then it is
-			 * initiated.
-			 **/
+		lua_getglobal( L, "stateType" );
 
-			PushState( state );
-			state->Init( scriptPath );
+		if ( !lua_isstring( L, 1 ) ) {
+			cerr << scriptPath 
+				<< " - 'stateType' should be a string.\n";
+
 		}
+		else {
+			char* type = new char[ 32 ];
+	
+			strcpy( type, lua_tostring( L, 1 ) );
 
-		delete type;
+			if ( strncmp( type, "Navigation\n", 8 ) == 0 ) {
+				GameState* state = new GameNavigationState;
+			
+				/**
+				 * After creation, the state is pushed onto
+				 * the engine's state stack, and then it is
+				 * initiated.
+				 **/
 
+				PushState( state );
+				state->Init( scriptPath );
+			}
+
+			delete type;
+		}
+	
+
+		lua_pop( L, 1 );
 	}
-
-	lua_pop( L, 1 );
-
 	delete L;
 	L = NULL;
 }
@@ -360,6 +360,7 @@ void PlatformEngine::StartState() {
 void PlatformEngine::Draw() {
 	if ( !stateStack.empty() ) {
 		GameState* topState = stateStack.top();
+	//	cout << "1 " << mainScreen << topState << endl;
 		if ( topState != NULL ) topState->Draw( mainScreen );
 	}
 
