@@ -360,6 +360,10 @@ void PlatformEngine::StartState() {
  *************************************************************/
 void PlatformEngine::Draw() {
 	if ( !stateStack.empty() ) {
+		SDL_FillRect( mainScreen, 
+				NULL, 
+				SDL_MapRGB( mainScreen->format, 0, 0, 0 ) 
+				);
 		GameState* topState = stateStack.top();
 	//	cout << "1 " << mainScreen << topState << endl;
 		if ( topState != NULL ) topState->Draw( mainScreen );

@@ -2,6 +2,9 @@
 \section{GameStaticMovementState Class Reference}
 \label{d7/d3b/class_game_static_movement_state}\index{GameStaticMovementState@{GameStaticMovementState}}
 }
+A state where entities move on a static playfield.  
+
+
 {\tt \#include $<$GameStaticMovementState.h$>$}
 
 Inheritance diagram for GameStaticMovementState:\nopagebreak
@@ -50,6 +53,13 @@ char $\ast$ \hyperlink{class_game_state_bfe09abe78dd5794426964d3392b2973}{stateS
 \end{CompactItemize}
 
 
+\subsection{Detailed Description}
+A state where entities move on a static playfield. 
+
+Static Movement refers to the idea that, while there are entities moving around on the \char`\"{}map\char`\"{} area, the area itself is no larger than the size of the player's screen, and therefore doesn't move at all; in other words, it is \char`\"{}static\char`\"{}.
+
+Note that this doesn't mean that the background can't give the illusion of movement. For example, the background might be an image that constantly scrolls downward, acting as a parallax background. However, as far as the state is concerned, the activities in the background are irrelevant; the only activity the state is concerned with is that of the entities known to it, such as the player. 
+
 \subsection{Constructor \& Destructor Documentation}
 \hypertarget{class_game_static_movement_state_13354d331108d7aeb78822e629d631b3}{
 \index{GameStaticMovementState@{GameStaticMovementState}!GameStaticMovementState@{GameStaticMovementState}}
@@ -82,6 +92,15 @@ char $\ast$ \hyperlink{class_game_state_bfe09abe78dd5794426964d3392b2973}{stateS
 \label{d7/d3b/class_game_static_movement_state_072662abaf5a872f7919e7fc44200a04}
 
 
+For mostly memory management-related purposes, this will remove any assets remaining in the state.
+
+This function is automatically called upon deletion of the state it is a member of. Thus, unless you are using the state in a nonstandard way, it should never be necessary to explicitly call this function.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em theScript}]A path to the lua script that configures the initialization. \end{description}
+\end{Desc}
 
 
 Implements \hyperlink{class_game_state_041e7a5430d71da84745af11abdacd93}{GameState}.\hypertarget{class_game_static_movement_state_2c2d82b3dbc8e431682b53ce05294f27}{
@@ -91,6 +110,13 @@ Implements \hyperlink{class_game_state_041e7a5430d71da84745af11abdacd93}{GameSta
 \label{d7/d3b/class_game_static_movement_state_2c2d82b3dbc8e431682b53ce05294f27}
 
 
+This will draw any of the visible entities being used by this state to the primary display screen.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em mainScreen}]A pointer to the primary display screen. \end{description}
+\end{Desc}
 
 
 Implements \hyperlink{class_game_state_1b93233932defca939eed4c0676a5d2a}{GameState}.\hypertarget{class_game_static_movement_state_c73d6f93fee2ac6cb2788eb2984bb305}{
@@ -100,6 +126,13 @@ Implements \hyperlink{class_game_state_1b93233932defca939eed4c0676a5d2a}{GameSta
 \label{d7/d3b/class_game_static_movement_state_c73d6f93fee2ac6cb2788eb2984bb305}
 
 
+Handles the events used by the state. An event that was previously polled by the engine is analyzed by this function to execute the appropriate action for that event.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em game}]A pointer to the game engine. \item[{\em event}]The event that is being analyzed. \end{description}
+\end{Desc}
 
 
 Implements \hyperlink{class_game_state_de7bd9bda91253614322ca0ea77b7a14}{GameState}.\hypertarget{class_game_static_movement_state_4cb4be5ea96a6bb7b06c79bed64c355d}{
@@ -109,7 +142,24 @@ Implements \hyperlink{class_game_state_de7bd9bda91253614322ca0ea77b7a14}{GameSta
 \label{d7/d3b/class_game_static_movement_state_4cb4be5ea96a6bb7b06c79bed64c355d}
 
 
+The state is not initialized automatically when it is created. In order for the state to operate in any realistic way, it must be initialized with this function, along with a lua script giving the details of its operation.
 
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em theScript}]A path to the lua script that configures the initialization. \end{description}
+\end{Desc}
+
+
+First, the engine removes the paths of any previous scripts, assuming they exist, before loading the script that has been passed to it.
+
+The state then loads a lua interpreter to read the script file. If no script is passed, then the function will only mark the state as \char`\"{}running\char`\"{}, while effectively having no assets defined.
+
+The function loads the variable \char`\"{}playerImage\char`\"{} from the script, and then retains the path of the image as a string.
+
+A new \hyperlink{class_game_player}{GamePlayer} entity is then created, and it is initialized using the image that was loaded from the script.
+
+The state is then set as \char`\"{}running\char`\"{} so that normal operation can begin.
 
 Implements \hyperlink{class_game_state_488fd39ceb2907b13e11f03607f16e5f}{GameState}.\hypertarget{class_game_state_0c47c6969a4e0bb32d6cdf7bf9376817}{
 \index{GameStaticMovementState@{GameStaticMovementState}!Pause@{Pause}}
@@ -132,6 +182,13 @@ Resumes the execution of this state, if it has been paused previously; otherwise
 \label{d7/d3b/class_game_static_movement_state_5a3bd910a85487be371c088a1be16996}
 
 
+Any calculations necessary to be regularly done for the engine logic are done.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em game}]A pointer to the game engine. \end{description}
+\end{Desc}
 
 
 Implements \hyperlink{class_game_state_100ca49bc95afce1d5c5b756708bbc2b}{GameState}.

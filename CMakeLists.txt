@@ -28,7 +28,11 @@ set( SRCDIR "${CMAKE_SOURCE_DIR}/src/" )
 set( DOCDIR "${CMAKE_SOURCE_DIR}/doc/" )
 set( CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/" )
 
+find_package( PNG REQUIRED )
+
 find_package( SDL REQUIRED )
+
+find_package( SDL_image REQUIRED )
 
 find_package( Lua51 REQUIRED )
 
@@ -53,8 +57,8 @@ set ( SOURCES
 
 link_libraries (
    ${SDL_LIBRARY}
-   #   ${SDLIMAGE_LIBRARY} # if using SDL_image, obviously
    ${SDLMAIN_LIBRARY} # Sadly not included in SDL_LIBRARY variable
+   ${SDLIMAGE_LIBRARY} # if using SDL_image, obviously
    ${LUA_LIBRARIES}
 )
 

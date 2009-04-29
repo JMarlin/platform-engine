@@ -47,32 +47,42 @@
 <a name="l00027"></a>00027 <span class="preprocessor">#include "GamePlayer.h"</span>
 <a name="l00028"></a>00028 <span class="preprocessor">#include "SDL.h"</span>
 <a name="l00029"></a>00029 
-<a name="l00030"></a><a class="code" href="../../d7/d3b/class_game_static_movement_state.html">00030</a> <span class="keyword">class </span><a class="code" href="../../d7/d3b/class_game_static_movement_state.html">GameStaticMovementState</a> : <span class="keyword">public</span> <a class="code" href="../../dd/d87/class_game_state.html" title="A state of behavior for the engine.">GameState</a> {
-<a name="l00031"></a>00031         <span class="keyword">public</span>:
-<a name="l00032"></a>00032                 <a class="code" href="../../d7/d3b/class_game_static_movement_state.html#13354d331108d7aeb78822e629d631b3">GameStaticMovementState</a>();
-<a name="l00033"></a>00033                 
-<a name="l00034"></a>00034                 <a class="code" href="../../d7/d3b/class_game_static_movement_state.html#3b89c6650fba993b81abd1d5b11a82c3">~GameStaticMovementState</a>();
-<a name="l00035"></a>00035 
-<a name="l00036"></a>00036                 <span class="keywordtype">void</span> <a class="code" href="../../d7/d3b/class_game_static_movement_state.html#4cb4be5ea96a6bb7b06c79bed64c355d">Init</a>( <span class="keyword">const</span> <span class="keywordtype">char</span>* theScript = NULL );
-<a name="l00037"></a>00037 
-<a name="l00038"></a>00038                 <span class="keywordtype">void</span> <a class="code" href="../../d7/d3b/class_game_static_movement_state.html#072662abaf5a872f7919e7fc44200a04">Cleanup</a>();
-<a name="l00039"></a>00039 
-<a name="l00040"></a>00040                 <span class="keywordtype">bool</span> <a class="code" href="../../d7/d3b/class_game_static_movement_state.html#c73d6f93fee2ac6cb2788eb2984bb305">HandleEvents</a>( <a class="code" href="../../db/da1/class_platform_engine.html" title="The game engine instance.">PlatformEngine</a>* game,
-<a name="l00041"></a>00041                                 SDL_Event&amp; event );
-<a name="l00042"></a>00042 
-<a name="l00043"></a>00043                 <span class="keywordtype">void</span> <a class="code" href="../../d7/d3b/class_game_static_movement_state.html#5a3bd910a85487be371c088a1be16996">Update</a>( <a class="code" href="../../db/da1/class_platform_engine.html" title="The game engine instance.">PlatformEngine</a>* game );
-<a name="l00044"></a>00044 
-<a name="l00045"></a>00045                 <span class="keywordtype">void</span> <a class="code" href="../../d7/d3b/class_game_static_movement_state.html#2c2d82b3dbc8e431682b53ce05294f27">Draw</a>( SDL_Surface* mainScreen );
-<a name="l00046"></a>00046 
-<a name="l00047"></a>00047         <span class="keyword">private</span>:
-<a name="l00048"></a>00048                 <a class="code" href="../../d4/de2/class_game_map.html" title="The map being used by the navigation state.">GameMap</a>* theMap;
-<a name="l00049"></a>00049 
-<a name="l00050"></a>00050                 <a class="code" href="../../d7/df6/class_game_player.html" title="The player character entity.">GamePlayer</a>* thePlayer;
-<a name="l00051"></a>00051 };
-<a name="l00052"></a>00052 
-<a name="l00053"></a>00053 <span class="preprocessor">#endif</span>
+<a name="l00030"></a>00030 <span class="comment">/**********************************************************/</span>
+<a name="l00046"></a><a class="code" href="../../d7/d3b/class_game_static_movement_state.html">00046</a> <span class="keyword">class </span><a class="code" href="../../d7/d3b/class_game_static_movement_state.html" title="A state where entities move on a static playfield.">GameStaticMovementState</a> : <span class="keyword">public</span> <a class="code" href="../../dd/d87/class_game_state.html" title="A state of behavior for the engine.">GameState</a> {
+<a name="l00047"></a>00047         <span class="keyword">public</span>:
+<a name="l00048"></a>00048                 <span class="comment">//** Used for memory management, presets pointers to NULL.</span>
+<a name="l00049"></a>00049                 <a class="code" href="../../d7/d3b/class_game_static_movement_state.html#13354d331108d7aeb78822e629d631b3">GameStaticMovementState</a>();
+<a name="l00050"></a>00050                 
+<a name="l00051"></a>00051                 <span class="comment">//** Enforces memory safety by forcing the Cleanup function.</span>
+<a name="l00052"></a>00052                 <a class="code" href="../../d7/d3b/class_game_static_movement_state.html#3b89c6650fba993b81abd1d5b11a82c3">~GameStaticMovementState</a>();
+<a name="l00053"></a>00053 
+<a name="l00054"></a>00054                 <span class="comment">//** Initializes the state using an external script.</span>
+<a name="l00055"></a>00055                 <span class="keywordtype">void</span> <a class="code" href="../../d7/d3b/class_game_static_movement_state.html#4cb4be5ea96a6bb7b06c79bed64c355d">Init</a>( <span class="keyword">const</span> <span class="keywordtype">char</span>* theScript = NULL );
+<a name="l00056"></a>00056 
+<a name="l00057"></a>00057                 <span class="comment">//** Cleans up any leftover state assets, such as entities</span>
+<a name="l00058"></a>00058                 <span class="keywordtype">void</span> <a class="code" href="../../d7/d3b/class_game_static_movement_state.html#072662abaf5a872f7919e7fc44200a04">Cleanup</a>();
+<a name="l00059"></a>00059 
+<a name="l00060"></a>00060                 <span class="comment">//** Handles events that have been triggered by the player.</span>
+<a name="l00061"></a>00061                 <span class="keywordtype">bool</span> <a class="code" href="../../d7/d3b/class_game_static_movement_state.html#c73d6f93fee2ac6cb2788eb2984bb305">HandleEvents</a>( <a class="code" href="../../db/da1/class_platform_engine.html" title="The game engine instance.">PlatformEngine</a>* game,
+<a name="l00062"></a>00062                                 SDL_Event&amp; event );
+<a name="l00063"></a>00063 
+<a name="l00064"></a>00064                 <span class="comment">//** Runs any new state logic necessary before continuing.</span>
+<a name="l00065"></a>00065                 <span class="keywordtype">void</span> <a class="code" href="../../d7/d3b/class_game_static_movement_state.html#5a3bd910a85487be371c088a1be16996">Update</a>( <a class="code" href="../../db/da1/class_platform_engine.html" title="The game engine instance.">PlatformEngine</a>* game );
+<a name="l00066"></a>00066 
+<a name="l00067"></a>00067                 <span class="comment">//** Draws the state's entities to the display screen.</span>
+<a name="l00068"></a>00068                 <span class="keywordtype">void</span> <a class="code" href="../../d7/d3b/class_game_static_movement_state.html#2c2d82b3dbc8e431682b53ce05294f27">Draw</a>( SDL_Surface* mainScreen );
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070         <span class="keyword">private</span>:
+<a name="l00071"></a>00071                 <span class="comment">//** The background settings for this state.</span>
+<a name="l00072"></a>00072                 <a class="code" href="../../d4/de2/class_game_map.html" title="The map being used by the navigation state.">GameMap</a>* theMap;
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074                 <span class="comment">//** The entity representing the player on this state.</span>
+<a name="l00075"></a>00075                 <a class="code" href="../../d7/df6/class_game_player.html" title="The player character entity.">GamePlayer</a>* thePlayer;
+<a name="l00076"></a>00076 };
+<a name="l00077"></a>00077 
+<a name="l00078"></a>00078 <span class="preprocessor">#endif</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Apr 29 10:19:46 2009 for Platform 2D Game Engine by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Apr 29 14:54:52 2009 for Platform 2D Game Engine by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="../../doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

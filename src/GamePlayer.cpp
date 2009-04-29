@@ -25,6 +25,7 @@
 #include <cstring>
 
 #include "GamePlayer.h"
+#include "SDL_image.h"
 
 using std::cout;
 using std::cerr;
@@ -47,7 +48,7 @@ void GamePlayer::Init( const char* image ) {
 
 		strcpy( imagePath, image );
 
-		playerSurface = SDL_LoadBMP( imagePath );
+		playerSurface = IMG_Load( imagePath );
 		
 		if ( playerSurface == NULL ) {
 			cerr << "Couldn't load " << imagePath << " - "
@@ -78,7 +79,7 @@ void GamePlayer::Draw( SDL_Surface* mainScreen ) {
 			if ( SDL_BlitSurface( playerSurface, 
 						NULL, 
 						mainScreen, 
-						NULL ) < 0 )
+						&dimensions ) < 0 )
 				cerr << "BlitSurface error - "
 					<< SDL_GetError() << endl;
 		}
@@ -91,7 +92,8 @@ void GamePlayer::Draw( SDL_Surface* mainScreen ) {
  * \param delta The 2D movement vectors of the player
  *************************************************************/
 void GamePlayer::Move( SDL_Rect& delta ) {
-       return;
+       dimensions.x += delta.x;
+       dimensions.y += delta.y;
 }      
 
 GamePlayer::~GamePlayer() {

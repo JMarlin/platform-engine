@@ -1,1 +1,1 @@
-<area shape="rect" id="node3" href="$d7/d3b/class_game_static_movement_state.html" title="{GameStaticMovementState\n|&#45; theMap\l&#45; thePlayer\l|+ GameStaticMovementState()\l+ ~GameStaticMovementState()\l+ Init()\l+ Cleanup()\l+ HandleEvents()\l+ Update()\l+ Draw()\l}" alt="" coords="5,265,213,458">
+<area shape="rect" id="node3" href="$d7/d3b/class_game_static_movement_state.html" title="A state where entities move on a static playfield." alt="" coords="5,265,213,458">

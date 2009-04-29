@@ -2,7 +2,9 @@
 .ad l
 .nh
 .SH NAME
-GameStaticMovementState \- 
+GameStaticMovementState \- A state where entities move on a static playfield.  
+
+.PP
 .SH SYNOPSIS
 .br
 .PP
@@ -54,6 +56,13 @@ Inherits \fBGameState\fP.
 .RI "char * \fBstateScriptPath\fP"
 .br
 .in -1c
+.SH "Detailed Description"
+.PP 
+A state where entities move on a static playfield. 
+
+Static Movement refers to the idea that, while there are entities moving around on the 'map' area, the area itself is no larger than the size of the player's screen, and therefore doesn't move at all; in other words, it is 'static'.
+.PP
+Note that this doesn't mean that the background can't give the illusion of movement. For example, the background might be an image that constantly scrolls downward, acting as a parallax background. However, as far as the state is concerned, the activities in the background are irrelevant; the only activity the state is concerned with is that of the entities known to it, such as the player. 
 .SH "Constructor & Destructor Documentation"
 .PP 
 .SS "GameStaticMovementState::GameStaticMovementState ()"
@@ -66,14 +75,64 @@ Inherits \fBGameState\fP.
 .PP
 .SS "void GameStaticMovementState::Cleanup ()\fC [virtual]\fP"
 .PP
+For mostly memory management-related purposes, this will remove any assets remaining in the state.
+.PP
+This function is automatically called upon deletion of the state it is a member of. Thus, unless you are using the state in a nonstandard way, it should never be necessary to explicitly call this function.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItheScript\fP A path to the lua script that configures the initialization. 
+.RE
+.PP
+
+.PP
 Implements \fBGameState\fP.
 .SS "void GameStaticMovementState::Draw (SDL_Surface * mainScreen)\fC [virtual]\fP"
+.PP
+This will draw any of the visible entities being used by this state to the primary display screen.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImainScreen\fP A pointer to the primary display screen. 
+.RE
+.PP
+
 .PP
 Implements \fBGameState\fP.
 .SS "bool GameStaticMovementState::HandleEvents (\fBPlatformEngine\fP * game, SDL_Event & event)\fC [virtual]\fP"
 .PP
+Handles the events used by the state. An event that was previously polled by the engine is analyzed by this function to execute the appropriate action for that event.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIgame\fP A pointer to the game engine. 
+.br
+\fIevent\fP The event that is being analyzed. 
+.RE
+.PP
+
+.PP
 Implements \fBGameState\fP.
 .SS "void GameStaticMovementState::Init (const char * theScript = \fCNULL\fP)\fC [virtual]\fP"
+.PP
+The state is not initialized automatically when it is created. In order for the state to operate in any realistic way, it must be initialized with this function, along with a lua script giving the details of its operation.
+.PP
+\fBParameters:\fP
+.RS 4
+\fItheScript\fP A path to the lua script that configures the initialization. 
+.RE
+.PP
+
+.PP
+First, the engine removes the paths of any previous scripts, assuming they exist, before loading the script that has been passed to it.
+.PP
+The state then loads a lua interpreter to read the script file. If no script is passed, then the function will only mark the state as 'running', while effectively having no assets defined.
+.PP
+The function loads the variable 'playerImage' from the script, and then retains the path of the image as a string.
+.PP
+A new \fBGamePlayer\fP entity is then created, and it is initialized using the image that was loaded from the script.
+.PP
+The state is then set as 'running' so that normal operation can begin.
 .PP
 Implements \fBGameState\fP.
 .SS "void GameState::Pause ()\fC [virtual, inherited]\fP"
@@ -83,6 +142,15 @@ Pauses the execution of this state until further notice, assuming it is currentl
 .PP
 Resumes the execution of this state, if it has been paused previously; otherwise it has no effect. 
 .SS "void GameStaticMovementState::Update (\fBPlatformEngine\fP * game)\fC [virtual]\fP"
+.PP
+Any calculations necessary to be regularly done for the engine logic are done.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIgame\fP A pointer to the game engine. 
+.RE
+.PP
+
 .PP
 Implements \fBGameState\fP.
 .SH "Member Data Documentation"

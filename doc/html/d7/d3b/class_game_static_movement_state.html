@@ -22,7 +22,10 @@
   </div>
 </div>
 <div class="contents">
-<h1>GameStaticMovementState Class Reference</h1><!-- doxytag: class="GameStaticMovementState" --><!-- doxytag: inherits="GameState" --><code>#include &lt;<a class="el" href="../../df/d53/_game_static_movement_state_8h-source.html">GameStaticMovementState.h</a>&gt;</code>
+<h1>GameStaticMovementState Class Reference</h1><!-- doxytag: class="GameStaticMovementState" --><!-- doxytag: inherits="GameState" -->A state where entities move on a static playfield.  
+<a href="#_details">More...</a>
+<p>
+<code>#include &lt;<a class="el" href="../../df/d53/_game_static_movement_state_8h-source.html">GameStaticMovementState.h</a>&gt;</code>
 <p>
 <div class="dynheader">
 Inheritance diagram for GameStaticMovementState:</div>
@@ -69,7 +72,11 @@ Collaboration diagram for GameStaticMovementState:</div>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">char *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../dd/d87/class_game_state.html#bfe09abe78dd5794426964d3392b2973">stateScriptPath</a></td></tr>
 
 </table>
-<hr><h2>Constructor &amp; Destructor Documentation</h2>
+<hr><a name="_details"></a><h2>Detailed Description</h2>
+A state where entities move on a static playfield. 
+<p>
+Static Movement refers to the idea that, while there are entities moving around on the "map" area, the area itself is no larger than the size of the player's screen, and therefore doesn't move at all; in other words, it is "static".<p>
+Note that this doesn't mean that the background can't give the illusion of movement. For example, the background might be an image that constantly scrolls downward, acting as a parallax background. However, as far as the state is concerned, the activities in the background are irrelevant; the only activity the state is concerned with is that of the entities known to it, such as the player. <hr><h2>Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" name="13354d331108d7aeb78822e629d631b3"></a><!-- doxytag: member="GameStaticMovementState::GameStaticMovementState" ref="13354d331108d7aeb78822e629d631b3" args="()" -->
 <div class="memitem">
 <div class="memproto">
@@ -154,6 +161,13 @@ Collaboration diagram for GameStaticMovementState:</div>
 <div class="memdoc">
 
 <p>
+For mostly memory management-related purposes, this will remove any assets remaining in the state.<p>
+This function is automatically called upon deletion of the state it is a member of. Thus, unless you are using the state in a nonstandard way, it should never be necessary to explicitly call this function.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>theScript</em>&nbsp;</td><td>A path to the lua script that configures the initialization. </td></tr>
+  </table>
+</dl>
 
 <p>Implements <a class="el" href="../../dd/d87/class_game_state.html#041e7a5430d71da84745af11abdacd93">GameState</a>.</p>
 
@@ -176,6 +190,12 @@ Collaboration diagram for GameStaticMovementState:</div>
 <div class="memdoc">
 
 <p>
+This will draw any of the visible entities being used by this state to the primary display screen.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>mainScreen</em>&nbsp;</td><td>A pointer to the primary display screen. </td></tr>
+  </table>
+</dl>
 
 <p>Implements <a class="el" href="../../dd/d87/class_game_state.html#1b93233932defca939eed4c0676a5d2a">GameState</a>.</p>
 
@@ -207,6 +227,13 @@ Collaboration diagram for GameStaticMovementState:</div>
 <div class="memdoc">
 
 <p>
+Handles the events used by the state. An event that was previously polled by the engine is analyzed by this function to execute the appropriate action for that event.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>game</em>&nbsp;</td><td>A pointer to the game engine. </td></tr>
+    <tr><td valign="top"></td><td valign="top"><em>event</em>&nbsp;</td><td>The event that is being analyzed. </td></tr>
+  </table>
+</dl>
 
 <p>Implements <a class="el" href="../../dd/d87/class_game_state.html#de7bd9bda91253614322ca0ea77b7a14">GameState</a>.</p>
 
@@ -229,7 +256,19 @@ Collaboration diagram for GameStaticMovementState:</div>
 <div class="memdoc">
 
 <p>
+The state is not initialized automatically when it is created. In order for the state to operate in any realistic way, it must be initialized with this function, along with a lua script giving the details of its operation.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>theScript</em>&nbsp;</td><td>A path to the lua script that configures the initialization. </td></tr>
+  </table>
+</dl>
 
+<p>
+First, the engine removes the paths of any previous scripts, assuming they exist, before loading the script that has been passed to it.<p>
+The state then loads a lua interpreter to read the script file. If no script is passed, then the function will only mark the state as "running", while effectively having no assets defined.<p>
+The function loads the variable "playerImage" from the script, and then retains the path of the image as a string.<p>
+A new <a class="el" href="../../d7/df6/class_game_player.html" title="The player character entity.">GamePlayer</a> entity is then created, and it is initialized using the image that was loaded from the script.<p>
+The state is then set as "running" so that normal operation can begin.
 <p>Implements <a class="el" href="../../dd/d87/class_game_state.html#488fd39ceb2907b13e11f03607f16e5f">GameState</a>.</p>
 
 </div>
@@ -289,6 +328,12 @@ Resumes the execution of this state, if it has been paused previously; otherwise
 <div class="memdoc">
 
 <p>
+Any calculations necessary to be regularly done for the engine logic are done.<p>
+<dl compact><dt><b>Parameters:</b></dt><dd>
+  <table border="0" cellspacing="2" cellpadding="0">
+    <tr><td valign="top"></td><td valign="top"><em>game</em>&nbsp;</td><td>A pointer to the game engine. </td></tr>
+  </table>
+</dl>
 
 <p>Implements <a class="el" href="../../dd/d87/class_game_state.html#100ca49bc95afce1d5c5b756708bbc2b">GameState</a>.</p>
 
@@ -326,7 +371,7 @@ Resumes the execution of this state, if it has been paused previously; otherwise
 </div>
 </div><p>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Apr 29 10:19:46 2009 for Platform 2D Game Engine by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Wed Apr 29 14:54:52 2009 for Platform 2D Game Engine by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="../../doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>
