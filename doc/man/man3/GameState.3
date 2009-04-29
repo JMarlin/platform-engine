@@ -1,4 +1,4 @@
-.TH "GameState" 3 "27 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
+.TH "GameState" 3 "29 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -10,7 +10,7 @@ GameState \- A state of behavior for the engine.
 .PP
 \fC#include <GameState.h>\fP
 .PP
-Inherited by \fBGameNavigationState\fP.
+Inherited by \fBGameStaticMovementState\fP.
 .PP
 .SS "Public Member Functions"
 
@@ -63,16 +63,16 @@ This class in particular is an abstract class, not intended for actual use. The 
 .PP
 .SS "virtual void GameState::Cleanup ()\fC [pure virtual]\fP"
 .PP
-Implemented in \fBGameNavigationState\fP.
+Implemented in \fBGameStaticMovementState\fP.
 .SS "virtual void GameState::Draw (SDL_Surface * mainScreen)\fC [pure virtual]\fP"
 .PP
-Implemented in \fBGameNavigationState\fP.
+Implemented in \fBGameStaticMovementState\fP.
 .SS "virtual bool GameState::HandleEvents (\fBPlatformEngine\fP * game, SDL_Event & event)\fC [pure virtual]\fP"
 .PP
-Implemented in \fBGameNavigationState\fP.
+Implemented in \fBGameStaticMovementState\fP.
 .SS "virtual void GameState::Init (const char * theScript = \fCNULL\fP)\fC [pure virtual]\fP"
 .PP
-Implemented in \fBGameNavigationState\fP.
+Implemented in \fBGameStaticMovementState\fP.
 .SS "void GameState::Pause ()\fC [virtual]\fP"
 .PP
 Pauses the execution of this state until further notice, assuming it is currently running. If it is already paused, this has no effect. 
@@ -81,7 +81,7 @@ Pauses the execution of this state until further notice, assuming it is currentl
 Resumes the execution of this state, if it has been paused previously; otherwise it has no effect. 
 .SS "virtual void GameState::Update (\fBPlatformEngine\fP * game)\fC [pure virtual]\fP"
 .PP
-Implemented in \fBGameNavigationState\fP.
+Implemented in \fBGameStaticMovementState\fP.
 .SH "Member Data Documentation"
 .PP 
 .SS "bool \fBGameState::running\fP\fC [protected]\fP"

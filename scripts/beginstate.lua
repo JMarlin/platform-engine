@@ -19,7 +19,7 @@
 --]]------------------------------------------------------------------------
 
 --FIRST STATE SETTINGS--
-stateType = "Navigation"	-- The type of state the engine starts with
+stateType = "Static Movement"	-- The type of state the engine starts with
 
 --PLAYER SETTINGS--
 playerImage = "testship.bmp"	-- Image representing the player avatar

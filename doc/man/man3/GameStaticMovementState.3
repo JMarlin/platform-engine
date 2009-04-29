@@ -1,0 +1,98 @@
+.TH "GameStaticMovementState" 3 "29 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+GameStaticMovementState \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <GameStaticMovementState.h>\fP
+.PP
+Inherits \fBGameState\fP.
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBGameStaticMovementState\fP ()"
+.br
+.ti -1c
+.RI "\fB~GameStaticMovementState\fP ()"
+.br
+.ti -1c
+.RI "void \fBInit\fP (const char *theScript=NULL)"
+.br
+.ti -1c
+.RI "void \fBCleanup\fP ()"
+.br
+.ti -1c
+.RI "bool \fBHandleEvents\fP (\fBPlatformEngine\fP *game, SDL_Event &event)"
+.br
+.ti -1c
+.RI "void \fBUpdate\fP (\fBPlatformEngine\fP *game)"
+.br
+.ti -1c
+.RI "void \fBDraw\fP (SDL_Surface *mainScreen)"
+.br
+.ti -1c
+.RI "virtual void \fBPause\fP ()"
+.br
+.ti -1c
+.RI "virtual void \fBResume\fP ()"
+.br
+.ti -1c
+.RI "void \fBChangeState\fP (\fBPlatformEngine\fP *game, \fBGameState\fP *state)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "bool \fBrunning\fP"
+.br
+.ti -1c
+.RI "char * \fBstateScriptPath\fP"
+.br
+.in -1c
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "GameStaticMovementState::GameStaticMovementState ()"
+.PP
+.SS "GameStaticMovementState::~GameStaticMovementState ()"
+.PP
+.SH "Member Function Documentation"
+.PP 
+.SS "void GameState::ChangeState (\fBPlatformEngine\fP * game, \fBGameState\fP * state)\fC [inline, inherited]\fP"
+.PP
+.SS "void GameStaticMovementState::Cleanup ()\fC [virtual]\fP"
+.PP
+Implements \fBGameState\fP.
+.SS "void GameStaticMovementState::Draw (SDL_Surface * mainScreen)\fC [virtual]\fP"
+.PP
+Implements \fBGameState\fP.
+.SS "bool GameStaticMovementState::HandleEvents (\fBPlatformEngine\fP * game, SDL_Event & event)\fC [virtual]\fP"
+.PP
+Implements \fBGameState\fP.
+.SS "void GameStaticMovementState::Init (const char * theScript = \fCNULL\fP)\fC [virtual]\fP"
+.PP
+Implements \fBGameState\fP.
+.SS "void GameState::Pause ()\fC [virtual, inherited]\fP"
+.PP
+Pauses the execution of this state until further notice, assuming it is currently running. If it is already paused, this has no effect. 
+.SS "void GameState::Resume ()\fC [virtual, inherited]\fP"
+.PP
+Resumes the execution of this state, if it has been paused previously; otherwise it has no effect. 
+.SS "void GameStaticMovementState::Update (\fBPlatformEngine\fP * game)\fC [virtual]\fP"
+.PP
+Implements \fBGameState\fP.
+.SH "Member Data Documentation"
+.PP 
+.SS "bool \fBGameState::running\fP\fC [protected, inherited]\fP"
+.PP
+.SS "char* \fBGameState::stateScriptPath\fP\fC [protected, inherited]\fP"
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Platform 2D Game Engine from the source code.

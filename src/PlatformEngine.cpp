@@ -29,7 +29,7 @@
 
 #include "PlatformEngine.h"
 #include "GameState.h"
-#include "GameNavigationState.h"
+#include "GameStaticMovementState.h"
 
 #include <cstring>
 
@@ -330,8 +330,9 @@ void PlatformEngine::StartState() {
 	
 			strcpy( type, lua_tostring( L, 1 ) );
 
-			if ( strncmp( type, "Navigation\n", 8 ) == 0 ) {
-				GameState* state = new GameNavigationState;
+			if ( strncmp( type, "Static Movement\n", 8 ) == 0 ){
+				GameState* state 
+					= new GameStaticMovementState;
 			
 				/**
 				 * After creation, the state is pushed onto

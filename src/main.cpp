@@ -22,7 +22,6 @@
 
 #include "PlatformEngine.h"
 #include "GameLoopDelay.h"
-#include "GameNavigationState.h"
 
 //const char* title = "Platform Engine Test v0.0.1 Pre-Alpha\0";
 
@@ -35,7 +34,7 @@ int main( int argc, char* argv[] ) {
 	nextTime = SDL_GetTicks() + TICK_INTERVAL;
 
 	// When written, the next line will initialize the intro state.
-	game.PushState( new GameNavigationState );
+	//game.PushState( new GameNavigationState );
 
 	while ( game.Running() ) {
 		

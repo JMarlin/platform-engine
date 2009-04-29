@@ -44,7 +44,8 @@ set ( SOURCES
 	${SRCDIR}/GameLoopDelay.h	${SRCDIR}/GameLoopDelay.cpp
 	${SRCDIR}/PlatformEngine.h	${SRCDIR}/PlatformEngine.cpp
 	${SRCDIR}/GameState.h		${SRCDIR}/GameState.cpp
-	${SRCDIR}/GameNavigationState.h	${SRCDIR}/GameNavigationState.cpp
+	${SRCDIR}/GameStaticMovementstate.h	
+	${SRCDIR}/GameStaticMovementState.cpp
 	${SRCDIR}/GameMap.h		${SRCDIR}/GameMap.cpp
 	${SRCDIR}/GameMapLayer.h
 	${SRCDIR}/GamePlayer.h		${SRCDIR}/GamePlayer.cpp

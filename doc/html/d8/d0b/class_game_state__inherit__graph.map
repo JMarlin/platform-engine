@@ -1,1 +1,1 @@
-<area shape="rect" id="node3" href="$de/d2a/class_game_navigation_state.html" title="The state in which game world navigation takes place." alt="" coords="5,265,171,458">
+<area shape="rect" id="node3" href="$d7/d3b/class_game_static_movement_state.html" title="{GameStaticMovementState\n|&#45; theMap\l&#45; thePlayer\l|+ GameStaticMovementState()\l+ ~GameStaticMovementState()\l+ Init()\l+ Cleanup()\l+ HandleEvents()\l+ Update()\l+ Draw()\l}" alt="" coords="5,265,213,458">

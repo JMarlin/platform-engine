@@ -33,7 +33,6 @@ using std::endl;
 GamePlayer::GamePlayer() {
 	imagePath = NULL;
 	playerSurface = NULL;
-	cout << "ALIVE " << this << endl;
 }
 
 /**********************************************************//**
@@ -43,7 +42,6 @@ GamePlayer::GamePlayer() {
  * \param image The full path to the file to be used as the player image
  *************************************************************/
 void GamePlayer::Init( const char* image ) {
-	cout << "STILLALIVE! " << this << endl;	
 	if ( image != NULL ) {
 		imagePath = new char[32];
 
@@ -63,7 +61,6 @@ void GamePlayer::Init( const char* image ) {
 
 
 	}
-	cout << "ALIVESTILL! " << this << endl;
 }
 
 /**********************************************************//**
@@ -75,7 +72,6 @@ void GamePlayer::Init( const char* image ) {
  * \param mainScreen The surface that the image is to be drawn to
  *************************************************************/
 void GamePlayer::Draw( SDL_Surface* mainScreen ) {
-	cout << "3 " << mainScreen << imagePath << playerSurface << endl;
 	if ( mainScreen != NULL ) {
 		if ( imagePath != NULL ) {
 			

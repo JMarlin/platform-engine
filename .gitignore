@@ -1,0 +1,8 @@
+*~
+*.swp
+.*
+.*/
+!.gitignore
+
+bin/
+build/
