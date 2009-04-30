@@ -34,6 +34,11 @@ using std::endl;
 GamePlayer::GamePlayer() {
 	imagePath = NULL;
 	playerSurface = NULL;
+	
+	moveUp = false;
+	moveDown = false;
+	moveLeft = false;
+	moveRight = false;
 }
 
 /**********************************************************//**
@@ -85,16 +90,35 @@ void GamePlayer::Draw( SDL_Surface* mainScreen ) {
 		}
 	}
 }
+
+void GamePlayer::Update() {
+	if ( moveUp ) dimensions.y -= 1;
+	if ( moveDown ) dimensions.y += 1;
+	if ( moveLeft ) dimensions.x -= 1;
+	if ( moveRight ) dimensions.x += 1;
+}
+
 /**********************************************************//**
  *   Moves the player by changing its position on the 2D grid,
  * using the dimensions passed in the delta as modifiers.
  *
  * \param delta The 2D movement vectors of the player
  *************************************************************/
-void GamePlayer::Move( SDL_Rect& delta ) {
-       dimensions.x += delta.x;
-       dimensions.y += delta.y;
-}      
+void GamePlayer::SetMoveUp( const bool& flag ) {
+	moveUp = flag;
+}
+
+void GamePlayer::SetMoveDown( const bool& flag ) {
+	moveDown = flag;
+}
+
+void GamePlayer::SetMoveLeft( const bool& flag ) {
+	moveLeft = flag;
+}
+
+void GamePlayer::SetMoveRight( const bool& flag ) {
+	moveRight = flag;
+}
 
 GamePlayer::~GamePlayer() {
 	cout << "DYING! " << this << endl;

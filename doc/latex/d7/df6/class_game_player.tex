@@ -18,7 +18,15 @@ void \hyperlink{class_game_player_937dcf8e5b90200f5ae0a3418adf7271}{Init} (const
 \item 
 void \hyperlink{class_game_player_3e5c897e5120b5297e7226a4cb143742}{Draw} (SDL\_\-Surface $\ast$mainScreen)
 \item 
-void \hyperlink{class_game_player_df2b0a348192c421edcc94b3ca1cc3d6}{Move} (SDL\_\-Rect \&delta)
+void \hyperlink{class_game_player_55dbf88a7edd4c41de5591c0a3496847}{Update} ()
+\item 
+void \hyperlink{class_game_player_336298f2d286c4b2188bc9a03fac9c6d}{SetMoveLeft} (const bool \&flag)
+\item 
+void \hyperlink{class_game_player_c53032c2085250782126d5969a1cba32}{SetMoveRight} (const bool \&flag)
+\item 
+void \hyperlink{class_game_player_7f790b23e90b709061b91f840dce4982}{SetMoveUp} (const bool \&flag)
+\item 
+void \hyperlink{class_game_player_5caad1d0b2fff21b883f609cbdbd4575}{SetMoveDown} (const bool \&flag)
 \end{CompactItemize}
 
 
@@ -73,11 +81,32 @@ Initiates the player object by loading the relevant image and dimension informat
 \begin{description}
 \item[{\em image}]The full path to the file to be used as the player image \end{description}
 \end{Desc}
-\hypertarget{class_game_player_df2b0a348192c421edcc94b3ca1cc3d6}{
-\index{GamePlayer@{GamePlayer}!Move@{Move}}
-\index{Move@{Move}!GamePlayer@{GamePlayer}}
-\subsubsection[{Move}]{\setlength{\rightskip}{0pt plus 5cm}void GamePlayer::Move (SDL\_\-Rect \& {\em delta})}}
-\label{d7/df6/class_game_player_df2b0a348192c421edcc94b3ca1cc3d6}
+\hypertarget{class_game_player_5caad1d0b2fff21b883f609cbdbd4575}{
+\index{GamePlayer@{GamePlayer}!SetMoveDown@{SetMoveDown}}
+\index{SetMoveDown@{SetMoveDown}!GamePlayer@{GamePlayer}}
+\subsubsection[{SetMoveDown}]{\setlength{\rightskip}{0pt plus 5cm}void GamePlayer::SetMoveDown (const bool \& {\em flag})}}
+\label{d7/df6/class_game_player_5caad1d0b2fff21b883f609cbdbd4575}
+
+
+\hypertarget{class_game_player_336298f2d286c4b2188bc9a03fac9c6d}{
+\index{GamePlayer@{GamePlayer}!SetMoveLeft@{SetMoveLeft}}
+\index{SetMoveLeft@{SetMoveLeft}!GamePlayer@{GamePlayer}}
+\subsubsection[{SetMoveLeft}]{\setlength{\rightskip}{0pt plus 5cm}void GamePlayer::SetMoveLeft (const bool \& {\em flag})}}
+\label{d7/df6/class_game_player_336298f2d286c4b2188bc9a03fac9c6d}
+
+
+\hypertarget{class_game_player_c53032c2085250782126d5969a1cba32}{
+\index{GamePlayer@{GamePlayer}!SetMoveRight@{SetMoveRight}}
+\index{SetMoveRight@{SetMoveRight}!GamePlayer@{GamePlayer}}
+\subsubsection[{SetMoveRight}]{\setlength{\rightskip}{0pt plus 5cm}void GamePlayer::SetMoveRight (const bool \& {\em flag})}}
+\label{d7/df6/class_game_player_c53032c2085250782126d5969a1cba32}
+
+
+\hypertarget{class_game_player_7f790b23e90b709061b91f840dce4982}{
+\index{GamePlayer@{GamePlayer}!SetMoveUp@{SetMoveUp}}
+\index{SetMoveUp@{SetMoveUp}!GamePlayer@{GamePlayer}}
+\subsubsection[{SetMoveUp}]{\setlength{\rightskip}{0pt plus 5cm}void GamePlayer::SetMoveUp (const bool \& {\em flag})}}
+\label{d7/df6/class_game_player_7f790b23e90b709061b91f840dce4982}
 
 
 Moves the player by changing its position on the 2D grid, using the dimensions passed in the delta as modifiers.
@@ -87,3 +116,10 @@ Moves the player by changing its position on the 2D grid, using the dimensions p
 \begin{description}
 \item[{\em delta}]The 2D movement vectors of the player \end{description}
 \end{Desc}
+\hypertarget{class_game_player_55dbf88a7edd4c41de5591c0a3496847}{
+\index{GamePlayer@{GamePlayer}!Update@{Update}}
+\index{Update@{Update}!GamePlayer@{GamePlayer}}
+\subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}void GamePlayer::Update ()}}
+\label{d7/df6/class_game_player_55dbf88a7edd4c41de5591c0a3496847}
+
+

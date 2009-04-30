@@ -40,7 +40,15 @@
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df6/class_game_player.html#3e5c897e5120b5297e7226a4cb143742">Draw</a> (SDL_Surface *mainScreen)</td></tr>
 
-<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df6/class_game_player.html#df2b0a348192c421edcc94b3ca1cc3d6">Move</a> (SDL_Rect &amp;delta)</td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df6/class_game_player.html#55dbf88a7edd4c41de5591c0a3496847">Update</a> ()</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df6/class_game_player.html#336298f2d286c4b2188bc9a03fac9c6d">SetMoveLeft</a> (const bool &amp;flag)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df6/class_game_player.html#c53032c2085250782126d5969a1cba32">SetMoveRight</a> (const bool &amp;flag)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df6/class_game_player.html#7f790b23e90b709061b91f840dce4982">SetMoveUp</a> (const bool &amp;flag)</td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d7/df6/class_game_player.html#5caad1d0b2fff21b883f609cbdbd4575">SetMoveDown</a> (const bool &amp;flag)</td></tr>
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
@@ -138,15 +146,75 @@ Initiates the player object by loading the relevant image and dimension informat
 
 </div>
 </div><p>
-<a class="anchor" name="df2b0a348192c421edcc94b3ca1cc3d6"></a><!-- doxytag: member="GamePlayer::Move" ref="df2b0a348192c421edcc94b3ca1cc3d6" args="(SDL_Rect &amp;delta)" -->
+<a class="anchor" name="5caad1d0b2fff21b883f609cbdbd4575"></a><!-- doxytag: member="GamePlayer::SetMoveDown" ref="5caad1d0b2fff21b883f609cbdbd4575" args="(const bool &amp;flag)" -->
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void GamePlayer::Move           </td>
+          <td class="memname">void GamePlayer::SetMoveDown           </td>
           <td>(</td>
-          <td class="paramtype">SDL_Rect &amp;&nbsp;</td>
-          <td class="paramname"> <em>delta</em>          </td>
+          <td class="paramtype">const bool &amp;&nbsp;</td>
+          <td class="paramname"> <em>flag</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="336298f2d286c4b2188bc9a03fac9c6d"></a><!-- doxytag: member="GamePlayer::SetMoveLeft" ref="336298f2d286c4b2188bc9a03fac9c6d" args="(const bool &amp;flag)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GamePlayer::SetMoveLeft           </td>
+          <td>(</td>
+          <td class="paramtype">const bool &amp;&nbsp;</td>
+          <td class="paramname"> <em>flag</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="c53032c2085250782126d5969a1cba32"></a><!-- doxytag: member="GamePlayer::SetMoveRight" ref="c53032c2085250782126d5969a1cba32" args="(const bool &amp;flag)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GamePlayer::SetMoveRight           </td>
+          <td>(</td>
+          <td class="paramtype">const bool &amp;&nbsp;</td>
+          <td class="paramname"> <em>flag</em>          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="7f790b23e90b709061b91f840dce4982"></a><!-- doxytag: member="GamePlayer::SetMoveUp" ref="7f790b23e90b709061b91f840dce4982" args="(const bool &amp;flag)" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GamePlayer::SetMoveUp           </td>
+          <td>(</td>
+          <td class="paramtype">const bool &amp;&nbsp;</td>
+          <td class="paramname"> <em>flag</em>          </td>
           <td>&nbsp;)&nbsp;</td>
           <td></td>
         </tr>
@@ -164,8 +232,27 @@ Moves the player by changing its position on the 2D grid, using the dimensions p
 
 </div>
 </div><p>
+<a class="anchor" name="55dbf88a7edd4c41de5591c0a3496847"></a><!-- doxytag: member="GamePlayer::Update" ref="55dbf88a7edd4c41de5591c0a3496847" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void GamePlayer::Update           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td></td>
+        </tr>
+      </table>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Wed Apr 29 14:54:52 2009 for Platform 2D Game Engine by&nbsp;
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Generated on Thu Apr 30 00:54:34 2009 for Platform 2D Game Engine by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="../../doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

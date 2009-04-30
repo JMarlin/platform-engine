@@ -159,47 +159,43 @@ bool GameStaticMovementState::HandleEvents( PlatformEngine*  game,
 		case SDL_KEYDOWN:
 			switch ( event.key.keysym.sym ) {
 				case SDLK_UP:
-				case SDLK_w: {
-					SDL_Rect delta;
-					
-					delta.x = 0;
-					delta.y = -10;
-
-					thePlayer->Move( delta );
-					}
+				case SDLK_w: 
+					thePlayer->SetMoveUp( true );
 					return true;
 				case SDLK_DOWN:
-				case SDLK_s: {
-					SDL_Rect delta;
-
-					delta.x = 0;
-					delta.y = 10;
-
-					thePlayer->Move( delta );
-					}
+				case SDLK_s: 
+					thePlayer->SetMoveDown( true );
 					return true;
 				case SDLK_LEFT:
-				case SDLK_a: {
-					SDL_Rect delta;
-
-					delta.x = -10;
-					delta.y = 0;
-
-					thePlayer->Move( delta );
-					}
+				case SDLK_a: 
+					thePlayer->SetMoveLeft( true );
 					return true;
 				case SDLK_RIGHT:
-				case SDLK_d: {
-					SDL_Rect delta;
-
-					delta.x = 10;
-					delta.y = 0;
-
-					thePlayer->Move( delta );
-					}
+				case SDLK_d: 
+					thePlayer->SetMoveRight( true );
 					return true;
 			}
 			break;
+		case SDL_KEYUP:
+			switch ( event.key.keysym.sym ) {
+				case SDLK_UP:
+				case SDLK_w: 
+					thePlayer->SetMoveUp( false );
+					return true;
+				case SDLK_DOWN:
+				case SDLK_s: 
+					thePlayer->SetMoveDown( false );
+					return true;
+				case SDLK_LEFT:
+				case SDLK_a: 
+					thePlayer->SetMoveLeft( false );
+					return true;
+				case SDLK_RIGHT:
+				case SDLK_d: 
+					thePlayer->SetMoveRight( false );
+					return true;
+			}
+			return true;
 		default:
 			return false;
 	}
@@ -213,7 +209,7 @@ bool GameStaticMovementState::HandleEvents( PlatformEngine*  game,
  * \param game A pointer to the game engine.
  *************************************************************/
 void GameStaticMovementState::Update( PlatformEngine* game ) {
-	return;
+	if ( thePlayer != NULL ) thePlayer->Update();
 }
 
 #endif

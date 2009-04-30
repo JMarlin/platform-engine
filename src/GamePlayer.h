@@ -43,14 +43,28 @@ class GamePlayer {
 		//** Draws the player to the engine screen
 		void Draw( SDL_Surface* mainScreen );
 
-		//** Changes the position of the player on the screen
-		void Move( SDL_Rect& delta );
+		void Update();
+
+		void SetMoveLeft( const bool& flag );
+
+		void SetMoveRight( const bool& flag );
+
+		void SetMoveUp( const bool& flag );
+
+		void SetMoveDown( const bool& flag );
 
 	private:
 		//** Path to an image representing the object
 		char* imagePath;
 
-		//** Size and position of the player
+		bool moveUp;
+
+		bool moveDown;
+
+		bool moveLeft;
+
+		bool moveRight;
+
 		SDL_Rect dimensions;
 
 		//** Surface holding the player's image

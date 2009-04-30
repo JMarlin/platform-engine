@@ -1,4 +1,4 @@
-.TH "GamePlayer" 3 "29 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
+.TH "GamePlayer" 3 "30 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -26,7 +26,19 @@ GamePlayer \- The player character entity.
 .RI "void \fBDraw\fP (SDL_Surface *mainScreen)"
 .br
 .ti -1c
-.RI "void \fBMove\fP (SDL_Rect &delta)"
+.RI "void \fBUpdate\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetMoveLeft\fP (const bool &flag)"
+.br
+.ti -1c
+.RI "void \fBSetMoveRight\fP (const bool &flag)"
+.br
+.ti -1c
+.RI "void \fBSetMoveUp\fP (const bool &flag)"
+.br
+.ti -1c
+.RI "void \fBSetMoveDown\fP (const bool &flag)"
 .br
 .in -1c
 .SH "Detailed Description"
@@ -62,7 +74,13 @@ Initiates the player object by loading the relevant image and dimension informat
 .RE
 .PP
 
-.SS "void GamePlayer::Move (SDL_Rect & delta)"
+.SS "void GamePlayer::SetMoveDown (const bool & flag)"
+.PP
+.SS "void GamePlayer::SetMoveLeft (const bool & flag)"
+.PP
+.SS "void GamePlayer::SetMoveRight (const bool & flag)"
+.PP
+.SS "void GamePlayer::SetMoveUp (const bool & flag)"
 .PP
 Moves the player by changing its position on the 2D grid, using the dimensions passed in the delta as modifiers.
 .PP
@@ -70,6 +88,9 @@ Moves the player by changing its position on the 2D grid, using the dimensions p
 .RS 4
 \fIdelta\fP The 2D movement vectors of the player 
 .RE
+.PP
+
+.SS "void GamePlayer::Update ()"
 .PP
 
 
