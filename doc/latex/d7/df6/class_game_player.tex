@@ -88,38 +88,40 @@ Initiates the player object by loading the relevant image and dimension informat
 \label{d7/df6/class_game_player_5caad1d0b2fff21b883f609cbdbd4575}
 
 
-\hypertarget{class_game_player_336298f2d286c4b2188bc9a03fac9c6d}{
+Is used to change the value of the flag that dictates whether or not the \hyperlink{class_game_player}{GamePlayer} instance is moving \char`\"{}downward\char`\"{} on the display.
+
+/param flag True if the player is moving down, otherwise false. \hypertarget{class_game_player_336298f2d286c4b2188bc9a03fac9c6d}{
 \index{GamePlayer@{GamePlayer}!SetMoveLeft@{SetMoveLeft}}
 \index{SetMoveLeft@{SetMoveLeft}!GamePlayer@{GamePlayer}}
 \subsubsection[{SetMoveLeft}]{\setlength{\rightskip}{0pt plus 5cm}void GamePlayer::SetMoveLeft (const bool \& {\em flag})}}
 \label{d7/df6/class_game_player_336298f2d286c4b2188bc9a03fac9c6d}
 
 
-\hypertarget{class_game_player_c53032c2085250782126d5969a1cba32}{
+Is used to change the value of the flag that dictates whether or not the \hyperlink{class_game_player}{GamePlayer} instance is moving \char`\"{}left\char`\"{} on the display.
+
+/param flag True if the player is moving left, otherwise false. \hypertarget{class_game_player_c53032c2085250782126d5969a1cba32}{
 \index{GamePlayer@{GamePlayer}!SetMoveRight@{SetMoveRight}}
 \index{SetMoveRight@{SetMoveRight}!GamePlayer@{GamePlayer}}
 \subsubsection[{SetMoveRight}]{\setlength{\rightskip}{0pt plus 5cm}void GamePlayer::SetMoveRight (const bool \& {\em flag})}}
 \label{d7/df6/class_game_player_c53032c2085250782126d5969a1cba32}
 
 
-\hypertarget{class_game_player_7f790b23e90b709061b91f840dce4982}{
+Is used to change the value of the flag that dictates whether or not the \hyperlink{class_game_player}{GamePlayer} instance is moving \char`\"{}right\char`\"{} on the display.
+
+/param flag True if the player is moving right, otherwise false. \hypertarget{class_game_player_7f790b23e90b709061b91f840dce4982}{
 \index{GamePlayer@{GamePlayer}!SetMoveUp@{SetMoveUp}}
 \index{SetMoveUp@{SetMoveUp}!GamePlayer@{GamePlayer}}
 \subsubsection[{SetMoveUp}]{\setlength{\rightskip}{0pt plus 5cm}void GamePlayer::SetMoveUp (const bool \& {\em flag})}}
 \label{d7/df6/class_game_player_7f790b23e90b709061b91f840dce4982}
 
 
-Moves the player by changing its position on the 2D grid, using the dimensions passed in the delta as modifiers.
+Is used to change the value of the flag that dictates whether or not the \hyperlink{class_game_player}{GamePlayer} instance is moving \char`\"{}upward\char`\"{} on the display.
 
-\begin{Desc}
-\item[Parameters:]
-\begin{description}
-\item[{\em delta}]The 2D movement vectors of the player \end{description}
-\end{Desc}
-\hypertarget{class_game_player_55dbf88a7edd4c41de5591c0a3496847}{
+/param flag True if the player is moving upward, otherwise false. \hypertarget{class_game_player_55dbf88a7edd4c41de5591c0a3496847}{
 \index{GamePlayer@{GamePlayer}!Update@{Update}}
 \index{Update@{Update}!GamePlayer@{GamePlayer}}
 \subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}void GamePlayer::Update ()}}
 \label{d7/df6/class_game_player_55dbf88a7edd4c41de5591c0a3496847}
 
 
+Does the regular recalculations required by the state, usually in reaction to user input, such as moving the player entity. 

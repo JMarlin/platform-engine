@@ -91,6 +91,11 @@ void GamePlayer::Draw( SDL_Surface* mainScreen ) {
 	}
 }
 
+/**********************************************************//**
+ *   Does the regular recalculations required by the state, 
+ * usually in reaction to user input, such as moving the player 
+ * entity.
+ *************************************************************/
 void GamePlayer::Update() {
 	if ( moveUp ) dimensions.y -= 1;
 	if ( moveDown ) dimensions.y += 1;
@@ -99,23 +104,45 @@ void GamePlayer::Update() {
 }
 
 /**********************************************************//**
- *   Moves the player by changing its position on the 2D grid,
- * using the dimensions passed in the delta as modifiers.
+ *   Is used to change the value of the flag that dictates 
+ * whether or not the GamePlayer instance is moving "upward" 
+ * on the display.
  *
- * \param delta The 2D movement vectors of the player
+ * /param flag True if the player is moving upward, otherwise false.
  *************************************************************/
 void GamePlayer::SetMoveUp( const bool& flag ) {
 	moveUp = flag;
 }
 
+/**********************************************************//**
+ *   Is used to change the value of the flag that dictates 
+ * whether or not the GamePlayer instance is moving "downward" 
+ * on the display.
+ *
+ * /param flag True if the player is moving down, otherwise false.
+ *************************************************************/
 void GamePlayer::SetMoveDown( const bool& flag ) {
 	moveDown = flag;
 }
 
+/**********************************************************//**
+ *   Is used to change the value of the flag that dictates 
+ * whether or not the GamePlayer instance is moving "left" 
+ * on the display.
+ *
+ * /param flag True if the player is moving left, otherwise false.
+ *************************************************************/
 void GamePlayer::SetMoveLeft( const bool& flag ) {
 	moveLeft = flag;
 }
 
+/**********************************************************//**
+ *   Is used to change the value of the flag that dictates 
+ * whether or not the GamePlayer instance is moving "right" 
+ * on the display.
+ *
+ * /param flag True if the player is moving right, otherwise false.
+ *************************************************************/
 void GamePlayer::SetMoveRight( const bool& flag ) {
 	moveRight = flag;
 }

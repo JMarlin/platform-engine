@@ -22,4 +22,4 @@
 stateType = "Static Movement"	-- The type of state the engine starts with
 
 --PLAYER SETTINGS--
-playerImage = "testship.bmp"	-- Image representing the player avatar
+playerImage = "testship.png"	-- Image representing the player avatar

@@ -1,4 +1,4 @@
-.TH "GamePlayer" 3 "30 Apr 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
+.TH "GamePlayer" 3 "1 May 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -76,23 +76,27 @@ Initiates the player object by loading the relevant image and dimension informat
 
 .SS "void GamePlayer::SetMoveDown (const bool & flag)"
 .PP
+Is used to change the value of the flag that dictates whether or not the \fBGamePlayer\fP instance is moving 'downward' on the display.
+.PP
+/param flag True if the player is moving down, otherwise false. 
 .SS "void GamePlayer::SetMoveLeft (const bool & flag)"
 .PP
+Is used to change the value of the flag that dictates whether or not the \fBGamePlayer\fP instance is moving 'left' on the display.
+.PP
+/param flag True if the player is moving left, otherwise false. 
 .SS "void GamePlayer::SetMoveRight (const bool & flag)"
 .PP
+Is used to change the value of the flag that dictates whether or not the \fBGamePlayer\fP instance is moving 'right' on the display.
+.PP
+/param flag True if the player is moving right, otherwise false. 
 .SS "void GamePlayer::SetMoveUp (const bool & flag)"
 .PP
-Moves the player by changing its position on the 2D grid, using the dimensions passed in the delta as modifiers.
+Is used to change the value of the flag that dictates whether or not the \fBGamePlayer\fP instance is moving 'upward' on the display.
 .PP
-\fBParameters:\fP
-.RS 4
-\fIdelta\fP The 2D movement vectors of the player 
-.RE
-.PP
-
+/param flag True if the player is moving upward, otherwise false. 
 .SS "void GamePlayer::Update ()"
 .PP
-
+Does the regular recalculations required by the state, usually in reaction to user input, such as moving the player entity. 
 
 .SH "Author"
 .PP 

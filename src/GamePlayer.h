@@ -42,29 +42,39 @@ class GamePlayer {
 
 		//** Draws the player to the engine screen
 		void Draw( SDL_Surface* mainScreen );
-
+		
+		//** Calculates any necessary player logic
 		void Update();
 
+		//** Sets the player to either move left or not
 		void SetMoveLeft( const bool& flag );
 
+		//** Sets the player to either move right or not
 		void SetMoveRight( const bool& flag );
 
+		//** Sets the player to either move up or not
 		void SetMoveUp( const bool& flag );
 
+		//** Sets the player to either move down or not
 		void SetMoveDown( const bool& flag );
 
 	private:
 		//** Path to an image representing the object
 		char* imagePath;
 
+		//** Flag controlling player upward movement
 		bool moveUp;
 
+		//** Flag controlling player downward movement
 		bool moveDown;
 
+		//** Flag controlling player leftward movement
 		bool moveLeft;
 
+		//** Flag controlling player rightward movement
 		bool moveRight;
 
+		//** Position and size information for the Player object
 		SDL_Rect dimensions;
 
 		//** Surface holding the player's image

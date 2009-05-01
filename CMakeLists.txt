@@ -28,7 +28,7 @@ set( SRCDIR "${CMAKE_SOURCE_DIR}/src/" )
 set( DOCDIR "${CMAKE_SOURCE_DIR}/doc/" )
 set( CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/bin/" )
 
-	#find_package( PNG REQUIRED )
+find_package( PNG REQUIRED )
 
 find_package( SDL REQUIRED )
 
