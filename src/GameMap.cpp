@@ -22,7 +22,10 @@
 #define GAMEMAP_CPP
 
 #include "GameMap.h"
+#include "GameMapLayer.h"
 #include "SDL.h"
+
+using std::vector;
 
 GameMap::GameMap() {
 	//blank
@@ -46,6 +49,12 @@ void GameMap::MoveMap( SDL_Rect& delta ) {
  * \param mainScreen The surface that the map is to be drawn to.
  *************************************************************/
 void GameMap::Draw( SDL_Surface* mainScreen ) {
+	vector< GameMapLayer* >::iterator i;
+
+	for ( i = layerList.begin() ; i != layerList.end() ; i++ ) {
+		(*i)->Draw( mainScreen );
+	}
+
 	return;
 }
 

@@ -24,9 +24,9 @@
 #include "PlatformEngine.h"
 #include "GameMapLayer.h"
 
-#include <stack>
+#include <vector>
 
-using std::stack;
+using std::vector;
 
 /**********************************************************//**
  * \brief The map being used by the navigation state.
@@ -53,7 +53,7 @@ class GameMap {
 
 	private:
 		//** The stack of layers 
-		stack< GameMapLayer* > layerStack;
+		vector< GameMapLayer* > layerList;
 		
 		//** The size and on-screen positioning of the map
 		SDL_Rect mapDimensions;

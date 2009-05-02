@@ -270,6 +270,8 @@ void PlatformEngine::Init() {
 	running = true;
 
 	lua_close( L );
+
+	SDL_ShowCursor( SDL_DISABLE );
 }
 
 /**********************************************************//**

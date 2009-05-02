@@ -61,6 +61,20 @@ void GamePlayer::Init( const char* image ) {
 			return;
 		}
 		else {
+			if ( SDL_SetColorKey( 
+					playerSurface,
+					SDL_SRCCOLORKEY,
+					SDL_MapRGB( 
+						playerSurface->format,
+						255,
+						0,
+						255 )
+				       ) == -1 ) {
+				cerr << "Failed to set transparency on "
+					<< imagePath << "; - "
+					<< SDL_GetError() << endl;
+			}
+
 			dimensions.w = playerSurface->w;
 			dimensions.h = playerSurface->h;
 		}

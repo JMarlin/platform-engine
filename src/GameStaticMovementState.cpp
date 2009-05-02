@@ -129,9 +129,6 @@ void GameStaticMovementState::Draw( SDL_Surface* mainScreen ) {
  * state it is a member of. Thus, unless you are using the state
  * in a nonstandard way, it should never be necessary to 
  * explicitly call this function.
- *
- * \param theScript A path to the lua script that configures 
- *        the initialization.
  *************************************************************/
 void GameStaticMovementState::Cleanup() {
 	if ( theMap != NULL ) {

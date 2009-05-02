@@ -1,4 +1,4 @@
-.TH "GameStaticMovementState" 3 "1 May 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
+.TH "GameStaticMovementState" 3 "2 May 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -77,14 +77,7 @@ Note that this doesn't mean that the background can't give the illusion of movem
 .PP
 For mostly memory management-related purposes, this will remove any assets remaining in the state.
 .PP
-This function is automatically called upon deletion of the state it is a member of. Thus, unless you are using the state in a nonstandard way, it should never be necessary to explicitly call this function.
-.PP
-\fBParameters:\fP
-.RS 4
-\fItheScript\fP A path to the lua script that configures the initialization. 
-.RE
-.PP
-
+This function is automatically called upon deletion of the state it is a member of. Thus, unless you are using the state in a nonstandard way, it should never be necessary to explicitly call this function. 
 .PP
 Implements \fBGameState\fP.
 .SS "void GameStaticMovementState::Draw (SDL_Surface * mainScreen)\fC [virtual]\fP"
