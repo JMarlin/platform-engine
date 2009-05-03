@@ -43,16 +43,17 @@ find_package( Doxygen )
 #find_package( Boost COMPONENTS filesystem REQUIRED )
 
 set ( SOURCES
-	${SRCDIR}/main.cpp
-	${SRCDIR}/luainc.h
-	${SRCDIR}/GameLoopDelay.h	${SRCDIR}/GameLoopDelay.cpp
-	${SRCDIR}/PlatformEngine.h	${SRCDIR}/PlatformEngine.cpp
-	${SRCDIR}/GameState.h		${SRCDIR}/GameState.cpp
-	${SRCDIR}/GameStaticMovementstate.h	
-	${SRCDIR}/GameStaticMovementState.cpp
-	${SRCDIR}/GameMap.h		${SRCDIR}/GameMap.cpp
-	${SRCDIR}/GameMapLayer.h
-	${SRCDIR}/GamePlayer.h		${SRCDIR}/GamePlayer.cpp
+	${SRCDIR}/platform-game-main.cc
+	${SRCDIR}/platform-lua-includes.h
+	${SRCDIR}/platform-loop-delay.h	${SRCDIR}/platform-loop-delay.cc
+	${SRCDIR}/platform-engine.h	${SRCDIR}/platform-engine.cc
+	${SRCDIR}/platform-game-state.h	${SRCDIR}/platform-game-state.cc
+	${SRCDIR}/platform-game-state-static-movement.h
+	${SRCDIR}/platform-game-state-static-movement.cc
+	${SRCDIR}/platform-game-map.h	${SRCDIR}/platform-game-map.cc
+	${SRCDIR}/platform-game-map-layer.h
+	${SRCDIR}/platform-game-player.h
+	${SRCDIR}/platform-game-player.cc
 )
 
 link_libraries (

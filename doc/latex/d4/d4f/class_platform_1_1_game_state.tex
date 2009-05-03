@@ -1,0 +1,144 @@
+\hypertarget{class_platform_1_1_game_state}{
+\section{Platform::GameState Class Reference}
+\label{d4/d4f/class_platform_1_1_game_state}\index{Platform::GameState@{Platform::GameState}}
+}
+A state of behavior for the engine.  
+
+
+{\tt \#include $<$platform-game-state.h$>$}
+
+Inheritance diagram for Platform::GameState:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{de/d37/class_platform_1_1_game_state__inherit__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+virtual void \hyperlink{class_platform_1_1_game_state_37209d2617d04c6387a961cb2c8f3663}{Init} (SDL\_\-Surface $\ast$theDisplay=NULL, const char $\ast$theScript=NULL)=0
+\item 
+virtual void \hyperlink{class_platform_1_1_game_state_e85d9b80e26a0a4708423e370d0a4b8a}{Cleanup} ()=0
+\item 
+virtual void \hyperlink{class_platform_1_1_game_state_aa49568d0da70ded81719cfa83052028}{Pause} ()
+\item 
+virtual void \hyperlink{class_platform_1_1_game_state_d2a5e5f3ba807bbf9445baba9f36fea7}{Resume} ()
+\item 
+virtual bool \hyperlink{class_platform_1_1_game_state_9edb3c6ed58b5a6c0b40cb07b01e5f31}{HandleEvents} (\hyperlink{class_platform_1_1_platform_engine}{PlatformEngine} $\ast$game, SDL\_\-Event \&event)=0
+\item 
+virtual void \hyperlink{class_platform_1_1_game_state_d39851d7ffd329b2005f1d2c72cf65a2}{Update} (\hyperlink{class_platform_1_1_platform_engine}{PlatformEngine} $\ast$game)=0
+\item 
+virtual void \hyperlink{class_platform_1_1_game_state_a864d8c7f6094afd421a516729e3dd95}{Draw} ()=0
+\item 
+void \hyperlink{class_platform_1_1_game_state_602091629b4bca2073f12bfa6c61e6d0}{ChangeState} (\hyperlink{class_platform_1_1_platform_engine}{PlatformEngine} $\ast$game, \hyperlink{class_platform_1_1_game_state}{GameState} $\ast$state)
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+bool \hyperlink{class_platform_1_1_game_state_2e64c5095158f8a2d03d180d701af768}{running}
+\item 
+char $\ast$ \hyperlink{class_platform_1_1_game_state_791f4e1dc5c097e707cdca3499fe7ff1}{stateScriptPath}
+\item 
+SDL\_\-Surface $\ast$ \hyperlink{class_platform_1_1_game_state_12616fd9e6b9620fb0c8228a35aec98a}{mainScreen}
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+A state of behavior for the engine. 
+
+A Game State is a layer on top of the default engine behavior that requires a custom form of behavior for its operation. In the \hyperlink{namespace_platform}{Platform} engine, the an instance of the engine stores the current state on a stack, and any newly initiated states can be placed on top of the stack. The normal engine functions will generally call the corresponding operation functions from the state at the top of the stack, so that the engine's operation is ultimately controlled by the current top state.
+
+This class in particular is an abstract class, not intended for actual use. The derivative classes, which are the different kinds of states, are used in normal program operations. 
+
+\subsection{Member Function Documentation}
+\hypertarget{class_platform_1_1_game_state_602091629b4bca2073f12bfa6c61e6d0}{
+\index{Platform::GameState@{Platform::GameState}!ChangeState@{ChangeState}}
+\index{ChangeState@{ChangeState}!Platform::GameState@{Platform::GameState}}
+\subsubsection[{ChangeState}]{\setlength{\rightskip}{0pt plus 5cm}void Platform::GameState::ChangeState ({\bf PlatformEngine} $\ast$ {\em game}, \/  {\bf GameState} $\ast$ {\em state})\hspace{0.3cm}{\tt  \mbox{[}inline\mbox{]}}}}
+\label{d4/d4f/class_platform_1_1_game_state_602091629b4bca2073f12bfa6c61e6d0}
+
+
+\hypertarget{class_platform_1_1_game_state_e85d9b80e26a0a4708423e370d0a4b8a}{
+\index{Platform::GameState@{Platform::GameState}!Cleanup@{Cleanup}}
+\index{Cleanup@{Cleanup}!Platform::GameState@{Platform::GameState}}
+\subsubsection[{Cleanup}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Platform::GameState::Cleanup ()\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{d4/d4f/class_platform_1_1_game_state_e85d9b80e26a0a4708423e370d0a4b8a}
+
+
+
+
+Implemented in \hyperlink{class_platform_1_1_game_static_movement_state_4ae9849145c65e3a7276c545c5bbda18}{Platform::GameStaticMovementState}.\hypertarget{class_platform_1_1_game_state_a864d8c7f6094afd421a516729e3dd95}{
+\index{Platform::GameState@{Platform::GameState}!Draw@{Draw}}
+\index{Draw@{Draw}!Platform::GameState@{Platform::GameState}}
+\subsubsection[{Draw}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Platform::GameState::Draw ()\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{d4/d4f/class_platform_1_1_game_state_a864d8c7f6094afd421a516729e3dd95}
+
+
+
+
+Implemented in \hyperlink{class_platform_1_1_game_static_movement_state_8063dc783ff51732472010f23bed78e7}{Platform::GameStaticMovementState}.\hypertarget{class_platform_1_1_game_state_9edb3c6ed58b5a6c0b40cb07b01e5f31}{
+\index{Platform::GameState@{Platform::GameState}!HandleEvents@{HandleEvents}}
+\index{HandleEvents@{HandleEvents}!Platform::GameState@{Platform::GameState}}
+\subsubsection[{HandleEvents}]{\setlength{\rightskip}{0pt plus 5cm}virtual bool Platform::GameState::HandleEvents ({\bf PlatformEngine} $\ast$ {\em game}, \/  SDL\_\-Event \& {\em event})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{d4/d4f/class_platform_1_1_game_state_9edb3c6ed58b5a6c0b40cb07b01e5f31}
+
+
+
+
+Implemented in \hyperlink{class_platform_1_1_game_static_movement_state_aa0e9df9b7b26c71096d60debf92774b}{Platform::GameStaticMovementState}.\hypertarget{class_platform_1_1_game_state_37209d2617d04c6387a961cb2c8f3663}{
+\index{Platform::GameState@{Platform::GameState}!Init@{Init}}
+\index{Init@{Init}!Platform::GameState@{Platform::GameState}}
+\subsubsection[{Init}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Platform::GameState::Init (SDL\_\-Surface $\ast$ {\em theDisplay} = {\tt NULL}, \/  const char $\ast$ {\em theScript} = {\tt NULL})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{d4/d4f/class_platform_1_1_game_state_37209d2617d04c6387a961cb2c8f3663}
+
+
+
+
+Implemented in \hyperlink{class_platform_1_1_game_static_movement_state_751b633b6a42bf1a85a9081f31dac4e1}{Platform::GameStaticMovementState}.\hypertarget{class_platform_1_1_game_state_aa49568d0da70ded81719cfa83052028}{
+\index{Platform::GameState@{Platform::GameState}!Pause@{Pause}}
+\index{Pause@{Pause}!Platform::GameState@{Platform::GameState}}
+\subsubsection[{Pause}]{\setlength{\rightskip}{0pt plus 5cm}void Platform::GameState::Pause ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{d4/d4f/class_platform_1_1_game_state_aa49568d0da70ded81719cfa83052028}
+
+
+Pauses the execution of this state until further notice, assuming it is currently running. If it is already paused, this has no effect. \hypertarget{class_platform_1_1_game_state_d2a5e5f3ba807bbf9445baba9f36fea7}{
+\index{Platform::GameState@{Platform::GameState}!Resume@{Resume}}
+\index{Resume@{Resume}!Platform::GameState@{Platform::GameState}}
+\subsubsection[{Resume}]{\setlength{\rightskip}{0pt plus 5cm}void Platform::GameState::Resume ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{d4/d4f/class_platform_1_1_game_state_d2a5e5f3ba807bbf9445baba9f36fea7}
+
+
+Resumes the execution of this state, if it has been paused previously; otherwise it has no effect. \hypertarget{class_platform_1_1_game_state_d39851d7ffd329b2005f1d2c72cf65a2}{
+\index{Platform::GameState@{Platform::GameState}!Update@{Update}}
+\index{Update@{Update}!Platform::GameState@{Platform::GameState}}
+\subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Platform::GameState::Update ({\bf PlatformEngine} $\ast$ {\em game})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{d4/d4f/class_platform_1_1_game_state_d39851d7ffd329b2005f1d2c72cf65a2}
+
+
+
+
+Implemented in \hyperlink{class_platform_1_1_game_static_movement_state_07ccc3a9b700867379fae0745451ceff}{Platform::GameStaticMovementState}.
+
+\subsection{Member Data Documentation}
+\hypertarget{class_platform_1_1_game_state_12616fd9e6b9620fb0c8228a35aec98a}{
+\index{Platform::GameState@{Platform::GameState}!mainScreen@{mainScreen}}
+\index{mainScreen@{mainScreen}!Platform::GameState@{Platform::GameState}}
+\subsubsection[{mainScreen}]{\setlength{\rightskip}{0pt plus 5cm}SDL\_\-Surface$\ast$ {\bf Platform::GameState::mainScreen}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{d4/d4f/class_platform_1_1_game_state_12616fd9e6b9620fb0c8228a35aec98a}
+
+
+\hypertarget{class_platform_1_1_game_state_2e64c5095158f8a2d03d180d701af768}{
+\index{Platform::GameState@{Platform::GameState}!running@{running}}
+\index{running@{running}!Platform::GameState@{Platform::GameState}}
+\subsubsection[{running}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf Platform::GameState::running}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{d4/d4f/class_platform_1_1_game_state_2e64c5095158f8a2d03d180d701af768}
+
+
+\hypertarget{class_platform_1_1_game_state_791f4e1dc5c097e707cdca3499fe7ff1}{
+\index{Platform::GameState@{Platform::GameState}!stateScriptPath@{stateScriptPath}}
+\index{stateScriptPath@{stateScriptPath}!Platform::GameState@{Platform::GameState}}
+\subsubsection[{stateScriptPath}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf Platform::GameState::stateScriptPath}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{d4/d4f/class_platform_1_1_game_state_791f4e1dc5c097e707cdca3499fe7ff1}
+
+

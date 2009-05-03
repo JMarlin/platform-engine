@@ -1,0 +1,38 @@
+\hypertarget{namespace_platform}{
+\section{Platform Namespace Reference}
+\label{dc/d0e/namespace_platform}\index{Platform@{Platform}}
+}
+\subsection*{Classes}
+\begin{CompactItemize}
+\item 
+class \hyperlink{class_platform_1_1_platform_engine}{PlatformEngine}
+\begin{CompactList}\small\item\em The game engine instance. \item\end{CompactList}\item 
+class \hyperlink{class_platform_1_1_game_map_layer}{GameMapLayer}
+\begin{CompactList}\small\item\em A section of the map object. \item\end{CompactList}\item 
+class \hyperlink{class_platform_1_1_game_map}{GameMap}
+\begin{CompactList}\small\item\em The map being used by the navigation state. \item\end{CompactList}\item 
+class \hyperlink{class_platform_1_1_game_player}{GamePlayer}
+\begin{CompactList}\small\item\em The player character entity. \item\end{CompactList}\item 
+class \hyperlink{class_platform_1_1_game_static_movement_state}{GameStaticMovementState}
+\begin{CompactList}\small\item\em A state where entities move on a static playfield. \item\end{CompactList}\item 
+class \hyperlink{class_platform_1_1_game_state}{GameState}
+\begin{CompactList}\small\item\em A state of behavior for the engine. \item\end{CompactList}\end{CompactItemize}
+\subsection*{Functions}
+\begin{CompactItemize}
+\item 
+Uint32 \hyperlink{namespace_platform_40ff14ee8e074316bf2840ae9ee0179e}{time\_\-left} ()
+\end{CompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespace_platform_40ff14ee8e074316bf2840ae9ee0179e}{
+\index{Platform@{Platform}!time\_\-left@{time\_\-left}}
+\index{time\_\-left@{time\_\-left}!Platform@{Platform}}
+\subsubsection[{time\_\-left}]{\setlength{\rightskip}{0pt plus 5cm}Uint32 Platform::time\_\-left ()}}
+\label{dc/d0e/namespace_platform_40ff14ee8e074316bf2840ae9ee0179e}
+
+
+In order to avoid maximizing CPU usage at all times, the engine ensures a certain number of ticks have passed before updating.
+
+\begin{Desc}
+\item[Returns:]The number of ticks remaining until the next update \end{Desc}

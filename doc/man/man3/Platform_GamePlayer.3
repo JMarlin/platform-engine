@@ -1,0 +1,96 @@
+.TH "Platform::GamePlayer" 3 "3 May 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Platform::GamePlayer \- The player character entity.  
+
+.PP
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <platform-game-player.h>\fP
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "\fBGamePlayer\fP ()"
+.br
+.ti -1c
+.RI "\fB~GamePlayer\fP ()"
+.br
+.ti -1c
+.RI "void \fBInit\fP (SDL_Surface *theDisplay, const char *image=NULL)"
+.br
+.ti -1c
+.RI "void \fBDraw\fP ()"
+.br
+.ti -1c
+.RI "void \fBUpdate\fP ()"
+.br
+.ti -1c
+.RI "void \fBSetMoveLeft\fP (const bool &flag)"
+.br
+.ti -1c
+.RI "void \fBSetMoveRight\fP (const bool &flag)"
+.br
+.ti -1c
+.RI "void \fBSetMoveUp\fP (const bool &flag)"
+.br
+.ti -1c
+.RI "void \fBSetMoveDown\fP (const bool &flag)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The player character entity. 
+
+\fBGamePlayer\fP is an entity representing the avatar of the human player on the screen. It is usually the center focus of the player's attention and the proxy through which the player expects to operate. 
+.SH "Constructor & Destructor Documentation"
+.PP 
+.SS "Platform::GamePlayer::GamePlayer ()"
+.PP
+.SS "Platform::GamePlayer::~GamePlayer ()"
+.PP
+.SH "Member Function Documentation"
+.PP 
+.SS "void Platform::GamePlayer::Draw ()"
+.PP
+Draws the image of the player to the indicated surface, usually the primary display screen of the engine. This function is dependent upon the existance of both the player image and the screen. 
+.SS "void Platform::GamePlayer::Init (SDL_Surface * theDisplay, const char * image = \fCNULL\fP)"
+.PP
+Initiates the player object by loading the relevant image and dimension information.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIimage\fP The full path to the file to be used as the player image 
+.RE
+.PP
+
+.SS "void Platform::GamePlayer::SetMoveDown (const bool & flag)"
+.PP
+Is used to change the value of the flag that dictates whether or not the \fBGamePlayer\fP instance is moving 'downward' on the display.
+.PP
+/param flag True if the player is moving down, otherwise false. 
+.SS "void Platform::GamePlayer::SetMoveLeft (const bool & flag)"
+.PP
+Is used to change the value of the flag that dictates whether or not the \fBGamePlayer\fP instance is moving 'left' on the display.
+.PP
+/param flag True if the player is moving left, otherwise false. 
+.SS "void Platform::GamePlayer::SetMoveRight (const bool & flag)"
+.PP
+Is used to change the value of the flag that dictates whether or not the \fBGamePlayer\fP instance is moving 'right' on the display.
+.PP
+/param flag True if the player is moving right, otherwise false. 
+.SS "void Platform::GamePlayer::SetMoveUp (const bool & flag)"
+.PP
+Is used to change the value of the flag that dictates whether or not the \fBGamePlayer\fP instance is moving 'upward' on the display.
+.PP
+/param flag True if the player is moving upward, otherwise false. 
+.SS "void Platform::GamePlayer::Update ()"
+.PP
+Does the regular recalculations required by the state, usually in reaction to user input, such as moving the player entity. 
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Platform 2D Game Engine from the source code.

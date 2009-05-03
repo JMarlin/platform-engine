@@ -1,0 +1,205 @@
+\hypertarget{class_platform_1_1_game_static_movement_state}{
+\section{Platform::GameStaticMovementState Class Reference}
+\label{db/d55/class_platform_1_1_game_static_movement_state}\index{Platform::GameStaticMovementState@{Platform::GameStaticMovementState}}
+}
+A state where entities move on a static playfield.  
+
+
+{\tt \#include $<$platform-game-state-static-movement.h$>$}
+
+Inheritance diagram for Platform::GameStaticMovementState:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=220pt]{db/d5c/class_platform_1_1_game_static_movement_state__inherit__graph}
+\end{center}
+\end{figure}
+Collaboration diagram for Platform::GameStaticMovementState:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{d8/d10/class_platform_1_1_game_static_movement_state__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_platform_1_1_game_static_movement_state_9f8e07bb645bb7d7137ca1cb432dd29b}{GameStaticMovementState} ()
+\item 
+\hyperlink{class_platform_1_1_game_static_movement_state_398bacded03a5bf659ae866c5cc61459}{$\sim$GameStaticMovementState} ()
+\item 
+void \hyperlink{class_platform_1_1_game_static_movement_state_751b633b6a42bf1a85a9081f31dac4e1}{Init} (SDL\_\-Surface $\ast$theDisplay=NULL, const char $\ast$theScript=NULL)
+\item 
+void \hyperlink{class_platform_1_1_game_static_movement_state_4ae9849145c65e3a7276c545c5bbda18}{Cleanup} ()
+\item 
+bool \hyperlink{class_platform_1_1_game_static_movement_state_aa0e9df9b7b26c71096d60debf92774b}{HandleEvents} (\hyperlink{class_platform_1_1_platform_engine}{PlatformEngine} $\ast$game, SDL\_\-Event \&event)
+\item 
+void \hyperlink{class_platform_1_1_game_static_movement_state_07ccc3a9b700867379fae0745451ceff}{Update} (\hyperlink{class_platform_1_1_platform_engine}{PlatformEngine} $\ast$game)
+\item 
+void \hyperlink{class_platform_1_1_game_static_movement_state_8063dc783ff51732472010f23bed78e7}{Draw} ()
+\item 
+virtual void \hyperlink{class_platform_1_1_game_state_aa49568d0da70ded81719cfa83052028}{Pause} ()
+\item 
+virtual void \hyperlink{class_platform_1_1_game_state_d2a5e5f3ba807bbf9445baba9f36fea7}{Resume} ()
+\item 
+void \hyperlink{class_platform_1_1_game_state_602091629b4bca2073f12bfa6c61e6d0}{ChangeState} (\hyperlink{class_platform_1_1_platform_engine}{PlatformEngine} $\ast$game, \hyperlink{class_platform_1_1_game_state}{GameState} $\ast$state)
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+bool \hyperlink{class_platform_1_1_game_state_2e64c5095158f8a2d03d180d701af768}{running}
+\item 
+char $\ast$ \hyperlink{class_platform_1_1_game_state_791f4e1dc5c097e707cdca3499fe7ff1}{stateScriptPath}
+\item 
+SDL\_\-Surface $\ast$ \hyperlink{class_platform_1_1_game_state_12616fd9e6b9620fb0c8228a35aec98a}{mainScreen}
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+A state where entities move on a static playfield. 
+
+Static Movement refers to the idea that, while there are entities moving around on the \char`\"{}map\char`\"{} area, the area itself is no larger than the size of the player's screen, and therefore doesn't move at all; in other words, it is \char`\"{}static\char`\"{}.
+
+Note that this doesn't mean that the background can't give the illusion of movement. For example, the background might be an image that constantly scrolls downward, acting as a parallax background. However, as far as the state is concerned, the activities in the background are irrelevant; the only activity the state is concerned with is that of the entities known to it, such as the player. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_platform_1_1_game_static_movement_state_9f8e07bb645bb7d7137ca1cb432dd29b}{
+\index{Platform::GameStaticMovementState@{Platform::GameStaticMovementState}!GameStaticMovementState@{GameStaticMovementState}}
+\index{GameStaticMovementState@{GameStaticMovementState}!Platform::GameStaticMovementState@{Platform::GameStaticMovementState}}
+\subsubsection[{GameStaticMovementState}]{\setlength{\rightskip}{0pt plus 5cm}Platform::GameStaticMovementState::GameStaticMovementState ()}}
+\label{db/d55/class_platform_1_1_game_static_movement_state_9f8e07bb645bb7d7137ca1cb432dd29b}
+
+
+\hypertarget{class_platform_1_1_game_static_movement_state_398bacded03a5bf659ae866c5cc61459}{
+\index{Platform::GameStaticMovementState@{Platform::GameStaticMovementState}!$\sim$GameStaticMovementState@{$\sim$GameStaticMovementState}}
+\index{$\sim$GameStaticMovementState@{$\sim$GameStaticMovementState}!Platform::GameStaticMovementState@{Platform::GameStaticMovementState}}
+\subsubsection[{$\sim$GameStaticMovementState}]{\setlength{\rightskip}{0pt plus 5cm}Platform::GameStaticMovementState::$\sim$GameStaticMovementState ()}}
+\label{db/d55/class_platform_1_1_game_static_movement_state_398bacded03a5bf659ae866c5cc61459}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_platform_1_1_game_state_602091629b4bca2073f12bfa6c61e6d0}{
+\index{Platform::GameStaticMovementState@{Platform::GameStaticMovementState}!ChangeState@{ChangeState}}
+\index{ChangeState@{ChangeState}!Platform::GameStaticMovementState@{Platform::GameStaticMovementState}}
+\subsubsection[{ChangeState}]{\setlength{\rightskip}{0pt plus 5cm}void Platform::GameState::ChangeState ({\bf PlatformEngine} $\ast$ {\em game}, \/  {\bf GameState} $\ast$ {\em state})\hspace{0.3cm}{\tt  \mbox{[}inline, inherited\mbox{]}}}}
+\label{d4/d4f/class_platform_1_1_game_state_602091629b4bca2073f12bfa6c61e6d0}
+
+
+\hypertarget{class_platform_1_1_game_static_movement_state_4ae9849145c65e3a7276c545c5bbda18}{
+\index{Platform::GameStaticMovementState@{Platform::GameStaticMovementState}!Cleanup@{Cleanup}}
+\index{Cleanup@{Cleanup}!Platform::GameStaticMovementState@{Platform::GameStaticMovementState}}
+\subsubsection[{Cleanup}]{\setlength{\rightskip}{0pt plus 5cm}void Platform::GameStaticMovementState::Cleanup ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{db/d55/class_platform_1_1_game_static_movement_state_4ae9849145c65e3a7276c545c5bbda18}
+
+
+For mostly memory management-related purposes, this will remove any assets remaining in the state.
+
+This function is automatically called upon deletion of the state it is a member of. Thus, unless you are using the state in a nonstandard way, it should never be necessary to explicitly call this function. 
+
+Implements \hyperlink{class_platform_1_1_game_state_e85d9b80e26a0a4708423e370d0a4b8a}{Platform::GameState}.\hypertarget{class_platform_1_1_game_static_movement_state_8063dc783ff51732472010f23bed78e7}{
+\index{Platform::GameStaticMovementState@{Platform::GameStaticMovementState}!Draw@{Draw}}
+\index{Draw@{Draw}!Platform::GameStaticMovementState@{Platform::GameStaticMovementState}}
+\subsubsection[{Draw}]{\setlength{\rightskip}{0pt plus 5cm}void Platform::GameStaticMovementState::Draw ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{db/d55/class_platform_1_1_game_static_movement_state_8063dc783ff51732472010f23bed78e7}
+
+
+This will draw any of the visible entities being used by this state to the primary display screen. 
+
+Implements \hyperlink{class_platform_1_1_game_state_a864d8c7f6094afd421a516729e3dd95}{Platform::GameState}.\hypertarget{class_platform_1_1_game_static_movement_state_aa0e9df9b7b26c71096d60debf92774b}{
+\index{Platform::GameStaticMovementState@{Platform::GameStaticMovementState}!HandleEvents@{HandleEvents}}
+\index{HandleEvents@{HandleEvents}!Platform::GameStaticMovementState@{Platform::GameStaticMovementState}}
+\subsubsection[{HandleEvents}]{\setlength{\rightskip}{0pt plus 5cm}bool Platform::GameStaticMovementState::HandleEvents ({\bf PlatformEngine} $\ast$ {\em game}, \/  SDL\_\-Event \& {\em event})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{db/d55/class_platform_1_1_game_static_movement_state_aa0e9df9b7b26c71096d60debf92774b}
+
+
+Handles the events used by the state. An event that was previously polled by the engine is analyzed by this function to execute the appropriate action for that event.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em game}]A pointer to the game engine. \item[{\em event}]The event that is being analyzed. \end{description}
+\end{Desc}
+
+
+Implements \hyperlink{class_platform_1_1_game_state_9edb3c6ed58b5a6c0b40cb07b01e5f31}{Platform::GameState}.\hypertarget{class_platform_1_1_game_static_movement_state_751b633b6a42bf1a85a9081f31dac4e1}{
+\index{Platform::GameStaticMovementState@{Platform::GameStaticMovementState}!Init@{Init}}
+\index{Init@{Init}!Platform::GameStaticMovementState@{Platform::GameStaticMovementState}}
+\subsubsection[{Init}]{\setlength{\rightskip}{0pt plus 5cm}void Platform::GameStaticMovementState::Init (SDL\_\-Surface $\ast$ {\em theDisplay} = {\tt NULL}, \/  const char $\ast$ {\em theScript} = {\tt NULL})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{db/d55/class_platform_1_1_game_static_movement_state_751b633b6a42bf1a85a9081f31dac4e1}
+
+
+The state is not initialized automatically when it is created. In order for the state to operate in any realistic way, it must be initialized with this function, along with a lua script giving the details of its operation.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em theScript}]A path to the lua script that configures the initialization. \end{description}
+\end{Desc}
+
+
+First, the engine removes the paths of any previous scripts, assuming they exist, before loading the script that has been passed to it.
+
+The state then loads a lua interpreter to read the script file. If no script is passed, then the function will only mark the state as \char`\"{}running\char`\"{}, while effectively having no assets defined.
+
+The function loads the variable \char`\"{}playerImage\char`\"{} from the script, and then retains the path of the image as a string.
+
+A new \hyperlink{class_platform_1_1_game_player}{GamePlayer} entity is then created, and it is initialized using the image that was loaded from the script.
+
+The state is then set as \char`\"{}running\char`\"{} so that normal operation can begin.
+
+Implements \hyperlink{class_platform_1_1_game_state_37209d2617d04c6387a961cb2c8f3663}{Platform::GameState}.\hypertarget{class_platform_1_1_game_state_aa49568d0da70ded81719cfa83052028}{
+\index{Platform::GameStaticMovementState@{Platform::GameStaticMovementState}!Pause@{Pause}}
+\index{Pause@{Pause}!Platform::GameStaticMovementState@{Platform::GameStaticMovementState}}
+\subsubsection[{Pause}]{\setlength{\rightskip}{0pt plus 5cm}void Platform::GameState::Pause ()\hspace{0.3cm}{\tt  \mbox{[}virtual, inherited\mbox{]}}}}
+\label{d4/d4f/class_platform_1_1_game_state_aa49568d0da70ded81719cfa83052028}
+
+
+Pauses the execution of this state until further notice, assuming it is currently running. If it is already paused, this has no effect. \hypertarget{class_platform_1_1_game_state_d2a5e5f3ba807bbf9445baba9f36fea7}{
+\index{Platform::GameStaticMovementState@{Platform::GameStaticMovementState}!Resume@{Resume}}
+\index{Resume@{Resume}!Platform::GameStaticMovementState@{Platform::GameStaticMovementState}}
+\subsubsection[{Resume}]{\setlength{\rightskip}{0pt plus 5cm}void Platform::GameState::Resume ()\hspace{0.3cm}{\tt  \mbox{[}virtual, inherited\mbox{]}}}}
+\label{d4/d4f/class_platform_1_1_game_state_d2a5e5f3ba807bbf9445baba9f36fea7}
+
+
+Resumes the execution of this state, if it has been paused previously; otherwise it has no effect. \hypertarget{class_platform_1_1_game_static_movement_state_07ccc3a9b700867379fae0745451ceff}{
+\index{Platform::GameStaticMovementState@{Platform::GameStaticMovementState}!Update@{Update}}
+\index{Update@{Update}!Platform::GameStaticMovementState@{Platform::GameStaticMovementState}}
+\subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}void Platform::GameStaticMovementState::Update ({\bf PlatformEngine} $\ast$ {\em game})\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{db/d55/class_platform_1_1_game_static_movement_state_07ccc3a9b700867379fae0745451ceff}
+
+
+Any calculations necessary to be regularly done for the engine logic are done.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em game}]A pointer to the game engine. \end{description}
+\end{Desc}
+
+
+Implements \hyperlink{class_platform_1_1_game_state_d39851d7ffd329b2005f1d2c72cf65a2}{Platform::GameState}.
+
+\subsection{Member Data Documentation}
+\hypertarget{class_platform_1_1_game_state_12616fd9e6b9620fb0c8228a35aec98a}{
+\index{Platform::GameStaticMovementState@{Platform::GameStaticMovementState}!mainScreen@{mainScreen}}
+\index{mainScreen@{mainScreen}!Platform::GameStaticMovementState@{Platform::GameStaticMovementState}}
+\subsubsection[{mainScreen}]{\setlength{\rightskip}{0pt plus 5cm}SDL\_\-Surface$\ast$ {\bf Platform::GameState::mainScreen}\hspace{0.3cm}{\tt  \mbox{[}protected, inherited\mbox{]}}}}
+\label{d4/d4f/class_platform_1_1_game_state_12616fd9e6b9620fb0c8228a35aec98a}
+
+
+\hypertarget{class_platform_1_1_game_state_2e64c5095158f8a2d03d180d701af768}{
+\index{Platform::GameStaticMovementState@{Platform::GameStaticMovementState}!running@{running}}
+\index{running@{running}!Platform::GameStaticMovementState@{Platform::GameStaticMovementState}}
+\subsubsection[{running}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf Platform::GameState::running}\hspace{0.3cm}{\tt  \mbox{[}protected, inherited\mbox{]}}}}
+\label{d4/d4f/class_platform_1_1_game_state_2e64c5095158f8a2d03d180d701af768}
+
+
+\hypertarget{class_platform_1_1_game_state_791f4e1dc5c097e707cdca3499fe7ff1}{
+\index{Platform::GameStaticMovementState@{Platform::GameStaticMovementState}!stateScriptPath@{stateScriptPath}}
+\index{stateScriptPath@{stateScriptPath}!Platform::GameStaticMovementState@{Platform::GameStaticMovementState}}
+\subsubsection[{stateScriptPath}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ {\bf Platform::GameState::stateScriptPath}\hspace{0.3cm}{\tt  \mbox{[}protected, inherited\mbox{]}}}}
+\label{d4/d4f/class_platform_1_1_game_state_791f4e1dc5c097e707cdca3499fe7ff1}
+
+

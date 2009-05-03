@@ -63,6 +63,13 @@ these changes, according to standards held by the maintainer of the main
 repository, are considered to be of good quality and beneficial to the 
 project, they may be merged at this person's discretion.
 
+  The Platform Project has no official standards for style beyond the 
+expectations of the maintainer; however, for guidelines to go by for 
+general style that may be found acceptable, please us the Google C++ 
+Style Guide, which can be found at the following URL:
+
+  http://google-styleguide.googlecode.com/svn/trunk/cppguide.xml
+
 	Information on the in-depth usage of Git itself is outside the 
 scope of this document. There are numerous resources available from which 
 to learn git, including the Git Reference Manual, which can be found at 

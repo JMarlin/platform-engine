@@ -1,0 +1,58 @@
+.TH "Platform" 3 "3 May 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Platform \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Classes"
+
+.in +1c
+.ti -1c
+.RI "class \fBPlatformEngine\fP"
+.br
+.RI "\fIThe game engine instance. \fP"
+.ti -1c
+.RI "class \fBGameMapLayer\fP"
+.br
+.RI "\fIA section of the map object. \fP"
+.ti -1c
+.RI "class \fBGameMap\fP"
+.br
+.RI "\fIThe map being used by the navigation state. \fP"
+.ti -1c
+.RI "class \fBGamePlayer\fP"
+.br
+.RI "\fIThe player character entity. \fP"
+.ti -1c
+.RI "class \fBGameStaticMovementState\fP"
+.br
+.RI "\fIA state where entities move on a static playfield. \fP"
+.ti -1c
+.RI "class \fBGameState\fP"
+.br
+.RI "\fIA state of behavior for the engine. \fP"
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "Uint32 \fBtime_left\fP ()"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "Uint32 Platform::time_left ()"
+.PP
+In order to avoid maximizing CPU usage at all times, the engine ensures a certain number of ticks have passed before updating.
+.PP
+\fBReturns:\fP
+.RS 4
+The number of ticks remaining until the next update 
+.RE
+.PP
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Platform 2D Game Engine from the source code.

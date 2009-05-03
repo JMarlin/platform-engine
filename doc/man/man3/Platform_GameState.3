@@ -1,0 +1,100 @@
+.TH "Platform::GameState" 3 "3 May 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Platform::GameState \- A state of behavior for the engine.  
+
+.PP
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <platform-game-state.h>\fP
+.PP
+Inherited by \fBPlatform::GameStaticMovementState\fP.
+.PP
+.SS "Public Member Functions"
+
+.in +1c
+.ti -1c
+.RI "virtual void \fBInit\fP (SDL_Surface *theDisplay=NULL, const char *theScript=NULL)=0"
+.br
+.ti -1c
+.RI "virtual void \fBCleanup\fP ()=0"
+.br
+.ti -1c
+.RI "virtual void \fBPause\fP ()"
+.br
+.ti -1c
+.RI "virtual void \fBResume\fP ()"
+.br
+.ti -1c
+.RI "virtual bool \fBHandleEvents\fP (\fBPlatformEngine\fP *game, SDL_Event &event)=0"
+.br
+.ti -1c
+.RI "virtual void \fBUpdate\fP (\fBPlatformEngine\fP *game)=0"
+.br
+.ti -1c
+.RI "virtual void \fBDraw\fP ()=0"
+.br
+.ti -1c
+.RI "void \fBChangeState\fP (\fBPlatformEngine\fP *game, \fBGameState\fP *state)"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "bool \fBrunning\fP"
+.br
+.ti -1c
+.RI "char * \fBstateScriptPath\fP"
+.br
+.ti -1c
+.RI "SDL_Surface * \fBmainScreen\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+A state of behavior for the engine. 
+
+A Game State is a layer on top of the default engine behavior that requires a custom form of behavior for its operation. In the \fBPlatform\fP engine, the an instance of the engine stores the current state on a stack, and any newly initiated states can be placed on top of the stack. The normal engine functions will generally call the corresponding operation functions from the state at the top of the stack, so that the engine's operation is ultimately controlled by the current top state.
+.PP
+This class in particular is an abstract class, not intended for actual use. The derivative classes, which are the different kinds of states, are used in normal program operations. 
+.SH "Member Function Documentation"
+.PP 
+.SS "void Platform::GameState::ChangeState (\fBPlatformEngine\fP * game, \fBGameState\fP * state)\fC [inline]\fP"
+.PP
+.SS "virtual void Platform::GameState::Cleanup ()\fC [pure virtual]\fP"
+.PP
+Implemented in \fBPlatform::GameStaticMovementState\fP.
+.SS "virtual void Platform::GameState::Draw ()\fC [pure virtual]\fP"
+.PP
+Implemented in \fBPlatform::GameStaticMovementState\fP.
+.SS "virtual bool Platform::GameState::HandleEvents (\fBPlatformEngine\fP * game, SDL_Event & event)\fC [pure virtual]\fP"
+.PP
+Implemented in \fBPlatform::GameStaticMovementState\fP.
+.SS "virtual void Platform::GameState::Init (SDL_Surface * theDisplay = \fCNULL\fP, const char * theScript = \fCNULL\fP)\fC [pure virtual]\fP"
+.PP
+Implemented in \fBPlatform::GameStaticMovementState\fP.
+.SS "void Platform::GameState::Pause ()\fC [virtual]\fP"
+.PP
+Pauses the execution of this state until further notice, assuming it is currently running. If it is already paused, this has no effect. 
+.SS "void Platform::GameState::Resume ()\fC [virtual]\fP"
+.PP
+Resumes the execution of this state, if it has been paused previously; otherwise it has no effect. 
+.SS "virtual void Platform::GameState::Update (\fBPlatformEngine\fP * game)\fC [pure virtual]\fP"
+.PP
+Implemented in \fBPlatform::GameStaticMovementState\fP.
+.SH "Member Data Documentation"
+.PP 
+.SS "SDL_Surface* \fBPlatform::GameState::mainScreen\fP\fC [protected]\fP"
+.PP
+.SS "bool \fBPlatform::GameState::running\fP\fC [protected]\fP"
+.PP
+.SS "char* \fBPlatform::GameState::stateScriptPath\fP\fC [protected]\fP"
+.PP
+
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for Platform 2D Game Engine from the source code.

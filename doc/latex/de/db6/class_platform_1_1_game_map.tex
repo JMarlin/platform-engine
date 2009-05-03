@@ -1,0 +1,64 @@
+\hypertarget{class_platform_1_1_game_map}{
+\section{Platform::GameMap Class Reference}
+\label{de/db6/class_platform_1_1_game_map}\index{Platform::GameMap@{Platform::GameMap}}
+}
+The map being used by the navigation state.  
+
+
+{\tt \#include $<$platform-game-map.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_platform_1_1_game_map_9388eca457dc888ce1370138b873a29e}{GameMap} ()
+\item 
+void \hyperlink{class_platform_1_1_game_map_76634e9c99fe04d801cc324ba0b0ed8a}{MoveMap} (SDL\_\-Rect \&delta)
+\item 
+void \hyperlink{class_platform_1_1_game_map_08581c79e3244f70c4e26b886b0479de}{Draw} (SDL\_\-Surface $\ast$mainScreen)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The map being used by the navigation state. 
+
+This is a 'map', or a 'world', that can be navigated and interacted with in the game navigation state. It consists of a stack of layers, which have a number of different types that can be used for different purposes. The map contains functions that specify where on the screen grid the layers it contains should be drawn, which is how it is told by the GameNavigationState which direction it should move in order to give the impression that the Player is moving about in the map. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_platform_1_1_game_map_9388eca457dc888ce1370138b873a29e}{
+\index{Platform::GameMap@{Platform::GameMap}!GameMap@{GameMap}}
+\index{GameMap@{GameMap}!Platform::GameMap@{Platform::GameMap}}
+\subsubsection[{GameMap}]{\setlength{\rightskip}{0pt plus 5cm}Platform::GameMap::GameMap ()}}
+\label{de/db6/class_platform_1_1_game_map_9388eca457dc888ce1370138b873a29e}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_platform_1_1_game_map_08581c79e3244f70c4e26b886b0479de}{
+\index{Platform::GameMap@{Platform::GameMap}!Draw@{Draw}}
+\index{Draw@{Draw}!Platform::GameMap@{Platform::GameMap}}
+\subsubsection[{Draw}]{\setlength{\rightskip}{0pt plus 5cm}void Platform::GameMap::Draw (SDL\_\-Surface $\ast$ {\em mainScreen})}}
+\label{de/db6/class_platform_1_1_game_map_08581c79e3244f70c4e26b886b0479de}
+
+
+Draws the map to the screen by drawing each of its layers to the screen, from 'bottom' to 'top', in sequence.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em mainScreen}]The surface that the map is to be drawn to. \end{description}
+\end{Desc}
+\hypertarget{class_platform_1_1_game_map_76634e9c99fe04d801cc324ba0b0ed8a}{
+\index{Platform::GameMap@{Platform::GameMap}!MoveMap@{MoveMap}}
+\index{MoveMap@{MoveMap}!Platform::GameMap@{Platform::GameMap}}
+\subsubsection[{MoveMap}]{\setlength{\rightskip}{0pt plus 5cm}void Platform::GameMap::MoveMap (SDL\_\-Rect \& {\em delta})}}
+\label{de/db6/class_platform_1_1_game_map_76634e9c99fe04d801cc324ba0b0ed8a}
+
+
+Moves the apparent position of the map on the screen, using the dimensions in the delta as modifiers of the map's original positioning.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em delta}]The 2D movement vectors of the map on screen \end{description}
+\end{Desc}

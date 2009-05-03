@@ -1,0 +1,120 @@
+\hypertarget{class_platform_1_1_game_player}{
+\section{Platform::GamePlayer Class Reference}
+\label{d4/d4e/class_platform_1_1_game_player}\index{Platform::GamePlayer@{Platform::GamePlayer}}
+}
+The player character entity.  
+
+
+{\tt \#include $<$platform-game-player.h$>$}
+
+\subsection*{Public Member Functions}
+\begin{CompactItemize}
+\item 
+\hyperlink{class_platform_1_1_game_player_ae7a4bb8381fe5377a0db83488dacb56}{GamePlayer} ()
+\item 
+\hyperlink{class_platform_1_1_game_player_6ca29b4989ceeef4b05e1404fa4bcdd8}{$\sim$GamePlayer} ()
+\item 
+void \hyperlink{class_platform_1_1_game_player_1a8a150999ae7f2abf6362ecc5d9923d}{Init} (SDL\_\-Surface $\ast$theDisplay, const char $\ast$image=NULL)
+\item 
+void \hyperlink{class_platform_1_1_game_player_60966ecce397b55523f66b96753435aa}{Draw} ()
+\item 
+void \hyperlink{class_platform_1_1_game_player_cebe99ba854db79cf0c0100d85af6485}{Update} ()
+\item 
+void \hyperlink{class_platform_1_1_game_player_300162a6d120462c82781da770bc4530}{SetMoveLeft} (const bool \&flag)
+\item 
+void \hyperlink{class_platform_1_1_game_player_9be44cb10d1dcf3c8eeae08266e76e34}{SetMoveRight} (const bool \&flag)
+\item 
+void \hyperlink{class_platform_1_1_game_player_630364b025ecf7959adcfbcd772b4e17}{SetMoveUp} (const bool \&flag)
+\item 
+void \hyperlink{class_platform_1_1_game_player_bb1ee12d248d3a1e43ae2fd692671356}{SetMoveDown} (const bool \&flag)
+\end{CompactItemize}
+
+
+\subsection{Detailed Description}
+The player character entity. 
+
+\hyperlink{class_platform_1_1_game_player}{GamePlayer} is an entity representing the avatar of the human player on the screen. It is usually the center focus of the player's attention and the proxy through which the player expects to operate. 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{class_platform_1_1_game_player_ae7a4bb8381fe5377a0db83488dacb56}{
+\index{Platform::GamePlayer@{Platform::GamePlayer}!GamePlayer@{GamePlayer}}
+\index{GamePlayer@{GamePlayer}!Platform::GamePlayer@{Platform::GamePlayer}}
+\subsubsection[{GamePlayer}]{\setlength{\rightskip}{0pt plus 5cm}Platform::GamePlayer::GamePlayer ()}}
+\label{d4/d4e/class_platform_1_1_game_player_ae7a4bb8381fe5377a0db83488dacb56}
+
+
+\hypertarget{class_platform_1_1_game_player_6ca29b4989ceeef4b05e1404fa4bcdd8}{
+\index{Platform::GamePlayer@{Platform::GamePlayer}!$\sim$GamePlayer@{$\sim$GamePlayer}}
+\index{$\sim$GamePlayer@{$\sim$GamePlayer}!Platform::GamePlayer@{Platform::GamePlayer}}
+\subsubsection[{$\sim$GamePlayer}]{\setlength{\rightskip}{0pt plus 5cm}Platform::GamePlayer::$\sim$GamePlayer ()}}
+\label{d4/d4e/class_platform_1_1_game_player_6ca29b4989ceeef4b05e1404fa4bcdd8}
+
+
+
+
+\subsection{Member Function Documentation}
+\hypertarget{class_platform_1_1_game_player_60966ecce397b55523f66b96753435aa}{
+\index{Platform::GamePlayer@{Platform::GamePlayer}!Draw@{Draw}}
+\index{Draw@{Draw}!Platform::GamePlayer@{Platform::GamePlayer}}
+\subsubsection[{Draw}]{\setlength{\rightskip}{0pt plus 5cm}void Platform::GamePlayer::Draw ()}}
+\label{d4/d4e/class_platform_1_1_game_player_60966ecce397b55523f66b96753435aa}
+
+
+Draws the image of the player to the indicated surface, usually the primary display screen of the engine. This function is dependent upon the existance of both the player image and the screen. \hypertarget{class_platform_1_1_game_player_1a8a150999ae7f2abf6362ecc5d9923d}{
+\index{Platform::GamePlayer@{Platform::GamePlayer}!Init@{Init}}
+\index{Init@{Init}!Platform::GamePlayer@{Platform::GamePlayer}}
+\subsubsection[{Init}]{\setlength{\rightskip}{0pt plus 5cm}void Platform::GamePlayer::Init (SDL\_\-Surface $\ast$ {\em theDisplay}, \/  const char $\ast$ {\em image} = {\tt NULL})}}
+\label{d4/d4e/class_platform_1_1_game_player_1a8a150999ae7f2abf6362ecc5d9923d}
+
+
+Initiates the player object by loading the relevant image and dimension information.
+
+\begin{Desc}
+\item[Parameters:]
+\begin{description}
+\item[{\em image}]The full path to the file to be used as the player image \end{description}
+\end{Desc}
+\hypertarget{class_platform_1_1_game_player_bb1ee12d248d3a1e43ae2fd692671356}{
+\index{Platform::GamePlayer@{Platform::GamePlayer}!SetMoveDown@{SetMoveDown}}
+\index{SetMoveDown@{SetMoveDown}!Platform::GamePlayer@{Platform::GamePlayer}}
+\subsubsection[{SetMoveDown}]{\setlength{\rightskip}{0pt plus 5cm}void Platform::GamePlayer::SetMoveDown (const bool \& {\em flag})}}
+\label{d4/d4e/class_platform_1_1_game_player_bb1ee12d248d3a1e43ae2fd692671356}
+
+
+Is used to change the value of the flag that dictates whether or not the \hyperlink{class_platform_1_1_game_player}{GamePlayer} instance is moving \char`\"{}downward\char`\"{} on the display.
+
+/param flag True if the player is moving down, otherwise false. \hypertarget{class_platform_1_1_game_player_300162a6d120462c82781da770bc4530}{
+\index{Platform::GamePlayer@{Platform::GamePlayer}!SetMoveLeft@{SetMoveLeft}}
+\index{SetMoveLeft@{SetMoveLeft}!Platform::GamePlayer@{Platform::GamePlayer}}
+\subsubsection[{SetMoveLeft}]{\setlength{\rightskip}{0pt plus 5cm}void Platform::GamePlayer::SetMoveLeft (const bool \& {\em flag})}}
+\label{d4/d4e/class_platform_1_1_game_player_300162a6d120462c82781da770bc4530}
+
+
+Is used to change the value of the flag that dictates whether or not the \hyperlink{class_platform_1_1_game_player}{GamePlayer} instance is moving \char`\"{}left\char`\"{} on the display.
+
+/param flag True if the player is moving left, otherwise false. \hypertarget{class_platform_1_1_game_player_9be44cb10d1dcf3c8eeae08266e76e34}{
+\index{Platform::GamePlayer@{Platform::GamePlayer}!SetMoveRight@{SetMoveRight}}
+\index{SetMoveRight@{SetMoveRight}!Platform::GamePlayer@{Platform::GamePlayer}}
+\subsubsection[{SetMoveRight}]{\setlength{\rightskip}{0pt plus 5cm}void Platform::GamePlayer::SetMoveRight (const bool \& {\em flag})}}
+\label{d4/d4e/class_platform_1_1_game_player_9be44cb10d1dcf3c8eeae08266e76e34}
+
+
+Is used to change the value of the flag that dictates whether or not the \hyperlink{class_platform_1_1_game_player}{GamePlayer} instance is moving \char`\"{}right\char`\"{} on the display.
+
+/param flag True if the player is moving right, otherwise false. \hypertarget{class_platform_1_1_game_player_630364b025ecf7959adcfbcd772b4e17}{
+\index{Platform::GamePlayer@{Platform::GamePlayer}!SetMoveUp@{SetMoveUp}}
+\index{SetMoveUp@{SetMoveUp}!Platform::GamePlayer@{Platform::GamePlayer}}
+\subsubsection[{SetMoveUp}]{\setlength{\rightskip}{0pt plus 5cm}void Platform::GamePlayer::SetMoveUp (const bool \& {\em flag})}}
+\label{d4/d4e/class_platform_1_1_game_player_630364b025ecf7959adcfbcd772b4e17}
+
+
+Is used to change the value of the flag that dictates whether or not the \hyperlink{class_platform_1_1_game_player}{GamePlayer} instance is moving \char`\"{}upward\char`\"{} on the display.
+
+/param flag True if the player is moving upward, otherwise false. \hypertarget{class_platform_1_1_game_player_cebe99ba854db79cf0c0100d85af6485}{
+\index{Platform::GamePlayer@{Platform::GamePlayer}!Update@{Update}}
+\index{Update@{Update}!Platform::GamePlayer@{Platform::GamePlayer}}
+\subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}void Platform::GamePlayer::Update ()}}
+\label{d4/d4e/class_platform_1_1_game_player_cebe99ba854db79cf0c0100d85af6485}
+
+
+Does the regular recalculations required by the state, usually in reaction to user input, such as moving the player entity. 
