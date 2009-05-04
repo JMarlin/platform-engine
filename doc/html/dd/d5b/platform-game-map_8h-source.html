@@ -42,10 +42,10 @@
 <a name="l00021"></a>00021 <span class="preprocessor">#ifndef GAMEMAP_H</span>
 <a name="l00022"></a>00022 <span class="preprocessor"></span><span class="preprocessor">#define GAMEMAP_H</span>
 <a name="l00023"></a>00023 <span class="preprocessor"></span>
-<a name="l00024"></a>00024 <span class="preprocessor">#include "platform-engine.h"</span>
-<a name="l00025"></a>00025 <span class="preprocessor">#include "platform-game-map-layer.h"</span>
-<a name="l00026"></a>00026 
-<a name="l00027"></a>00027 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00024"></a>00024 <span class="preprocessor">#include &lt;vector&gt;</span>
+<a name="l00025"></a>00025 
+<a name="l00026"></a>00026 <span class="preprocessor">#include "platform-engine.h"</span>
+<a name="l00027"></a>00027 <span class="preprocessor">#include "platform-game-map-layer.h"</span>
 <a name="l00028"></a>00028 
 <a name="l00029"></a>00029 <span class="keyword">namespace </span>Platform {
 <a name="l00030"></a>00030 
@@ -55,27 +55,36 @@
 <a name="l00046"></a><a class="code" href="../../de/db6/class_platform_1_1_game_map.html">00046</a> <span class="keyword">class </span><a class="code" href="../../de/db6/class_platform_1_1_game_map.html" title="The map being used by the navigation state.">GameMap</a> {
 <a name="l00047"></a>00047         <span class="keyword">public</span>:
 <a name="l00048"></a>00048                 <a class="code" href="../../de/db6/class_platform_1_1_game_map.html#9388eca457dc888ce1370138b873a29e">GameMap</a>();
-<a name="l00049"></a>00049                 
-<a name="l00050"></a>00050                 <span class="comment">//** Moves the onscreen map in some direction</span>
-<a name="l00051"></a>00051                 <span class="keywordtype">void</span> <a class="code" href="../../de/db6/class_platform_1_1_game_map.html#76634e9c99fe04d801cc324ba0b0ed8a">MoveMap</a>( SDL_Rect&amp; delta );
-<a name="l00052"></a>00052 
-<a name="l00053"></a>00053                 <span class="comment">//** Draws the map to the engine's main screen</span>
-<a name="l00054"></a>00054                 <span class="keywordtype">void</span> <a class="code" href="../../de/db6/class_platform_1_1_game_map.html#08581c79e3244f70c4e26b886b0479de">Draw</a>( SDL_Surface* mainScreen );
+<a name="l00049"></a>00049     <a class="code" href="../../de/db6/class_platform_1_1_game_map.html#ad7094a561f89baf77d2015768dd9808">~GameMap</a>();
+<a name="l00050"></a>00050 
+<a name="l00051"></a>00051     <span class="keywordtype">void</span> <a class="code" href="../../de/db6/class_platform_1_1_game_map.html#0f5c16cce18b155235588af572cfba7f">Init</a>( SDL_Surface* theDisplay = NULL, <span class="keywordtype">char</span>* aScript = NULL );
+<a name="l00052"></a>00052                 
+<a name="l00053"></a>00053                 <span class="comment">//** Moves the onscreen map in some direction</span>
+<a name="l00054"></a>00054                 <span class="keywordtype">void</span> <a class="code" href="../../de/db6/class_platform_1_1_game_map.html#76634e9c99fe04d801cc324ba0b0ed8a">MoveMap</a>( SDL_Rect&amp; delta );
 <a name="l00055"></a>00055 
-<a name="l00056"></a>00056         <span class="keyword">private</span>:
-<a name="l00057"></a>00057                 <span class="comment">//** The stack of layers </span>
-<a name="l00058"></a>00058                 vector&lt; GameMapLayer* &gt; layerList;
-<a name="l00059"></a>00059                 
-<a name="l00060"></a>00060                 <span class="comment">//** The size and on-screen positioning of the map</span>
-<a name="l00061"></a>00061                 SDL_Rect mapDimensions;
-<a name="l00062"></a>00062 
-<a name="l00063"></a>00063 };
+<a name="l00056"></a>00056                 <span class="comment">//** Draws the map to the engine's main screen</span>
+<a name="l00057"></a>00057                 <span class="keywordtype">void</span> <a class="code" href="../../de/db6/class_platform_1_1_game_map.html#08581c79e3244f70c4e26b886b0479de">Draw</a>( SDL_Surface* mainScreen );
+<a name="l00058"></a>00058 
+<a name="l00059"></a>00059     <span class="keywordtype">void</span> <a class="code" href="../../de/db6/class_platform_1_1_game_map.html#3a2969cccbc16f1ad11e505da961a105">Cleanup</a>();
+<a name="l00060"></a>00060 
+<a name="l00061"></a>00061         <span class="keyword">private</span>:
+<a name="l00062"></a>00062                 <span class="comment">//** The stack of layers </span>
+<a name="l00063"></a>00063                 vector&lt; GameMapLayer* &gt; layerList;
 <a name="l00064"></a>00064 
-<a name="l00065"></a>00065 } <span class="comment">// namespace Platform</span>
-<a name="l00066"></a>00066 
-<a name="l00067"></a>00067 <span class="preprocessor">#endif</span>
+<a name="l00065"></a>00065     <span class="keywordtype">char</span>* mapScript;
+<a name="l00066"></a>00066                 
+<a name="l00067"></a>00067                 <span class="comment">//** The size and on-screen positioning of the map</span>
+<a name="l00068"></a>00068                 SDL_Rect mapDimensions;
+<a name="l00069"></a>00069 
+<a name="l00070"></a>00070     SDL_Surface* mainScreen;
+<a name="l00071"></a>00071 
+<a name="l00072"></a>00072 };
+<a name="l00073"></a>00073 
+<a name="l00074"></a>00074 } <span class="comment">// namespace Platform</span>
+<a name="l00075"></a>00075 
+<a name="l00076"></a>00076 <span class="preprocessor">#endif</span>
 </pre></div></div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Sun May 3 17:55:58 2009 for Platform 2D Game Engine by&nbsp;
+<hr size="1"><address style="text-align: right;"><small>Generated on Mon May 4 16:49:03 2009 for Platform 2D Game Engine by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="../../doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

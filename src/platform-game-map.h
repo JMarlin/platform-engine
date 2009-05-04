@@ -21,10 +21,10 @@
 #ifndef GAMEMAP_H
 #define GAMEMAP_H
 
+#include <vector>
+
 #include "platform-engine.h"
 #include "platform-game-map-layer.h"
-
-#include <vector>
 
 namespace Platform {
 
@@ -46,6 +46,9 @@ using std::vector;
 class GameMap {
 	public:
 		GameMap();
+    ~GameMap();
+
+    void Init( SDL_Surface* theDisplay = NULL, char* aScript = NULL );
 		
 		//** Moves the onscreen map in some direction
 		void MoveMap( SDL_Rect& delta );
@@ -53,12 +56,18 @@ class GameMap {
 		//** Draws the map to the engine's main screen
 		void Draw( SDL_Surface* mainScreen );
 
+    void Cleanup();
+
 	private:
 		//** The stack of layers 
 		vector< GameMapLayer* > layerList;
+
+    char* mapScript;
 		
 		//** The size and on-screen positioning of the map
 		SDL_Rect mapDimensions;
+
+    SDL_Surface* mainScreen;
 
 };
 

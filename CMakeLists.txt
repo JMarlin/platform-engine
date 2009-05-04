@@ -52,6 +52,8 @@ set ( SOURCES
 	${SRCDIR}/platform-game-state-static-movement.cc
 	${SRCDIR}/platform-game-map.h	${SRCDIR}/platform-game-map.cc
 	${SRCDIR}/platform-game-map-layer.h
+  ${SRCDIR}/platform-game-map-layer-background.h
+  ${SRCDIR}/platform-game-map-layer-background.cc
 	${SRCDIR}/platform-game-player.h
 	${SRCDIR}/platform-game-player.cc
 )

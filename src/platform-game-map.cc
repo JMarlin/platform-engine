@@ -21,16 +21,96 @@
 #ifndef GAMEMAP_CPP
 #define GAMEMAP_CPP
 
+
 #include "platform-game-map.h"
-#include "platform-game-map-layer.h"
+
+#include <cstring>
+#include <iostream>
+
 #include "SDL.h"
+
+#include "platform-lua-includes.h"
+#include "platform-game-map-layer.h"
+#include "platform-game-map-layer-background.h"
 
 namespace Platform {
 
 using std::vector;
+using std::cerr;
+using std::endl;
 
 GameMap::GameMap() {
-	//blank
+	mapScript = NULL;
+}
+
+GameMap::~GameMap() {
+  Cleanup();
+}
+
+void GameMap::Init( SDL_Surface* theDisplay, char* aScript ) {
+  mainScreen = theDisplay;
+  
+  mapScript = new char[ 64 ];
+  strcpy( mapScript, aScript );
+
+  if ( mapScript != NULL ) {
+    lua_State* L = luaL_newstate();
+
+    if ( luaL_loadfile( L, mapScript ) || lua_pcall( L, 0, 0, 0 ) ) {
+      cerr << "Failed to load " << mapScript << endl;
+    }
+
+    lua_getglobal( L, "layerOneType" );
+    lua_getglobal( L, "backgroundImage" );
+    lua_getglobal( L, "verticalScrolling" );
+
+    if ( !lua_isstring( L, 1 ) ) {
+      cerr << "layerOneType is not a string. - ";
+      for ( int n = 0 ; mapScript[ n ] != '\n' ; ++n ) 
+        cerr << mapScript[ n ];
+      cerr << endl;  
+    }
+    else {
+      char* theType = new char[ 32 ];
+      strcpy( theType, lua_tostring( L, 1 ) );
+
+      if ( strncmp( theType, "Background\n", 8 ) == 0 ) {
+        if ( !lua_isstring( L, 2 ) ) {
+          cerr << "backgroundImage is not a string. - ";
+          for ( int n = 0 ; mapScript[ n ] != '\n' ; ++n ) 
+            cerr << mapScript[ n ];
+          cerr << endl;
+        }
+        else {
+          char* imagePath = new char[ 64 ];
+          strcpy( imagePath, "../../\0" );
+          strcat( imagePath, lua_tostring( L, 2 ) );
+
+          if ( !lua_isboolean( L, 3 ) ) {
+            cerr << "verticalScrolling is not a boolean. - ";
+            for ( int n = 0 ; mapScript[ n ] != '\n' ; ++n ) 
+              cerr << mapScript[ n ];
+            cerr << endl;
+          }
+          else {
+            bool verticalScrolling = lua_toboolean( L, 3 );
+            GameMapLayer* newLayer = new GameMapBackgroundLayer;
+            newLayer->Init( mainScreen, imagePath, verticalScrolling );
+            layerList.push_back( newLayer );
+          }
+
+          delete imagePath;
+          imagePath = NULL;
+        }
+        char* imagePath = new char[ 64 ];
+        strcpy( imagePath, "../../\0" );
+
+      }
+
+      delete theType;
+      theType = NULL;
+    }
+  }
 }
 
 /**********************************************************//**
@@ -53,11 +133,26 @@ void GameMap::MoveMap( SDL_Rect& delta ) {
 void GameMap::Draw( SDL_Surface* mainScreen ) {
 	vector< GameMapLayer* >::iterator i;
 
-	for ( i = layerList.begin() ; i != layerList.end() ; i++ ) {
-		(*i)->Draw( mainScreen );
+	for ( i = layerList.begin() ; i != layerList.end() ; ++i ) {
+		(*i)->Draw();
 	}
 
 	return;
+}
+
+void GameMap::Cleanup() {
+  if ( mapScript != NULL )
+    delete mapScript;
+
+  if ( !layerList.empty() ) {
+    vector< GameMapLayer* >::iterator i;
+    for ( i = layerList.begin() ; i != layerList.end() ; ++i ) {
+      delete *i;
+    }
+    while ( !layerList.empty() ) layerList.pop_back();
+  }
+
+  mainScreen = NULL;
 }
 
 } // namespace Platform

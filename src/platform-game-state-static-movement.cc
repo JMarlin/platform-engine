@@ -22,9 +22,11 @@
 #define GAMESTATICMOVEMENTSTATE_CPP
 
 #include "platform-game-state-static-movement.h"
-#include "platform-lua-includes.h"
 
 #include <iostream>
+
+#include "platform-lua-includes.h"
+
 
 namespace Platform {
 
@@ -53,7 +55,6 @@ GameStaticMovementState::~GameStaticMovementState() {
  *************************************************************/
 void GameStaticMovementState::Init( SDL_Surface* theDisplay, 
                                     const char* theScript ) {
-
   mainScreen = theDisplay;
 
 	/**
@@ -73,11 +74,12 @@ void GameStaticMovementState::Init( SDL_Surface* theDisplay,
 	 * state as "running", while effectively having no
 	 * assets defined.
 	 **/
-	lua_State* L = luaL_newstate();
 
 	if ( theScript != NULL ) {
 	
-		if ( luaL_loadfile( L, stateScriptPath ) 
+    lua_State* L = luaL_newstate();
+		
+    if ( luaL_loadfile( L, stateScriptPath ) 
 		|| lua_pcall( L, 0, 0, 0 ) ) {
 			cerr << "Failed to load " << stateScriptPath 
 				<< endl;
@@ -102,7 +104,32 @@ void GameStaticMovementState::Init( SDL_Surface* theDisplay,
 		 **/
 		thePlayer = new GamePlayer;
 		thePlayer->Init( mainScreen, image );
-		
+    
+    delete image;
+    image = NULL;
+
+    lua_pop( L, 1 );
+
+    lua_getglobal( L, "mapScript" );
+    
+    if ( lua_isstring( L, 1 ) ) {
+      char* mapScript = new char[ 64 ];
+
+      strcpy( mapScript, "../../scripts/\0" );
+      strcat( mapScript, lua_tostring( L, 1 ) );
+
+      theMap = new GameMap;
+      theMap->Init( mainScreen, mapScript );
+
+      delete mapScript;
+      mapScript = NULL;
+    }
+
+    lua_pop( L, 1 );
+
+    lua_close( L );
+
+    L = NULL;
 	}
 
 	/**
@@ -154,7 +181,7 @@ void GameStaticMovementState::Cleanup() {
  * \param event The event that is being analyzed.
  *************************************************************/
 bool GameStaticMovementState::HandleEvents( PlatformEngine*  game, 
-					SDL_Event& event ) {
+                                            SDL_Event& event ) {
 	switch ( event.type ) {
 		case SDL_KEYDOWN:
 			switch ( event.key.keysym.sym ) {

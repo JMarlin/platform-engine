@@ -41,14 +41,19 @@ using std::stack;
  *************************************************************/
 class GameMapLayer {
 	public:
-		GameMapLayer();
-		
-		//** Draws the content of the layer to the engine screen
-		virtual void Draw( SDL_Surface* mainScreen ) = 0; 
+    //** Draws the content of the layer to the engine screen
+
+    virtual void Init( SDL_Surface* theDisplay = NULL, 
+          char*        imagePath = NULL, 
+          bool         verticalScrolling = false ) = 0;
+
+    virtual void Draw() = 0; 
 
 	private:
-		//** The image of the layer
-		SDL_Surface* layerImage;
+    //** The image of the layer
+    SDL_Surface* layerImage;
+
+    SDL_Surface* mainScreen;
 };
 
 }

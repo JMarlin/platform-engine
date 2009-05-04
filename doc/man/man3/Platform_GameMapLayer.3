@@ -1,4 +1,4 @@
-.TH "Platform::GameMapLayer" 3 "3 May 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
+.TH "Platform::GameMapLayer" 3 "4 May 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -10,14 +10,16 @@ Platform::GameMapLayer \- A section of the map object.
 .PP
 \fC#include <platform-game-map-layer.h>\fP
 .PP
+Inherited by \fBPlatform::GameMapBackgroundLayer\fP.
+.PP
 .SS "Public Member Functions"
 
 .in +1c
 .ti -1c
-.RI "\fBGameMapLayer\fP ()"
+.RI "virtual void \fBInit\fP (SDL_Surface *theDisplay=NULL, char *imagePath=NULL, bool verticalScrolling=false)=0"
 .br
 .ti -1c
-.RI "virtual void \fBDraw\fP (SDL_Surface *mainScreen)=0"
+.RI "virtual void \fBDraw\fP ()=0"
 .br
 .in -1c
 .SH "Detailed Description"
@@ -25,15 +27,14 @@ Platform::GameMapLayer \- A section of the map object.
 A section of the map object. 
 
 This is an abstract class representing a layer of the map object used by the Navigation State. It is not meant to be used, but is the ancestor of several specific types of map layers. 
-.SH "Constructor & Destructor Documentation"
-.PP 
-.SS "Platform::GameMapLayer::GameMapLayer ()"
-.PP
 .SH "Member Function Documentation"
 .PP 
-.SS "virtual void Platform::GameMapLayer::Draw (SDL_Surface * mainScreen)\fC [pure virtual]\fP"
+.SS "virtual void Platform::GameMapLayer::Draw ()\fC [pure virtual]\fP"
 .PP
-
+Implemented in \fBPlatform::GameMapBackgroundLayer\fP.
+.SS "virtual void Platform::GameMapLayer::Init (SDL_Surface * theDisplay = \fCNULL\fP, char * imagePath = \fCNULL\fP, bool verticalScrolling = \fCfalse\fP)\fC [pure virtual]\fP"
+.PP
+Implemented in \fBPlatform::GameMapBackgroundLayer\fP.
 
 .SH "Author"
 .PP 

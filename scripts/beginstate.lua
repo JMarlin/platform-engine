@@ -24,8 +24,4 @@ stateType = "Static Movement"	-- The type of state the engine starts with
 --PLAYER SETTINGS--
 playerImage = "testship.png"	-- Image representing the player avatar
 
---MAP SETTINGS--
-mapType = "Background"		-- Type of map used in this state
-backgroundImage = "clouds.png"	-- Image used as a map backdrop
-verticalScrolling = "true"	-- Whether or not the backdrop will move
-
+mapScript = "map001.lua"      -- Script for this state's map configuration

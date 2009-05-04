@@ -12,9 +12,15 @@ The map being used by the navigation state.
 \item 
 \hyperlink{class_platform_1_1_game_map_9388eca457dc888ce1370138b873a29e}{GameMap} ()
 \item 
+\hyperlink{class_platform_1_1_game_map_ad7094a561f89baf77d2015768dd9808}{$\sim$GameMap} ()
+\item 
+void \hyperlink{class_platform_1_1_game_map_0f5c16cce18b155235588af572cfba7f}{Init} (SDL\_\-Surface $\ast$theDisplay=NULL, char $\ast$aScript=NULL)
+\item 
 void \hyperlink{class_platform_1_1_game_map_76634e9c99fe04d801cc324ba0b0ed8a}{MoveMap} (SDL\_\-Rect \&delta)
 \item 
 void \hyperlink{class_platform_1_1_game_map_08581c79e3244f70c4e26b886b0479de}{Draw} (SDL\_\-Surface $\ast$mainScreen)
+\item 
+void \hyperlink{class_platform_1_1_game_map_3a2969cccbc16f1ad11e505da961a105}{Cleanup} ()
 \end{CompactItemize}
 
 
@@ -31,9 +37,23 @@ This is a 'map', or a 'world', that can be navigated and interacted with in the 
 \label{de/db6/class_platform_1_1_game_map_9388eca457dc888ce1370138b873a29e}
 
 
+\hypertarget{class_platform_1_1_game_map_ad7094a561f89baf77d2015768dd9808}{
+\index{Platform::GameMap@{Platform::GameMap}!$\sim$GameMap@{$\sim$GameMap}}
+\index{$\sim$GameMap@{$\sim$GameMap}!Platform::GameMap@{Platform::GameMap}}
+\subsubsection[{$\sim$GameMap}]{\setlength{\rightskip}{0pt plus 5cm}Platform::GameMap::$\sim$GameMap ()}}
+\label{de/db6/class_platform_1_1_game_map_ad7094a561f89baf77d2015768dd9808}
+
+
 
 
 \subsection{Member Function Documentation}
+\hypertarget{class_platform_1_1_game_map_3a2969cccbc16f1ad11e505da961a105}{
+\index{Platform::GameMap@{Platform::GameMap}!Cleanup@{Cleanup}}
+\index{Cleanup@{Cleanup}!Platform::GameMap@{Platform::GameMap}}
+\subsubsection[{Cleanup}]{\setlength{\rightskip}{0pt plus 5cm}void Platform::GameMap::Cleanup ()}}
+\label{de/db6/class_platform_1_1_game_map_3a2969cccbc16f1ad11e505da961a105}
+
+
 \hypertarget{class_platform_1_1_game_map_08581c79e3244f70c4e26b886b0479de}{
 \index{Platform::GameMap@{Platform::GameMap}!Draw@{Draw}}
 \index{Draw@{Draw}!Platform::GameMap@{Platform::GameMap}}
@@ -48,6 +68,13 @@ Draws the map to the screen by drawing each of its layers to the screen, from 'b
 \begin{description}
 \item[{\em mainScreen}]The surface that the map is to be drawn to. \end{description}
 \end{Desc}
+\hypertarget{class_platform_1_1_game_map_0f5c16cce18b155235588af572cfba7f}{
+\index{Platform::GameMap@{Platform::GameMap}!Init@{Init}}
+\index{Init@{Init}!Platform::GameMap@{Platform::GameMap}}
+\subsubsection[{Init}]{\setlength{\rightskip}{0pt plus 5cm}void Platform::GameMap::Init (SDL\_\-Surface $\ast$ {\em theDisplay} = {\tt NULL}, \/  char $\ast$ {\em aScript} = {\tt NULL})}}
+\label{de/db6/class_platform_1_1_game_map_0f5c16cce18b155235588af572cfba7f}
+
+
 \hypertarget{class_platform_1_1_game_map_76634e9c99fe04d801cc324ba0b0ed8a}{
 \index{Platform::GameMap@{Platform::GameMap}!MoveMap@{MoveMap}}
 \index{MoveMap@{MoveMap}!Platform::GameMap@{Platform::GameMap}}

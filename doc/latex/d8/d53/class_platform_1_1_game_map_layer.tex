@@ -7,12 +7,19 @@ A section of the map object.
 
 {\tt \#include $<$platform-game-map-layer.h$>$}
 
+Inheritance diagram for Platform::GameMapLayer:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=222pt]{d8/dbc/class_platform_1_1_game_map_layer__inherit__graph}
+\end{center}
+\end{figure}
 \subsection*{Public Member Functions}
 \begin{CompactItemize}
 \item 
-\hyperlink{class_platform_1_1_game_map_layer_d85a59798bab4ca39175e9d118969daa}{GameMapLayer} ()
+virtual void \hyperlink{class_platform_1_1_game_map_layer_a25bd5a4d69574dfb3cefdd544e36e8d}{Init} (SDL\_\-Surface $\ast$theDisplay=NULL, char $\ast$imagePath=NULL, bool verticalScrolling=false)=0
 \item 
-virtual void \hyperlink{class_platform_1_1_game_map_layer_8f800165e53a408dfad459f3533ed0a9}{Draw} (SDL\_\-Surface $\ast$mainScreen)=0
+virtual void \hyperlink{class_platform_1_1_game_map_layer_cc44f193d8cf01e97fe34cb7da72e640}{Draw} ()=0
 \end{CompactItemize}
 
 
@@ -21,21 +28,23 @@ A section of the map object.
 
 This is an abstract class representing a layer of the map object used by the Navigation State. It is not meant to be used, but is the ancestor of several specific types of map layers. 
 
-\subsection{Constructor \& Destructor Documentation}
-\hypertarget{class_platform_1_1_game_map_layer_d85a59798bab4ca39175e9d118969daa}{
-\index{Platform::GameMapLayer@{Platform::GameMapLayer}!GameMapLayer@{GameMapLayer}}
-\index{GameMapLayer@{GameMapLayer}!Platform::GameMapLayer@{Platform::GameMapLayer}}
-\subsubsection[{GameMapLayer}]{\setlength{\rightskip}{0pt plus 5cm}Platform::GameMapLayer::GameMapLayer ()}}
-\label{d8/d53/class_platform_1_1_game_map_layer_d85a59798bab4ca39175e9d118969daa}
-
-
-
-
 \subsection{Member Function Documentation}
-\hypertarget{class_platform_1_1_game_map_layer_8f800165e53a408dfad459f3533ed0a9}{
+\hypertarget{class_platform_1_1_game_map_layer_cc44f193d8cf01e97fe34cb7da72e640}{
 \index{Platform::GameMapLayer@{Platform::GameMapLayer}!Draw@{Draw}}
 \index{Draw@{Draw}!Platform::GameMapLayer@{Platform::GameMapLayer}}
-\subsubsection[{Draw}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Platform::GameMapLayer::Draw (SDL\_\-Surface $\ast$ {\em mainScreen})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
-\label{d8/d53/class_platform_1_1_game_map_layer_8f800165e53a408dfad459f3533ed0a9}
+\subsubsection[{Draw}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Platform::GameMapLayer::Draw ()\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{d8/d53/class_platform_1_1_game_map_layer_cc44f193d8cf01e97fe34cb7da72e640}
 
 
+
+
+Implemented in \hyperlink{class_platform_1_1_game_map_background_layer_f6910e7841ae5315baa5fd956202a982}{Platform::GameMapBackgroundLayer}.\hypertarget{class_platform_1_1_game_map_layer_a25bd5a4d69574dfb3cefdd544e36e8d}{
+\index{Platform::GameMapLayer@{Platform::GameMapLayer}!Init@{Init}}
+\index{Init@{Init}!Platform::GameMapLayer@{Platform::GameMapLayer}}
+\subsubsection[{Init}]{\setlength{\rightskip}{0pt plus 5cm}virtual void Platform::GameMapLayer::Init (SDL\_\-Surface $\ast$ {\em theDisplay} = {\tt NULL}, \/  char $\ast$ {\em imagePath} = {\tt NULL}, \/  bool {\em verticalScrolling} = {\tt false})\hspace{0.3cm}{\tt  \mbox{[}pure virtual\mbox{]}}}}
+\label{d8/d53/class_platform_1_1_game_map_layer_a25bd5a4d69574dfb3cefdd544e36e8d}
+
+
+
+
+Implemented in \hyperlink{class_platform_1_1_game_map_background_layer_449a95c15187b1ae358a0216a589df3f}{Platform::GameMapBackgroundLayer}.
