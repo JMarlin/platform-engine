@@ -54,7 +54,9 @@ class GameMap {
 		void MoveMap( SDL_Rect& delta );
 
 		//** Draws the map to the engine's main screen
-		void Draw( SDL_Surface* mainScreen );
+		void Draw();
+
+    void Update();
 
     void Cleanup();
 

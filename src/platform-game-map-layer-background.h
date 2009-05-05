@@ -33,8 +33,11 @@ class GameMapBackgroundLayer : public GameMapLayer {
     virtual void Init( SDL_Surface* theDisplay = NULL, 
           char*        imagePath = NULL, 
           bool         verticalScrolling = false );
+    virtual void Update();
     virtual void Draw(); 
-  private:
+  protected:
+    SDL_Rect tileSize;
+    SDL_Rect drawDimensions;
 };
 
 }

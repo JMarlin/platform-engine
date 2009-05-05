@@ -145,7 +145,7 @@ void GameStaticMovementState::Init( SDL_Surface* theDisplay,
  *************************************************************/
 void GameStaticMovementState::Draw() {
 	if ( theMap != NULL )
-		theMap->Draw( mainScreen );
+		theMap->Draw();
 
 	if ( thePlayer != NULL )
 		thePlayer->Draw();
@@ -237,6 +237,7 @@ bool GameStaticMovementState::HandleEvents( PlatformEngine*  game,
  *************************************************************/
 void GameStaticMovementState::Update( PlatformEngine* game ) {
 	if ( thePlayer != NULL ) thePlayer->Update();
+  if ( theMap != NULL ) theMap->Update();
 }
 
 } // namespace Platform

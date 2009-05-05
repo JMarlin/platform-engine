@@ -36,6 +36,7 @@
 namespace Platform {
 
 using std::vector;
+using std::cout;
 using std::cerr;
 using std::endl;
 
@@ -83,7 +84,7 @@ void GameMap::Init( SDL_Surface* theDisplay, char* aScript ) {
         }
         else {
           char* imagePath = new char[ 64 ];
-          strcpy( imagePath, "../../\0" );
+          strcpy( imagePath, "../../img/\0" );
           strcat( imagePath, lua_tostring( L, 2 ) );
 
           if ( !lua_isboolean( L, 3 ) ) {
@@ -130,7 +131,7 @@ void GameMap::MoveMap( SDL_Rect& delta ) {
  *
  * \param mainScreen The surface that the map is to be drawn to.
  *************************************************************/
-void GameMap::Draw( SDL_Surface* mainScreen ) {
+void GameMap::Draw() {
 	vector< GameMapLayer* >::iterator i;
 
 	for ( i = layerList.begin() ; i != layerList.end() ; ++i ) {
@@ -138,6 +139,14 @@ void GameMap::Draw( SDL_Surface* mainScreen ) {
 	}
 
 	return;
+}
+
+void GameMap::Update() {
+  vector< GameMapLayer* >::iterator i;
+
+  for ( i = layerList.begin(); i != layerList.end() ; ++i ) {
+    (*i)->Update();
+  }
 }
 
 void GameMap::Cleanup() {

@@ -21,28 +21,94 @@
 #ifndef PLATFORM_GAME_MAP_LAYER_BACKGROUND
 #define PLATFORM_GAME_MAP_LAYER_BACKGROUND
 
+#include <iostream>
 #include "SDL.h"
+#include "SDL_image.h"
 #include "platform-game-map-layer-background.h"
+
+using std::cout;
+using std::cerr;
+using std::endl;
 
 namespace Platform {
 
 GameMapBackgroundLayer::GameMapBackgroundLayer(){
-  //blank
+  layerImage = NULL;
+  mainScreen = NULL;
 }
   
 GameMapBackgroundLayer::~GameMapBackgroundLayer() {
-  //blank
+  if (layerImage != NULL) SDL_FreeSurface(layerImage);
+  mainScreen = NULL;
 }
 
 void GameMapBackgroundLayer::Init( 
     SDL_Surface* theDisplay, 
     char*        imagePath, 
-    bool         verticalScrolling ) {
-  return;
+    bool         verticalScrolling) {
+  if (imagePath != NULL) {
+    mainScreen = theDisplay;
+    goVertical = verticalScrolling;
+    SDL_Surface* tileImage = IMG_Load(imagePath);
+    
+    if ( tileImage == NULL ) {
+      cerr << "Image not found - " << imagePath << endl;
+    }
+    else {
+      tileSize.w = tileImage->w;
+      tileSize.h = tileImage->h;
+      layerImage = SDL_CreateRGBSurface(
+          mainScreen->flags,
+          (mainScreen->w + tileSize.w),
+          (mainScreen->h + tileSize.h),
+          mainScreen->format->BitsPerPixel,
+          mainScreen->format->Rmask,
+          mainScreen->format->Gmask,
+          mainScreen->format->Bmask,
+          mainScreen->format->Amask);
+      if ( layerImage == NULL ) {
+        cerr << "Failed to create layerImage; " << SDL_GetError() << endl;
+      }
+      else {
+        for (int i=0; i < layerImage->w; i += tileSize.w) {
+          for (int j=0; j < layerImage->h; j+= tileSize.h) {
+            SDL_Rect position;
+            position.x = i;
+            position.y = j;
+  
+            SDL_BlitSurface(tileImage, NULL, layerImage, &position);
+          }
+        }
+
+        drawDimensions.w = mainScreen->w;
+        drawDimensions.h = mainScreen->h;
+        drawDimensions.x = 0;
+        drawDimensions.y = tileSize.h;
+
+        SDL_FreeSurface(tileImage);
+      }
+    }
+  }
 }
 
 void GameMapBackgroundLayer::Draw() {
-  return;
+  if (mainScreen != NULL)
+    if (layerImage != NULL) {
+      SDL_BlitSurface(layerImage, &drawDimensions, mainScreen, NULL);
+    }
+}
+
+void GameMapBackgroundLayer::Update() {
+  if ( mainScreen != NULL ) {
+    if ( layerImage != NULL ) {
+      if ( goVertical ) {
+        if (drawDimensions.y <= 0)
+          drawDimensions.y = tileSize.h;
+        else
+          --drawDimensions.y;
+      }
+    }
+  }
 }
 
 } // namespace Platform

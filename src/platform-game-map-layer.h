@@ -47,13 +47,17 @@ class GameMapLayer {
           char*        imagePath = NULL, 
           bool         verticalScrolling = false ) = 0;
 
+    virtual void Update() = 0;
+
     virtual void Draw() = 0; 
 
-	private:
+	protected:
     //** The image of the layer
     SDL_Surface* layerImage;
 
     SDL_Surface* mainScreen;
+
+    bool goVertical;
 };
 
 }
