@@ -1,4 +1,4 @@
-.TH "Platform::GameMapBackgroundLayer" 3 "4 May 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
+.TH "Platform::GameMapBackgroundLayer" 3 "5 May 2009" "Version v0.0.1 Pre-Alpha" "Platform 2D Game Engine" \" -*- nroff -*-
 .ad l
 .nh
 .SH NAME
@@ -23,7 +23,29 @@ Inherits \fBPlatform::GameMapLayer\fP.
 .RI "virtual void \fBInit\fP (SDL_Surface *theDisplay=NULL, char *imagePath=NULL, bool verticalScrolling=false)"
 .br
 .ti -1c
+.RI "virtual void \fBUpdate\fP ()"
+.br
+.ti -1c
 .RI "virtual void \fBDraw\fP ()"
+.br
+.in -1c
+.SS "Protected Attributes"
+
+.in +1c
+.ti -1c
+.RI "SDL_Rect \fBtileSize\fP"
+.br
+.ti -1c
+.RI "SDL_Rect \fBdrawDimensions\fP"
+.br
+.ti -1c
+.RI "SDL_Surface * \fBlayerImage\fP"
+.br
+.ti -1c
+.RI "SDL_Surface * \fBmainScreen\fP"
+.br
+.ti -1c
+.RI "bool \fBgoVertical\fP"
 .br
 .in -1c
 .SH "Constructor & Destructor Documentation"
@@ -40,6 +62,22 @@ Implements \fBPlatform::GameMapLayer\fP.
 .SS "void Platform::GameMapBackgroundLayer::Init (SDL_Surface * theDisplay = \fCNULL\fP, char * imagePath = \fCNULL\fP, bool verticalScrolling = \fCfalse\fP)\fC [virtual]\fP"
 .PP
 Implements \fBPlatform::GameMapLayer\fP.
+.SS "void Platform::GameMapBackgroundLayer::Update ()\fC [virtual]\fP"
+.PP
+Implements \fBPlatform::GameMapLayer\fP.
+.SH "Member Data Documentation"
+.PP 
+.SS "SDL_Rect \fBPlatform::GameMapBackgroundLayer::drawDimensions\fP\fC [protected]\fP"
+.PP
+.SS "bool \fBPlatform::GameMapLayer::goVertical\fP\fC [protected, inherited]\fP"
+.PP
+.SS "SDL_Surface* \fBPlatform::GameMapLayer::layerImage\fP\fC [protected, inherited]\fP"
+.PP
+.SS "SDL_Surface* \fBPlatform::GameMapLayer::mainScreen\fP\fC [protected, inherited]\fP"
+.PP
+.SS "SDL_Rect \fBPlatform::GameMapBackgroundLayer::tileSize\fP\fC [protected]\fP"
+.PP
+
 
 .SH "Author"
 .PP 

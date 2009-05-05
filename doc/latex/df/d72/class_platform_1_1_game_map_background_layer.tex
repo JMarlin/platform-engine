@@ -27,7 +27,22 @@ Collaboration diagram for Platform::GameMapBackgroundLayer:\nopagebreak
 \item 
 virtual void \hyperlink{class_platform_1_1_game_map_background_layer_449a95c15187b1ae358a0216a589df3f}{Init} (SDL\_\-Surface $\ast$theDisplay=NULL, char $\ast$imagePath=NULL, bool verticalScrolling=false)
 \item 
+virtual void \hyperlink{class_platform_1_1_game_map_background_layer_6cc21a3c3418b8c76c010963bef37800}{Update} ()
+\item 
 virtual void \hyperlink{class_platform_1_1_game_map_background_layer_f6910e7841ae5315baa5fd956202a982}{Draw} ()
+\end{CompactItemize}
+\subsection*{Protected Attributes}
+\begin{CompactItemize}
+\item 
+SDL\_\-Rect \hyperlink{class_platform_1_1_game_map_background_layer_0a7874223f9c9d037004edaee52fd6d2}{tileSize}
+\item 
+SDL\_\-Rect \hyperlink{class_platform_1_1_game_map_background_layer_c9d873f233fe780e9e1cf90bfd4458e2}{drawDimensions}
+\item 
+SDL\_\-Surface $\ast$ \hyperlink{class_platform_1_1_game_map_layer_b94756f95136f23ec04b70ecb6351e2e}{layerImage}
+\item 
+SDL\_\-Surface $\ast$ \hyperlink{class_platform_1_1_game_map_layer_8a269526befbbbcc5b0d201f659c90fe}{mainScreen}
+\item 
+bool \hyperlink{class_platform_1_1_game_map_layer_e4f38bbcc758a8099c296f130912f8f6}{goVertical}
 \end{CompactItemize}
 
 
@@ -67,4 +82,50 @@ Implements \hyperlink{class_platform_1_1_game_map_layer_cc44f193d8cf01e97fe34cb7
 
 
 
-Implements \hyperlink{class_platform_1_1_game_map_layer_a25bd5a4d69574dfb3cefdd544e36e8d}{Platform::GameMapLayer}.
+Implements \hyperlink{class_platform_1_1_game_map_layer_a25bd5a4d69574dfb3cefdd544e36e8d}{Platform::GameMapLayer}.\hypertarget{class_platform_1_1_game_map_background_layer_6cc21a3c3418b8c76c010963bef37800}{
+\index{Platform::GameMapBackgroundLayer@{Platform::GameMapBackgroundLayer}!Update@{Update}}
+\index{Update@{Update}!Platform::GameMapBackgroundLayer@{Platform::GameMapBackgroundLayer}}
+\subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}void Platform::GameMapBackgroundLayer::Update ()\hspace{0.3cm}{\tt  \mbox{[}virtual\mbox{]}}}}
+\label{df/d72/class_platform_1_1_game_map_background_layer_6cc21a3c3418b8c76c010963bef37800}
+
+
+
+
+Implements \hyperlink{class_platform_1_1_game_map_layer_80631a9be3fb03f96ca3565c8860f077}{Platform::GameMapLayer}.
+
+\subsection{Member Data Documentation}
+\hypertarget{class_platform_1_1_game_map_background_layer_c9d873f233fe780e9e1cf90bfd4458e2}{
+\index{Platform::GameMapBackgroundLayer@{Platform::GameMapBackgroundLayer}!drawDimensions@{drawDimensions}}
+\index{drawDimensions@{drawDimensions}!Platform::GameMapBackgroundLayer@{Platform::GameMapBackgroundLayer}}
+\subsubsection[{drawDimensions}]{\setlength{\rightskip}{0pt plus 5cm}SDL\_\-Rect {\bf Platform::GameMapBackgroundLayer::drawDimensions}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{df/d72/class_platform_1_1_game_map_background_layer_c9d873f233fe780e9e1cf90bfd4458e2}
+
+
+\hypertarget{class_platform_1_1_game_map_layer_e4f38bbcc758a8099c296f130912f8f6}{
+\index{Platform::GameMapBackgroundLayer@{Platform::GameMapBackgroundLayer}!goVertical@{goVertical}}
+\index{goVertical@{goVertical}!Platform::GameMapBackgroundLayer@{Platform::GameMapBackgroundLayer}}
+\subsubsection[{goVertical}]{\setlength{\rightskip}{0pt plus 5cm}bool {\bf Platform::GameMapLayer::goVertical}\hspace{0.3cm}{\tt  \mbox{[}protected, inherited\mbox{]}}}}
+\label{d8/d53/class_platform_1_1_game_map_layer_e4f38bbcc758a8099c296f130912f8f6}
+
+
+\hypertarget{class_platform_1_1_game_map_layer_b94756f95136f23ec04b70ecb6351e2e}{
+\index{Platform::GameMapBackgroundLayer@{Platform::GameMapBackgroundLayer}!layerImage@{layerImage}}
+\index{layerImage@{layerImage}!Platform::GameMapBackgroundLayer@{Platform::GameMapBackgroundLayer}}
+\subsubsection[{layerImage}]{\setlength{\rightskip}{0pt plus 5cm}SDL\_\-Surface$\ast$ {\bf Platform::GameMapLayer::layerImage}\hspace{0.3cm}{\tt  \mbox{[}protected, inherited\mbox{]}}}}
+\label{d8/d53/class_platform_1_1_game_map_layer_b94756f95136f23ec04b70ecb6351e2e}
+
+
+\hypertarget{class_platform_1_1_game_map_layer_8a269526befbbbcc5b0d201f659c90fe}{
+\index{Platform::GameMapBackgroundLayer@{Platform::GameMapBackgroundLayer}!mainScreen@{mainScreen}}
+\index{mainScreen@{mainScreen}!Platform::GameMapBackgroundLayer@{Platform::GameMapBackgroundLayer}}
+\subsubsection[{mainScreen}]{\setlength{\rightskip}{0pt plus 5cm}SDL\_\-Surface$\ast$ {\bf Platform::GameMapLayer::mainScreen}\hspace{0.3cm}{\tt  \mbox{[}protected, inherited\mbox{]}}}}
+\label{d8/d53/class_platform_1_1_game_map_layer_8a269526befbbbcc5b0d201f659c90fe}
+
+
+\hypertarget{class_platform_1_1_game_map_background_layer_0a7874223f9c9d037004edaee52fd6d2}{
+\index{Platform::GameMapBackgroundLayer@{Platform::GameMapBackgroundLayer}!tileSize@{tileSize}}
+\index{tileSize@{tileSize}!Platform::GameMapBackgroundLayer@{Platform::GameMapBackgroundLayer}}
+\subsubsection[{tileSize}]{\setlength{\rightskip}{0pt plus 5cm}SDL\_\-Rect {\bf Platform::GameMapBackgroundLayer::tileSize}\hspace{0.3cm}{\tt  \mbox{[}protected\mbox{]}}}}
+\label{df/d72/class_platform_1_1_game_map_background_layer_0a7874223f9c9d037004edaee52fd6d2}
+
+

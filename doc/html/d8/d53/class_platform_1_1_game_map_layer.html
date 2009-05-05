@@ -35,7 +35,7 @@ Inheritance diagram for Platform::GameMapLayer:</div>
 <div class="dynsection">
 <p><center><img src="../../d8/dbc/class_platform_1_1_game_map_layer__inherit__graph.png" border="0" usemap="#d2/d29/_platform_1_1_game_map_layer__inherit__map" alt="Inheritance graph"></center>
 <map name="d2/d29/_platform_1_1_game_map_layer__inherit__map">
-<area shape="rect" id="node3" href="../../df/d72/class_platform_1_1_game_map_background_layer.html" title="{Platform::GameMapBackgroundLayer\n||+ GameMapBackgroundLayer()\l+ ~GameMapBackgroundLayer()\l+ Init()\l+ Draw()\l}" alt="" coords="5,169,243,298"></map>
+<area shape="rect" id="node3" href="../../df/d72/class_platform_1_1_game_map_background_layer.html" title="{Platform::GameMapBackgroundLayer\n|# tileSize\l# drawDimensions\l|+ GameMapBackgroundLayer()\l+ ~GameMapBackgroundLayer()\l+ Init()\l+ Update()\l+ Draw()\l}" alt="" coords="5,201,243,362"></map>
 <center><font size="2">[<a href="../../graph_legend.html">legend</a>]</font></center></div>
 
 <p>
@@ -44,7 +44,16 @@ Inheritance diagram for Platform::GameMapLayer:</div>
 <tr><td colspan="2"><br><h2>Public Member Functions</h2></td></tr>
 <tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/class_platform_1_1_game_map_layer.html#a25bd5a4d69574dfb3cefdd544e36e8d">Init</a> (SDL_Surface *theDisplay=NULL, char *imagePath=NULL, bool verticalScrolling=false)=0</td></tr>
 
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/class_platform_1_1_game_map_layer.html#80631a9be3fb03f96ca3565c8860f077">Update</a> ()=0</td></tr>
+
 <tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/class_platform_1_1_game_map_layer.html#cc44f193d8cf01e97fe34cb7da72e640">Draw</a> ()=0</td></tr>
+
+<tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">SDL_Surface *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/class_platform_1_1_game_map_layer.html#b94756f95136f23ec04b70ecb6351e2e">layerImage</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">SDL_Surface *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/class_platform_1_1_game_map_layer.html#8a269526befbbbcc5b0d201f659c90fe">mainScreen</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/class_platform_1_1_game_map_layer.html#e4f38bbcc758a8099c296f130912f8f6">goVertical</a></td></tr>
 
 </table>
 <hr><a name="_details"></a><h2>Detailed Description</h2>
@@ -109,8 +118,75 @@ This is an abstract class representing a layer of the map object used by the Nav
 
 </div>
 </div><p>
+<a class="anchor" name="80631a9be3fb03f96ca3565c8860f077"></a><!-- doxytag: member="Platform::GameMapLayer::Update" ref="80631a9be3fb03f96ca3565c8860f077" args="()=0" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">virtual void Platform::GameMapLayer::Update           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [pure virtual]</code></td>
+        </tr>
+      </table>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon May 4 16:49:03 2009 for Platform 2D Game Engine by&nbsp;
+<div class="memdoc">
+
+<p>
+
+<p>Implemented in <a class="el" href="../../df/d72/class_platform_1_1_game_map_background_layer.html#6cc21a3c3418b8c76c010963bef37800">Platform::GameMapBackgroundLayer</a>.</p>
+
+</div>
+</div><p>
+<hr><h2>Member Data Documentation</h2>
+<a class="anchor" name="e4f38bbcc758a8099c296f130912f8f6"></a><!-- doxytag: member="Platform::GameMapLayer::goVertical" ref="e4f38bbcc758a8099c296f130912f8f6" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d8/d53/class_platform_1_1_game_map_layer.html#e4f38bbcc758a8099c296f130912f8f6">Platform::GameMapLayer::goVertical</a><code> [protected]</code>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="b94756f95136f23ec04b70ecb6351e2e"></a><!-- doxytag: member="Platform::GameMapLayer::layerImage" ref="b94756f95136f23ec04b70ecb6351e2e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Surface* <a class="el" href="../../d8/d53/class_platform_1_1_game_map_layer.html#b94756f95136f23ec04b70ecb6351e2e">Platform::GameMapLayer::layerImage</a><code> [protected]</code>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="8a269526befbbbcc5b0d201f659c90fe"></a><!-- doxytag: member="Platform::GameMapLayer::mainScreen" ref="8a269526befbbbcc5b0d201f659c90fe" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Surface* <a class="el" href="../../d8/d53/class_platform_1_1_game_map_layer.html#8a269526befbbbcc5b0d201f659c90fe">Platform::GameMapLayer::mainScreen</a><code> [protected]</code>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue May 5 11:44:56 2009 for Platform 2D Game Engine by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="../../doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>

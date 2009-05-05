@@ -18,7 +18,9 @@ void \hyperlink{class_platform_1_1_game_map_0f5c16cce18b155235588af572cfba7f}{In
 \item 
 void \hyperlink{class_platform_1_1_game_map_76634e9c99fe04d801cc324ba0b0ed8a}{MoveMap} (SDL\_\-Rect \&delta)
 \item 
-void \hyperlink{class_platform_1_1_game_map_08581c79e3244f70c4e26b886b0479de}{Draw} (SDL\_\-Surface $\ast$mainScreen)
+void \hyperlink{class_platform_1_1_game_map_87236fed25c6729fd3d139170cbda6a0}{Draw} ()
+\item 
+void \hyperlink{class_platform_1_1_game_map_9d2b0044bfee1914f92ce62db4ff36a9}{Update} ()
 \item 
 void \hyperlink{class_platform_1_1_game_map_3a2969cccbc16f1ad11e505da961a105}{Cleanup} ()
 \end{CompactItemize}
@@ -54,11 +56,11 @@ This is a 'map', or a 'world', that can be navigated and interacted with in the 
 \label{de/db6/class_platform_1_1_game_map_3a2969cccbc16f1ad11e505da961a105}
 
 
-\hypertarget{class_platform_1_1_game_map_08581c79e3244f70c4e26b886b0479de}{
+\hypertarget{class_platform_1_1_game_map_87236fed25c6729fd3d139170cbda6a0}{
 \index{Platform::GameMap@{Platform::GameMap}!Draw@{Draw}}
 \index{Draw@{Draw}!Platform::GameMap@{Platform::GameMap}}
-\subsubsection[{Draw}]{\setlength{\rightskip}{0pt plus 5cm}void Platform::GameMap::Draw (SDL\_\-Surface $\ast$ {\em mainScreen})}}
-\label{de/db6/class_platform_1_1_game_map_08581c79e3244f70c4e26b886b0479de}
+\subsubsection[{Draw}]{\setlength{\rightskip}{0pt plus 5cm}void Platform::GameMap::Draw ()}}
+\label{de/db6/class_platform_1_1_game_map_87236fed25c6729fd3d139170cbda6a0}
 
 
 Draws the map to the screen by drawing each of its layers to the screen, from 'bottom' to 'top', in sequence.
@@ -89,3 +91,10 @@ Moves the apparent position of the map on the screen, using the dimensions in th
 \begin{description}
 \item[{\em delta}]The 2D movement vectors of the map on screen \end{description}
 \end{Desc}
+\hypertarget{class_platform_1_1_game_map_9d2b0044bfee1914f92ce62db4ff36a9}{
+\index{Platform::GameMap@{Platform::GameMap}!Update@{Update}}
+\index{Update@{Update}!Platform::GameMap@{Platform::GameMap}}
+\subsubsection[{Update}]{\setlength{\rightskip}{0pt plus 5cm}void Platform::GameMap::Update ()}}
+\label{de/db6/class_platform_1_1_game_map_9d2b0044bfee1914f92ce62db4ff36a9}
+
+

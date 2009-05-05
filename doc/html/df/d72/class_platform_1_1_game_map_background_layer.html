@@ -32,14 +32,14 @@ Inheritance diagram for Platform::GameMapBackgroundLayer:</div>
 <div class="dynsection">
 <p><center><img src="../../df/da2/class_platform_1_1_game_map_background_layer__inherit__graph.png" border="0" usemap="#de/df5/_platform_1_1_game_map_background_layer__inherit__map" alt="Inheritance graph"></center>
 <map name="de/df5/_platform_1_1_game_map_background_layer__inherit__map">
-<area shape="rect" id="node2" href="../../d8/d53/class_platform_1_1_game_map_layer.html" title="A section of the map object." alt="" coords="40,6,208,119"></map>
+<area shape="rect" id="node2" href="../../d8/d53/class_platform_1_1_game_map_layer.html" title="A section of the map object." alt="" coords="40,6,208,151"></map>
 <center><font size="2">[<a href="../../graph_legend.html">legend</a>]</font></center></div>
 <div class="dynheader">
 Collaboration diagram for Platform::GameMapBackgroundLayer:</div>
 <div class="dynsection">
 <p><center><img src="../../d5/d7b/class_platform_1_1_game_map_background_layer__coll__graph.png" border="0" usemap="#db/d9f/_platform_1_1_game_map_background_layer__coll__map" alt="Collaboration graph"></center>
 <map name="db/d9f/_platform_1_1_game_map_background_layer__coll__map">
-<area shape="rect" id="node2" href="../../d8/d53/class_platform_1_1_game_map_layer.html" title="A section of the map object." alt="" coords="40,6,208,119"></map>
+<area shape="rect" id="node2" href="../../d8/d53/class_platform_1_1_game_map_layer.html" title="A section of the map object." alt="" coords="40,6,208,151"></map>
 <center><font size="2">[<a href="../../graph_legend.html">legend</a>]</font></center></div>
 
 <p>
@@ -52,7 +52,20 @@ Collaboration diagram for Platform::GameMapBackgroundLayer:</div>
 
 <tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d72/class_platform_1_1_game_map_background_layer.html#449a95c15187b1ae358a0216a589df3f">Init</a> (SDL_Surface *theDisplay=NULL, char *imagePath=NULL, bool verticalScrolling=false)</td></tr>
 
+<tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d72/class_platform_1_1_game_map_background_layer.html#6cc21a3c3418b8c76c010963bef37800">Update</a> ()</td></tr>
+
 <tr><td class="memItemLeft" nowrap align="right" valign="top">virtual void&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d72/class_platform_1_1_game_map_background_layer.html#f6910e7841ae5315baa5fd956202a982">Draw</a> ()</td></tr>
+
+<tr><td colspan="2"><br><h2>Protected Attributes</h2></td></tr>
+<tr><td class="memItemLeft" nowrap align="right" valign="top">SDL_Rect&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d72/class_platform_1_1_game_map_background_layer.html#0a7874223f9c9d037004edaee52fd6d2">tileSize</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">SDL_Rect&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../df/d72/class_platform_1_1_game_map_background_layer.html#c9d873f233fe780e9e1cf90bfd4458e2">drawDimensions</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">SDL_Surface *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/class_platform_1_1_game_map_layer.html#b94756f95136f23ec04b70ecb6351e2e">layerImage</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">SDL_Surface *&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/class_platform_1_1_game_map_layer.html#8a269526befbbbcc5b0d201f659c90fe">mainScreen</a></td></tr>
+
+<tr><td class="memItemLeft" nowrap align="right" valign="top">bool&nbsp;</td><td class="memItemRight" valign="bottom"><a class="el" href="../../d8/d53/class_platform_1_1_game_map_layer.html#e4f38bbcc758a8099c296f130912f8f6">goVertical</a></td></tr>
 
 </table>
 <hr><h2>Constructor &amp; Destructor Documentation</h2>
@@ -153,8 +166,105 @@ Collaboration diagram for Platform::GameMapBackgroundLayer:</div>
 
 </div>
 </div><p>
+<a class="anchor" name="6cc21a3c3418b8c76c010963bef37800"></a><!-- doxytag: member="Platform::GameMapBackgroundLayer::Update" ref="6cc21a3c3418b8c76c010963bef37800" args="()" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Platform::GameMapBackgroundLayer::Update           </td>
+          <td>(</td>
+          <td class="paramname">          </td>
+          <td>&nbsp;)&nbsp;</td>
+          <td><code> [virtual]</code></td>
+        </tr>
+      </table>
 </div>
-<hr size="1"><address style="text-align: right;"><small>Generated on Mon May 4 16:49:03 2009 for Platform 2D Game Engine by&nbsp;
+<div class="memdoc">
+
+<p>
+
+<p>Implements <a class="el" href="../../d8/d53/class_platform_1_1_game_map_layer.html#80631a9be3fb03f96ca3565c8860f077">Platform::GameMapLayer</a>.</p>
+
+</div>
+</div><p>
+<hr><h2>Member Data Documentation</h2>
+<a class="anchor" name="c9d873f233fe780e9e1cf90bfd4458e2"></a><!-- doxytag: member="Platform::GameMapBackgroundLayer::drawDimensions" ref="c9d873f233fe780e9e1cf90bfd4458e2" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Rect <a class="el" href="../../df/d72/class_platform_1_1_game_map_background_layer.html#c9d873f233fe780e9e1cf90bfd4458e2">Platform::GameMapBackgroundLayer::drawDimensions</a><code> [protected]</code>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="e4f38bbcc758a8099c296f130912f8f6"></a><!-- doxytag: member="Platform::GameMapBackgroundLayer::goVertical" ref="e4f38bbcc758a8099c296f130912f8f6" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">bool <a class="el" href="../../d8/d53/class_platform_1_1_game_map_layer.html#e4f38bbcc758a8099c296f130912f8f6">Platform::GameMapLayer::goVertical</a><code> [protected, inherited]</code>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="b94756f95136f23ec04b70ecb6351e2e"></a><!-- doxytag: member="Platform::GameMapBackgroundLayer::layerImage" ref="b94756f95136f23ec04b70ecb6351e2e" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Surface* <a class="el" href="../../d8/d53/class_platform_1_1_game_map_layer.html#b94756f95136f23ec04b70ecb6351e2e">Platform::GameMapLayer::layerImage</a><code> [protected, inherited]</code>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="8a269526befbbbcc5b0d201f659c90fe"></a><!-- doxytag: member="Platform::GameMapBackgroundLayer::mainScreen" ref="8a269526befbbbcc5b0d201f659c90fe" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Surface* <a class="el" href="../../d8/d53/class_platform_1_1_game_map_layer.html#8a269526befbbbcc5b0d201f659c90fe">Platform::GameMapLayer::mainScreen</a><code> [protected, inherited]</code>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+<a class="anchor" name="0a7874223f9c9d037004edaee52fd6d2"></a><!-- doxytag: member="Platform::GameMapBackgroundLayer::tileSize" ref="0a7874223f9c9d037004edaee52fd6d2" args="" -->
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">SDL_Rect <a class="el" href="../../df/d72/class_platform_1_1_game_map_background_layer.html#0a7874223f9c9d037004edaee52fd6d2">Platform::GameMapBackgroundLayer::tileSize</a><code> [protected]</code>          </td>
+        </tr>
+      </table>
+</div>
+<div class="memdoc">
+
+<p>
+
+</div>
+</div><p>
+</div>
+<hr size="1"><address style="text-align: right;"><small>Generated on Tue May 5 11:44:56 2009 for Platform 2D Game Engine by&nbsp;
 <a href="http://www.doxygen.org/index.html">
 <img src="../../doxygen.png" alt="doxygen" align="middle" border="0"></a> 1.5.8 </small></address>
 </body>
